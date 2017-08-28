@@ -87,7 +87,7 @@ function onJoin(uuid, socket) {
   } else if (rooms.length > 0 && rooms[rooms.length-1] && rooms[rooms.length-1].clients.length === 1) {
     // If rooms exist, and the most recent room only has one client,
     // add this client to the room
-    console.log("Rooms:", rooms.length, "Clients:" rooms[rooms.length-1].clients.length);
+    console.log("Rooms:", rooms.length, "Clients:", rooms[rooms.length-1].clients.length);
     clientsInThisRoom = rooms[rooms.length-1].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[rooms.length-1].clients = clientsInThisRoom;
