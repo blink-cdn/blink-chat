@@ -70,14 +70,23 @@ function onSignal(message, socket, destUuid) {
 }
 
 function onJoin(uuid, socket) {
+
   if (rooms.length <= 0) {
-    //make a new room
+    //If there are no rooms, make a new room at index 0
     console.log(socket.id, " created new room!");
     rooms[0] = {
       clients: [{"uuid": uuid, "socket": socket}]
     }
-  } else if (rooms.length > 0 && rooms[0] && rooms[0].clients.length === 1) {
-    // add to room
+  } else if (rooms.length > 0 && rooms[rooms.length] && rooms[rooms.length-1].clients.length === 2) {
+    // If rooms exist, check if the most recently created room is full. If it is,
+    // then create a new room.
+    console.log(socket.id, " created new room!");
+    rooms[rooms.length] = {
+      clients: [{"uuid": uuid, "socket": socket}]
+    }
+  } else if (rooms.length > 0 && rooms[rooms.length-1] && rooms[rooms.length-1].clients.length === 1) {
+    // If rooms exist, and the most recent room only has one client,
+    // add this client to the room
     clientsInThisRoom = rooms[rooms.length-1].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[rooms.length-1].clients = clientsInThisRoom;
