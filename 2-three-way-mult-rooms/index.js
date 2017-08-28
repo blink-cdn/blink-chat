@@ -101,7 +101,7 @@ function onJoin(uuid, socket) {
     clientsInThisRoom[1].socket.emit('ready', false, 2);
     console.log(socket.id, " joined the room!");
 
-  } else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
+  } /*else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
     clientsInThisRoom = rooms[rooms.length-1].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[rooms.length-1].clients = clientsInThisRoom;
@@ -116,7 +116,7 @@ function onJoin(uuid, socket) {
     clientsInThisRoom[1].socket.emit('ready', false, 3);
     clientsInThisRoom[2].socket.emit('ready', false, 3);
     console.log(socket.id, " joined the room now!");
-  }
+  }*/
 }
 
 function log() {
