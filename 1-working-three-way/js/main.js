@@ -148,6 +148,7 @@ function setupCamera() {
 // Start broadcasting to peer
 function startCall() {
   setupMediaStream(true);
+  hangupButton.disabled = false;
   console.log("Sending Offer");
   peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
 }
