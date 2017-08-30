@@ -275,14 +275,14 @@ function setAndSendDescription2(description) {
 
 function sendIceCandidate(event) {
     if(event.candidate != null) {
-        socket.emit('message', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}));
+        socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}, peer1uuid, roomName));
         //serverConnection.send(JSON.stringify({'ice': event.candidate, 'uuid': uuid}));
     }
 }
 
 function sendIceCandidate2(event) {
     if(event.candidate != null) {
-        socket.emit('message', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}));
+        socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}), peer2uuid, roomName););
         //serverConnection.send(JSON.stringify({'ice': event.candidate, 'uuid': uuid}));
     }
     console.log("Sending Ice Candidate 2");
