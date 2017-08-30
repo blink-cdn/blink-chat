@@ -23,7 +23,9 @@ var app = https.createServer(certOptions, function(req, res) {
 var io = socketIO.listen(app);
 
 // Rooms
-var rooms = [{"name": {}}];
+var rooms = {
+  "name": {}
+};
 
 /********************************/
 /********** EVENTS **************/
@@ -31,11 +33,11 @@ var rooms = [{"name": {}}];
 
 io.sockets.on('connection', function(socket) {
 
-      socket.on('here', function(uuid) {
+      socket.on('here', function(uuid, roomName) {
         console.log("Here from: ", uuid);
-        for (var i = 0; i < rooms[0].clients.length; i++) {
-          rooms[0].clients[i].socket.emit('here', uuid);
-          console.log("Send \'here\' to ", rooms[0].clients[i].socket.id);
+        for (var i = 0; i < rooms[roomName].clients.length; i++) {
+          rooms[roomName].clients[i].socket.emit('here', uuid);
+          console.log("Send \'here\' to ", rooms[roomName].clients[i].socket.id);
         }
       })
 
@@ -57,8 +59,8 @@ io.sockets.on('connection', function(socket) {
 /******* FUNCTIONALITY **********/
 /********************************/
 
-function onSignal(message, socket, destUuid) {
-  room = rooms[0];
+function onSignal(message, socket, destUuid, roomName) {
+  room = rooms[roomName];
   console.log("---");
   for (var i = 0; i < room.clients.length; i++) {
     if (room.clients[i].uuid == destUuid) {
@@ -71,15 +73,13 @@ function onSignal(message, socket, destUuid) {
 
 function onJoin(uuid, socket, roomName) {
 
-  console.log("Rooms:", rooms.length, "Clients:", rooms[rooms.length-1].clients.length);
-
-  if (rooms.length <= 0 || rooms[roomName].clients.length === 2) {
-    //If there are no rooms, make a new room at index 0
-    console.log(socket.id, " created new room!");
+   if (!rooms[roomName]) {
+    //If the room does not exist, create it
+    console.log(socket.id, " created new room with id:", roomName);
     rooms[roomName] = {
       clients: [{"uuid": uuid, "socket": socket}]
     }
-  } else if (rooms[roomName] && rooms[roomName].clients.length === 1) {
+  } else if (rooms[roomName].clients.length === 1) {
     // If rooms exist, and the most recent room only has one client,
     // add this client to the room
     clientsInThisRoom = rooms[roomName].clients

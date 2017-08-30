@@ -137,8 +137,8 @@ function pageReady() {
     hangupButton = document.getElementById('hangup');
     startCameraButton = document.getElementById('startCamera');
 
-    roomName = var type = window.location.hash.substr(1);
-    console.log("Room:" roomName);
+    roomName = window.location.hash.substr(1);
+    console.log("Room:", roomName);
     hangupButton.disabled = true;
 }
 
