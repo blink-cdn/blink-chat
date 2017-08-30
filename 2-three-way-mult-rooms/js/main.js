@@ -137,9 +137,9 @@ function pageReady() {
     startCameraButton = document.getElementById('startCamera');
 
     roomName = window.location.hash.substr(1);
+    console.log("roomName:", roomName);
     socket.emit('join', uuid, roomName); // Joins the server's room
-    
-    console.log("Room:", roomName);
+
     hangupButton.disabled = true;
 }
 

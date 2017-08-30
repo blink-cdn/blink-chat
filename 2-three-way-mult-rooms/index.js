@@ -50,7 +50,7 @@ io.sockets.on('connection', function(socket) {
       })
 
       socket.on('join', function(uuid, roomName) {
-        onJoin(uuid, socket);
+        onJoin(uuid, socket, roomName);
       })
 });
 
