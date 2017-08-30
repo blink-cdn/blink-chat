@@ -41,17 +41,17 @@ io.sockets.on('connection', function(socket) {
         }
       })
 
-      socket.on('signal', function(message, destUuid){
-        onSignal(message, socket, destUuid);
+      socket.on('signal', function(message, destUuid, roomName) {
+        onSignal(message, socket, destUuid, roomName);
       });
 
       socket.on('disconnection', function() {
         console.log(socket.id, ' disconnected!')
-      })
+      });
 
       socket.on('join', function(uuid, roomName) {
         onJoin(uuid, socket, roomName);
-      })
+      });
 });
 
 
