@@ -48,7 +48,7 @@ var constraints = {
 // When it receives a ready message, send back the here message and setup the connections
 // as needed.
 socket.on('ready', function(identifier, numClients) {
-  socket.emit('here', uuid);
+  socket.emit('here', uuid, roomName);
 
   console.log('Socket is ready');
   isCaller = identifier;
@@ -259,7 +259,7 @@ function getUserMediaSuccess2(stream) {
 
 function setAndSendDescription(description) {
     peerConnection.setLocalDescription(description).then(function() {
-        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection.localDescription, 'uuid': uuid}), peer1uuid);
+        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection.localDescription, 'uuid': uuid}), peer1uuid, roomName);
         //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
     }).catch(errorHandler);
 }
@@ -267,7 +267,7 @@ function setAndSendDescription(description) {
 function setAndSendDescription2(description) {
     peerConnection2.setLocalDescription(description).then(function() {
       console.log("description:", description);
-        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection2.localDescription, 'uuid': uuid}), peer2uuid);
+        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection2.localDescription, 'uuid': uuid}), peer2uuid, roomName);
         //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
     }).catch(errorHandler);
     console.log("Setting & Sending description 2");

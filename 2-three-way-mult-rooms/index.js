@@ -61,7 +61,7 @@ io.sockets.on('connection', function(socket) {
 
 function onSignal(message, socket, destUuid, roomName) {
   room = rooms[roomName];
-  console.log("---");
+  console.log("roomName:", roomName);
   for (var i = 0; i < room.clients.length; i++) {
     if (room.clients[i].uuid == destUuid) {
       console.log("Sending", message.type, " from ", socket.id, " to ", room.clients[i].uuid)
