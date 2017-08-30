@@ -23,7 +23,7 @@ var app = https.createServer(certOptions, function(req, res) {
 var io = socketIO.listen(app);
 
 // Rooms
-var rooms = [];
+var rooms = [{"name": {}}];
 
 /********************************/
 /********** EVENTS **************/
@@ -47,7 +47,7 @@ io.sockets.on('connection', function(socket) {
         console.log(socket.id, ' disconnected!')
       })
 
-      socket.on('join', function(uuid) {
+      socket.on('join', function(uuid, roomName) {
         onJoin(uuid, socket);
       })
 });
@@ -69,35 +69,27 @@ function onSignal(message, socket, destUuid) {
   //socket.broadcast.emit('signal', message, socket.id);
 }
 
-function onJoin(uuid, socket) {
+function onJoin(uuid, socket, roomName) {
 
   console.log("Rooms:", rooms.length, "Clients:", rooms[rooms.length-1].clients.length);
 
-  if (rooms.length <= 0) {
+  if (rooms.length <= 0 || rooms[roomName].clients.length === 2) {
     //If there are no rooms, make a new room at index 0
     console.log(socket.id, " created new room!");
-    rooms[0] = {
+    rooms[roomName] = {
       clients: [{"uuid": uuid, "socket": socket}]
     }
-  } else if (rooms.length > 0 && rooms[rooms.length] && rooms[rooms.length-1].clients.length === 2) {
-    // If rooms exist, check if the most recently created room is full. If it is,
-    // then create a new room.
-    console.log(socket.id, " created new room!");
-    rooms[rooms.length] = {
-      clients: [{"uuid": uuid, "socket": socket}]
-    }
-  } else if (rooms.length > 0 && rooms[rooms.length-1] && rooms[rooms.length-1].clients.length === 1) {
+  } else if (rooms[roomName] && rooms[roomName].clients.length === 1) {
     // If rooms exist, and the most recent room only has one client,
     // add this client to the room
-    clientsInThisRoom = rooms[rooms.length-1].clients
+    clientsInThisRoom = rooms[roomName].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
-    rooms[rooms.length-1].clients = clientsInThisRoom;
+    rooms[roomName].clients = clientsInThisRoom;
 
     // open the room and send idetifier to each
-    var room_id = "hello";
-    for (var i=0; i<2; i++) {
-      clientsInThisRoom[i].socket.join(room_id);
-    }
+    // for (var i=0; i<2; i++) {
+    //   clientsInThisRoom[i].socket.join(roomName);
+    // }
 
     clientsInThisRoom[0].socket.emit('ready', true, 2);
     clientsInThisRoom[1].socket.emit('ready', false, 2);

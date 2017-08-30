@@ -1,6 +1,7 @@
 var localVideoObject;
 var remoteVideoObject;
 var remoteVideoObject2;
+var roomName;
 
 var localStream;
 var localStream2;
@@ -28,7 +29,7 @@ var peer2uuid = ""; // and of Peer 2
 
 var uuid = uuid(); // Unique identifier of client
 var socket = io.connect(); // Connects to socket.io server
-socket.emit('join', uuid); // Joins the server's room
+socket.emit('join', uuid, roomName); // Joins the server's room
 
 var isCaller; // Ignore this.. it's vestigial but could be useful lol
 var configuration =  null;
@@ -136,6 +137,8 @@ function pageReady() {
     hangupButton = document.getElementById('hangup');
     startCameraButton = document.getElementById('startCamera');
 
+    roomName = var type = window.location.hash.substr(1);
+    console.log("Room:" roomName);
     hangupButton.disabled = true;
 }
 
