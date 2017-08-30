@@ -93,7 +93,7 @@ function onJoin(uuid, socket, roomName) {
 
     clientsInThisRoom[0].socket.emit('ready', true, 2);
     clientsInThisRoom[1].socket.emit('ready', false, 2);
-    console.log(socket.id, " joined the room!");
+    console.log(socket.id, " joined the room ", roomName);
 
   } /*else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
     clientsInThisRoom = rooms[rooms.length-1].clients

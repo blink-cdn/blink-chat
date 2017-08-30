@@ -29,7 +29,6 @@ var peer2uuid = ""; // and of Peer 2
 
 var uuid = uuid(); // Unique identifier of client
 var socket = io.connect(); // Connects to socket.io server
-socket.emit('join', uuid, roomName); // Joins the server's room
 
 var isCaller; // Ignore this.. it's vestigial but could be useful lol
 var configuration =  null;
@@ -138,6 +137,8 @@ function pageReady() {
     startCameraButton = document.getElementById('startCamera');
 
     roomName = window.location.hash.substr(1);
+    socket.emit('join', uuid, roomName); // Joins the server's room
+    
     console.log("Room:", roomName);
     hangupButton.disabled = true;
 }
