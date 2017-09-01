@@ -1,10 +1,11 @@
-const HTTPS_PORT = 3000;
+const HTTPS_PORT = 443;
 
 /*******Start*********/
 
 const os = require('os');
 const nodeStatic = require('node-static');
 const https = require('https');
+const http = require('http');
 const socketIO = require('socket.io')
 const fs = require('fs');
 

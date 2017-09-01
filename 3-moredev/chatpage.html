@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Dosis:400,600" rel="stylesheet">
         <script src="/socket.io/socket.io.js"></script>
         <script src="js/main.js"></script>
@@ -37,15 +38,19 @@
     </head>
 
     <body>
-
         <center><body><b>BlinkCDN Chat</b></body></center>
-        <!--<button class="buttonCustom" id="broadcast2" onclick="startCall2()" value="Broadcast 2">Broadcast 2</button>!-->
 
-        <center><form>
-          <br>
-          <input type="text" name="SID"><br>
-        </form></center>
-      <center><button class="buttonCustom" id="join" onclick="join()" value="join">Join Room</button></center>
+        <video id="localVideo" autoplay muted style="width:10%;"></video>
+        <center><video id="remoteVideo" autoplay style="width:50%;"></video></center>
+
+        <!--<center><video id="remoteVideo2" autoplay style="width:40%;"></video></center>!-->
+
+        <br />
+
+        <center><button class="buttonCustom" id="startCamera" onclick="setupCamera()" value="Turn on Camera">Turn on Camera</button>
+        <button class="buttonCustom" id="broadcast1" onclick="startCall()" value="Broadcast">Broadcast</button>
+        <!--<button class="buttonCustom" id="broadcast2" onclick="startCall2()" value="Broadcast 2">Broadcast 2</button>!-->
+        <button class="buttonCustom" id="hangup" onclick="hangup()" value="Hangup">Hangup</button></center>
 
 
         <script type="text/javascript">
