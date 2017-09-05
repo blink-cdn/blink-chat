@@ -151,6 +151,7 @@ function setupCamera() {
 
 // Start broadcasting to peer
 function startCall() {
+  hangupButton.disabled = false;
   setupMediaStream(true);
   console.log("Sending Offer");
   peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
@@ -158,6 +159,7 @@ function startCall() {
 
 // Start broadcasting to peer 2
 function startCall2() {
+  hangupButton.disabled = false;
   setupMediaStream2(true);
   console.log("Sending Offer");
   peerConnection2.createOffer().then(setAndSendDescription2).catch(errorHandler);
