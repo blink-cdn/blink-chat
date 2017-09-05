@@ -81,6 +81,11 @@ socket.on('log', function(array) {
   console.log.apply(console, array);
 });
 
+socket.on('disconnectClient', function(uuid, roomName) {
+  console.log(uuid, " left the room.")
+  hangup(uuid);
+});
+
 
 function gotMessageFromServer(message) {
     var signal = JSON.parse(message);
@@ -170,16 +175,22 @@ function startCall2() {
 }
 
 // Close connections
-function hangup() {
+function hangup(uuid) {
   console.log('Ending call');
-  peerConnection.close();
-  peerConnection = null;
-  peerConnection2.close();
-  peerConnection2 = null;
+  if (uuid == peer1uuid || !uuid ) {
+    peerConnection.close();
+    peerConnection = null;
+    remoteVideoObject.src = null;
+  } else if (uuid == peer2uuid || !uuid) {
+    peerConnection2.close();
+    peerConnection2 = null;
+    remoteVideoObject2 = null;
+  }
+
   hangupButton.disabled = true;
   broadCastButton1.disabled = false;
   broadCastButton2.disabled = false;
-  remoteVideoObject.src = null;
+
 }
 
 /********************************************/

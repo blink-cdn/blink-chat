@@ -50,6 +50,10 @@ io.sockets.on('connection', function(socket) {
         console.log(socket.id, ' disconnected!')
       });
 
+      socket.on('disconnectServer', function(uuid, roomName) {
+        onDisconnect(uuid, roomName);
+      });
+
       socket.on('join', function(uuid, roomName) {
         onJoin(uuid, socket, roomName);
       });
@@ -70,6 +74,24 @@ function onSignal(message, socket, destUuid, roomName) {
     };
   };
   //socket.broadcast.emit('signal', message, socket.id);
+}
+
+function onDisconnect(uuid, roomName) {
+  if(rooms[roomName]) {
+    var clientsInRoom = rooms[roomName].clients
+    for(var i = 0; i < clientsInRoom.length - 1; i++) {
+      if clientsInRoom.uuid == uuid {
+        // If this is the client, just remove them from the room
+        print("Clients in Room:", clientsInRoom)
+        clientsInRoom.splice(i, 1);
+        print("Now:", clientsInRoom)
+        rooms[roomName].clients = clientsInRoom;
+      } else {
+        // If this isn't the client, let them know the other client is leaving
+        clientsInRoom.socket.emit('disconnectClient', uuid, roomName);
+      }
+    }
+  }
 }
 
 function onJoin(uuid, socket, roomName) {
