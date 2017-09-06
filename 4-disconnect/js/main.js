@@ -86,7 +86,6 @@ socket.on('disconnectClient', function(uuid, roomName) {
   hangup(uuid);
 });
 
-
 function gotMessageFromServer(message) {
     var signal = JSON.parse(message);
 
@@ -147,7 +146,7 @@ function pageReady() {
 
     hangupButton.disabled = true;
 
-    window.addEventListener("beforeunload"), function(e) {
+    window.addEventListener("beforeunload", function(e) {
         socket.emit('disconnectServer', uuid, roomName); // Disconnects from roomm
     }, false);
 }

@@ -77,21 +77,24 @@ function onSignal(message, socket, destUuid, roomName) {
 }
 
 function onDisconnect(uuid, roomName) {
-  if(rooms[roomName]) {
-    var clientsInRoom = rooms[roomName].clients
-    for(var i = 0; i < clientsInRoom.length - 1; i++) {
-      if clientsInRoom.uuid == uuid {
-        // If this is the client, just remove them from the room
-        print("Clients in Room:", clientsInRoom)
-        clientsInRoom.splice(i, 1);
-        print("Now:", clientsInRoom)
-        rooms[roomName].clients = clientsInRoom;
-      } else {
-        // If this isn't the client, let them know the other client is leaving
-        clientsInRoom.socket.emit('disconnectClient', uuid, roomName);
-      }
-    }
-  }
+    console.log(uuid, "Disconnecting"); 
+    if(rooms[roomName]) {
+        var clientsInRoom = rooms[roomName].clients
+        console.log("0 ", clientsInRoom[0]);
+        console.log("1", clientsInRoom[1]);
+        for(var i = 0; i < clientsInRoom.length; i++) {
+           console.log("i:", i);
+           if (clientsInRoom[i].uuid == uuid) {
+              // If this is the client, just remove them from the room
+              clientsInRoom.splice(i, 1);
+              rooms[roomName].clients = clientsInRoom;
+           } else {
+              // If this isn't the client, let them know the other client is leaving
+              clientsInRoom[i].socket.emit('disconnectClient', uuid, roomName);
+              console.log("Sent disconnect")
+           }
+        }
+     }
 }
 
 function onJoin(uuid, socket, roomName) {
