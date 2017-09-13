@@ -1,4 +1,4 @@
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 3000;
 
 /*******Start*********/
 
@@ -77,11 +77,9 @@ function onSignal(message, socket, destUuid, roomName) {
 }
 
 function onDisconnect(uuid, roomName) {
-    console.log(uuid, "Disconnecting"); 
+    console.log(uuid, "Disconnecting");
     if(rooms[roomName]) {
         var clientsInRoom = rooms[roomName].clients
-        console.log("0 ", clientsInRoom[0]);
-        console.log("1", clientsInRoom[1]);
         for(var i = 0; i < clientsInRoom.length; i++) {
            console.log("i:", i);
            if (clientsInRoom[i].uuid == uuid) {
@@ -105,23 +103,30 @@ function onJoin(uuid, socket, roomName) {
     rooms[roomName] = {
       clients: [{"uuid": uuid, "socket": socket}]
     }
-  } else if (rooms[roomName].clients.length === 1) {
+  } else if (rooms[roomName].clients.length === 1 || rooms[roomName].clients.length === 0) {
     // If rooms exist, and the most recent room only has one client,
     // add this client to the room
     clientsInThisRoom = rooms[roomName].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[roomName].clients = clientsInThisRoom;
 
-    // open the room and send idetifier to each
-    // for (var i=0; i<2; i++) {
-    //   clientsInThisRoom[i].socket.join(roomName);
-    // }
-
     clientsInThisRoom[0].socket.emit('ready', true, 2);
     clientsInThisRoom[1].socket.emit('ready', false, 2);
     console.log(socket.id, " joined the room ", roomName);
 
-  } /*else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
+  } else if (rooms[roomName].clients.length === 2) {
+    // If rooms exist, and the most recent room only has one client,
+    // add this client to the room
+    clientsInThisRoom = rooms[roomName].clients
+    clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
+    rooms[roomName].clients = clientsInThisRoom;
+
+    clientsInThisRoom[0].socket.emit('ready', true, 3);
+    clientsInThisRoom[1].socket.emit('ready', false, 3);
+    clientsInThisRoom[2].socket.emit('ready', false, 3);
+    console.log(socket.id, " joined the room ", roomName);
+
+  } else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
     clientsInThisRoom = rooms[rooms.length-1].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[rooms.length-1].clients = clientsInThisRoom;
@@ -136,7 +141,7 @@ function onJoin(uuid, socket, roomName) {
     clientsInThisRoom[1].socket.emit('ready', false, 3);
     clientsInThisRoom[2].socket.emit('ready', false, 3);
     console.log(socket.id, " joined the room now!");
-  }*/
+  }
 }
 
 function log() {

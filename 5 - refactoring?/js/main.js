@@ -1,10 +1,22 @@
+// HTML Objects
 var localVideoObject;
-var remoteVideoObject;
-var remoteVideoObject2;
-var roomName;
+var remoteVideoObjects = [];
+var broadcastButton;
+var hangupButton;
 
-var localStream;
-var localStream2;
+// Variables
+var roomName;
+var localStreams = {
+  0: null,
+  1: null,
+  2: null
+};
+var peers = [{
+  "uuid": {}
+}]; // for holding peer objects
+var sendToPeerValue = -1;
+
+
 
 var peerConnectionConfig = {
     'iceServers': [
@@ -21,18 +33,13 @@ const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
 var peerConnection;
 var peerConnection2;
 
-var clickCountCall1 = 0;
-var clickCountCall2 = 0;
+var peers = [];
 
 var peer1uuid = ""; // Saves UUID of Peer 1
 var peer2uuid = ""; // and of Peer 2
 
 var uuid = uuid(); // Unique identifier of client
 var socket = io.connect(); // Connects to socket.io server
-
-var isCaller; // Ignore this.. it's vestigial but could be useful lol
-var configuration =  null;
-var peerConnectionConfig = null;
 
 // Adding audio/video to stream
 var constraints = {
@@ -51,7 +58,6 @@ socket.on('ready', function(identifier, numClients) {
   socket.emit('here', uuid, roomName);
 
   console.log('Socket is ready');
-  isCaller = identifier;
 
   setupConnections(numClients);
 });
@@ -61,13 +67,18 @@ socket.on('ready', function(identifier, numClients) {
 socket.on('here', function(new_uuid) {
   console.log("Here from " + uuid);
 
-  if (peer1uuid == "" && peer1uuid != new_uuid && peer2uuid != new_uuid && uuid != new_uuid) {
-    peer1uuid = new_uuid;
-  } else if (peer2uuid == "" && peer1uuid != new_uuid && peer2uuid != new_uuid && uuid != new_uuid) {
-    peer2uuid = new_uuid;
+  //if new_uuid is still blank, AND if new_uuid doesn't exist yet AND this device isn't the uuid
+  if (!peers[new_uuid] && uuid != new_uuid && peers.length < 2) {
+    var newPeerConnection = createPeerConnection(new_uuid);
+    peers.push({
+      "uuid": new_uuid,
+      "number": (peers.length),
+      "peerConnection": newPeerConnection
+    });
   } else {
     console.log("Whoops");
   }
+
 });
 
 // On signal, go to gotMessageFromServer to handle the message
@@ -88,37 +99,32 @@ socket.on('disconnectClient', function(uuid, roomName) {
 
 function gotMessageFromServer(message) {
     var signal = JSON.parse(message);
+    var thisPeerConnection;
 
     // Ignore messages from ourself
     if(signal.uuid == uuid) return;
 
-    if(signal.uuid == peer1uuid) {
-      if(signal.type == "sdp") {
-          peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-              // Only create answers in response to offers
-              if(signal.sdp.type == 'offer') {
-                  console.log("Got offer")
-                  peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler);
-              } else {
-                console.log("Got answer")
-              }
-          }).catch(errorHandler);
-      } else if(signal.type == "ice") {
-          peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
-      }
-    } else if (signal.uuid == peer2uuid) {
-      if(signal.type == "sdp") {
-          peerConnection2.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-              // Only create answers in response to offers
-              if(signal.sdp.type == 'offer') {
-                  console.log("Got offer2 ")
-                  peerConnection2.createAnswer().then(setAndSendDescription2).catch(errorHandler);
-              } else {
-                console.log("Got answer2 ")
-              }
-          }).catch(errorHandler);
-      } else if(signal.type == "ice") {
-          peerConnection2.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+    for (var peer of peers) {
+      if (peer.uuid == signal.uuid) {
+        thisPeerConnection = peer.peerConnection;
+        sendToPeerValue = peer.number;
+        console.log("Sending to peer:", sendToPeerValue);
+
+        if(signal.type == "sdp") {
+            peer.peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+                // Only create answers in response to offers
+                if(signal.sdp.type == 'offer') {
+                    console.log("Got offer")
+                    peer.peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler); // <-- replace setAndSendDescription
+                } else {
+                  console.log("Got answer")
+                }
+            }).catch(errorHandler);
+        } else if(signal.type == "ice") {
+            peer.peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+        }
+      } else {
+        console.log("Peer Not Found");
       }
     }
 }
@@ -131,12 +137,13 @@ function gotMessageFromServer(message) {
 // Once the page has loaded, connect the JS objects to HTML objects
 function pageReady() {
     localVideoObject = document.getElementById('localVideo');
-    remoteVideoObject = document.getElementById('remoteVideo');
-    remoteVideoObject2 = document.getElementById('remoteVideo2');
+    var remoteVideoObject = document.getElementById('remoteVideo');
+    var remoteVideoObject2 = document.getElementById('remoteVideo2');
+    remoteVideoObjects.push(remoteVideoObject);
+    remoteVideoObjects.push(remoteVideoObject2);
     consoleWindow = document.getElementById('console');
 
-    broadcastButon1 = document.getElementById('broadcast1');
-    broadcastButon2 = document.getElementById('broadcast2');
+    broadcastButton = document.getElementById('broadcastButton');
     hangupButton = document.getElementById('hangup');
     startCameraButton = document.getElementById('startCamera');
 
@@ -149,6 +156,8 @@ function pageReady() {
     window.addEventListener("beforeunload", function(e) {
         socket.emit('disconnectServer', uuid, roomName); // Disconnects from roomm
     }, false);
+
+    broadcastButton.addEventListener('click', joinRoom);
 }
 
 // Open the local stream and create peer connection.
@@ -157,38 +166,65 @@ function setupCamera() {
   setupMediaStream(false);
 }
 
+function joinRoom() {
+  // It only runs two of each cuz of that error;
+  try {
+    startCall();
+  } catch(err) {
+    console.log("Error:", err)
+  }
+  try {
+    startCall();
+  } catch(err) {
+    console.log("Error:", err)
+  }
+
+  // try {
+  //   startCall2();
+  // } catch(err) {
+  //   console.log("Error:", err)
+  // }
+  // try {
+  //   startCall2();
+  // } catch(err) {
+  //   console.log("Error:", err)
+  // }
+
+}
+
 // Start broadcasting to peer
 function startCall() {
-  hangupButton.disabled = false;
-  setupMediaStream(true);
+  setupMediaStream(true, 0);
   console.log("Sending Offer");
-  peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+  sendToPeerValue = 0;
+  peers[0].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+  hangupButton.disabled = false;
 }
 
 // Start broadcasting to peer 2
 function startCall2() {
   hangupButton.disabled = false;
-  setupMediaStream2(true);
+  setupMediaStream(true, 1);
   console.log("Sending Offer");
-  peerConnection2.createOffer().then(setAndSendDescription2).catch(errorHandler);
+  sendToPeerValue = 1;
+  peers[1].peerConnection.createOffer().then(setAndSendDescription2).catch(errorHandler);
 }
 
 // Close connections
 function hangup(uuid) {
-  console.log('Ending call');
-  if (uuid == peer1uuid || !uuid ) {
-    peerConnection.close();
-    peerConnection = null;
-    remoteVideoObject.src = null;
-  } else if (uuid == peer2uuid || !uuid) {
-    peerConnection2.close();
-    peerConnection2 = null;
-    remoteVideoObject2 = null;
-  }
+  // console.log('Ending call');
+  // if (uuid == peer1uuid || !uuid ) {
+  //   peerConnection.close();
+  //   peerConnection = null;
+  //   remoteVideoObjects[0].src = null;
+  // } else if (uuid == peer2uuid || !uuid) {
+  //   peerConnection2.close();
+  //   peerConnection2 = null;
+  //   remoteVideoObjects[1] = null;
+  // }
 
   hangupButton.disabled = true;
-  broadCastButton1.disabled = false;
-  broadCastButton2.disabled = false;
+  broadcastButton.disabled = false;
 
 }
 
@@ -200,119 +236,75 @@ function setupConnections(numClients) {
   // Create 1 or two connections based on # of connections to server
   if (numClients == 2) {
     console.log('Client 2 Ready.');
-    createPeerConnection();
+    // peerConnection = createPeerConnection();
     console.log("2 Clients");
   } else if (numClients == 3) {
     console.log("Client 3 Ready.");
-    createPeerConnection();
-    createPeerConnection2();
+    // peerConnection = createPeerConnection();
+    // peerConnection2 = createPeerConnection();
   }
 }
 
 // Get the media from camaera/microphone.
-function setupMediaStream(startStream) {
+function setupMediaStream(startStream, peerNumber) {
 
   if(navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia(constraints).then(getUserMediaSuccess).catch(errorHandler);
+      navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+        localStreams[peerNumber] = stream;
+        localVideoObject.src = window.URL.createObjectURL(stream);
+      }).catch(errorHandler);
   } else {
       alert('Your browser does not support getUserMedia API');
   }
 
   // If you want to start the stream, addStream to connection
   if (startStream == true) {
-    peerConnection.addStream(localStream);
-  }
-}
-
-// Get the media from camaera/microphone.
-function setupMediaStream2(startStream) {
-
-  if(navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia(constraints).then(getUserMediaSuccess2).catch(errorHandler);
-  } else {
-      alert('Your browser does not support getUserMedia API');
+    for (var peer in peers) {
+      if (peer.number == peerNumber) {
+        peer.peerConnection.addStream(localStreams[peerNumber]);
+      }
+    }
   }
 
-  // If you want to start the stream, addStream to connection
-  if (startStream == true) {
-    peerConnection2.addStream(localStream2);
-  }
 }
 
 // Create peer connection 1
-function createPeerConnection() {
+function createPeerConnection(peerUuid, peerNumber) {
   console.log("Creating Peer Connection");
 
-  peerConnection = new RTCPeerConnection(configOptions);
-  peerConnection.onicecandidate = sendIceCandidate;
-  peerConnection.onaddstream = gotRemoteStream;
-}
+  var newPeerConnection;
+  newPeerConnection = new RTCPeerConnection(configOptions);
+  newPeerConnection.onicecandidate = function(event) {
+    if(event.candidate != null) {
+        socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}), peerUuid, roomName);
+    }
+  };
 
-// Create peer connection 1
-function createPeerConnection2() {
-  console.log("Creating Peer Connection");
+  newPeerConnection.onaddstream = function(event) {
+    console.log('Received remote stream');
+    console.log(event.stream);
+    remoteVideoObjects[peerNumber].src = window.URL.createObjectURL(event.stream);
+  };
 
-  peerConnection2 = new RTCPeerConnection(peerConnectionConfig);
-  peerConnection2.onicecandidate = sendIceCandidate2;
-  peerConnection2.onaddstream = gotRemoteStream2;
+  return newPeerConnection;
 }
 
 /****************************************/
 /******** RTC Response Functions ********/
 /****************************************/
 
-// Set localStream object and connect local webcam to video feed
-function getUserMediaSuccess(stream) {
-    localStream = stream;
-    localVideoObject.src = window.URL.createObjectURL(stream);
-}
-
-function getUserMediaSuccess2(stream) {
-    localStream2 = stream;
-    localVideoObject.src = window.URL.createObjectURL(stream);
-    //console.log("Getting User Media Success 2");
-}
-
 function setAndSendDescription(description) {
-    peerConnection.setLocalDescription(description).then(function() {
-        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection.localDescription, 'uuid': uuid}), peer1uuid, roomName);
-        //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
-    }).catch(errorHandler);
-}
 
-function setAndSendDescription2(description) {
-    peerConnection2.setLocalDescription(description).then(function() {
-      console.log("description:", description);
-        socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peerConnection2.localDescription, 'uuid': uuid}), peer2uuid, roomName);
-        //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
-    }).catch(errorHandler);
-    console.log("Setting & Sending description 2");
-}
+    for (var peer of peers) {
+      if (peer.number == sendToPeerValue) {
+        peer.peerConnection.setLocalDescription(description).then(function() {
+            socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peer.peerConnection.localDescription, 'uuid': uuid}), peer.uuid, roomName);
+            //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
+        }).catch(errorHandler);
 
-function sendIceCandidate(event) {
-    if(event.candidate != null) {
-        socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}), peer1uuid, roomName);
-        //serverConnection.send(JSON.stringify({'ice': event.candidate, 'uuid': uuid}));
+        sendToPeerValue = -1;
+      }
     }
-}
-
-function sendIceCandidate2(event) {
-    if(event.candidate != null) {
-        socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}), peer2uuid, roomName);
-        //serverConnection.send(JSON.stringify({'ice': event.candidate, 'uuid': uuid}));
-    }
-    console.log("Sending Ice Candidate 2");
-}
-
-function gotRemoteStream(event) {
-    console.log('Received remote stream');
-    console.log(event.stream);
-    remoteVideoObject.src = window.URL.createObjectURL(event.stream);
-}
-
-function gotRemoteStream2(event) {
-    console.log("Got Remote Stream 2");
-    remoteVideoObject2.src = window.URL.createObjectURL(event.stream);
 }
 
 
