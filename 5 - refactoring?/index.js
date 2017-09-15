@@ -68,11 +68,11 @@ io.sockets.on('connection', function(socket) {
 
 function onSignal(message, socket, destUuid, roomName) {
   room = rooms[roomName];
-  console.log("roomName:", roomName);
+  var signal = JSON.parse(message);
   for (var i = 0; i < room.clients.length; i++) {
     if (room.clients[i].uuid == destUuid) {
-      console.log("Sending", message.type, " from ", socket.id, " to ", room.clients[i].uuid)
-      room.clients[i].socket.emit('signal', message, socket.id);
+      console.log("Sending", signal.type, " from ", socket.id, " to ", room.clients[i].socket.id)
+      room.clients[i].socket.emit('signal', message);
     };
   };
   //socket.broadcast.emit('signal', message, socket.id);
@@ -128,21 +128,6 @@ function onJoin(uuid, socket, roomName) {
     clientsInThisRoom[2].socket.emit('ready', false, 3);
     console.log(socket.id, " joined the room ", roomName);
 
-  } else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
-    clientsInThisRoom = rooms[rooms.length-1].clients
-    clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
-    rooms[rooms.length-1].clients = clientsInThisRoom;
-
-    // open the room and send idetifier to each
-    var room_id = "hello2";
-    for (var i=0; i<3; i++) {
-      clientsInThisRoom[i].socket.join(room_id);
-    }
-
-    clientsInThisRoom[0].socket.emit('ready', true, 3);
-    clientsInThisRoom[1].socket.emit('ready', false, 3);
-    clientsInThisRoom[2].socket.emit('ready', false, 3);
-    console.log(socket.id, " joined the room now!");
   }
 }
 

@@ -35,9 +35,6 @@ var peerConnection2;
 
 var peers = [];
 
-var peer1uuid = ""; // Saves UUID of Peer 1
-var peer2uuid = ""; // and of Peer 2
-
 var uuid = uuid(); // Unique identifier of client
 var socket = io.connect(); // Connects to socket.io server
 
@@ -59,7 +56,7 @@ socket.on('ready', function(identifier, numClients) {
 
   console.log('Socket is ready');
 
-  setupConnections(numClients);
+  //setupConnections(numClients);
 });
 
 // When it receives a here message, save the UUID of the here message client to
@@ -69,7 +66,7 @@ socket.on('here', function(new_uuid) {
 
   //if new_uuid is still blank, AND if new_uuid doesn't exist yet AND this device isn't the uuid
   if (!peers[new_uuid] && uuid != new_uuid && peers.length < 2) {
-    var newPeerConnection = createPeerConnection(new_uuid);
+    var newPeerConnection = createPeerConnection(new_uuid, peers.length);
     peers.push({
       "uuid": new_uuid,
       "number": (peers.length),
@@ -78,7 +75,6 @@ socket.on('here', function(new_uuid) {
   } else {
     console.log("Whoops");
   }
-
 });
 
 // On signal, go to gotMessageFromServer to handle the message
@@ -99,32 +95,41 @@ socket.on('disconnectClient', function(uuid, roomName) {
 
 function gotMessageFromServer(message) {
     var signal = JSON.parse(message);
-    var thisPeerConnection;
+    var peerNumber;
 
     // Ignore messages from ourself
-    if(signal.uuid == uuid) return;
+    if(signal.uuid == uuid) {
+      console.log("Received from self");
+      return;
+    };
 
-    for (var peer of peers) {
-      if (peer.uuid == signal.uuid) {
-        thisPeerConnection = peer.peerConnection;
-        sendToPeerValue = peer.number;
-        console.log("Sending to peer:", sendToPeerValue);
-
-        if(signal.type == "sdp") {
-            peer.peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-                // Only create answers in response to offers
-                if(signal.sdp.type == 'offer') {
-                    console.log("Got offer")
-                    peer.peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler); // <-- replace setAndSendDescription
-                } else {
-                  console.log("Got answer")
-                }
-            }).catch(errorHandler);
-        } else if(signal.type == "ice") {
-            peer.peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
-        }
+    for (var i=0; i < peers.length; i++) {
+      if (peers[i].uuid == signal.uuid) {
+        peerNumber = i;
+        console.log("Message from:", peerNumber);
+        break;
       } else {
-        console.log("Peer Not Found");
+        console.log("UUID:", uuid);
+      }
+    }
+
+    if (peers[peerNumber].uuid == signal.uuid) {
+      //sendToPeerValue = peer.number;
+
+      if(signal.type == "sdp") {
+          peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+              // Only create answers in response to offers
+              if(signal.sdp.type == 'offer') {
+                  console.log("Got offer")
+                  sendToPeerValue = peerNumber;
+                  peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler);
+              } else {
+                console.log("Got answer")
+              }
+          }).catch(errorHandler);
+      } else if(signal.type == "ice") {
+          peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+          console.log("Signal Ice:", signal.ice);
       }
     }
 }
@@ -207,7 +212,8 @@ function startCall2() {
   setupMediaStream(true, 1);
   console.log("Sending Offer");
   sendToPeerValue = 1;
-  peers[1].peerConnection.createOffer().then(setAndSendDescription2).catch(errorHandler);
+  peers[1].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+  hangupButton.disabled = false;
 }
 
 // Close connections
@@ -251,6 +257,7 @@ function setupMediaStream(startStream, peerNumber) {
   if(navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         localStreams[peerNumber] = stream;
+        console.log("Adding media stream to:", 0);
         localVideoObject.src = window.URL.createObjectURL(stream);
       }).catch(errorHandler);
   } else {
@@ -259,11 +266,8 @@ function setupMediaStream(startStream, peerNumber) {
 
   // If you want to start the stream, addStream to connection
   if (startStream == true) {
-    for (var peer in peers) {
-      if (peer.number == peerNumber) {
-        peer.peerConnection.addStream(localStreams[peerNumber]);
-      }
-    }
+      console.log("Adding media stream to:", peerNumber);
+      peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
   }
 
 }
@@ -286,6 +290,7 @@ function createPeerConnection(peerUuid, peerNumber) {
     remoteVideoObjects[peerNumber].src = window.URL.createObjectURL(event.stream);
   };
 
+  console.log("Created Object:", newPeerConnection);
   return newPeerConnection;
 }
 
@@ -295,16 +300,10 @@ function createPeerConnection(peerUuid, peerNumber) {
 
 function setAndSendDescription(description) {
 
-    for (var peer of peers) {
-      if (peer.number == sendToPeerValue) {
-        peer.peerConnection.setLocalDescription(description).then(function() {
-            socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peer.peerConnection.localDescription, 'uuid': uuid}), peer.uuid, roomName);
-            //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
-        }).catch(errorHandler);
-
-        sendToPeerValue = -1;
-      }
-    }
+  peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function() {
+      socket.emit('signal', JSON.stringify({'type': 'sdp', 'sdp': peers[sendToPeerValue].peerConnection.localDescription, 'uuid': uuid}), peers[sendToPeerValue].uuid, roomName);
+      //serverConnection.send(JSON.stringify({'sdp': peerConnection.localDescription, 'uuid': uuid}));
+  }).catch(errorHandler);
 }
 
 
