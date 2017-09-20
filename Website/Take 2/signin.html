@@ -37,12 +37,18 @@
     </nav>
     <!-- NAVIGATION BAR END  -->
 
-     
-  <div id="my-signin2"></div>
+
+  <center><div id="my-signin2"></div></center>
+  <style>
+    #my-signin2 {
+      padding-top: 100px;
+      position: middle;
+    }
+  </style>
   <script>
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
+      }
     function onFailure(error) {
       console.log(error);
     }
