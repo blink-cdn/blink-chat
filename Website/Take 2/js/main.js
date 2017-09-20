@@ -135,16 +135,16 @@ function pageReady() {
     remoteVideoObject2 = document.getElementById('remoteVideo2');
     consoleWindow = document.getElementById('console');
 
-    broadcastButon1 = document.getElementById('broadcast1');
-    broadcastButon2 = document.getElementById('broadcast2');
+    //broadcastButon1 = document.getElementById('broadcast1');
+    //broadcastButon2 = document.getElementById('broadcast2');
     hangupButton = document.getElementById('hangup');
-    startCameraButton = document.getElementById('startCamera');
+    //startCameraButton = document.getElementById('startCamera');
 
     roomName = window.location.hash.substr(1);
     console.log("roomName:", roomName);
     socket.emit('join', uuid, roomName); // Joins the server's room
 
-    hangupButton.disabled = true;
+    // hangupButton.disabled = true;
 
     window.addEventListener("beforeunload", function(e) {
         socket.emit('disconnectServer', uuid, roomName); // Disconnects from roomm
