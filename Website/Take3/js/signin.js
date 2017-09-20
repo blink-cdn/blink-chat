@@ -5,13 +5,10 @@ function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   var hostName = window.location.hostname;
   roomName = window.location.hash.substr(1);
-  window.location.href = "https://" + hostname + '/courseview.html#' + roomName;
+  window.location.href = "https://" + hostName + '/courseview.html#' + roomName;
   }
 function onFailure(error) {
   console.log(error);
-  var hostName = window.location.hostname;
-  roomName = window.location.hash.substr(1);
-  window.location.href = "https://" + hostName + '/courseview.html#' + roomName;
 }
 function renderButton() {
   gapi.signin2.render('my-signin2', {
