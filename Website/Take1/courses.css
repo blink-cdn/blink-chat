@@ -1,6 +1,6 @@
 
 .list-container {
-  padding: 10px;
+  padding: 30px;
 }
 
 .cards {
@@ -9,7 +9,6 @@
     transition: 0.2s;
     border: 1px solid #E4E4E4;
     margin-top: 17px;
-    max-width: 600px;
 }
 
 /* On mouse-over, add a deeper shadow */
