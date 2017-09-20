@@ -77,13 +77,10 @@ function onSignal(message, socket, destUuid, roomName) {
 }
 
 function onDisconnect(uuid, roomName) {
-    console.log(uuid, "Disconnecting"); 
+    console.log(uuid, "Disconnecting");
     if(rooms[roomName]) {
         var clientsInRoom = rooms[roomName].clients
-        console.log("0 ", clientsInRoom[0]);
-        console.log("1", clientsInRoom[1]);
         for(var i = 0; i < clientsInRoom.length; i++) {
-           console.log("i:", i);
            if (clientsInRoom[i].uuid == uuid) {
               // If this is the client, just remove them from the room
               clientsInRoom.splice(i, 1);
