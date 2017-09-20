@@ -1,4 +1,4 @@
-const HTTPS_PORT = 3000;
+const HTTPS_PORT = 443;
 
 /*******Start*********/
 
@@ -10,7 +10,7 @@ const socketIO = require('socket.io')
 const fs = require('fs');
 
 const certOptions = {
-  key: fs.readFileSync('key.pem'),
+  key: fs.readFileSync('privkey.pem'),
   cert: fs.readFileSync('cert.pem')
 };
 
