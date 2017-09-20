@@ -44,6 +44,19 @@ p {
   line-height: 10px;
 }
 
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #726663;
+  text-decoration: none;
+}
+
+a {
+
+}
+
 /********************/
 /****** SEARCH ******/
 /********************/
@@ -53,7 +66,7 @@ p {
 }
 
 .form-control {
-  font-size: 2rem;
+  font-size: 1.75rem;
   height: 50px;
 }
 
