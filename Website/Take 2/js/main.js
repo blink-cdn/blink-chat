@@ -130,9 +130,8 @@ function gotMessageFromServer(message) {
 
 // Once the page has loaded, connect the JS objects to HTML objects
 function pageReady() {
-    localVideoObject = document.getElementById('localVideo');
-    remoteVideoObject = document.getElementById('remoteVideo');
-    remoteVideoObject2 = document.getElementById('remoteVideo2');
+    localVideoObject = document.getElementById('local-video');
+    remoteVideoObject = document.getElementById('remote-video');
     consoleWindow = document.getElementById('console');
 
     //broadcastButon1 = document.getElementById('broadcast1');
@@ -183,7 +182,6 @@ function hangup(uuid) {
   } else if (uuid == peer2uuid || !uuid) {
     peerConnection2.close();
     peerConnection2 = null;
-    remoteVideoObject2 = null;
   }
 
   hangupButton.disabled = true;
