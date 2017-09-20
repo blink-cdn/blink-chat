@@ -80,16 +80,21 @@ function onDisconnect(uuid, roomName) {
     console.log(uuid, "Disconnecting");
     if(rooms[roomName]) {
         var clientsInRoom = rooms[roomName].clients
-        for(var i = 0; i < clientsInRoom.length; i++) {
-           if (clientsInRoom[i].uuid == uuid) {
-              // If this is the client, just remove them from the room
-              clientsInRoom.splice(i, 1);
-              rooms[roomName].clients = clientsInRoom;
-           } else {
-              // If this isn't the client, let them know the other client is leaving
-              clientsInRoom[i].socket.emit('disconnectClient', uuid, roomName);
-              console.log("Sent disconnect")
-           }
+        if (clientsInRoom.length == 1) {
+          rooms[roomName] = null;
+          return;
+        } else {
+          for(var i = 0; i < clientsInRoom.length; i++) {
+             if (clientsInRoom[i].uuid == uuid) {
+                // If this is the client, just remove them from the room
+                clientsInRoom.splice(i, 1);
+                rooms[roomName].clients = clientsInRoom;
+             } else {
+                // If this isn't the client, let them know the other client is leaving
+                clientsInRoom[i].socket.emit('disconnectClient', uuid, roomName);
+                console.log("Sent disconnect")
+             }
+          }
         }
      }
 }
@@ -109,31 +114,12 @@ function onJoin(uuid, socket, roomName) {
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
     rooms[roomName].clients = clientsInThisRoom;
 
-    // open the room and send idetifier to each
-    // for (var i=0; i<2; i++) {
-    //   clientsInThisRoom[i].socket.join(roomName);
-    // }
 
     clientsInThisRoom[0].socket.emit('ready', true, 2);
     clientsInThisRoom[1].socket.emit('ready', false, 2);
     console.log(socket.id, " joined the room ", roomName);
 
-  } /*else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
-    clientsInThisRoom = rooms[rooms.length-1].clients
-    clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
-    rooms[rooms.length-1].clients = clientsInThisRoom;
-
-    // open the room and send idetifier to each
-    var room_id = "hello2";
-    for (var i=0; i<3; i++) {
-      clientsInThisRoom[i].socket.join(room_id);
-    }
-
-    clientsInThisRoom[0].socket.emit('ready', true, 3);
-    clientsInThisRoom[1].socket.emit('ready', false, 3);
-    clientsInThisRoom[2].socket.emit('ready', false, 3);
-    console.log(socket.id, " joined the room now!");
-  }*/
+  }
 }
 
 function log() {

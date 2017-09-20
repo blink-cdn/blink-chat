@@ -186,7 +186,6 @@ function hangup(uuid) {
 
   hangupButton.disabled = true;
   broadCastButton1.disabled = false;
-  broadCastButton2.disabled = false;
 
 }
 
