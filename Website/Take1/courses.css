@@ -1,0 +1,88 @@
+
+.list-container {
+  padding-top: 40px;
+}
+
+.cards {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.2s;
+    border: 1px solid #E4E4E4;
+    margin-top: 2px;
+    max-width: 600px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.cards:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+.col-centered {
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.break {
+  margin: 10px 0;
+}
+
+p {
+  line-height: 10px;
+}
+
+/********************/
+/****** SEARCH ******/
+/********************/
+
+.search-section {
+  padding-top: 100px;
+}
+
+.form-control {
+  font-size: 3rem;
+  height: 50px;
+}
+
+#custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+    }
+
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .search-query:focus + button {
+        z-index: 3;
+    }
