@@ -4,9 +4,7 @@
   "description": "WebRTC codelab",
   "dependencies": {
     "mime": "^2.0.2",
-    "mime-db": "^1.30.0",
-    "mime-lookup": "0.0.2",
-    "node-static": "0.7.7",
+    "node-static": "^0.7.7",
     "socket.io": "^1.7.4",
     "webrtc-adapter": "^4.2.2",
     "wrtc": "0.0.62",
