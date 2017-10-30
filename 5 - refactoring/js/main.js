@@ -277,7 +277,7 @@ function createPeerConnection(peerUuid, peerNumber) {
   console.log("Creating Peer Connection");
 
   var newPeerConnection;
-  newPeerConnection = new RTCPeerConnection(configOptions);
+  newPeerConnection = new RTCPeerConnection(peerConnectionConfig);
   newPeerConnection.onicecandidate = function(event) {
     if(event.candidate != null) {
         socket.emit('signal', JSON.stringify({'type': 'ice', 'ice': event.candidate, 'uuid': uuid}), peerUuid, roomName);
