@@ -26,9 +26,10 @@ var peerConnectionConfig = {
 };
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
-		      {"url": "turn:35.167.210.171:3478",
-				"username": "cbethin",
-				"credential": "bethin"}]};
+              { url: 'turn:turn:numb.viagenie.ca',
+                credential: 'enter1234',
+                username: 'bethin.charles@yahoo.com'
+              }]};
 
 var peerConnection;
 var peerConnection2;
