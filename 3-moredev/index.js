@@ -1,4 +1,4 @@
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 3000;
 
 /*******Start*********/
 
@@ -96,10 +96,10 @@ function onJoin(uuid, socket, roomName) {
     clientsInThisRoom[1].socket.emit('ready', false, 2);
     console.log(socket.id, " joined the room ", roomName);
 
-  } /*else if (rooms.length > 0 && rooms[rooms.length - 1] && rooms[rooms.length-1].clients.length === 2) {
-    clientsInThisRoom = rooms[rooms.length-1].clients
+  } else if (rooms[roomName].clients.length === 2) {
+    clientsInThisRoom = rooms[roomName].clients
     clientsInThisRoom.push({'uuid': uuid, 'socket': socket});
-    rooms[rooms.length-1].clients = clientsInThisRoom;
+    rooms[roomName].clients = clientsInThisRoom;
 
     // open the room and send idetifier to each
     var room_id = "hello2";
@@ -111,7 +111,9 @@ function onJoin(uuid, socket, roomName) {
     clientsInThisRoom[1].socket.emit('ready', false, 3);
     clientsInThisRoom[2].socket.emit('ready', false, 3);
     console.log(socket.id, " joined the room now!");
-  }*/
+
+    console.log("Added second person to room");
+  }
 }
 
 function log() {

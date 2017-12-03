@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blink Streams</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="stream.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/streamEng.js"></script>
+    <script src="js/mainCast.js"></script>
+  </head>
+  <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>blink</strong></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Product</a></li>
+            <li><a href="#services">What We Do</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/stream.html/">Streamer Portal</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- NAVIGATION BAR END  -->
+
+
+    <div class="container-fluid video-container">
+      <center><video id="local-video" autoplay></video></center>
+      <br>
+      <center><button id="subscribeButton">Connect to Stream</button>
+      <button id="publishButton">Publish</button>
+      <button id="endService">End Stream</button></center></center>
+    </div>
+
+  </body>
+</html>
