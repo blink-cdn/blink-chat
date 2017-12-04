@@ -4,6 +4,7 @@ var uuid;
 var roomName = 'helloAdele';
 console.log("Connected");
 
+
 // Setup HTML Objects
 var button;
 
@@ -102,15 +103,15 @@ function applyColumnClassesToVideo() {
     smallColumnSize = 6;
   }
 
+  if (isPublished) {
+    $('#local-video-div').attr('class',"");
+    $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+  }
+
   for (var i = 0; i < videoIndices.length; i++) {
     var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-
-    if (isPublished) {
-      $('#local-video-div').attr('class',"");
-      $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-    }
   }
 
   console.log("Classes applied.");
