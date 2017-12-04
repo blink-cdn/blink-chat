@@ -1,4 +1,4 @@
-const HTTPS_PORT = 4000;
+const HTTPS_PORT = 443;
 
 const nodeStatic = require('node-static');
 const https = require('https');
@@ -62,8 +62,8 @@ io.sockets.on('connection', function(socket) {
 /******* SETUP MAIN SERVER CONNECTION *********/
 
 var io_client = require('socket.io-client');
-var mySocket = io_client.connect("http://localhost:3000");
-mySocket.emit('connect service', "https://localhost:4000", "stream");
+var mySocket = io_client.connect("http://bid.blinkcdn.com");
+mySocket.emit('connect service', "https://gateway.blinkcdn.com", "stream");
 
 mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
   users = rcvdUsers;
