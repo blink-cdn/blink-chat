@@ -1,9 +1,27 @@
 .btn-container {
-  text-align: center
+  /*text-align: center*/
 }
 
 video {
-  background-color: black;
-  max-width: 70%;
-  width: 60%;
+  /*background-color: grey;*/
+  /*width: 100%;*/
+  margin: 0 auto;
+  /*border: 1px solid black;*/
+  padding: 0px;
+  width:100%;
+  max-height: 90vh;
+}
+
+.videoStream {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+}
+
+#local-video-div {
+  padding: 0px;
+}
+
+#remote-video-div {
+  padding: 0px;
 }

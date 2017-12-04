@@ -196,7 +196,10 @@ function setupMediaStream(startStream, peerNumber) {
   if(navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         localStreams[peerNumber] = stream;
-        localVideoObject.src = window.URL.createObjectURL(stream);
+
+        if (startStream == false) {
+          streamEng.onPublish(stream);
+        }
 
         // If you want to start the stream, addStream to connection
         if (startStream == true) {
