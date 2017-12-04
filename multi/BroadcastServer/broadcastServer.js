@@ -62,7 +62,7 @@ io.sockets.on('connection', function(socket) {
 /******* SETUP MAIN SERVER CONNECTION *********/
 
 var io_client = require('socket.io-client');
-var mySocket = io_client.connect("http://bid.blinkcdn.com");
+var mySocket = io_client.connect("http://chat.blinkcdn.com");
 mySocket.emit('connect service', "https://gateway.blinkcdn.com", "stream");
 
 mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
