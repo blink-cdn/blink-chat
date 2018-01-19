@@ -301,7 +301,7 @@ function setMediaBitrate(sdp, media, bitrate) {
   }
 
   // If we're on a b line, replace it
-  if (lines[line].indexOf("b") === 0 {
+  if (lines[line].indexOf("b") === 0) {
     console.debug("Replaced b line at line", line);
     lines[line] = "b=AS:"+bitrate;
     return lines.join("\n");
