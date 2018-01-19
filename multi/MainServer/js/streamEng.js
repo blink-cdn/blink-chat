@@ -274,7 +274,7 @@ function errorHandler(error) {
 }
 
 function setMediaBitrates(sdp) {
-  return setMediaBitrate(setMediaBitrate(sdp, "video", 500), "audio", 50);
+  return setMediaBitrate(setMediaBitrate(sdp, "video", 50), "audio", 50);
 }
 
 function setMediaBitrate(sdp, media, bitrate) {
