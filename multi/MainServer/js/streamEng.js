@@ -280,7 +280,7 @@ function setMediaBitrates(sdp) {
 function setMediaBitrate(sdp, media, bitrate) {
   var lines = sdp.split("\n");
   var line = -1;
-  for (var i = 0, i < lines.length, i++) {
+  for (var i = 0; i < lines.length; i++) {
     if (lines[i].indexOf("m="+media) === 0) {
       line = i;
       break;
