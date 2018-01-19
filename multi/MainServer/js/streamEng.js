@@ -54,6 +54,7 @@ streamEng.subscribe = function() {
   $('#publishButton').click(function() {
     streamEng.publish();
   });
+
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
   // When it receives a here message, add user to peers (only publishers get here msg's)
@@ -127,7 +128,6 @@ streamEng.subscribe = function() {
        peers.splice(peerNumber, 1);
      }
   });
-
 }
 
 
@@ -206,7 +206,9 @@ function setupMediaStream(startStream, peerNumber) {
             peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
             sendToPeerValue = peerNumber;
-            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+            peers[peerNumber].peerConnection.createOffer(function(offer) {
+              peers[peerNumber].peerConnection.setLocalDescription(offer)
+            }).then(setAndSendDescription).catch(errorHandler);
         }
       }).catch(errorHandler);
   } else {
@@ -240,10 +242,12 @@ function setAndSendDescription(description) {
 
   if (sendToPeerValue == -10) {
     broadcaster.peerConnection.setLocalDescription(description).then(function() {
+        description.sdp = setMediaBitrates(description.sdp)
         streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
     }).catch(errorHandler);
   } else {
     peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function() {
+        description.sdp = setMediaBitrates(description.sdp)
         streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': peers[sendToPeerValue].peerConnection.localDescription, 'userID': user.userID}, peers[sendToPeerValue].userID, roomName);
     }).catch(errorHandler);
   }
@@ -267,4 +271,46 @@ function setupPage() {
 ///////////////////
 function errorHandler(error) {
     console.log(error);
+}
+
+function setMediaBitrates(sdp) {
+  return setMediaBitrate(setMediaBitrate(sdp, "video", 500), "audio", 50);
+}
+
+function setMediaBitrate(sdp, media, bitrate) {
+  var lines = sdp.split("\n");
+  var line = -1;
+  for (var i = 0; i &lt; lines.length; i++) {
+    if (lines[i].indexOf("m="+media) === 0) {
+      line = i;
+      break;
+    }
+  }
+  if (line === -1) {
+    console.debug("Could not find the m line for", media);
+    return sdp;
+  }
+  console.debug("Found the m line for", media, "at line", line);
+
+  // Pass the m line
+  line++;
+
+  // Skip i and c lines
+  while(lines[line].indexOf("i=") === 0 || lines[line].indexOf("c=") === 0) {
+    line++;
+  }
+
+  // If we're on a b line, replace it
+  if (lines[line].indexOf("b") === 0 {
+    console.debug("Replaced b line at line", line);
+    lines[line] = "b=AS:"+bitrate;
+    return lines.join("\n");
+  }
+
+  // Add a new b line
+  console.debug("Adding new b line before line", line);
+  var newLines = lines.slice(0, line)
+  newLines.push("b=AS:"+bitrate)
+  newLines = newLines.concat(lines.slice(line, lines.length))
+  return newLines.join("\n")
 }

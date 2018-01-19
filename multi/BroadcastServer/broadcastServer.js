@@ -46,10 +46,6 @@ io.sockets.on('connection', function(socket) {
         onDisconnect(userID, roomName);
       });
 
-      // socket.on('connect to stream', function(userID, roomName, isBroadcaster) {
-      //   onJoin(userID, socket, roomName, isBroadcaster);
-      // });
-
       socket.on('publish', function(userID, roomName) {
         onJoin(userID, socket, roomName, true);
       });
@@ -96,6 +92,7 @@ function onDisconnect(userID, roomName) {
         // Remove Client from room
         delete streamRooms[roomName].clients[userID];
 
+
         // Let everyone know
         for (clientID in clientsInRoom) {
           clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
@@ -109,56 +106,57 @@ function onJoin(userID, socket, roomName, isPublishing) {
   // IF it is a publisher, setup as the broadcaster;
   if (isPublishing == true) {
 
-    // If Room Doesn't Exist
-    if (!streamRooms[roomName]) {
-      streamRooms[roomName] = {
-        clients: {},
-        numPublishers: 0,
+      // If Room Doesn't Exist
+      if (!streamRooms[roomName]) {
+        streamRooms[roomName] = {
+          clients: {},
+          numPublishers: 0,
+        }
       }
-    }
 
-    // If publisher already published
-    else if (streamRooms[roomName].clients[userID].isPublished == true) {
+      // If publisher already published
+      else if (streamRooms[roomName].clients[userID].isPublished == true) {
+        for (otherClientID in streamRooms[roomName].clients) {
+          if (otherClientID != userID) {
+            socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
+          }
+        }
+
+        return;
+      }
+
+      // If publisher hasn't published yet
+      else if (streamRooms[roomName].clients[userID].isPublished == false) {
+        streamRooms[roomName].numPublishers++;
+
+        streamRooms[roomName].clients[userID].isPublished = true;
+        streamRooms[roomName].clients[userID].publisherNumber = streamRooms[roomName].numPublishers-1;
+      }
+
+      // If the publisher is new
+      else if (!streamRooms[roomName].clients[userID]) {
+        streamRooms[roomName].numPublishers++;
+
+        streamRooms[roomName].clients[userID] = {
+          isPublished: true,
+          isSubscribed: false,
+          socket: socket,
+          userID: userID,
+          publisherNumber: streamRooms.numPublishers-1
+        }
+      }
+
       for (otherClientID in streamRooms[roomName].clients) {
         if (otherClientID != userID) {
+          streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
           socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
         }
       }
 
+      console.log("Streamer joined the session:", roomName);
       return;
-    }
-
-    // If publisher hasn't published yet
-    else if (streamRooms[roomName].clients[userID].isPublished == false) {
-      streamRooms[roomName].numPublishers++;
-
-      streamRooms[roomName].clients[userID].isPublished = true;
-      streamRooms[roomName].clients[userID].publisherNumber = streamRooms[roomName].numPublishers-1;
-    }
-
-    // If the publisher is new
-    else if (!streamRooms[roomName].clients[userID]) {
-      streamRooms[roomName].numPublishers++;
-
-      streamRooms[roomName].clients[userID] = {
-        isPublished: true,
-        isSubscribed: false,
-        socket: socket,
-        userID: userID,
-        publisherNumber: streamRooms.numPublishers-1
-      }
-    }
-
-    for (otherClientID in streamRooms[roomName].clients) {
-      if (otherClientID != userID) {
-        streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
-        socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
-      }
-    }
-
-    console.log("Streamer joined the session:", roomName);
-    return;
   }
+
   else {
 
     // if the room doesn't exist, create the room
@@ -166,7 +164,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
       console.log("Client created room:", roomName);
       streamRooms[roomName] = {
         clients: {},
-        numPublishers: 0
+        numPublishers: 0,
       }
     }
 
@@ -185,6 +183,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
         publisherNumber: -1
       }
     }
+
 
     for (clientID in streamRooms[roomName].clients) {
       var client = streamRooms[roomName].clients[clientID]
