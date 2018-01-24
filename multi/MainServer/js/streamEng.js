@@ -37,6 +37,11 @@ var numPublishers = 0;
 
 streamEng.setupService = function() {
   streamEng.subscribe();
+
+  // Callstats
+  callstats = new callstats();
+  localUserID = user.userID
+  callstats.initialize(AppID: '975476654', AppSecret: 'Z50OlCASrd2V:WlY3XoB6UcptV+HnfpKAtk7rg5If0ZIEZKP1Q7b9UYE=', localUserId: localUserID);
 }
 
 streamEng.publish = function() {
@@ -72,6 +77,12 @@ streamEng.subscribe = function() {
         });
         peerNumberOf[clientID] = peers.length - 1;
 
+        var fabricAttributes = {
+          remoteEndpointType: callstats.endpointType.peer,
+          fabricTransmissionDirection: callstats.fabricTransmissionDirection.sendrecv
+        }
+
+        callstats.addNewFabric(newPeerConnection, remoteUserId, clientID);
       }
       joinRoom();
 

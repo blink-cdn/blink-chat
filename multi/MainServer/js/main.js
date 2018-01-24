@@ -32,9 +32,6 @@ $(document).ready(function() {
 
   user.name = 'user';
   socket.emit('create user', user, roomName);
-  
-  callstats = new callstats();
-  callstats.initialize(AppID: '975476654', AppSecret: 'Z50OlCASrd2V:WlY3XoB6UcptV+HnfpKAtk7rg5If0ZIEZKP1Q7b9UYE=') 
 });
 
 /******* SOCKET ********/
@@ -71,6 +68,7 @@ function setupSocket() {
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
     applyColumnClassesToVideo();
+
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
