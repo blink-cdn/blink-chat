@@ -30,6 +30,8 @@ console.log("Connected.");
 
 io.sockets.on('connection', function(socket) {
 
+      console.log("here");
+
       socket.on('here', function(userID, roomName) {
         console.log("Here from: ", userID);
         for (var i = 0; i < streamRooms[roomName].clients.length; i++) {
