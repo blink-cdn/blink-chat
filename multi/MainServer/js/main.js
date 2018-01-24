@@ -23,8 +23,6 @@ var isPublished = false;
 var numPublishers = 0;
 var videoIndices = [];
 
-var callstats;
-
 $(document).ready(function() {
 
   // Setup Socket
@@ -68,7 +66,6 @@ function setupSocket() {
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
     applyColumnClassesToVideo();
-
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {

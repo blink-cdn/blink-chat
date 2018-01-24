@@ -54,7 +54,6 @@ streamEng.subscribe = function() {
   $('#publishButton').click(function() {
     streamEng.publish();
   });
-
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
   // When it receives a here message, add user to peers (only publishers get here msg's)
@@ -71,6 +70,7 @@ streamEng.subscribe = function() {
           "peerConnection": newPeerConnection
         });
         peerNumberOf[clientID] = peers.length - 1;
+
       }
       joinRoom();
 
@@ -127,6 +127,7 @@ streamEng.subscribe = function() {
        peers.splice(peerNumber, 1);
      }
   });
+
 }
 
 
