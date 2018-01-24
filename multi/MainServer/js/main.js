@@ -23,6 +23,8 @@ var isPublished = false;
 var numPublishers = 0;
 var videoIndices = [];
 
+var callstats;
+
 $(document).ready(function() {
 
   // Setup Socket
@@ -30,6 +32,9 @@ $(document).ready(function() {
 
   user.name = 'user';
   socket.emit('create user', user, roomName);
+  
+  callstats = new callstats();
+  callstats.initialize(AppID: '975476654', AppSecret: 'Z50OlCASrd2V:WlY3XoB6UcptV+HnfpKAtk7rg5If0ZIEZKP1Q7b9UYE=') 
 });
 
 /******* SOCKET ********/
