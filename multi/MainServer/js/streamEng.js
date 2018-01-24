@@ -73,7 +73,7 @@ streamEng.subscribe = function() {
         peerNumberOf[clientID] = peers.length - 1;·
       }
       joinRoom();
-·
+
     } else {
       console.log("Already connected to this peer. Initiating stream");
 
