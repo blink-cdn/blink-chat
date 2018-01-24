@@ -70,7 +70,7 @@ streamEng.subscribe = function() {
           "number": (peers.length),
           "peerConnection": newPeerConnection
         });
-        peerNumberOf[clientID] = peers.length - 1;·
+        peerNumberOf[clientID] = peers.length - 1;
       }
       joinRoom();
 
