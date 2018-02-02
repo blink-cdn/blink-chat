@@ -17,8 +17,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="80" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state relative-caret-position="3">
+              <caret line="66" column="69" lean-forward="true" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -48,17 +48,27 @@
         <entry file="file://$PROJECT_DIR$/MainServer/js/watch.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+              <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stream.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stream.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/stream.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="-207">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stream.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MainServer/js/stream.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -109,8 +119,9 @@
         <option value="$PROJECT_DIR$/MainServer/js/watch.html" />
         <option value="$PROJECT_DIR$/MainServer/mainServer.js" />
         <option value="$PROJECT_DIR$/BroadcastServer/broadcastServer.js" />
-        <option value="$PROJECT_DIR$/MainServer/js/watch.js" />
         <option value="$PROJECT_DIR$/MainServer/stream.html" />
+        <option value="$PROJECT_DIR$/MainServer/js/watch.js" />
+        <option value="$PROJECT_DIR$/MainServer/js/stream.js" />
       </list>
     </option>
   </component>
@@ -159,6 +170,12 @@
               <item name="multi-with-watcher" type="462c0819:PsiDirectoryNode" />
               <item name="MainServer" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="multi-with-watcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multi-with-watcher" type="462c0819:PsiDirectoryNode" />
+              <item name="MainServer" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -202,12 +219,12 @@
       <option name="presentableId" value="Default" />
       <updated>1517590085990</updated>
       <workItem from="1517590087210" duration="1122000" />
-      <workItem from="1517595033652" duration="1668000" />
+      <workItem from="1517595033652" duration="2045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2790000" />
+    <option name="totallyTimeSpent" value="3167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1120" extended-state="6" />
@@ -290,14 +307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/watch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="168" lean-forward="true" selection-start-line="34" selection-start-column="168" selection-end-line="34" selection-end-column="168" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BroadcastServer/broadcastServer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
@@ -314,22 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/js/watch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="80" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -340,8 +333,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/stream.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="-207">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/watch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="168" lean-forward="true" selection-start-line="34" selection-start-column="168" selection-end-line="34" selection-end-column="168" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="66" column="69" lean-forward="true" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/js/watch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/js/stream.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
           <folding />
         </state>
       </provider>

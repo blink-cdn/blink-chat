@@ -53,35 +53,39 @@ function setupSocket() {
     });
 
     streamEng.onPublish = function(stream) {
-        // Do nothing. Watcher does not publish.
-    };
+        if (!isPublished) {
+            numPublishers++;
+            console.log("Upped");
+        }
+
+        isPublished = true;
+
+        $('#local-video-div').html(function() {
+            return "<video id=\"local-video\" autoplay></video>";
+        });
+
+        $('#local-video').attr('src', window.URL.createObjectURL(stream));
+        applyColumnClassesToVideo();
+    }
 
     streamEng.onAddNewPublisher = function(videoIndex) {
         numPublishers++;
         videoIndices.push(videoIndex);
+        var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
+        $('#remote-video-div').html(function() {
+            return $('#remote-video-div').html() + newVideoLayer
+        });
 
-        if (numPublishers == 1) {
-            var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
-            $('#remote-video-div').html(function() {
-                return $('#remote-video-div').html() + newVideoLayer
-            });
-
-            applyColumnClassesToVideo();
-            console.log('Video', videoIndex, 'added but not shown.');
-            return;
-        }
-
-        console.log('Video', videoIndex, 'added.');
-    };
+        applyColumnClassesToVideo();
+        console.log("Added:", videoIndex);
+    }
 
     streamEng.onDeletePublisher = function(videoIndex) {
         numPublishers--;
-        if (numPublishers == 0) {
-            $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
-            removeItemFromArray(videoIndices, videoIndex);
-            applyColumnClassesToVideo();
-            console.log("Deleting:", videoIndex);
-        }
+        console.log("Deleting:", videoIndex);
+        $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
+        removeItemFromArray(videoIndices, videoIndex);
+        applyColumnClassesToVideo();
     }
 }
 
@@ -111,4 +115,11 @@ function applyColumnClassesToVideo() {
     }
 
     console.log("Classes applied.");
+}
+
+function removeItemFromArray(array, item) {
+    var index = array.indexOf(item);
+    if (index > -1) {
+        array.splice(index, 1);
+    }
 }
