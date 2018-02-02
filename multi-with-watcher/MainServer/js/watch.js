@@ -84,3 +84,31 @@ function setupSocket() {
         }
     }
 }
+
+function applyColumnClassesToVideo() {
+    var columnSize;
+    var smallColumnSize;
+    if (numPublishers == 1) {
+        columnSize = 12;
+        smallColumnSize = 12;
+    } else if (numPublishers == 2) {
+        columnSize = 6;
+        smallColumnSize=12;
+    } else if (numPublishers >= 3) {
+        columnSize = 4;
+        smallColumnSize = 6;
+    }
+
+    if (isPublished) {
+        $('#local-video-div').attr('class',"");
+        $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    }
+
+    for (var i = 0; i < videoIndices.length; i++) {
+        var videoIndex = videoIndices[i];
+        $('.videoStream').attr('class',"videoStream");
+        $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    }
+
+    console.log("Classes applied.");
+}
