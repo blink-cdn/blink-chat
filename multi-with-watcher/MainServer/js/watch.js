@@ -1,7 +1,7 @@
 // Connects to socket.io server
 var socket;
 var uuid;
-var roomName = 'helloAdele';
+var roomName = 'blink-watching';
 console.log("Connected");
 
 
