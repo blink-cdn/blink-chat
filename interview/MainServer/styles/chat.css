@@ -57,3 +57,29 @@ h5 {
   max-width: 100%;
   height: 100%;
 }
+
+/* Modal */
+#myModal {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-content {
+  width: 75%;
+  height: 200px;
+  margin-top: 2.5%;
+}
+
+#link {
+  text-align: center;
+}
+
+.close {
+  margin-left: 5px;
+  color: white;
+}
+
+.close:hover {
+  color: white;
+}
