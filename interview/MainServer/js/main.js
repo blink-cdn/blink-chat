@@ -116,14 +116,14 @@ function applyColumnClassesToVideo() {
   if (isPublished) {
     $('#local-video-div').attr('class',"");
     $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-    $('body').attr('class', 'bg-secondary');
+    $('body').attr('class', 'bg-dark');
   }
 
   for (var i = 0; i < videoIndices.length; i++) {
     var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-    $('body').attr('class', 'bg-secondary');
+    $('body').attr('class', 'bg-dark');
   }
 
   if (numPublishers === 0) {
