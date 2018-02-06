@@ -48,7 +48,6 @@ function setupSocket() {
 
     // Send join stream system Message
     socket.emit('join service', user.userID, 'stream', roomName);
-    streamEng.publish();
   });
 
   socket.on('joined service', function(userID, serviceType, serviceAddress) {
@@ -56,6 +55,7 @@ function setupSocket() {
     engine.serviceAddress = serviceAddress;
 
     engine.setupService();
+      streamEng.publish();
   });
 
   streamEng.onPublish = function(stream) {
