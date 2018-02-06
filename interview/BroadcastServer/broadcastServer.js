@@ -38,7 +38,7 @@ io.sockets.on('connection', function(socket) {
           streamRooms[roomName].clients[i].socket.emit('here', userID);
           console.log("Send \'here\' to ", streamRooms[roomName].clients[i].socket.id);
         }
-      });
+      })
 
       socket.on('signal', function(message, destUuid, roomName) {
         onSignal(message, destUuid, roomName, socket);
@@ -87,9 +87,9 @@ function onDisconnect(userID, roomName) {
   console.log(userID, "Disconnecting");
 
   if(streamRooms[roomName]) {
-      var clientsInRoom = streamRooms[roomName].clients;
+      var clientsInRoom = streamRooms[roomName].clients
 
-      if (clientsInRoom.length === 1) {
+      if (clientsInRoom.length == 1) {
         streamRooms[roomName] = null;
         return;
       }
@@ -109,7 +109,7 @@ function onDisconnect(userID, roomName) {
 function onJoin(userID, socket, roomName, isPublishing) {
 
   // IF it is a publisher, setup as the broadcaster;
-  if (isPublishing === true) {
+  if (isPublishing == true) {
 
     // If Room Doesn't Exist
     if (!streamRooms[roomName]) {
@@ -120,7 +120,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     // If publisher already published
-    else if (streamRooms[roomName].clients[userID].isPublished === true) {
+    else if (streamRooms[roomName].clients[userID].isPublished == true) {
       for (otherClientID in streamRooms[roomName].clients) {
         if (otherClientID != userID) {
           socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
@@ -131,7 +131,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     // If publisher hasn't published yet
-    else if (streamRooms[roomName].clients[userID].isPublished === false) {
+    else if (streamRooms[roomName].clients[userID].isPublished == false) {
       streamRooms[roomName].numPublishers++;
 
       streamRooms[roomName].clients[userID].isPublished = true;
