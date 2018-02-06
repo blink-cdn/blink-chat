@@ -130,7 +130,7 @@ function applyColumnClassesToVideo() {
       $('body').attr('class', 'bg-light');
       $('#infoText').attr('hidden', 'false');
   } else {
-      $('#infoText').attr('hidden', 'true');
+      $('#infoText').attr('style', 'background-color: black');
   }
 
   console.log("Classes applied.");
