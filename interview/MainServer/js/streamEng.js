@@ -52,9 +52,9 @@ streamEng.subscribe = function() {
   streamEng.socket = io.connect(streamEng.serviceAddress);
   console.log("Connected to Stream Server", streamEng.serviceAddress, roomName);
 
-  $('#publishButton').click(function() {
-    streamEng.publish();
-  });
+  // $('#publishButton').click(function() {
+    //   streamEng.publish();
+    // });
 
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
@@ -81,10 +81,6 @@ streamEng.subscribe = function() {
 
       var peerNumber = peerNumberOf[clientID];
       setupMediaStream(true, peerNumber);
-    }
-
-    if (streamEng.onSubscribeDone != "undefined") {
-        streamEng.onSubscribeDone();
     }
 
   });
@@ -134,6 +130,10 @@ streamEng.subscribe = function() {
        peers.splice(peerNumber, 1);
      }
   });
+
+    if (streamEng.onSubscribeDone != "undefined") {
+        streamEng.onSubscribeDone();
+    }
 
 }
 

@@ -31,9 +31,9 @@ $(document).ready(function() {
   user.name = 'user';
   socket.emit('create user', user, roomName);
 
-  $('#publishButton').click(function() {
-    streamEng.publish();
-  });
+  // $('#publishButton').click(function() {
+  //   streamEng.publish();
+  // });
 
 });
 
@@ -56,6 +56,10 @@ function setupSocket() {
 
     engine.setupService();
   });
+
+  streamEng.onSubscribeDone = function() {
+      streamEng.publish();
+  };
 
   streamEng.onPublish = function(stream) {
     if (!isPublished) {
