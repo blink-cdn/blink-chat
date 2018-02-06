@@ -57,10 +57,6 @@ function setupSocket() {
     engine.setupService();
   });
 
-  streamEng.onSubscribeDone = function() {
-      streamEng.publish();
-  };
-
   streamEng.onPublish = function(stream) {
     if (!isPublished) {
       numPublishers++;

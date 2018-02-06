@@ -55,6 +55,7 @@ streamEng.subscribe = function() {
   // $('#publishButton').click(function() {
   //   streamEng.publish();
   // });
+    streamEng.publish();
 
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
