@@ -32,6 +32,7 @@ $(document).ready(function() {
   socket.emit('create user', user, roomName);
 
   $('#publishButton').click(function() {
+      $('#infoText').attr('hidden', 'true');
     streamEng.publish();
   });
 

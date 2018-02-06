@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2531af2b-a3f5-4147-9a4d-02c8a95a0611" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/styles/chat.css" afterPath="$PROJECT_DIR$/interview/MainServer/styles/chat.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/chat.html" afterPath="$PROJECT_DIR$/interview/MainServer/chat.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/js/main.js" afterPath="$PROJECT_DIR$/interview/MainServer/js/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+              <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -37,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+            <state relative-caret-position="225">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -57,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
+            <state relative-caret-position="406">
+              <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -125,11 +126,11 @@
         <option value="$PROJECT_DIR$/interview/MainServer/package.json" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/signin.js" />
         <option value="$PROJECT_DIR$/interview/MainServer/index.html" />
-        <option value="$PROJECT_DIR$/interview/MainServer/js/main.js" />
         <option value="$PROJECT_DIR$/interview/BroadcastServer/broadcastServer.js" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/streamEng.js" />
-        <option value="$PROJECT_DIR$/interview/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/interview/MainServer/styles/chat.css" />
+        <option value="$PROJECT_DIR$/interview/MainServer/chat.html" />
+        <option value="$PROJECT_DIR$/interview/MainServer/js/main.js" />
       </list>
     </option>
   </component>
@@ -264,7 +265,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517873786671</updated>
-      <workItem from="1517873789145" duration="14028000" />
+      <workItem from="1517873789145" duration="14115000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1517883272794</created>
@@ -410,7 +411,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14028000" />
+    <option name="totallyTimeSpent" value="14115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1113" extended-state="6" />
@@ -476,22 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/signin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interview/BroadcastServer/broadcastServer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -508,6 +493,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/styles/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/interview/MainServer/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -519,15 +512,23 @@
     <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+          <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/styles/chat.css">
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/signin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        <state relative-caret-position="240">
+          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
           <folding />
         </state>
       </provider>
