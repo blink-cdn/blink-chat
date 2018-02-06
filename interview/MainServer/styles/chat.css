@@ -67,8 +67,9 @@ h5 {
 
 .modal-content {
   width: 75%;
-  height: 200px;
+  height: 125px;
   margin-top: 2.5%;
+  color: white;
 }
 
 #link {
