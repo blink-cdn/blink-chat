@@ -12,6 +12,12 @@ video {
   max-height: 90vh;
 }
 
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .btn-row {
   align-content: center;
 }
