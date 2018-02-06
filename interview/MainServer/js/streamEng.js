@@ -273,5 +273,5 @@ function setupPage() {
 
 ///////////////////
 function errorHandler(error) {
-    console.log(error.prototype.message);
+    console.log(error.message);
 }
