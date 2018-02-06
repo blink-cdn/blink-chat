@@ -81,7 +81,7 @@ function setupSocket() {
   streamEng.onAddNewPublisher = function(videoIndex) {
     numPublishers++;
     videoIndices.push(videoIndex);
-    var newVideoLayer = "<div class=\"videoStream\"><center><video id=\"remoteVideo" + videoIndex + "\" autoplay></video></center>"
+    var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
     $('#remote-video-div').html(function() {
       return $('#remote-video-div').html() + newVideoLayer
     });
