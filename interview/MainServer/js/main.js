@@ -113,6 +113,8 @@ function applyColumnClassesToVideo() {
     smallColumnSize = 6;
   }
 
+  $('#infoText').attr('hidden', 'true');
+
   if (isPublished) {
     $('#local-video-div').attr('class',"");
     $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
