@@ -58,21 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+            <state relative-caret-position="230">
+              <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/js/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="57" column="24" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+            <state relative-caret-position="396">
+              <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -85,10 +85,10 @@
       <find>onPublish</find>
       <find>publish</find>
       <find>publishButton</find>
-      <find>streamEng.publish</find>
       <find>.publish =</find>
       <find>.publish</find>
       <find>setupService</find>
+      <find>streamEng.publish</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,8 +103,8 @@
         <option value="$PROJECT_DIR$/interview/MainServer/index.html" />
         <option value="$PROJECT_DIR$/interview/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/interview/MainServer/styles/chat.css" />
-        <option value="$PROJECT_DIR$/interview/MainServer/js/main.js" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/streamEng.js" />
+        <option value="$PROJECT_DIR$/interview/MainServer/js/main.js" />
       </list>
     </option>
   </component>
@@ -233,7 +233,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517873786671</updated>
-      <workItem from="1517873789145" duration="8921000" />
+      <workItem from="1517873789145" duration="9049000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1517883272794</created>
@@ -277,11 +277,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517890266120</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="...">
+      <created>1517890759167</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1517890759167</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8921000" />
+    <option name="totallyTimeSpent" value="9049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1113" extended-state="6" />
@@ -379,18 +386,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/streamEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        <state relative-caret-position="396">
+          <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/streamEng.js">
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="57" column="24" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+        <state relative-caret-position="230">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="21" />
           <folding />
         </state>
       </provider>
