@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2531af2b-a3f5-4147-9a4d-02c8a95a0611" name="Default" comment="added interview">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/interview/MainServer/chat.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/interview/MainServer/js/signin.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interview/MainServer/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interview/MainServer/package-lock.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interview/package.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/index.html" afterPath="$PROJECT_DIR$/interview/MainServer/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/js/main.js" afterPath="$PROJECT_DIR$/interview/MainServer/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/js/streamEng.js" afterPath="$PROJECT_DIR$/interview/MainServer/js/streamEng.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interview/MainServer/chat.html" afterPath="$PROJECT_DIR$/interview/MainServer/chat.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+            <state relative-caret-position="315">
+              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -54,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="151">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -94,9 +87,9 @@
         <option value="$PROJECT_DIR$/interview/MainServer/package.json" />
         <option value="$PROJECT_DIR$/interview/MainServer/index.html" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/signin.js" />
-        <option value="$PROJECT_DIR$/interview/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/streamEng.js" />
         <option value="$PROJECT_DIR$/interview/MainServer/js/main.js" />
+        <option value="$PROJECT_DIR$/interview/MainServer/chat.html" />
       </list>
     </option>
   </component>
@@ -191,6 +184,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -217,15 +211,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517873786671</updated>
-      <workItem from="1517873789145" duration="4764000" />
+      <workItem from="1517873789145" duration="5102000" />
     </task>
+    <task id="LOCAL-00001" summary="..">
+      <created>1517883272794</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1517883272795</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4764000" />
+    <option name="totallyTimeSpent" value="5102000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1113" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -235,7 +238,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907662" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -253,9 +256,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=".." />
     <MESSAGE value="added interview" />
-    <option name="LAST_COMMIT_MESSAGE" value="added interview" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -302,14 +305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interview/MainServer/js/streamEng.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -320,8 +315,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/interview/MainServer/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="151">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
           <folding />
         </state>
       </provider>
