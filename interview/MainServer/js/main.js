@@ -113,16 +113,14 @@ function applyColumnClassesToVideo() {
   }
 
   if (isPublished) {
-      var localVideoDiv = $('local-video-div');
-      localVideoDiv.attr('class',"");
-      localVideoDiv.addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    $('#local-video-div').attr('class',"");
+    $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
   }
 
   for (var i = 0; i < videoIndices.length; i++) {
     var videoIndex = videoIndices[i];
-    var videoStream = $('.videoStream');
-    videoStream.attr('class',"videoStream");
-    videoStream.addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    $('.videoStream').attr('class',"videoStream");
+    $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
   }
 
   console.log("Classes applied.");
