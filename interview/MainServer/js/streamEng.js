@@ -29,22 +29,23 @@ var constraints = {
 //// StreamCast Eng Stuff
 
 var streamEng = {
-  socket: null,
-  serviceAddress: null
-}
+    socket: null,
+    serviceAddress: null,
+    onSubscribeDone: undefined
+};
 
 var numPublishers = 0;
 
 streamEng.setupService = function() {
   streamEng.subscribe();
-}
+};
 
 streamEng.publish = function() {
   setupMediaStream(false);
   streamEng.socket.emit('publish', user.userID, roomName);
   user.isPublished = true;
   console.log("Publishing");
-}
+};
 
 streamEng.subscribe = function() {
   setupPage();
@@ -81,6 +82,11 @@ streamEng.subscribe = function() {
       var peerNumber = peerNumberOf[clientID];
       setupMediaStream(true, peerNumber);
     }
+
+    if (streamEng.onSubscribeDone != "undefined") {
+        streamEng.onSubscribeDone();
+    }
+
   });
 
   // The broadcaster is ready to stream, create a PC for it

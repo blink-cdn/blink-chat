@@ -55,8 +55,11 @@ function setupSocket() {
     engine.serviceAddress = serviceAddress;
 
     engine.setupService();
-      streamEng.publish();
   });
+
+  streamEng.onSubscribeDone = function() {
+      streamEng.publish();
+  };
 
   streamEng.onPublish = function(stream) {
     if (!isPublished) {
