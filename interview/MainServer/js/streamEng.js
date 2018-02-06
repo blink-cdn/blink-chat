@@ -51,9 +51,6 @@ streamEng.subscribe = function() {
   streamEng.socket = io.connect(streamEng.serviceAddress);
   console.log("Connected to Stream Server", streamEng.serviceAddress, roomName);
 
-  $('#publishButton').click(function() {
-    streamEng.publish();
-  });
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
   // When it receives a here message, add user to peers (only publishers get here msg's)

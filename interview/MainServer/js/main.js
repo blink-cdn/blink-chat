@@ -1,7 +1,7 @@
 // Connects to socket.io server
 var socket;
 var uuid;
-var roomName = 'helloAdele';
+var roomName = window.location.hash;
 console.log("Connected");
 
 
@@ -30,6 +30,12 @@ $(document).ready(function() {
 
   user.name = 'user';
   socket.emit('create user', user, roomName);
+
+  // $('#publishButton').click(function() {
+  //   streamEng.publish();
+  // });
+
+  streamEng.publish();
 });
 
 /******* SOCKET ********/
