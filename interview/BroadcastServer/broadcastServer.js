@@ -38,7 +38,7 @@ io.sockets.on('connection', function(socket) {
           streamRooms[roomName].clients[i].socket.emit('here', userID);
           console.log("Send \'here\' to ", streamRooms[roomName].clients[i].socket.id);
         }
-      })
+      });
 
       socket.on('signal', function(message, destUuid, roomName) {
         onSignal(message, destUuid, roomName, socket);

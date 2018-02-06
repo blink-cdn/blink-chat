@@ -60,6 +60,7 @@ streamEng.subscribe = function() {
 
   // When it receives a here message, add user to peers (only publishers get here msg's)
   streamEng.socket.on('here', function(clientID) {
+      console.log("Here from", clientID);
 
     if (!peerNumberOf.hasOwnProperty(clientID)) {
       //if clientID is still blank, AND if clientID doesn't exist yet AND this device isn't the userID
