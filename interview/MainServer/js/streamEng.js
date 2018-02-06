@@ -182,19 +182,15 @@ function gotMessageFromServer(message) {
 function joinRoom() {
   // It only runs two of each cuz of that error;
   try {
-    startCall();
+      setupMediaStream(true, peers.length-1);
   } catch(err) {
-    console.log("Error:", err)
+      console.log("Error:", err)
   }
   try {
-    startCall();
+      setupMediaStream(true, peers.length-1);
   } catch(err) {
-    console.log("Error:", err)
+      console.log("Error:", err)
   }
-}
-
-function startCall() {
-    setupMediaStream(true, peers.length-1);
 }
 
 
@@ -214,7 +210,9 @@ function setupMediaStream(startStream, peerNumber) {
             peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
             sendToPeerValue = peerNumber;
-            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(function() {
+                console.log("Error caught");
+            });
         }
       }).catch(errorHandler);
   } else {
