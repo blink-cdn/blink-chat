@@ -12,6 +12,10 @@ video {
   max-height: 90vh;
 }
 
+#publishButton {
+
+}
+
 .videoStream {
   margin: 0 auto;
   width: 100%;

@@ -255,8 +255,6 @@ function setAndSendDescription(description) {
                 'userID': user.userID
             }, peers[sendToPeerValue].userID, roomName);
         }).catch(errorHandler);
-
-        peers[sendToPeerValue].setAndSentDescription = true;
   // }
 }
 
