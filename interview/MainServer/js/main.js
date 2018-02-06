@@ -123,14 +123,16 @@ function applyColumnClassesToVideo() {
     var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-    $('body').attr('class', 'bg-dark');
+
   }
 
   if (numPublishers === 0) {
       $('body').attr('class', 'bg-light');
       $('#infoText').attr('hidden', 'false');
   } else {
-      $('#infoText').attr('style', 'background-color: black');
+      $('#infoText').attr('hidden', 'true');
+      $('body').attr('class', '');
+      $('body').css('background-color', 'black');
   }
 
   console.log("Classes applied.");
