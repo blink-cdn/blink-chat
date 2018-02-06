@@ -18,6 +18,10 @@ video {
   align-content: center;
 }
 
+.center-vertical {
+  margin: 25vh auto;
+}
+
 .btn-row {
   align-content: center;
 }

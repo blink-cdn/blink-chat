@@ -21,8 +21,8 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="420">
+              <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -41,8 +41,8 @@
       <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interview/MainServer/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="150">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -265,7 +265,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517873786671</updated>
-      <workItem from="1517873789145" duration="13660000" />
+      <workItem from="1517873789145" duration="13927000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1517883272794</created>
@@ -393,11 +393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517930644895</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="...">
+      <created>1517932499564</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1517932499564</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13660000" />
+    <option name="totallyTimeSpent" value="13927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1113" extended-state="6" />
@@ -505,16 +512,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/interview/MainServer/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="420">
+          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/interview/MainServer/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
