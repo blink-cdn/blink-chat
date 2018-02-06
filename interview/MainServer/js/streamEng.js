@@ -248,7 +248,6 @@ function setAndSendDescription(description) {
   //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
   //   }).catch(errorHandler);
   // } else {
-    if (peers[sendToPeerValue].setAndSentDescription === false) {
         peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function () {
             streamEng.socket.emit('signal', {
                 'type': 'sdp',
@@ -258,7 +257,6 @@ function setAndSendDescription(description) {
         }).catch(errorHandler);
 
         peers[sendToPeerValue].setAndSentDescription = true;
-    }
   // }
 }
 
