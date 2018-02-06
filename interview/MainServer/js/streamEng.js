@@ -131,7 +131,7 @@ streamEng.subscribe = function() {
      }
   });
 
-    if (streamEng.onSubscribeDone != "undefined") {
+    if (typeof streamEng.onSubscribeDone != "undefined") {
         streamEng.onSubscribeDone();
     }
 
