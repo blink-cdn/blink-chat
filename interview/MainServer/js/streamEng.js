@@ -17,13 +17,13 @@ const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
 // var publishers = [];
 var peers = [];
 var peerNumberOf = {
-  "userID": "peerNumber",
-}
+  "userID": "peerNumber"
+};
 
 var constraints = {
   video: true,
   audio: true
-}
+};
 
 ///////////////////////
 //// StreamCast Eng Stuff
@@ -64,7 +64,7 @@ streamEng.subscribe = function() {
 
     if (!peerNumberOf.hasOwnProperty(clientID)) {
       //if clientID is still blank, AND if clientID doesn't exist yet AND this device isn't the userID
-      if (user.userID != clientID) {
+      if (user.userID !== clientID) {
         console.log("Here from:", clientID);
         var newPeerConnection = createPeerConnection(clientID);
         peers.push({
@@ -91,13 +91,14 @@ streamEng.subscribe = function() {
     console.log("A new publisher is ready:", publisherNumber);
 
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
-      if (user.userID != publisherID) {
+      if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
         peers.push({
-          "userID": publisherID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
+            userID: publisherID,
+            number: (peers.length),
+            peerConnection: newPeerConnection,
+            publisherNumber: publisherNumber,
+            setAndSentDescription: false
         });
 
         peerNumberOf[publisherID] = peers.length - 1;
@@ -132,7 +133,7 @@ streamEng.subscribe = function() {
      }
   });
 
-    if (typeof streamEng.onSubscribeDone != "undefined") {
+    if (typeof streamEng.onSubscribeDone !== "undefined") {
         streamEng.onSubscribeDone();
     }
 
@@ -147,40 +148,34 @@ function gotMessageFromServer(message) {
     var peerNumber = -1;
 
     // Ignore messages from ourself
-    if(signal.userID == user.userID) {
+    if(signal.userID === user.userID) {
       console.log("Received from self");
       return;
     }
 
-    if (true) {
+    // if (true) {
       // If I'm the broadcaster, loop through my peers and find the right
       // peer connection to use to send to
-      peerNumber = peerNumberOf[signal.userID]
+      peerNumber = peerNumberOf[signal.userID];
 
-      if (peers[peerNumber].userID == signal.userID) {
+      if (peers[peerNumber].userID === signal.userID) {
 
-        if(signal.type == "sdp") {
+        if(signal.type === "sdp") {
             peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
                 // Only create answers in response to offers
-                if(signal.sdp.type == 'offer') {
-                    console.log("Got offer")
+                if(signal.sdp.type === 'offer') {
+                    console.log("Got offer");
                     sendToPeerValue = peerNumber;
-                    peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(function() {
-                        console.log("Error cuaght 7");
-                    });
+                    peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler);
                 } else {
                   console.log("Got answer")
                 }
-            }).catch(function() {
-                console.log("Error cuaght5 ");
-            });
-        } else if(signal.type == "ice") {
-            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(function() {
-                console.log("Error cuaght 6");
-            });
+            }).catch(errorHandler);
+        } else if(signal.type === "ice") {
+            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
         }
       }
-    }
+    // }
 
 
 }
@@ -200,29 +195,25 @@ function joinRoom() {
 }
 
 
-// Get the media from camaera/microphone.
+// Get the media from camera/microphone.
 function setupMediaStream(startStream, peerNumber) {
 
   if(navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         localStreams[peerNumber] = stream;
 
-        if (startStream == false) {
+        if (startStream === false) {
           streamEng.onPublish(stream);
         }
 
         // If you want to start the stream, addStream to connection
-        if (startStream == true) {
+        if (startStream === true) {
             peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
             sendToPeerValue = peerNumber;
-            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(function() {
-                console.log("Error caught");
-            });
+            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
         }
-      }).catch(function() {
-          console.log("error caught 2");
-      });
+      }).catch(errorHandler);
   } else {
       alert('Your browser does not support getUserMedia API');
   }
@@ -233,12 +224,12 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   var newPeerConnection = new RTCPeerConnection(configOptions);
   newPeerConnection.onicecandidate = function(event) {
-    if(event.candidate != null) {
+    if(event.candidate !== null) {
         streamEng.socket.emit('signal', {'type': 'ice', 'ice': event.candidate, 'userID': user.userID}, peerUserID, roomName);
     }
   };
 
-  if (publisherNumber != null) {
+  if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
       console.log('Received remote stream');
       $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
@@ -252,19 +243,23 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
 function setAndSendDescription(description) {
 
-  if (sendToPeerValue == -10) {
-    broadcaster.peerConnection.setLocalDescription(description).then(function() {
-        streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
-    }).catch(function() {
-        console.log("Error cuaght3");
-    });
-  } else {
-    peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function() {
-        streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': peers[sendToPeerValue].peerConnection.localDescription, 'userID': user.userID}, peers[sendToPeerValue].userID, roomName);
-    }).catch(function() {
-        console.log("Error cuaght 4");
-    });
-  }
+  // if (sendToPeerValue == -10) {
+  //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
+  //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
+  //   }).catch(errorHandler);
+  // } else {
+    if (peers[sendToPeerValue].setAndSentDescription === false) {
+        peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function () {
+            streamEng.socket.emit('signal', {
+                'type': 'sdp',
+                'sdp': peers[sendToPeerValue].peerConnection.localDescription,
+                'userID': user.userID
+            }, peers[sendToPeerValue].userID, roomName);
+        }).catch(errorHandler);
+
+        peers[sendToPeerValue].setAndSentDescription = true;
+    }
+  // }
 }
 
 // Setup DOM elements and responses
