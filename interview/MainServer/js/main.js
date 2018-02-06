@@ -33,7 +33,8 @@ $(document).ready(function() {
 
   $('#publishButton').click(function() {
       $('#infoText').attr('hidden', 'true');
-    streamEng.publish();
+      streamEng.publish();
+      $('#publishButton').css('opacity', '0.25');
   });
 
 });
