@@ -35,7 +35,6 @@ $(document).ready(function() {
   //   streamEng.publish();
   // });
 
-  streamEng.publish();
 });
 
 /******* SOCKET ********/
@@ -49,6 +48,7 @@ function setupSocket() {
 
     // Send join stream system Message
     socket.emit('join service', user.userID, 'stream', roomName);
+    streamEng.publish();
   });
 
   socket.on('joined service', function(userID, serviceType, serviceAddress) {
