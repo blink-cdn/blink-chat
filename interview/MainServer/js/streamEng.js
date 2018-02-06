@@ -273,5 +273,6 @@ function setupPage() {
 
 ///////////////////
 function errorHandler(error) {
-    console.log(error);
+    console.log(error[:3]);
+    if(error)
 }
