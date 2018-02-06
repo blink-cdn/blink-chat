@@ -12,6 +12,10 @@ video {
   max-height: 90vh;
 }
 
+h5 {
+  font-weight: 400;
+}
+
 .flex-box {
   display: flex;
   justify-content: center;
