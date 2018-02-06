@@ -165,13 +165,19 @@ function gotMessageFromServer(message) {
                 if(signal.sdp.type == 'offer') {
                     console.log("Got offer")
                     sendToPeerValue = peerNumber;
-                    peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler);
+                    peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(function() {
+                        console.log("Error cuaght 7");
+                    });
                 } else {
                   console.log("Got answer")
                 }
-            }).catch(errorHandler);
+            }).catch(function() {
+                console.log("Error cuaght5 ");
+            });
         } else if(signal.type == "ice") {
-            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(function() {
+                console.log("Error cuaght 6");
+            });
         }
       }
     }
@@ -214,7 +220,9 @@ function setupMediaStream(startStream, peerNumber) {
                 console.log("Error caught");
             });
         }
-      }).catch(errorHandler);
+      }).catch(function() {
+          console.log("error caught 2");
+      });
   } else {
       alert('Your browser does not support getUserMedia API');
   }
@@ -247,11 +255,15 @@ function setAndSendDescription(description) {
   if (sendToPeerValue == -10) {
     broadcaster.peerConnection.setLocalDescription(description).then(function() {
         streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
-    }).catch(errorHandler);
+    }).catch(function() {
+        console.log("Error cuaght3");
+    });
   } else {
     peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function() {
         streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': peers[sendToPeerValue].peerConnection.localDescription, 'userID': user.userID}, peers[sendToPeerValue].userID, roomName);
-    }).catch(errorHandler);
+    }).catch(function() {
+        console.log("Error cuaght 4");
+    });
   }
 }
 
