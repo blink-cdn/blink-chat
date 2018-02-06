@@ -70,7 +70,8 @@ streamEng.subscribe = function() {
         peers.push({
           "userID": clientID,
           "number": (peers.length),
-          "peerConnection": newPeerConnection
+          "peerConnection": newPeerConnection,
+            setAndSentDescription: false
         });
         peerNumberOf[clientID] = peers.length - 1;
 
