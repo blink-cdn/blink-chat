@@ -123,7 +123,7 @@ function applyColumnClassesToVideo() {
     var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-
+    $('.videoStream'+videoIndex.toString()).addClass('centering');
   }
 
   if (numPublishers === 0) {
