@@ -113,17 +113,24 @@ function applyColumnClassesToVideo() {
     smallColumnSize = 6;
   }
 
-  $('#infoText').attr('hidden', 'true');
-
   if (isPublished) {
     $('#local-video-div').attr('class',"");
     $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    $('body').attr('class', 'bg-secondary');
   }
 
   for (var i = 0; i < videoIndices.length; i++) {
     var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+    $('body').attr('class', 'bg-secondary');
+  }
+
+  if (numPublishers === 0) {
+      $('body').attr('class', 'bg-light');
+      $('#infoText').attr('hidden', 'false');
+  } else {
+      $('#infoText').attr('hidden', 'true');
   }
 
   console.log("Classes applied.");
