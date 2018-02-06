@@ -101,10 +101,10 @@ function setupSocket() {
 function applyColumnClassesToVideo() {
   var columnSize;
   var smallColumnSize;
-  if (numPublishers === 1) {
+  if (numPublishers == 1) {
     columnSize = 12;
     smallColumnSize = 12;
-  } else if (numPublishers === 2) {
+  } else if (numPublishers == 2) {
     columnSize = 6;
     smallColumnSize=12;
   } else if (numPublishers >= 3) {

@@ -94,11 +94,10 @@ streamEng.subscribe = function() {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
         peers.push({
-            userID: publisherID,
-            number: (peers.length),
-            peerConnection: newPeerConnection,
-            publisherNumber: publisherNumber,
-            setAndSentDescription: false
+          "userID": publisherID,
+          "number": (peers.length),
+          "peerConnection": newPeerConnection,
+          "publisherNumber": publisherNumber
         });
 
         peerNumberOf[publisherID] = peers.length - 1;
