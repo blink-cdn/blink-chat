@@ -12,8 +12,8 @@ video {
   max-height: 90vh;
 }
 
-#publishButton {
-
+.btn-row {
+  align-content: center;
 }
 
 .videoStream {
