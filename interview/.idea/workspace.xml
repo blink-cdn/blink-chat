@@ -44,21 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-50">
-              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="383">
+              <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="203">
+              <caret line="205" column="29" lean-forward="false" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -66,12 +66,18 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>onPublish</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MainServer/index.html" />
         <option value="$PROJECT_DIR$/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/MainServer/js/streamEng.js" />
+        <option value="$PROJECT_DIR$/MainServer/js/main.js" />
       </list>
     </option>
   </component>
@@ -88,7 +94,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="428" />
+    <option name="x" value="398" />
     <option name="y" value="23" />
     <option name="width" value="1339" />
     <option name="height" value="1113" />
@@ -172,15 +178,15 @@
       <option name="presentableId" value="Default" />
       <updated>1517865786373</updated>
       <workItem from="1517865787816" duration="95000" />
-      <workItem from="1517977626244" duration="4231000" />
+      <workItem from="1517977626244" duration="4430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4326000" />
+    <option name="totallyTimeSpent" value="4525000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="428" y="23" width="1339" height="1113" extended-state="0" />
+    <frame x="398" y="23" width="1339" height="1113" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -241,18 +247,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
+    <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="203">
+          <caret line="205" column="29" lean-forward="false" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
+    <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="383">
+          <caret line="77" column="62" lean-forward="true" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
           <folding />
         </state>
       </provider>

@@ -72,7 +72,7 @@ function setupSocket() {
     isPublished = true;
 
     $('#local-video-div').html(function() {
-      return "<video id=\"local-video\" autoplay></video>";
+      return "<video muted id=\"local-video\" autoplay></video>";
     });
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
