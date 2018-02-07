@@ -1,5 +1,3 @@
-const adapter = require('webrtc-adapter');
-
 //STATUS: WOrking
 var localVideoObject;
 var remoteVideoObject;
