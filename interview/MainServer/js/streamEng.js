@@ -67,7 +67,6 @@ streamEng.subscribe = function() {
       // If this clientID isn't on record yet, create a new PC and add it to record
         // Then join the room
       if (user.userID !== clientID) {
-        console.log("subscriber ready from:", clientID);
         var newPeerConnection = createPeerConnection(clientID);
         peers.push({
           "userID": clientID,
@@ -92,7 +91,7 @@ streamEng.subscribe = function() {
 
   // The broadcaster is ready to stream, create a PC for it
   streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
-    console.log("A new publisher is ready:", publisherNumber);
+    console.log("Publisher ready from:", publisherNumber);
 
     /* If peer doesn't exist, create new PC and add it to list of peers
     If it does exist, reset the publisher number and the onaddstream function
@@ -115,8 +114,10 @@ streamEng.subscribe = function() {
         console.log('Received remote stream');
         $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+        console.log("for peer: ", publisherID);
       };
     }
+
 
     streamEng.onAddNewPublisher(publisherNumber);
   });

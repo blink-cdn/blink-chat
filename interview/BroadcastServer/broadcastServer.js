@@ -1,6 +1,6 @@
-const HTTPS_PORT = 443;
-const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
-const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
+const HTTPS_PORT = 4000;
+const MAIN_SERVER_ADDR = "http://localhost:3000";
+const STREAM_SERVER_ADDR = "https://localhost:4000";
 
 const nodeStatic = require('node-static');
 const https = require('https');
@@ -34,14 +34,6 @@ io.sockets.on('connection', function(socket) {
 
       console.log("here");
 
-      socket.on('subscriber ready', function(userID, roomName) {
-        console.log("Here from: ", userID);
-        for (var i = 0; i < streamRooms[roomName].clients.length; i++) {
-          streamRooms[roomName].clients[i].socket.emit('subscriber ready', userID);
-          console.log("Send \'subscriber ready\' to ", streamRooms[roomName].clients[i].socket.id);
-        }
-      })
-
       socket.on('signal', function(message, destUuid, roomName) {
         onSignal(message, destUuid, roomName, socket);
       });
@@ -49,10 +41,6 @@ io.sockets.on('connection', function(socket) {
       socket.on('disconnect client', function(userID, roomName) {
         onDisconnect(userID, roomName);
       });
-
-      // socket.on('connect to stream', function(userID, roomName, isBroadcaster) {
-      //   onJoin(userID, socket, roomName, isBroadcaster);
-      // });
 
       socket.on('publish', function(userID, roomName) {
         onJoin(userID, socket, roomName, true);
@@ -91,8 +79,9 @@ function onDisconnect(userID, roomName) {
   if(streamRooms[roomName]) {
       var clientsInRoom = streamRooms[roomName].clients
 
-      if (clientsInRoom.length == 1) {
+      if (clientsInRoom.length === 1) {
         streamRooms[roomName] = null;
+        delete streamRooms[roomName];
         return;
       }
 
@@ -117,14 +106,14 @@ function onJoin(userID, socket, roomName, isPublishing) {
     if (!streamRooms[roomName]) {
       streamRooms[roomName] = {
         clients: {},
-        numPublishers: 0,
+        numPublishers: 0
       }
     }
 
-    // If publisher already published
+    // If publisher already published inform the publisher of all subscribers
     else if (streamRooms[roomName].clients[userID].isPublished === true) {
       for (otherClientID in streamRooms[roomName].clients) {
-        if (otherClientID != userID) {
+        if (otherClientID !== userID) {
           socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
         }
       }

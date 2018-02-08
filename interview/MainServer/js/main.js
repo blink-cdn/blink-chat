@@ -81,15 +81,17 @@ function setupSocket() {
 
   streamEng.onAddNewPublisher = function(videoIndex) {
     numPublishers++;
-    videoIndices.push(videoIndex);
-    var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
-    $('#remote-video-div').html(function() {
-      return $('#remote-video-div').html() + newVideoLayer
-    });
+    if (!videoIndices.includes(videoIndex)) {
+        videoIndices.push(videoIndex);
+        var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
+        $('#remote-video-div').html(function() {
+            return $('#remote-video-div').html() + newVideoLayer
+        });
+    }
 
     applyColumnClassesToVideo();
-    console.log("Added:", videoIndex);
-  }
+    console.log("Displayed video:", videoIndex);
+  };
 
   streamEng.onDeletePublisher = function(videoIndex) {
     numPublishers--;
@@ -103,10 +105,10 @@ function setupSocket() {
 function applyColumnClassesToVideo() {
   var columnSize;
   var smallColumnSize;
-  if (numPublishers == 1) {
+  if (numPublishers === 1) {
     columnSize = 12;
     smallColumnSize = 12;
-  } else if (numPublishers == 2) {
+  } else if (numPublishers === 2) {
     columnSize = 6;
     smallColumnSize=12;
   } else if (numPublishers >= 3) {
@@ -135,8 +137,6 @@ function applyColumnClassesToVideo() {
       $('body').attr('class', '');
       $('body').css('background-color', 'black');
   }
-
-  console.log("Classes applied.");
 }
 
 function removeItemFromArray(array, item) {
