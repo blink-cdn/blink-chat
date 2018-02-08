@@ -33,7 +33,7 @@ var rooms = {
   //   services: [], // Array of allowed services
   //   users: {} // Dictionary of members allowed (for easy pulling)
   // },
-}
+};
 
 
 /************ SERVER SETUP *************/
@@ -64,7 +64,7 @@ io.sockets.on('connection', function(socket) {
     console.log(bidValue);
   });
 
-})
+});
 
 /************ SERVICES SERVER SETUP *************/
 var serviceFileServer = new(nodeStatic.Server)();
