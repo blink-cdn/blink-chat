@@ -5,7 +5,6 @@ var broadcastButton;
 
 var roomName = "helloAdele";
 var localStreams = {};
-var sendToPeerValue = -1;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
               { url: 'turn:numb.viagenie.ca',
@@ -171,7 +170,6 @@ function gotMessageFromServer(message) {
                 // Only create answers in response to offers
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer");
-                    sendToPeerValue = peerNumber;
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
                     }).catch(errorHandler);
@@ -218,7 +216,6 @@ function setupMediaStream(startStream, peerNumber) {
         if (startStream === true) {
             peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
-            sendToPeerValue = peerNumber;
             peers[peerNumber].peerConnection.createOffer().then(function(description) {
                 setAndSendDescription(description, peerNumber);
             }).catch(errorHandler);

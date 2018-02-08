@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+            <state relative-caret-position="73">
+              <caret line="245" column="3" lean-forward="true" selection-start-line="245" selection-start-column="3" selection-end-line="245" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -76,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainServer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/mainServer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -92,10 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>videoIndex</find>
-      <find>videoIndex =</find>
-      <find>streamEng.on</find>
-      <find>added:</find>
       <find>A new publish</find>
       <find>classes ap</find>
       <find>adding stream to</find>
@@ -122,6 +118,10 @@
       <find>setAndSendDescription</find>
       <find>setAnd</find>
       <find>displaye</find>
+      <find>sendToPeer</find>
+      <find>3</find>
+      <find>sendToPeerValue =</find>
+      <find>sendToPeerValue</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -129,10 +129,10 @@
       <list>
         <option value="$PROJECT_DIR$/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/MainServer/index.html" />
-        <option value="$PROJECT_DIR$/MainServer/js/streamEng.js" />
         <option value="$PROJECT_DIR$/MainServer/js/main.js" />
         <option value="$PROJECT_DIR$/BroadcastServer/broadcastServer.js" />
         <option value="$PROJECT_DIR$/MainServer/mainServer.js" />
+        <option value="$PROJECT_DIR$/MainServer/js/streamEng.js" />
       </list>
     </option>
   </component>
@@ -240,12 +240,12 @@
       <updated>1517865786373</updated>
       <workItem from="1517865787816" duration="95000" />
       <workItem from="1517977626244" duration="6416000" />
-      <workItem from="1518049662392" duration="4628000" />
+      <workItem from="1518049662392" duration="4713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11139000" />
+    <option name="totallyTimeSpent" value="11224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="623" y="27" width="1345" height="1083" extended-state="0" />
@@ -377,14 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -410,6 +402,14 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/js/streamEng.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="245" column="3" lean-forward="true" selection-start-line="245" selection-start-column="3" selection-end-line="245" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
