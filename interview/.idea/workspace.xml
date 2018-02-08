@@ -67,8 +67,8 @@
       <file leaf-file-name="broadcastServer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BroadcastServer/broadcastServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -77,8 +77,8 @@
       <file leaf-file-name="mainServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/mainServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+            <state relative-caret-position="15">
+              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -114,9 +114,9 @@
       <list>
         <option value="$PROJECT_DIR$/MainServer/chat.html" />
         <option value="$PROJECT_DIR$/MainServer/index.html" />
-        <option value="$PROJECT_DIR$/MainServer/mainServer.js" />
         <option value="$PROJECT_DIR$/MainServer/js/main.js" />
         <option value="$PROJECT_DIR$/MainServer/js/streamEng.js" />
+        <option value="$PROJECT_DIR$/MainServer/mainServer.js" />
         <option value="$PROJECT_DIR$/BroadcastServer/broadcastServer.js" />
       </list>
     </option>
@@ -224,12 +224,12 @@
       <updated>1517865786373</updated>
       <workItem from="1517865787816" duration="95000" />
       <workItem from="1517977626244" duration="6416000" />
-      <workItem from="1518049662392" duration="2087000" />
+      <workItem from="1518049662392" duration="2173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8598000" />
+    <option name="totallyTimeSpent" value="8684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="430" y="28" width="1345" height="1083" extended-state="0" />
@@ -359,14 +359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/mainServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="42" lean-forward="true" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -383,10 +375,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/mainServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BroadcastServer/broadcastServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
