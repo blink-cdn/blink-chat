@@ -1,5 +1,7 @@
-const HTTPS_PORT = 443;
-const HTTP_PORT = 80;
+const HTTPS_PORT = 3001;
+const HTTP_PORT = 3000;
+// const HTTPS_PORT = 443;
+// const HTTP_PORT = 80;
 
 const nodeStatic = require('node-static');
 const https = require('https');

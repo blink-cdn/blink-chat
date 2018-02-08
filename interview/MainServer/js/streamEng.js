@@ -118,7 +118,6 @@ streamEng.subscribe = function() {
       };
     }
 
-
     streamEng.onAddNewPublisher(publisherNumber);
   });
 
