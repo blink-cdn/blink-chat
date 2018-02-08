@@ -105,7 +105,7 @@ streamEng.subscribe = function() {
           "peerConnection": newPeerConnection,
           "publisherNumber": publisherNumber
         });
-
+    //
         peerNumberOf[publisherID] = peers.length - 1;
       }
     } else {
@@ -131,8 +131,8 @@ streamEng.subscribe = function() {
      if (peerNumberOf.hasOwnProperty(userID)) {
        var peerNumber = peerNumberOf[userID];
        if (peers[peerNumber].hasOwnProperty("publisherNumber")) {
-         // If it's a publisher, delete publishers
-         streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
+         // If it's a publisher, delete publishers;
+           streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
        }
 
        peers.splice(peerNumber, 1);
@@ -172,7 +172,9 @@ function gotMessageFromServer(message) {
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer");
                     sendToPeerValue = peerNumber;
-                    peers[peerNumber].peerConnection.createAnswer().then(setAndSendDescription).catch(errorHandler);
+                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                        setAndSendDescription(description, peerNumber);
+                    }).catch(errorHandler);
                 } else {
                   console.log("Got answer")
                 }
@@ -217,7 +219,9 @@ function setupMediaStream(startStream, peerNumber) {
             peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
             sendToPeerValue = peerNumber;
-            peers[peerNumber].peerConnection.createOffer().then(setAndSendDescription).catch(errorHandler);
+            peers[peerNumber].peerConnection.createOffer().then(function(description) {
+                setAndSendDescription(description, peerNumber);
+            }).catch(errorHandler);
         }
       }).catch(errorHandler);
   } else {
@@ -238,9 +242,9 @@ function createPeerConnection(peerUserID, publisherNumber) {
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
       console.log('Received remote stream');
-      $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      console.log("Adding stream to:", publisherNumber);
-      peers[peerNumberOf[peerUserID]].hasConnected = true;
+        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        console.log("Adding stream to:", publisherNumber);
+        peers[peerNumberOf[peerUserID]].hasConnected = true;
     };
   }
 
@@ -248,19 +252,19 @@ function createPeerConnection(peerUserID, publisherNumber) {
   return newPeerConnection;
 }
 
-function setAndSendDescription(description) {
+function setAndSendDescription(description, peerNumber) {
 
   // if (sendToPeerValue == -10) {
   //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
   //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
   //   }).catch(errorHandler);
   // } else {
-        peers[sendToPeerValue].peerConnection.setLocalDescription(description).then(function () {
+        peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
             streamEng.socket.emit('signal', {
                 'type': 'sdp',
-                'sdp': peers[sendToPeerValue].peerConnection.localDescription,
+                'sdp': peers[peerNumber].peerConnection.localDescription,
                 'userID': user.userID
-            }, peers[sendToPeerValue].userID, roomName);
+            }, peers[peerNumber].userID, roomName);
         }).catch(errorHandler);
   // }
 }
