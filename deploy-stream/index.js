@@ -1,9 +1,9 @@
-const HTTPS_PORT = 4000;
-const MAIN_SERVER_ADDR = "http://localhost:3000";
-const STREAM_SERVER_ADDR = "https://localhost:4000";
-// const HTTPS_PORT = 443;
-// const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
-// const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
+// const HTTPS_PORT = 4000;
+// const MAIN_SERVER_ADDR = "http://localhost:3000";
+// const STREAM_SERVER_ADDR = "https://localhost:4000";
+const HTTPS_PORT = 443;
+const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
+const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
 
 const express = require('express');
 const https = require('https');
