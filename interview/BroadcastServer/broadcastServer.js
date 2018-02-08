@@ -1,4 +1,6 @@
-const HTTPS_PORT = 4000;
+const HTTPS_PORT = 443;
+const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
+const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
 
 const nodeStatic = require('node-static');
 const https = require('https');
@@ -64,8 +66,8 @@ io.sockets.on('connection', function(socket) {
 /******* SETUP MAIN SERVER CONNECTION *********/
 
 var io_client = require('socket.io-client');
-var mySocket = io_client.connect("http://localhost:3000");
-mySocket.emit('connect service', "https://localhost:4000", "stream");
+var mySocket = io_client.connect(MAIN_SERVER_ADDR);
+mySocket.emit('connect service', STREAM_SERVER_ADDR, "stream");
 
 mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
   users = rcvdUsers;
