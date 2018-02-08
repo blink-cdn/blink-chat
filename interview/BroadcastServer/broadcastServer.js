@@ -1,4 +1,4 @@
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 4000;
 
 const nodeStatic = require('node-static');
 const https = require('https');
@@ -32,11 +32,11 @@ io.sockets.on('connection', function(socket) {
 
       console.log("here");
 
-      socket.on('here', function(userID, roomName) {
+      socket.on('subscriber ready', function(userID, roomName) {
         console.log("Here from: ", userID);
         for (var i = 0; i < streamRooms[roomName].clients.length; i++) {
-          streamRooms[roomName].clients[i].socket.emit('here', userID);
-          console.log("Send \'here\' to ", streamRooms[roomName].clients[i].socket.id);
+          streamRooms[roomName].clients[i].socket.emit('subscriber ready', userID);
+          console.log("Send \'subscriber ready\' to ", streamRooms[roomName].clients[i].socket.id);
         }
       })
 
@@ -64,8 +64,8 @@ io.sockets.on('connection', function(socket) {
 /******* SETUP MAIN SERVER CONNECTION *********/
 
 var io_client = require('socket.io-client');
-var mySocket = io_client.connect("http://chat.blinkcdn.com");
-mySocket.emit('connect service', "https://streamserver.blinkcdn.com", "stream");
+var mySocket = io_client.connect("http://localhost:3000");
+mySocket.emit('connect service', "https://localhost:4000", "stream");
 
 mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
   users = rcvdUsers;
@@ -109,7 +109,7 @@ function onDisconnect(userID, roomName) {
 function onJoin(userID, socket, roomName, isPublishing) {
 
   // IF it is a publisher, setup as the broadcaster;
-  if (isPublishing == true) {
+  if (isPublishing === true) {
 
     // If Room Doesn't Exist
     if (!streamRooms[roomName]) {
@@ -120,10 +120,10 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     // If publisher already published
-    else if (streamRooms[roomName].clients[userID].isPublished == true) {
+    else if (streamRooms[roomName].clients[userID].isPublished === true) {
       for (otherClientID in streamRooms[roomName].clients) {
         if (otherClientID != userID) {
-          socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
+          socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
         }
       }
 
@@ -131,7 +131,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     // If publisher hasn't published yet
-    else if (streamRooms[roomName].clients[userID].isPublished == false) {
+    else if (streamRooms[roomName].clients[userID].isPublished === false) {
       streamRooms[roomName].numPublishers++;
 
       streamRooms[roomName].clients[userID].isPublished = true;
@@ -152,15 +152,17 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     for (otherClientID in streamRooms[roomName].clients) {
-      if (otherClientID != userID) {
+      if (otherClientID !== userID) {
         streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
-        socket.emit('here', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
+        socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
       }
     }
 
     console.log("Streamer joined the session:", roomName);
     return;
   }
+
+  // If Subscribing
   else {
 
     // if the room doesn't exist, create the room
@@ -173,9 +175,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 
     // If client is in the room, turn their subscribe on
-    // If not add them in, Loop through all the clients,
-    // and find the publishers and let them know a subscriber has joined
-
+    // If not add them in
     if (streamRooms[roomName].clients[userID]) {
       streamRooms[roomName].clients[userID].isSubscribed = true;
     } else {
@@ -188,10 +188,12 @@ function onJoin(userID, socket, roomName, isPublishing) {
       }
     }
 
+    // Loop through all publishers and let them know a new;
+      // subscriber has joined
     for (clientID in streamRooms[roomName].clients) {
-      var client = streamRooms[roomName].clients[clientID]
+      var client = streamRooms[roomName].clients[clientID];
       if (client.isPublished) {
-        client.socket.emit('here', userID, client.publisherNumber);
+        client.socket.emit('subscriber ready', userID, client.publisherNumber);
         socket.emit('publisher ready', clientID, client.publisherNumber);
       }
     }

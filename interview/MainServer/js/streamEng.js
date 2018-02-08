@@ -58,14 +58,16 @@ streamEng.subscribe = function() {
 
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
-  // When it receives a here message, add user to peers (only publishers get here msg's)
-  streamEng.socket.on('here', function(clientID) {
-      console.log("Here from", clientID);
+  // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
+  streamEng.socket.on('subscriber ready', function(clientID) {
+      console.log("Subscriber ready from", clientID);
 
     if (!peerNumberOf.hasOwnProperty(clientID)) {
-      //if clientID is still blank, AND if clientID doesn't exist yet AND this device isn't the userID
+
+      // If this clientID isn't on record yet, create a new PC and add it to record
+        // Then join the room
       if (user.userID !== clientID) {
-        console.log("Here from:", clientID);
+        console.log("subscriber ready from:", clientID);
         var newPeerConnection = createPeerConnection(clientID);
         peers.push({
           "userID": clientID,
@@ -74,15 +76,16 @@ streamEng.subscribe = function() {
             setAndSentDescription: false
         });
         peerNumberOf[clientID] = peers.length - 1;
-
       }
-      joinRoom();
 
+      joinRoom(peerNumberOf[clientID]);
+
+    // If client is on record,
     } else {
       console.log("Already connected to this peer. Initiating stream");
 
       var peerNumber = peerNumberOf[clientID];
-      setupMediaStream(true, peerNumber);
+      joinRoom(peerNumberOf[clientID]);
     }
 
   });
@@ -91,6 +94,9 @@ streamEng.subscribe = function() {
   streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
     console.log("A new publisher is ready:", publisherNumber);
 
+    /* If peer doesn't exist, create new PC and add it to list of peers
+    If it does exist, reset the publisher number and the onaddstream function
+    so that the peer number is correct */
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
@@ -180,18 +186,18 @@ function gotMessageFromServer(message) {
 
 }
 
-function joinRoom() {
-  // It only runs two of each cuz of that error;
-  try {
-      setupMediaStream(true, peers.length-1);
-  } catch(err) {
-      console.log("Error:", err)
-  }
-  try {
-      setupMediaStream(true, peers.length-1);
-  } catch(err) {
-      console.log("Error:", err)
-  }
+function joinRoom(peerNumber) {
+    // It runs two of each cuz of that error;
+    try {
+        setupMediaStream(true, peerNumber);
+    } catch(err) {
+        console.log("Error:", err)
+    }
+    // try {
+    //     setupMediaStream(true, peerNumber);
+    // } catch(err) {
+    //     console.log("Error:", err)
+    // }
 }
 
 
@@ -234,6 +240,7 @@ function createPeerConnection(peerUserID, publisherNumber) {
       console.log('Received remote stream');
       $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
       console.log("Adding stream to:", publisherNumber);
+      peers[peerNumberOf[peerUserID]].hasConnected = true;
     };
   }
 
