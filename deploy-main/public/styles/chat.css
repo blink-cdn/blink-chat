@@ -2,6 +2,20 @@
   /*text-align: center*/
 }
 
+.center-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbotron {
+  width: 70%;
+};
+
+#roomNameInput {
+  max-width: 50%;
+};
+
 video {
   /*background-color: grey;*/
   /*width: 100%;*/
