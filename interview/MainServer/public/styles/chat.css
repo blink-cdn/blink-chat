@@ -8,6 +8,14 @@
   justify-content: center;
 }
 
+.jumbotron {
+  width: 70%;
+};
+
+#roomNameInput {
+  max-width: 50%;
+};
+
 video {
   /*background-color: grey;*/
   /*width: 100%;*/
