@@ -35,9 +35,9 @@ video {
 }
 
 .videoStream {
-  transform: rotateY(0deg);
-  -webkit-transform:rotateY(0deg); /* Safari and Chrome */
-  -moz-transform:rotateY(0deg); /* Firefox */
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+  -moz-transform:rotateY(180deg); /* Firefox */
 }
 
 h5 {
