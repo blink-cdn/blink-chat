@@ -2,7 +2,16 @@
 var socket;
 var uuid;
 var roomName = window.location.hash;
+
 console.log("Connected");
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+var isEdge = !isIE && !!window.StyleMedia;
+
+if (isIE || isSafari || isEdge) {
+    alert("For best experience, please switch to a supported web browser. Supported browsers include Google Chrome, Mozilla Firefox, and Opera")
+}
+
 
 
 // Setup HTML Objects
@@ -24,9 +33,8 @@ var numPublishers = 0;
 var videoIndices = [];
 
 $(document).ready(function() {
-  // Setup Socket
+  // Setup Socket;
   setupSocket();
-
   user.name = 'user';
   socket.emit('create user', user, roomName);
 
