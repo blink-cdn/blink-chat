@@ -24,7 +24,6 @@ var numPublishers = 0;
 var videoIndices = [];
 
 $(document).ready(function() {
-
   // Setup Socket
   setupSocket();
 
