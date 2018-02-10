@@ -44,8 +44,7 @@ h5 {
 }
 
 .center-vertical {
-  margin: 25vh auto;
-  margin-top: calc(20vh - 56px);
+  margin-top: calc(20vh - 65px);
 }
 
 .btn-row {
