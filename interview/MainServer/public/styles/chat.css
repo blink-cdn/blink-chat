@@ -10,11 +10,16 @@
 
 .jumbotron {
   width: 70%;
-};
+  text-align: center;
+}
 
-#roomNameInput {
-  max-width: 50%;
-};
+/*#roomNameInput {*/
+  /*max-width: 30%;*/
+/*};*/
+
+.sm-text-box {
+  width: 70%;
+}
 
 video {
   /*background-color: grey;*/
@@ -40,6 +45,7 @@ h5 {
 
 .center-vertical {
   margin: 25vh auto;
+  margin-top: calc(20vh - 56px);
 }
 
 .btn-row {
