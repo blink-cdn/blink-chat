@@ -34,6 +34,12 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 
+.videoStream {
+  transform: rotateY(0deg);
+  -webkit-transform:rotateY(0deg); /* Safari and Chrome */
+  -moz-transform:rotateY(0deg); /* Firefox */
+}
+
 h5 {
   font-weight: 400;
 }
