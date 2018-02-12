@@ -10,8 +10,8 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const express = require('express');
 
-const sendmail = require('sendmail')({ silent: true });
-
+const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa2479c4c6', domain: 'mg.blinkcdn.com' });
+// const sendmail = require('sendmail')({silent: true});
 
 // Data Structures
 
@@ -82,12 +82,12 @@ io.sockets.on('connection', function(socket) {
         const message = {
             from: 'do_not_reply@blinkcdn.com',
             to: name + ' <' + email + '>',
-            replyTo: 'do_not_reply@blinkcdn.com',
+            // replyTo: 'do_not_reply@blinkcdn.com',
             subject: "You've been invited to BlinkChat!",
-            html: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit ' + link + '</p>'
+            text: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit ' + link + '</p>'
         };
 
-        sendmail(message, function (err, reply) {
+        sendmail.messages().send(message, function (err, reply) {
             // if (err !== null) {
                 console.log("Err:", err);
             // }
