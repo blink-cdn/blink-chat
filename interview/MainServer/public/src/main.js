@@ -178,11 +178,6 @@ function sendInviteTo(name) {
 
 
 const ECE_faculty = {
-    'Bethin': {
-        name: 'Charles Bethin',
-        email: 'charles@blinkcdn.com',
-        img: 'yao.png'
-    },
     'Yao': {
         name: 'Yu-Dong Yao',
         email: 'yyao@stevens.edu',
@@ -252,5 +247,10 @@ const ECE_faculty = {
         name: 'Mukund Iyengar',
         email: 'miyengar@stevens.edu',
         img: 'mukund.jpg'
+    },
+    'Test': {
+        name: 'Test',
+        email: 'justin@blinkcdn.com',
+        img: 'blink.png'
     }
 };
