@@ -84,7 +84,7 @@ io.sockets.on('connection', function(socket) {
             to: name + ' <' + email + '>',
             // replyTo: 'do_not_reply@blinkcdn.com',
             subject: "You've been invited to BlinkChat!",
-            text: 'You\'ve been invited to BlinkChat! To join the chat, visit ' + link
+            text: 'The Stevens ECE department has invited you to BlinkChat! \nTo join the chat, visit ' + link
         };
 
         sendmail.messages().send(message, function (err, reply) {
