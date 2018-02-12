@@ -71,7 +71,7 @@ function setupSocket() {
 
     engine.setupService();
   });
-  //
+
   // streamEng.onSubscribeDone = function() {
   //     streamEng.publish();
   // };
@@ -179,6 +179,11 @@ function sendInviteTo(name) {
 }
 
 const ECE_faculty = {
+    'Charles': {
+        name: 'Charles Bethin',
+        email: 'charles@blinkcdn.com',
+        img: 'yao.png'
+    }
     'Yao': {
         name: 'Yu-Dong Yao',
         email: 'yyao@stevens.edu',

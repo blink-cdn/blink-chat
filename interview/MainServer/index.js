@@ -11,19 +11,6 @@ const fs = require('fs');
 const express = require('express');
 
 const sendmail = require('sendmail')({ silent: true });
-const email = {
-    from: 'do_not_reply@blinkcdn.com',
-    to: 'charles@blinkcdn.com',
-    replyTo: 'do_not_reply@blinkcdn.com',
-    subject: 'Blink TEST',
-    html: '<h3>You\'ve been invited to a blinkChat!</h3><p></p>'
-};
-
-sendmail(email, function (err, reply) {
-    if (err !== null) {
-        console.log("Err:", err);
-    }
-});
 
 
 // Data Structures
@@ -88,6 +75,22 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('place bid', function(bidValue) {
         console.log(bidValue);
+    });
+
+    socket.on('send invite', function(name, email, link) {
+        const email = {
+            from: 'do_not_reply@blinkcdn.com',
+            to: name + ' <' + email + '>',
+            replyTo: 'do_not_reply@blinkcdn.com',
+            subject: "You've been invited to BlinkChat!",
+            html: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit' + link + '</p>'
+        };
+
+        sendmail(email, function (err, reply) {
+            if (err !== null) {
+                console.log("Err:", err);
+            }
+        });
     });
 
 });
