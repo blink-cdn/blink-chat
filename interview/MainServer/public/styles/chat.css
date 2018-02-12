@@ -102,6 +102,7 @@ h5 {
 
 .modal-content {
   color: white;
+  width: 75%;
 }
 
 .modal-body {
@@ -123,9 +124,10 @@ h5 {
 }
 
 .userName {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 20px;
   color: white;
+  width: 160px;
 }
 
 .inviteBtn {
