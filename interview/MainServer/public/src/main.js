@@ -42,12 +42,10 @@ $(document).ready(function() {
       $('#publishButton').css('opacity', '0.25');
   });
 
-  console.log("HEY");
   addUsersToInviteModal(ECE_faculty);
 });
 
 $('#invitePeopleButton').on('click', function() {
-    console.log("GOT IT");
     $('#inviteModal').modal('toggle');
     $('#link-ref').html(function() { return window.location.href });
 });
@@ -79,7 +77,6 @@ function setupSocket() {
   streamEng.onPublish = function(stream) {
     if (!isPublished) {
       numPublishers++;
-      console.log("Upped");
     }
 
     isPublished = true;
@@ -162,7 +159,6 @@ function removeItemFromArray(array, item) {
 function addUsersToInviteModal(users) {
   for (username in users) {
     var user = users[username];
-    console.log(user);
 
     var html = "<div class=\"row userRow centering\">" +
         "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
@@ -177,7 +173,6 @@ function addUsersToInviteModal(users) {
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[split_str.length-1];
-    console.log(username);
     socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
 }
 
@@ -188,74 +183,74 @@ const ECE_faculty = {
         email: 'charles@blinkcdn.com',
         img: 'yao.png'
     },
-    // 'Yao': {
-    //     name: 'Yu-Dong Yao',
-    //     email: 'yyao@stevens.edu',
-    //     img: 'yao.png'
-    // },
-    // 'Man': {
-    //     name: 'Hong Man',
-    //     email: 'hman@stevens.edu',
-    //     img: 'man.jpg'
-    // },
-    // 'Li': {
-    //     name: 'Hongbin Li',
-    //     email: 'hli@stevens.edu',
-    //     img: 'li.jpg'
-    // },
-    // 'Comaniciu': {
-    //     name: 'Cristina Comaniciu',
-    //     email: 'ccomanic@stevens.edu',
-    //     img: 'comaniciu.jpg'
-    // },
-    // 'Chandramouli': {
-    //     name: 'Rajarathnam Chandramouli',
-    //     email: 'rchandr1@stevens.edu',
-    //     img: 'chandramouli.jpg'
-    // },
-    // 'Suba': {
-    //     name: 'Suba Subbalakshmi',
-    //     email: 'ksubbala@stevens.edu',
-    //     img: 'suba.jpg'
-    // },
-    // 'Guo': {
-    //     name: 'Yi Guo',
-    //     email: 'yguo1@stevens.edu',
-    //     img: 'guo.jpg'
-    // },
-    // 'Ackland': {
-    //     name: 'Bryan Ackland',
-    //     email: 'backland@stevens.edu',
-    //     img: 'ackland.jpg'
-    // },
-    // 'Dov': {
-    //     name: 'Dov Kruger',
-    //     email: 'dkruger@stevens.edu',
-    //     img: 'kruger.jpg'
-    // },
-    // 'Negar': {
-    //     name: 'Negar Tavassolian',
-    //     email: 'ntavasso@stevens.edu',
-    //     img: 'negar.jpg'
-    // },
-    // 'Sabau': {
-    //     name: 'Serban Sabau',
-    //     email: 'ssabau@stevens.edu',
-    //     img: 'sabau.jpg'
-    // },
-    // 'Yu': {
-    //     name: 'Shucheng Yu',
-    //     email: 'syu19@stevens.edu',
-    //     img: 'yu.jpg'
-    // },
-    // 'Victor': {
-    //     name: 'Victor Lawrence',
-    //     email: 'vlawrenc@stevens.edu',
-    //     img: 'victor.jpg'
-    // },
-    // 'Mukund': {
-    //     name: 'Mukund Iyengar',
-    //     email: 'miyengar@stevens.edu',
-    //     img: 'mukund.jpg'
-    // }
+    'Yao': {
+        name: 'Yu-Dong Yao',
+        email: 'yyao@stevens.edu',
+        img: 'yao.png'
+    },
+    'Man': {
+        name: 'Hong Man',
+        email: 'hman@stevens.edu',
+        img: 'man.jpg'
+    },
+    'Li': {
+        name: 'Hongbin Li',
+        email: 'hli@stevens.edu',
+        img: 'li.jpg'
+    },
+    'Comaniciu': {
+        name: 'Cristina Comaniciu',
+        email: 'ccomanic@stevens.edu',
+        img: 'comaniciu.jpg'
+    },
+    'Chandramouli': {
+        name: 'Rajarathnam Chandramouli',
+        email: 'rchandr1@stevens.edu',
+        img: 'chandramouli.jpg'
+    },
+    'Suba': {
+        name: 'Suba Subbalakshmi',
+        email: 'ksubbala@stevens.edu',
+        img: 'suba.jpg'
+    },
+    'Guo': {
+        name: 'Yi Guo',
+        email: 'yguo1@stevens.edu',
+        img: 'guo.jpg'
+    },
+    'Ackland': {
+        name: 'Bryan Ackland',
+        email: 'backland@stevens.edu',
+        img: 'ackland.jpg'
+    },
+    'Dov': {
+        name: 'Dov Kruger',
+        email: 'dkruger@stevens.edu',
+        img: 'kruger.jpg'
+    },
+    'Negar': {
+        name: 'Negar Tavassolian',
+        email: 'ntavasso@stevens.edu',
+        img: 'negar.jpg'
+    },
+    'Sabau': {
+        name: 'Serban Sabau',
+        email: 'ssabau@stevens.edu',
+        img: 'sabau.jpg'
+    },
+    'Yu': {
+        name: 'Shucheng Yu',
+        email: 'syu19@stevens.edu',
+        img: 'yu.jpg'
+    },
+    'Victor': {
+        name: 'Victor Lawrence',
+        email: 'vlawrenc@stevens.edu',
+        img: 'victor.jpg'
+    },
+    'Mukund': {
+        name: 'Mukund Iyengar',
+        email: 'miyengar@stevens.edu',
+        img: 'mukund.jpg'
+    }
 };
