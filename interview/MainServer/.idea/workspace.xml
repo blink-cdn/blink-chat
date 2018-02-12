@@ -24,6 +24,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/src/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="179" column="24" lean-forward="false" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+              <folding>
+                <element signature="e#2391#2837#0" expanded="false" />
+                <element signature="e#2893#3124#0" expanded="false" />
+                <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+                <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,8 +54,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="85" column="46" lean-forward="false" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="202">
+              <caret line="50" column="23" lean-forward="false" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -66,21 +81,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="184" column="22" lean-forward="false" selection-start-line="184" selection-start-column="22" selection-end-line="184" selection-end-column="22" />
-              <folding>
-                <marker date="1518469847569" expanded="false" signature="2391:2837" ph="{...}" />
-                <marker date="1518469847569" expanded="false" signature="2893:3124" ph="{...}" />
-                <marker date="1518469847569" expanded="false" signature="3165:4394" ph="{...}" />
-                <marker date="1518469847569" expanded="false" signature="4438:4528" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -91,6 +91,7 @@
       <find>modal</find>
       <find>inviteModal</find>
       <find>let</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>var</replace>
@@ -128,8 +129,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="847" />
-    <option name="y" value="64" />
+    <option name="x" value="1041" />
+    <option name="y" value="50" />
     <option name="width" value="918" />
     <option name="height" value="1024" />
   </component>
@@ -241,10 +242,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27570000" />
+    <option name="totallyTimeSpent" value="28411000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="847" y="64" width="918" height="1024" extended-state="0" />
+    <frame x="1041" y="50" width="918" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20735785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -321,10 +322,10 @@
         <state relative-caret-position="1935">
           <caret line="129" column="3" lean-forward="true" selection-start-line="129" selection-start-column="3" selection-end-line="129" selection-end-column="3" />
           <folding>
-            <marker date="1518469847569" expanded="false" signature="2391:2837" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="2893:3124" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="3165:4394" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="4438:4528" ph="{...}" />
+            <element signature="e#2391#2837#0" expanded="false" />
+            <element signature="e#2893#3124#0" expanded="false" />
+            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -360,10 +361,10 @@
         <state relative-caret-position="120">
           <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
           <folding>
-            <marker date="1518469847569" expanded="false" signature="2391:2837" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="2893:3124" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="3165:4394" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="4438:4528" ph="{...}" />
+            <element signature="e#2391#2837#0" expanded="false" />
+            <element signature="e#2893#3124#0" expanded="false" />
+            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -520,11 +521,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/styles/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/src/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="179" column="24" lean-forward="false" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="24" />
+          <folding>
+            <element signature="e#2391#2837#0" expanded="false" />
+            <element signature="e#2893#3124#0" expanded="false" />
+            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -538,31 +560,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-465">
-          <caret line="102" column="16" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="184" column="22" lean-forward="false" selection-start-line="184" selection-start-column="22" selection-end-line="184" selection-end-column="22" />
-          <folding>
-            <marker date="1518469847569" expanded="false" signature="2391:2837" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="2893:3124" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="3165:4394" ph="{...}" />
-            <marker date="1518469847569" expanded="false" signature="4438:4528" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="85" column="46" lean-forward="false" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="202">
+          <caret line="50" column="23" lean-forward="false" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
           <folding />
         </state>
       </provider>

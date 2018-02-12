@@ -78,18 +78,19 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('send invite', function(name, email, link) {
-        const email = {
+        console.log("Got it");
+        const message = {
             from: 'do_not_reply@blinkcdn.com',
             to: name + ' <' + email + '>',
             replyTo: 'do_not_reply@blinkcdn.com',
             subject: "You've been invited to BlinkChat!",
-            html: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit' + link + '</p>'
+            html: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit ' + link + '</p>'
         };
 
-        sendmail(email, function (err, reply) {
-            if (err !== null) {
+        sendmail(message, function (err, reply) {
+            // if (err !== null) {
                 console.log("Err:", err);
-            }
+            // }
         });
     });
 
@@ -140,7 +141,7 @@ function createUser(user, roomName, socket) {
         userID: uuid(),
         name: user.name,
         userImg: user.userImg
-    }
+    };
 
     // Add user to the array of users
     sockets[newUser.userID] = socket;
@@ -150,7 +151,7 @@ function createUser(user, roomName, socket) {
     if(!rooms[roomName]) {
         rooms[roomName] = {
             users: {},
-        }
+        };
 
         rooms[roomName].roomName = roomName;
         rooms[roomName].users[newUser.userID] = newUser
