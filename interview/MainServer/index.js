@@ -84,7 +84,7 @@ io.sockets.on('connection', function(socket) {
             to: name + ' <' + email + '>',
             // replyTo: 'do_not_reply@blinkcdn.com',
             subject: "You've been invited to BlinkChat!",
-            text: '<h3>You\'ve been invited to BlinkChat!</h3><p>To join the chat, visit ' + link + '</p>'
+            text: 'You\'ve been invited to BlinkChat! To join the chat, visit ' + link
         };
 
         sendmail.messages().send(message, function (err, reply) {
@@ -277,3 +277,17 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
+// function stringToLink(string) {
+//     var returnString = "";
+//
+//     for (i in string) {
+//         if (string[i] == " ") {
+//             returnString += "_";
+//         } else {
+//             returnString += string[i];
+//         }
+//     }
+//
+//     return returnString;
+// };

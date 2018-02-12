@@ -25,7 +25,8 @@ function onGoToChat() {
     console.log("Going to chat.");
     // console.log("https://" + window.location.hostname);
 
-    window.location.href = "https://" + window.location.hostname + "/chat.html#" + objs.roomNameInput.value;
+    var roomname_in = stringToLink(objs.roomNameInput.value);
+    window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname_in;
 }
 
 
@@ -100,3 +101,17 @@ function removeLetter(string, el, count) {
         }
     }, randDelay(100, 100));
 }
+
+function stringToLink(string) {
+    var returnString = "";
+
+    for (i in string) {
+        if (string[i] == " ") {
+            returnString += "_";
+        } else {
+            returnString += string[i];
+        }
+    }
+
+    return returnString;
+};
