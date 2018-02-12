@@ -44,6 +44,13 @@ $(document).ready(function() {
       $('#publishButton').css('opacity', '0.25');
   });
 
+  console.log("HEY");
+});
+
+$('#invitePeopleButton').on('click', function() {
+    console.log("GOT IT");
+    $('#inviteModal').modal('toggle');
+    $('#link-ref').html(function() { return window.location.href });
 });
 
 /******* SOCKET ********/

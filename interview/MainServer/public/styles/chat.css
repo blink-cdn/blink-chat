@@ -2,6 +2,10 @@
   /*text-align: center*/
 }
 
+#invitePeopleButton {
+  cursor: pointer;
+}
+
 .center-items {
   display: flex;
   align-items: center;
@@ -87,19 +91,62 @@ h5 {
   /* height: 100%; */
 }
 
-/* Modal */
-#myModal {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+/* MODAL */
+.modal-header {
+  border: none;
+}
+
+.modal-footer {
+  border: none;
 }
 
 .modal-content {
-  width: 75%;
-  height: 125px;
-  margin-top: 2.5%;
   color: white;
 }
+
+.modal-body {
+  /*color: gray;*/
+  color: white;
+}
+
+
+.userRow {
+  height: 70px;
+  margin: 15px;
+  margin: 5px 15px 0px 15px;
+}
+
+.userImg {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.userName {
+  margin-left: 10px;
+  margin-top: 20px;
+  color: white;
+}
+
+.inviteBtn {
+  height: 40px;
+  margin-left: 12px;
+  margin-top: 12px;
+}
+/*!* Modal *!*/
+/*#myModal {*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-content: center;*/
+/*}*/
+
+/*.modal-content {*/
+  /*width: 75%;*/
+  /*height: 125px;*/
+  /*margin-top: 2.5%;*/
+  /*color: white;*/
+/*}*/
+
 
 #link {
   text-align: center;
