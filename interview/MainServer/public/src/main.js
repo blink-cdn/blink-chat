@@ -12,8 +12,6 @@ if (isIE || isSafari || isEdge) {
     alert("For best experience, please switch to a supported web browser. Supported browsers include Google Chrome, Mozilla Firefox, and Opera")
 }
 
-
-
 // Setup HTML Objects
 var button;
 

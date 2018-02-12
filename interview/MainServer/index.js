@@ -10,6 +10,22 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const express = require('express');
 
+const sendmail = require('sendmail')({ silent: true });
+const email = {
+    from: 'do_not_reply@blinkcdn.com',
+    to: 'charles@blinkcdn.com',
+    replyTo: 'do_not_reply@blinkcdn.com',
+    subject: 'Blink TEST',
+    html: '<h3>You\'ve been invited to a blinkChat!</h3><p></p>'
+};
+
+sendmail(email, function (err, reply) {
+    if (err !== null) {
+        console.log("Err:", err);
+    }
+});
+
+
 // Data Structures
 
 let users = {
