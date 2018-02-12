@@ -175,8 +175,9 @@ function addUsersToInviteModal(users) {
 }
 
 function sendInviteTo(name) {
-    console.log("GOT IT!!", name);
+    socket.emit('name',ECE_faculty.name, 'email', ECE_faculty[name].email, 'link', window.location.href);
 }
+
 
 const ECE_faculty = {
     'Charles': {
