@@ -80,7 +80,7 @@ io.sockets.on('connection', function(socket) {
     socket.on('send invite', function(name, email, link) {
         console.log("Got it");
         const message = {
-            from: 'do_not_reply@blinkcdn.com',
+            from: 'BlinkCDN <do_not_reply@blinkcdn.com>',
             to: name + ' <' + email + '>',
             // replyTo: 'do_not_reply@blinkcdn.com',
             subject: "You've been invited to BlinkChat!",
