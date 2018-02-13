@@ -2,8 +2,15 @@
 var socket;
 var uuid;
 var roomName = window.location.hash;
-console.log("Connected");
 
+console.log("Connected");
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+var isEdge = !isIE && !!window.StyleMedia;
+
+if (isIE || isSafari || isEdge) {
+    alert("For best experience, please switch to a supported web browser. Supported browsers include Google Chrome, Mozilla Firefox, and Opera")
+}
 
 // Setup HTML Objects
 var button;
@@ -24,10 +31,8 @@ var numPublishers = 0;
 var videoIndices = [];
 
 $(document).ready(function() {
-
-  // Setup Socket
+  // Setup Socket;
   setupSocket();
-
   user.name = 'user';
   socket.emit('create user', user, roomName);
 
@@ -37,6 +42,12 @@ $(document).ready(function() {
       $('#publishButton').css('opacity', '0.25');
   });
 
+  addUsersToInviteModal(ECE_faculty);
+});
+
+$('#invitePeopleButton').on('click', function() {
+    $('#inviteModal').modal('toggle');
+    $('#link-ref').html(function() { return window.location.href });
 });
 
 /******* SOCKET ********/
@@ -58,7 +69,7 @@ function setupSocket() {
 
     engine.setupService();
   });
-  //
+
   // streamEng.onSubscribeDone = function() {
   //     streamEng.publish();
   // };
@@ -66,7 +77,6 @@ function setupSocket() {
   streamEng.onPublish = function(stream) {
     if (!isPublished) {
       numPublishers++;
-      console.log("Upped");
     }
 
     isPublished = true;
@@ -145,3 +155,102 @@ function removeItemFromArray(array, item) {
     array.splice(index, 1);
   }
 }
+
+function addUsersToInviteModal(users) {
+  for (username in users) {
+    var user = users[username];
+
+    var html = "<div class=\"row userRow centering\">" +
+        "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
+        "<p class=\"userName\">" + user.name +"</p>" +
+        "<button class=\"btn btn-secondary inviteBtn\" onclick=\"sendInviteTo(\'" + user.name + "\')\">Invite</button>" +
+        "</div>";
+
+    $('#users').append(html);
+  }
+}
+
+function sendInviteTo(name) {
+    var split_str = name.split(' ');
+    var username = split_str[split_str.length-1];
+    socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
+}
+
+
+const ECE_faculty = {
+    'Yao': {
+        name: 'Yu-Dong Yao',
+        email: 'yyao@stevens.edu',
+        img: 'yao.png'
+    },
+    'Man': {
+        name: 'Hong Man',
+        email: 'hman@stevens.edu',
+        img: 'man.jpg'
+    },
+    'Li': {
+        name: 'Hongbin Li',
+        email: 'hli@stevens.edu',
+        img: 'li.jpg'
+    },
+    'Comaniciu': {
+        name: 'Cristina Comaniciu',
+        email: 'ccomanic@stevens.edu',
+        img: 'comaniciu.jpg'
+    },
+    'Chandramouli': {
+        name: 'Rajarathnam Chandramouli',
+        email: 'rchandr1@stevens.edu',
+        img: 'chandramouli.jpg'
+    },
+    'Subbalakshmi': {
+        name: 'Suba Subbalakshmi',
+        email: 'ksubbala@stevens.edu',
+        img: 'suba.jpg'
+    },
+    'Guo': {
+        name: 'Yi Guo',
+        email: 'yguo1@stevens.edu',
+        img: 'guo.jpg'
+    },
+    'Ackland': {
+        name: 'Bryan Ackland',
+        email: 'backland@stevens.edu',
+        img: 'ackland.jpg'
+    },
+    'Kruger': {
+        name: 'Dov Kruger',
+        email: 'dkruger@stevens.edu',
+        img: 'kruger.jpg'
+    },
+    'Tavassolian': {
+        name: 'Negar Tavassolian',
+        email: 'ntavasso@stevens.edu',
+        img: 'negar.jpg'
+    },
+    'Sabau': {
+        name: 'Serban Sabau',
+        email: 'ssabau@stevens.edu',
+        img: 'sabau.jpg'
+    },
+    'Yu': {
+        name: 'Shucheng Yu',
+        email: 'syu19@stevens.edu',
+        img: 'yu.jpg'
+    },
+    'Lawrence': {
+        name: 'Victor Lawrence',
+        email: 'vlawrenc@stevens.edu',
+        img: 'victor.jpg'
+    },
+    'Iyengar': {
+        name: 'Mukund Iyengar',
+        email: 'miyengar@stevens.edu',
+        img: 'mukund.jpg'
+    },
+    'Test': {
+        name: 'Test',
+        email: 'justin@blinkcdn.com',
+        img: 'blink.png'
+    }
+};

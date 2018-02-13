@@ -1,9 +1,9 @@
+// const HTTPS_PORT = 4000;
+// const MAIN_SERVER_ADDR = "http://localhost:3000";
+// const STREAM_SERVER_ADDR = "https://localhost:4000";
 const HTTPS_PORT = 443;
-const MAIN_SERVER_ADDR = "http://devchat.blinkcdn.com:8080";
-const STREAM_SERVER_ADDR = "https://devstream.blinkcdn.com";
-// const HTTPS_PORT = 443;
-// const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
-// const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
+const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
+const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
 
 const express = require('express');
 const https = require('https');
@@ -18,12 +18,12 @@ let streamRooms = {};
 /************  SERVER SETUP *************/
 
 const certOptions = {
-    key: fs.readFileSync('certs/privkey.pem'),
-    cert: fs.readFileSync('certs/fullchain.pem')
+    key: fs.readFileSync('certs/key.pem'),
+    cert: fs.readFileSync('certs/cert.pem')
 };
 
 let app = express();
-let httpsServer = https.Server(certOptions, app);
+let httpsServer = https.Server(app);
 httpsServer.listen(HTTPS_PORT);
 let io = socketIO.listen(httpsServer);
 

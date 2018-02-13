@@ -10,6 +10,9 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const express = require('express');
 
+const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa2479c4c6', domain: 'mg.blinkcdn.com' });
+// const sendmail = require('sendmail')({silent: true});
+
 // Data Structures
 
 let users = {
@@ -74,6 +77,23 @@ io.sockets.on('connection', function(socket) {
         console.log(bidValue);
     });
 
+    socket.on('send invite', function(name, email, link) {
+        console.log("Got it");
+        const message = {
+            from: 'BlinkCDN <do_not_reply@blinkcdn.com>',
+            to: name + ' <' + email + '>',
+            // replyTo: 'do_not_reply@blinkcdn.com',
+            subject: "You've been invited to BlinkChat!",
+            text: 'The Stevens ECE department has invited you to BlinkChat! \nTo join the chat, visit ' + link
+        };
+
+        sendmail.messages().send(message, function (err, reply) {
+            // if (err !== null) {
+                console.log("Err:", err);
+            // }
+        });
+    });
+
 });
 
 
@@ -121,7 +141,7 @@ function createUser(user, roomName, socket) {
         userID: uuid(),
         name: user.name,
         userImg: user.userImg
-    }
+    };
 
     // Add user to the array of users
     sockets[newUser.userID] = socket;
@@ -131,7 +151,7 @@ function createUser(user, roomName, socket) {
     if(!rooms[roomName]) {
         rooms[roomName] = {
             users: {},
-        }
+        };
 
         rooms[roomName].roomName = roomName;
         rooms[roomName].users[newUser.userID] = newUser
@@ -257,3 +277,17 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
+// function stringToLink(string) {
+//     var returnString = "";
+//
+//     for (i in string) {
+//         if (string[i] == " ") {
+//             returnString += "_";
+//         } else {
+//             returnString += string[i];
+//         }
+//     }
+//
+//     return returnString;
+// };
