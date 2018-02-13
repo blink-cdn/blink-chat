@@ -203,7 +203,7 @@ const ECE_faculty = {
         email: 'rchandr1@stevens.edu',
         img: 'chandramouli.jpg'
     },
-    'Suba': {
+    'Subbalakshmi': {
         name: 'Suba Subbalakshmi',
         email: 'ksubbala@stevens.edu',
         img: 'suba.jpg'
@@ -218,12 +218,12 @@ const ECE_faculty = {
         email: 'backland@stevens.edu',
         img: 'ackland.jpg'
     },
-    'Dov': {
+    'Kruger': {
         name: 'Dov Kruger',
         email: 'dkruger@stevens.edu',
         img: 'kruger.jpg'
     },
-    'Negar': {
+    'Tavassolian': {
         name: 'Negar Tavassolian',
         email: 'ntavasso@stevens.edu',
         img: 'negar.jpg'
@@ -238,12 +238,12 @@ const ECE_faculty = {
         email: 'syu19@stevens.edu',
         img: 'yu.jpg'
     },
-    'Victor': {
+    'Lawrence': {
         name: 'Victor Lawrence',
         email: 'vlawrenc@stevens.edu',
         img: 'victor.jpg'
     },
-    'Mukund': {
+    'Iyengar': {
         name: 'Mukund Iyengar',
         email: 'miyengar@stevens.edu',
         img: 'mukund.jpg'
