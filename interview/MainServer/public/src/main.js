@@ -31,6 +31,9 @@ var numPublishers = 0;
 var videoIndices = [];
 
 $(document).ready(function() {
+
+    addUsersToInviteModal(ECE_faculty);
+
   // Setup Socket;
   setupSocket();
   user.name = 'user';
@@ -42,7 +45,6 @@ $(document).ready(function() {
       $('#publishButton').css('opacity', '0.25');
   });
 
-  addUsersToInviteModal(ECE_faculty);
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -157,23 +159,29 @@ function removeItemFromArray(array, item) {
 }
 
 function addUsersToInviteModal(users) {
-  for (username in users) {
-    var user = users[username];
+    for (username in users) {
+        var user = users[username];
 
-    var html = "<div class=\"row userRow centering\">" +
-        "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
-        "<p class=\"userName\">" + user.name +"</p>" +
-        "<button class=\"btn btn-secondary inviteBtn\" onclick=\"sendInviteTo(\'" + user.name + "\')\">Invite</button>" +
-        "</div>";
+        var html = "<div class=\"row userRow centering\">" +
+            "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
+            "<p class=\"userName\">" + user.name + "</p>" +
+            "<button class=\"btn btn-secondary inviteBtn\" id=\"" + user.name.split(' ')[0] + "\"onclick=\"sendInviteTo(\'" + user.name + "\')\">Invite</button>" +
+            "</div>";
 
-    $('#users').append(html);
-  }
+        $('#users').append(html);
+    }
 }
 
 function sendInviteTo(name) {
     var split_str = name.split(' ');
-    var username = split_str[split_str.length-1];
-    socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
+    var username = split_str[split_str.length - 1];
+    // socket.emit('send invite', name, ECE_faculty[username].email, window.location.href)
+    var button = $('#'+name.split(' ')[0]);
+    button.html(function() {
+        return "<img src=\"img/check.png\" style=\"width: 30px\"/>"
+    });
+    button.attr("disabled", "true");
+
 }
 
 
