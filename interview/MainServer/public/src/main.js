@@ -175,7 +175,7 @@ function addUsersToInviteModal(users) {
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[split_str.length - 1];
-    socket.emit('send invite', name, ECE_faculty[username].email, window.location.href)
+    socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
     var button = $('#'+name.split(' ')[0]);
     button.html(function() {
         return "<img src=\"img/check.png\" style=\"width: 30px\"/>"
