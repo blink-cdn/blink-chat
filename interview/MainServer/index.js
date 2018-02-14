@@ -13,6 +13,18 @@ const express = require('express');
 const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa2479c4c6', domain: 'mg.blinkcdn.com' });
 // const sendmail = require('sendmail')({silent: true});
 
+// MONGOdb
+var MongoClient = require('mongodb').MongoClient;
+var mongodb = undefined;
+MongoClient.connect("mongodb://localhost:27017", function(err, db) {
+    if (err) {
+        console.log("Mongo Err:", err);
+    }
+    console.log("Databsae connected.");
+
+    mongodb = db.db("blinkDB");
+});
+
 // Data Structures
 
 let users = {
@@ -200,6 +212,8 @@ function updateAllServices() {
     for (service in services) {
         syncUpdateService(service);
     }
+
+    mongodb.collection("blink-main-rooms").insertOne({rooms})
 }
 
 
@@ -291,3 +305,6 @@ function uuid() {
 //
 //     return returnString;
 // };
+
+/******** MONGO ********/
+
