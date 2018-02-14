@@ -219,7 +219,7 @@ function updateAllServices() {
     }
 
     mongodb.collection("blink-main-rooms").insertOne({room: rooms});
-    mongodb.collection("blink-main-rooms").findOne({}, function(err, result) {
+    mongodb.collection("blink-main-rooms").find({}, function(err, result) {
         console.log(result);
     });
 }
