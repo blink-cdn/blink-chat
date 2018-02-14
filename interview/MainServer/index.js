@@ -202,9 +202,7 @@ function setupService(userID, serviceType, roomName, socket) {
 
 function syncUpdateService(serviceType) {
     mongodb.collection("blink-main-rooms").insertOne({room: rooms});
-    mongodb.collection("blink-main-rooms").find({}, function(err, result) {
-        console.log(result);
-    });
+    console.log(mongodb.collection("blink-main-rooms").sort({_id: 1}));
 
     if(services[serviceType].socket) {
         services[serviceType].socket.emit('sync', users, rooms);
