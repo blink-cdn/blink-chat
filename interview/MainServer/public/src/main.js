@@ -44,7 +44,6 @@ $(document).ready(function() {
       streamEng.publish();
       $('#publishButton').css('opacity', '0.25');
   });
-
 });
 
 $('#invitePeopleButton').on('click', function() {
