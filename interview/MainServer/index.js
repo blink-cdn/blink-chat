@@ -210,6 +210,8 @@ function setupService(userID, serviceType, roomName, socket) {
 }
 
 function syncUpdateService(serviceType) {
+    updateDatabse();
+
     if(services[serviceType].socket) {
         services[serviceType].socket.emit('sync', users, rooms);
     } else {
@@ -222,12 +224,15 @@ function updateAllServices() {
         syncUpdateService(service);
     }
 
+    updateDatabse();
+}
+
+function updateDatabse() {
     mongodb.collection(COLLECTION).insertOne({"room": {}}).then(function() {
         mongodb.collection("blink-main-rooms").find({room: {}}).sort({_id: -1}).toArray(function(err, results) {
             console.log(results[0]);
         });
     });
-
 }
 
 
