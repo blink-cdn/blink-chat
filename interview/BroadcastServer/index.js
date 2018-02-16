@@ -23,7 +23,7 @@ const certOptions = {
 };
 
 let app = express();
-let httpsServer = https.Server(app);
+let httpsServer = https.Server(certOptions, app);
 httpsServer.listen(HTTPS_PORT);
 let io = socketIO.listen(httpsServer);
 
@@ -95,8 +95,6 @@ function onDisconnect(userID, roomName) {
                 clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
             }
         }
-
-
     }
 }
 
