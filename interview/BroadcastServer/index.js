@@ -2,8 +2,8 @@
 // const MAIN_SERVER_ADDR = "http://localhost:3000";
 // const STREAM_SERVER_ADDR = "https://localhost:4000";
 const HTTPS_PORT = 443;
-const MAIN_SERVER_ADDR = "http://chat.blinkcdn.com";
-const STREAM_SERVER_ADDR = "https://streamserver.blinkcdn.com";
+const MAIN_SERVER_ADDR = "http://devchat.blinkcdn.com:8080";
+const STREAM_SERVER_ADDR = "https://devstream.blinkcdn.com";
 
 const express = require('express');
 const https = require('https');
@@ -23,7 +23,7 @@ const certOptions = {
 };
 
 let app = express();
-let httpsServer = https.Server(app);
+let httpsServer = https.Server(certOptions, app);
 httpsServer.listen(HTTPS_PORT);
 let io = socketIO.listen(httpsServer);
 
@@ -95,8 +95,6 @@ function onDisconnect(userID, roomName) {
                 clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
             }
         }
-
-
     }
 }
 
