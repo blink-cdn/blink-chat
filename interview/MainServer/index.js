@@ -15,10 +15,7 @@ const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa24
 // const sendmail = require('sendmail')({silent: true});
 
 
-
-
 // Data Structures
-
 let users = {
     // uuid: {}
 };
