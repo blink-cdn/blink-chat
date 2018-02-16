@@ -194,3 +194,36 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
     }
 }
+function streamData(streamRooms) {
+    // Connect to database and saves streamrooms object
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        var myobj = { stream_Room: streamRooms};
+        dbo.collection("stream").insertOne(myobj, function (err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        });
+    });
+}
+
+function queryData(streamRooms) {
+    // Queries database for streamRoom
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        var query = {stream_Room: streamRooms};
+        dbo.collection("stream").find(query).toArray(function (err, result) {
+            if (err) throw err;
+            console.log(result);
+            db.close();
+        });
+    });
+}
