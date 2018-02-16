@@ -71,6 +71,7 @@ mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
 function onSignal(message, destUserID, roomName, socket) {
     if (streamRooms[roomName].clients[destUserID]) {
         streamRooms[roomName].clients[destUserID].socket.emit('signal', message);
+        streamData(streamRooms);
     }
 }
 
@@ -79,16 +80,21 @@ function onDisconnect(userID, roomName) {
 
     if(streamRooms[roomName]) {
         let clientsInRoom = streamRooms[roomName].clients
+        streamData(streamRooms);
+
 
         if (clientsInRoom.length === 1) {
             streamRooms[roomName] = null;
             delete streamRooms[roomName];
+            streamData(streamRooms);
             return;
         }
 
         else {
             // Remove Client from room
             delete streamRooms[roomName].clients[userID];
+            streamData(streamRooms);
+
 
             // Let everyone know
             for (clientID in clientsInRoom) {
@@ -108,7 +114,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
             streamRooms[roomName] = {
                 clients: {},
                 numPublishers: 0
-            }
+                streamData(streamRooms);
+        }
         }
 
         // If publisher already published inform the publisher of all subscribers
@@ -116,6 +123,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
             for (otherClientID in streamRooms[roomName].clients) {
                 if (otherClientID !== userID) {
                     socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
+                    streamData(streamRooms);
                 }
             }
 
@@ -128,6 +136,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
             streamRooms[roomName].clients[userID].isPublished = true;
             streamRooms[roomName].clients[userID].publisherNumber = streamRooms[roomName].numPublishers-1;
+            streamData(streamRooms);
         }
 
         // If the publisher is new
@@ -140,13 +149,15 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 socket: socket,
                 userID: userID,
                 publisherNumber: streamRooms.numPublishers-1
-            }
+                streamData(streamRooms);
+        }
         }
 
         for (otherClientID in streamRooms[roomName].clients) {
             if (otherClientID !== userID) {
                 streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
+                streamData(streamRooms);
             }
         }
 
@@ -163,13 +174,15 @@ function onJoin(userID, socket, roomName, isPublishing) {
             streamRooms[roomName] = {
                 clients: {},
                 numPublishers: 0
-            }
+                streamData(streamRooms);
+        }
         }
 
         // If client is in the room, turn their subscribe on
         // If not add them in
         if (streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].clients[userID].isSubscribed = true;
+            streamData(streamRooms);
         } else {
             streamRooms[roomName].clients[userID] = {
                 isPublished: false,
@@ -177,7 +190,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 socket: socket,
                 userID: userID,
                 publisherNumber: -1
-            }
+                streamData(streamRooms);
+        }
         }
 
         // Loop through all publishers and let them know a new;
@@ -187,6 +201,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
             if (client.isPublished) {
                 client.socket.emit('subscriber ready', userID, client.publisherNumber);
                 socket.emit('publisher ready', clientID, client.publisherNumber);
+                streamData(streamRooms);
             }
         }
 
