@@ -1,5 +1,6 @@
 const HTTPS_PORT = 8443;
 const HTTP_PORT = 8080;
+const COLLECTION = "blink-main-rooms";
 // const HTTPS_PORT = 443;
 // const HTTP_PORT = 80;
 
@@ -10,11 +11,11 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const express = require('express');
 
-const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa2479c4c6', domain: 'mg.blinkcdn.com' });
+const sendmail = require('mailgun-js')({ apiKey: 'key-9a90002bb90b85e0e258f27b1d7746f4', domain: 'mg.blinkcdn.com' });
 // const sendmail = require('sendmail')({silent: true});
 
-// Data Structures
 
+// Data Structures
 let users = {
     // uuid: {}
 };
@@ -189,6 +190,8 @@ function setupService(userID, serviceType, roomName, socket) {
 }
 
 function syncUpdateService(serviceType) {
+    updateDatabse();
+
     if(services[serviceType].socket) {
         services[serviceType].socket.emit('sync', users, rooms);
     } else {
@@ -200,6 +203,16 @@ function updateAllServices() {
     for (service in services) {
         syncUpdateService(service);
     }
+
+    updateDatabse();
+}
+
+function updateDatabse() {
+    // mongodb.collection(COLLECTION).insertOne({"room": {}}).then(function() {
+    //     mongodb.collection("blink-main-rooms").find({room: {}}).sort({_id: -1}).toArray(function(err, results) {
+    //         console.log(results[0]);
+    //     });
+    // });
 }
 
 
@@ -291,3 +304,6 @@ function uuid() {
 //
 //     return returnString;
 // };
+
+/******** MONGO ********/
+
