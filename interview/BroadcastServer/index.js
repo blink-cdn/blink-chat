@@ -68,15 +68,15 @@ mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
 });
 
 mySocket.on('disconnect', function() {
-    console.log("DISCONNECTED");
-    console.log(mySocket.connected);
-    while(!mySocket.connected) {
-        setTimeout(function() {
+    // console.log("DISCONNECTED");
+    // console.log(mySocket.connected);
+    while(mySocket.connected == false) {
+        setTimeout(function () {
             console.log("Trying to connect.");
             mySocket = io_client.connect(MAIN_SERVER_ADDR);
         }, 300);
+        console.log("Connected.");
     }
-    console.log("Connected.");
 });
 
 /******* FUNCTIONALITY **********/
