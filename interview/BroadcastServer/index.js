@@ -53,6 +53,7 @@ io.sockets.on('connection', function(socket) {
     socket.on('subscribe', function(userID, roomName) {
         onJoin(userID, socket, roomName, false);
     });
+
 });
 
 /******* SETUP MAIN SERVER CONNECTION *********/
@@ -64,6 +65,10 @@ mySocket.emit('connect service', STREAM_SERVER_ADDR, "stream");
 mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
     users = rcvdUsers;
     rooms = rcvdRooms;
+});
+
+mySocket.on('disconnect', function() {
+    console.log("DISCONNECTED");
 });
 
 /******* FUNCTIONALITY **********/
