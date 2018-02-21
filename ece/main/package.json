@@ -8,6 +8,8 @@
     "http": "^0.0.0",
     "https": "^1.0.0",
     "mailgun-js": "^0.14.2",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.5",
     "node-static": "^0.7.10",
     "sendmail": "^1.2.0",
     "socket.io": "^2.0.4"

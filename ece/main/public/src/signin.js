@@ -1,8 +1,8 @@
-var options = ["(e.g) ECE Meeting", "(e.g) Team Building",
-    "(e.g) Lecture Planning", "(e.g) Family Chat",
-    "(e.g) Work Dinner", "(e.g) Random Nonsense",
-    "(e.g) My Room", "(e.g) Rooms for Days",
-    "(e.g) My Fav Students"];
+var options = ["e.g ECE Meeting", "e.g Team Building",
+    "e.g Lecture Planning", "e.g Family Chat",
+    "e.g Work Dinner", "e.g Random Nonsense",
+    "e.g My Room", "e.g Rooms for Days",
+    "e.g My Fav Students"];
 
 var objs = {
     goButton: undefined,
