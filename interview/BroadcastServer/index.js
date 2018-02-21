@@ -73,12 +73,11 @@ mySocket.on('disconnect', function() {
     var tryToConnect = setInterval(function() {
         if (mySocket.connected) {
             clearInterval(tryToConnect);
+            console.log("Connected.");
         }
         console.log("Trying to connect.");
         mySocket = io_client.connect(MAIN_SERVER_ADDR);
     }, 300);
-
-    console.log("Connected.");
 });
 
 /******* FUNCTIONALITY **********/
