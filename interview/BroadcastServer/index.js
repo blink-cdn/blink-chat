@@ -74,6 +74,7 @@ mySocket.on('disconnect', function() {
         if (mySocket.connected) {
             clearInterval(tryToConnect);
             console.log("Connected.");
+            mySocket.emit('connect service', STREAM_SERVER_ADDR, "stream");
         }
         console.log("Trying to connect.");
         mySocket = io_client.connect(MAIN_SERVER_ADDR);
