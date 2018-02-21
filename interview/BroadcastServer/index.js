@@ -69,6 +69,7 @@ mySocket.on('sync', function(rcvdUsers, rcvdRooms) {
 
 mySocket.on('disconnect', function() {
     console.log("DISCONNECTED");
+    console.log(mySocket.connected);
 });
 
 /******* FUNCTIONALITY **********/
