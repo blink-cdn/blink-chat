@@ -11,7 +11,7 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const express = require('express');
 
-const sendmail = require('mailgun-js')({ apiKey: 'key-77c21daa1f20d642d9982baa2479c4c6', domain: 'mg.blinkcdn.com' });
+const sendmail = require('mailgun-js')({ apiKey: 'key-9a90002bb90b85e0e258f27b1d7746f4', domain: 'mg.blinkcdn.com' });
 // const sendmail = require('sendmail')({silent: true});
 
 
