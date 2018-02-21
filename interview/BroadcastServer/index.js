@@ -75,8 +75,9 @@ mySocket.on('disconnect', function() {
             console.log("Trying to connect.");
             mySocket = io_client.connect(MAIN_SERVER_ADDR);
         }, 300);
-        console.log("Connected.");
     }
+
+    console.log("Connected.");
 });
 
 /******* FUNCTIONALITY **********/
