@@ -59,6 +59,7 @@ function setupSocket() {
 
   socket.on('disconnect', function() {
       console.log("DISCONNECTED");
+  }
       // console.log(mySocket.connected);
   //     var tryToConnect = setInterval(function() {
   //         if (socket.connected) {
@@ -129,8 +130,8 @@ function setupSocket() {
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     applyColumnClassesToVideo();
-  }
-});
+  };
+}
 
 function applyColumnClassesToVideo() {
   var columnSize;
@@ -199,7 +200,6 @@ function sendInviteTo(name) {
         return "<img src=\"img/check.png\" style=\"width: 30px\"/>"
     });
     button.attr("disabled", "true");
-
 }
 
 
@@ -279,4 +279,4 @@ const ECE_faculty = {
         email: 'justin@blinkcdn.com',
         img: 'blink.png'
     }
-};
+}
