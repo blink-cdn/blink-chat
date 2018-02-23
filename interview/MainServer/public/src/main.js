@@ -59,6 +59,7 @@ function setupSocket() {
 
   socket.on('disconnect', function() {
       console.log("DISCONNECTED");
+      socket = io.connect();
   });
       // console.log(mySocket.connected);
   //     var tryToConnect = setInterval(function() {
