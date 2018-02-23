@@ -60,6 +60,12 @@ function setupSocket() {
   socket.on('disconnect', function() {
       console.log("DISCONNECTED");
       socket = io.connect();
+      if (user.userID !== undefined) {
+          socket.emit('join service', user.userID, 'stream', roomName);
+          //Thoughts: what if mainServer doesn't recognize userID?
+      } else {
+          socket.emit('create user', user, roomName);
+      }
   });
       // console.log(mySocket.connected);
   //     var tryToConnect = setInterval(function() {
