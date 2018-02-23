@@ -107,7 +107,7 @@ function setupSocket() {
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
     applyColumnClassesToVideo();
-  }
+  };
 
   streamEng.onAddNewPublisher = function(videoIndex) {
     numPublishers++;
@@ -130,7 +130,7 @@ function setupSocket() {
     removeItemFromArray(videoIndices, videoIndex);
     applyColumnClassesToVideo();
   }
-}
+});
 
 function applyColumnClassesToVideo() {
   var columnSize;
