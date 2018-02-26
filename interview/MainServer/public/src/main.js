@@ -34,16 +34,16 @@ $(document).ready(function() {
 
     addUsersToInviteModal(ECE_faculty);
 
-  // Setup Socket;
-  setupSocket();
-  user.name = 'user';
-  socket.emit('create user', user, roomName);
+    // Setup Socket;
+    setupSocket();
+    user.name = 'user';
+    socket.emit('create user', user, roomName);
 
-  $('#publishButton').click(function() {
-      $('#infoText').attr('hidden', 'true');
-      streamEng.publish();
-      $('#publishButton').css('opacity', '0.25');
-  });
+    $('#publishButton').click(function() {
+        $('#infoText').attr('hidden', 'true');
+        streamEng.publish();
+        $('#publishButton').css('opacity', '0.25');
+    });
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -57,12 +57,6 @@ function reconnect() {
     if (socket !== undefined || socket.connected === false) {
         console.log("Is connected: ", socket.connected);
         socket = io.connect();
-        if (user.userID !== undefined) {
-            socket.emit('join service', user.userID, 'stream', roomName, user);
-            //Thoughts: what if mainServer doesn't recognize userID?
-        } else {
-            socket.emit('create user', user, roomName);
-        }
     }
 }
 
@@ -77,6 +71,13 @@ function setupSocket() {
 
   socket.on("connect", function() {
       console.log("Connected here.");
+
+      if (user.userID !== undefined) {
+          socket.emit('join service', user.userID, 'stream', roomName, user);
+          //Thoughts: what if mainServer doesn't recognize userID?
+      } else {
+          socket.emit('create user', user, roomName);
+      }
   });
       // console.log(mySocket.connected);
   //     var tryToConnect = setInterval(function() {
