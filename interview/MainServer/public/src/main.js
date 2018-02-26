@@ -56,6 +56,7 @@ function reconnect() {
     console.log("Reconnecting.");
     if (socket !== undefined) {
         do {
+            console.log("Is connected: ", socket.connected);
             setTimeout(function() {
                 socket = io.connect();
                 if (user.userID !== undefined) {
