@@ -1,5 +1,5 @@
 // Connects to socket.io server
-var socket;
+var socket = undefined;
 var uuid;
 var roomName = window.location.hash;
 
@@ -53,8 +53,10 @@ $('#invitePeopleButton').on('click', function() {
 
 /******* SOCKET ********/
 function reconnect() {
-    if (socket) {
+    console.log("Reconnecting.");
+    if (socket !== undefined) {
         socket = io.connect();
+        console.log("..");
         if (user.userID !== undefined) {
             socket.emit('join service', user.userID, 'stream', roomName, user);
             //Thoughts: what if mainServer doesn't recognize userID?
