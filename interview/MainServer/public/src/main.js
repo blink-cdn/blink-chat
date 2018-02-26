@@ -37,7 +37,7 @@ $(document).ready(function() {
     // Setup Socket;
     setupSocket();
     user.name = 'user';
-    socket.emit('create user', user, roomName);
+    // socket.emit('create user', user, roomName);
 
     $('#publishButton').click(function() {
         $('#infoText').attr('hidden', 'true');
