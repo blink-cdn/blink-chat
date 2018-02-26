@@ -133,6 +133,11 @@ function onJoin(userID, socket, roomName, isPublishing) {
             // streamData(streamRooms);
         }
 
+        // If client is not in the room yet
+        if (!streamRooms[roomName].clients[userID]) {
+            onJoin(userID, socket, roomName, false);
+        }
+
         // If publisher already published inform the publisher of all subscribers
         else if (streamRooms[roomName].clients[userID].isPublished === true) {
             for (otherClientID in streamRooms[roomName].clients) {
@@ -141,7 +146,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
                     // streamData(streamRooms);
                 }
             }
-
             return;
         }
 
