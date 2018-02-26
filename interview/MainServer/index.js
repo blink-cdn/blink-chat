@@ -69,8 +69,8 @@ io.sockets.on('connection', function(socket) {
         createUser(user, roomName, socket);
     });
 
-    socket.on('join service', function(userID, serviceType, roomName) {
-        setupService(userID, serviceType, roomName, socket);
+    socket.on('join service', function(userID, serviceType, roomName, user) {
+        setupService(userID, serviceType, roomName, user, socket);
         console.log("Joined System.", roomName);
     });
 
@@ -151,7 +151,7 @@ function createUser(user, roomName, socket) {
     // Add user to room
     if(!rooms[roomName]) {
         rooms[roomName] = {
-            users: {},
+            users: {}
         };
 
         rooms[roomName].roomName = roomName;
@@ -164,10 +164,31 @@ function createUser(user, roomName, socket) {
 }
 
 // Create user for system
-function setupService(userID, serviceType, roomName, socket) {
+function setupService(userID, serviceType, roomName, user, socket) {
 
     // Set the proper server address
     let serviceAddress;
+
+    // If room doesn't exist
+    if (!rooms[roomName]) {
+        let newUser = user;
+
+        // Add user to the array of users
+        sockets[newUser.userID] = socket;
+        users[newUser.userID] = newUser;
+
+        // Add user to room
+        if(!rooms[roomName]) {
+            rooms[roomName] = {
+                users: {}
+            };
+
+            rooms[roomName].roomName = roomName;
+            rooms[roomName].users[newUser.userID] = newUser
+        } else {
+            rooms[roomName].users[newUser.userID] = newUser;
+        }
+    }
 
     // Add service structure
     if (!rooms[roomName].hasOwnProperty('services')) {

@@ -61,7 +61,7 @@ function setupSocket() {
       console.log("DISCONNECTED");
       socket = io.connect();
       if (user.userID !== undefined) {
-          socket.emit('join service', user.userID, 'stream', roomName);
+          socket.emit('join service', user.userID, 'stream', roomName, user);
           //Thoughts: what if mainServer doesn't recognize userID?
       } else {
           socket.emit('create user', user, roomName);
@@ -92,7 +92,7 @@ function setupSocket() {
     user.userID = userID;
 
     // Send join stream system Message
-    socket.emit('join service', user.userID, 'stream', roomName);
+    socket.emit('join service', user.userID, 'stream', roomName, user);
   });
 
   socket.on('joined service', function(userID, serviceType, serviceAddress) {
