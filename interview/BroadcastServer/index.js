@@ -18,8 +18,8 @@ let streamRooms = {};
 /************  SERVER SETUP *************/
 
 const certOptions = {
-    key: fs.readFileSync('certs/dev-key.pem'),
-    cert: fs.readFileSync('certs/dev-cert.pem')
+    key: fs.readFileSync('certs/key.pem'),
+    cert: fs.readFileSync('certs/cert.pem')
 };
 
 let app = express();
@@ -196,9 +196,10 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         // If client is in the room, turn their subscribe on
-        // If not add them in
+        // If not add them in and update their socket.
         if (streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].clients[userID].isSubscribed = true;
+            streamRooms[roomName].clients[userID].socket = socket;
             streamData(streamRooms);
         } else {
             streamRooms[roomName].clients[userID] = {
