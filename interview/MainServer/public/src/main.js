@@ -55,14 +55,17 @@ $('#invitePeopleButton').on('click', function() {
 function reconnect() {
     console.log("Reconnecting.");
     if (socket !== undefined) {
-        socket = io.connect();
-        console.log("..");
-        if (user.userID !== undefined) {
-            socket.emit('join service', user.userID, 'stream', roomName, user);
-            //Thoughts: what if mainServer doesn't recognize userID?
-        } else {
-            socket.emit('create user', user, roomName);
-        }
+        do {
+            setTimeout(function() {
+                socket = io.connect();
+                if (user.userID !== undefined) {
+                    socket.emit('join service', user.userID, 'stream', roomName, user);
+                    //Thoughts: what if mainServer doesn't recognize userID?
+                } else {
+                    socket.emit('create user', user, roomName);
+                }
+            }, 500);
+        } while (!socket.connected);
     }
 }
 
