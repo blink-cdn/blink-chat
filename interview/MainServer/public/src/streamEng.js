@@ -57,6 +57,11 @@ streamEng.subscribe = function() {
 
   streamEng.socket.emit('subscribe', user.userID, roomName);
 
+  streamEng.socket.on('disconnect', function() {
+        console.log("DISCONNECTED");
+        reconnect();
+  });
+
   // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
   streamEng.socket.on('subscriber ready', function(clientID) {
       console.log("Subscriber ready from", clientID);

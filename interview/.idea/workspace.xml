@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="406">
@@ -30,20 +30,20 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="63" column="35" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="35" />
+            <state relative-caret-position="389">
+              <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
               <folding>
-                <marker date="1519677543865" expanded="true" signature="6446:6457" ph="..." />
+                <marker date="1519677894099" expanded="true" signature="6495:6506" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainServer/public/src/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1469">
-              <caret line="127" column="29" lean-forward="false" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="29" />
+            <state relative-caret-position="266">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -100,11 +100,11 @@
       <find>streamData(</find>
       <find>create user</find>
       <find>setupService</find>
-      <find>disconnect</find>
       <find>isPublished</find>
       <find>join servic</find>
-      <find>setupService(</find>
       <find>join service</find>
+      <find>setupService(</find>
+      <find>disconnect</find>
     </findStrings>
     <replaceStrings>
       <replace>// streamData(streamRooms);</replace>
@@ -122,8 +122,9 @@
         <option value="$PROJECT_DIR$/MainServer/js/streamEng.js" />
         <option value="$PROJECT_DIR$/MainServer/public/src/signin.js" />
         <option value="$PROJECT_DIR$/BroadcastServer/index.js" />
-        <option value="$PROJECT_DIR$/MainServer/public/src/main.js" />
         <option value="$PROJECT_DIR$/MainServer/index.js" />
+        <option value="$PROJECT_DIR$/MainServer/public/src/main.js" />
+        <option value="$PROJECT_DIR$/MainServer/public/src/streamEng.js" />
       </list>
     </option>
   </component>
@@ -284,12 +285,12 @@
       <workItem from="1519238386443" duration="693000" />
       <workItem from="1519243944973" duration="2265000" />
       <workItem from="1519316076358" duration="874000" />
-      <workItem from="1519344108926" duration="5343000" />
+      <workItem from="1519344108926" duration="5628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29892000" />
+    <option name="totallyTimeSpent" value="30177000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="34" width="1016" height="1072" extended-state="0" />
@@ -365,7 +366,7 @@
         <state relative-caret-position="1335">
           <caret line="89" column="23" lean-forward="false" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="23" />
           <folding>
-            <marker date="1519677543865" expanded="true" signature="6446:6457" ph="..." />
+            <marker date="1519677894099" expanded="true" signature="6495:6506" ph="..." />
           </folding>
         </state>
       </provider>
@@ -412,7 +413,7 @@
         <state relative-caret-position="675">
           <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
-            <marker date="1519677543865" expanded="true" signature="6446:6457" ph="..." />
+            <marker date="1519677894099" expanded="true" signature="6495:6506" ph="..." />
           </folding>
         </state>
       </provider>
@@ -459,7 +460,7 @@
         <state relative-caret-position="675">
           <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
-            <marker date="1519677543865" expanded="true" signature="6446:6457" ph="..." />
+            <marker date="1519677894099" expanded="true" signature="6495:6506" ph="..." />
           </folding>
         </state>
       </provider>
@@ -545,30 +546,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/public/src/streamEng.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1469">
-          <caret line="127" column="29" lean-forward="false" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="96" column="11" lean-forward="false" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="63" column="35" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="35" />
-          <folding>
-            <marker date="1519677543865" expanded="true" signature="6446:6457" ph="..." />
           </folding>
         </state>
       </provider>
@@ -581,6 +564,24 @@
             <element signature="n#!!block;n#createService#0" expanded="false" />
             <element signature="e#9384#9418#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+          <folding>
+            <marker date="1519677894099" expanded="true" signature="6495:6506" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/src/streamEng.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

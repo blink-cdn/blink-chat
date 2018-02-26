@@ -57,8 +57,7 @@ function setupSocket() {
 
   socket = io.connect();
 
-  socket.on('disconnect', function() {
-      console.log("DISCONNECTED");
+  function reconnect() {
       socket = io.connect();
       if (user.userID !== undefined) {
           socket.emit('join service', user.userID, 'stream', roomName, user);
@@ -66,6 +65,11 @@ function setupSocket() {
       } else {
           socket.emit('create user', user, roomName);
       }
+  }
+
+  socket.on('disconnect', function() {
+      console.log("DISCONNECTED");
+      reconnect();
   });
 
   socket.on("connect", function() {
