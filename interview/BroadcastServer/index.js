@@ -18,8 +18,8 @@ let streamRooms = {};
 /************  SERVER SETUP *************/
 
 const certOptions = {
-    key: fs.readFileSync('certs/key.pem'),
-    cert: fs.readFileSync('certs/cert.pem')
+    key: fs.readFileSync('certs/dev-key.pem'),
+    cert: fs.readFileSync('certs/dev-cert.pem')
 };
 
 let app = express();
