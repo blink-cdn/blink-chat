@@ -67,6 +67,10 @@ function setupSocket() {
           socket.emit('create user', user, roomName);
       }
   });
+
+  socket.on("connect", function() {
+      console.log("Connected here.");
+  });
       // console.log(mySocket.connected);
   //     var tryToConnect = setInterval(function() {
   //         if (socket.connected) {

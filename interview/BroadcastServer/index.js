@@ -110,7 +110,6 @@ function onDisconnect(userID, roomName) {
             delete streamRooms[roomName].clients[userID];
             // streamData(streamRooms);
 
-
             // Let everyone know
             for (clientID in clientsInRoom) {
                 clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
@@ -133,11 +132,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
             // streamData(streamRooms);
         }
 
-        // // If client is not in the room yet
-        // if (!streamRooms[roomName].clients[userID]) {
-        //     onJoin(userID, socket, roomName, false); // subscribe
-        // }
-
         // If the publisher is new
         if (!streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].numPublishers++;
@@ -155,7 +149,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
 
         // If publisher already published inform the publisher of all subscribers
-        else if (streamRooms[roomName].clients[userID].isPublished === true) {
+        if (streamRooms[roomName].clients[userID].isPublished === true) {
             for (otherClientID in streamRooms[roomName].clients) {
                 if (otherClientID !== userID) {
                     socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
