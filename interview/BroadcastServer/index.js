@@ -133,14 +133,29 @@ function onJoin(userID, socket, roomName, isPublishing) {
             // streamData(streamRooms);
         }
 
-        // If client is not in the room yet
+        // // If client is not in the room yet
+        // if (!streamRooms[roomName].clients[userID]) {
+        //     onJoin(userID, socket, roomName, false); // subscribe
+        // }
+
+        // If the publisher is new
         if (!streamRooms[roomName].clients[userID]) {
-            onJoin(userID, socket, roomName, false); // subscribe
+            streamRooms[roomName].numPublishers++;
+
+            streamRooms[roomName].clients[userID] = {
+                isPublished: true,
+                isSubscribed: false,
+                socket: socket,
+                userID: userID,
+                publisherNumber: streamRooms.numPublishers-1
+            }
+
+            // streamData(streamRooms);
         }
 
 
         // If publisher already published inform the publisher of all subscribers
-        if (streamRooms[roomName].clients[userID].isPublished === true) {
+        else if (streamRooms[roomName].clients[userID].isPublished === true) {
             for (otherClientID in streamRooms[roomName].clients) {
                 if (otherClientID !== userID) {
                     socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
@@ -156,21 +171,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
             streamRooms[roomName].clients[userID].isPublished = true;
             streamRooms[roomName].clients[userID].publisherNumber = streamRooms[roomName].numPublishers-1;
-            // streamData(streamRooms);
-        }
-
-        // If the publisher is new
-        else if (!streamRooms[roomName].clients[userID]) {
-            streamRooms[roomName].numPublishers++;
-
-            streamRooms[roomName].clients[userID] = {
-                isPublished: true,
-                isSubscribed: false,
-                socket: socket,
-                userID: userID,
-                publisherNumber: streamRooms.numPublishers-1
-            }
-
             // streamData(streamRooms);
         }
 
