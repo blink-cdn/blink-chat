@@ -185,75 +185,45 @@ function sendInviteTo(name) {
 
 
 const ECE_faculty = {
-    'Yao': {
-        name: 'Yu-Dong Yao',
-        email: 'yyao@stevens.edu',
-        img: 'yao.png'
+    'Sid': {
+        name: 'Sid Ahuja',
+        email: 'sid@blinkcdn.com',
+        img: 'sid.png'
     },
-    'Man': {
-        name: 'Hong Man',
-        email: 'hman@stevens.edu',
-        img: 'man.jpg'
-    },
-    'Li': {
-        name: 'Hongbin Li',
-        email: 'hli@stevens.edu',
-        img: 'li.jpg'
-    },
-    'Comaniciu': {
-        name: 'Cristina Comaniciu',
-        email: 'ccomanic@stevens.edu',
-        img: 'comaniciu.jpg'
-    },
-    'Chandramouli': {
-        name: 'Rajarathnam Chandramouli',
-        email: 'rchandr1@stevens.edu',
-        img: 'chandramouli.jpg'
-    },
-    'Subbalakshmi': {
-        name: 'Suba Subbalakshmi',
-        email: 'ksubbala@stevens.edu',
-        img: 'suba.jpg'
-    },
-    'Guo': {
-        name: 'Yi Guo',
-        email: 'yguo1@stevens.edu',
-        img: 'guo.jpg'
-    },
-    'Ackland': {
-        name: 'Bryan Ackland',
-        email: 'backland@stevens.edu',
-        img: 'ackland.jpg'
-    },
-    'Kruger': {
-        name: 'Dov Kruger',
-        email: 'dkruger@stevens.edu',
-        img: 'kruger.jpg'
-    },
-    'Tavassolian': {
-        name: 'Negar Tavassolian',
-        email: 'ntavasso@stevens.edu',
-        img: 'negar.jpg'
-    },
-    'Sabau': {
-        name: 'Serban Sabau',
-        email: 'ssabau@stevens.edu',
-        img: 'sabau.jpg'
-    },
-    'Yu': {
-        name: 'Shucheng Yu',
-        email: 'syu19@stevens.edu',
-        img: 'yu.jpg'
-    },
-    'Lawrence': {
-        name: 'Victor Lawrence',
-        email: 'vlawrenc@stevens.edu',
-        img: 'victor.jpg'
-    },
-    'Iyengar': {
+    'Mukund': {
         name: 'Mukund Iyengar',
-        email: 'miyengar@stevens.edu',
+        email: 'mukund@blinkcdn.com',
         img: 'mukund.jpg'
+    },
+    'Charles': {
+        name: 'Charles Bethin',
+        email: 'charles@blinkcdn.com',
+        img: 'charles.jpeg'
+    },
+    'Justin': {
+        name: 'Justin Trugman',
+        email: 'justin@blinkcdn.com',
+        img: 'justin.jpg'
+    },
+    'Sushant': {
+        name: 'Sushant Mongia',
+        email: 'sushantmongia@gmail.com',
+        img: 'sushant.jpg'
+    },
+    'Vrushali': {
+        name: 'Vrushali Gaikwad',
+        email: 'vrushaligaikwad9@gmail.com',
+        img: 'vrushali.jpg'
+    },
+    'Zhang': {
+        name: 'Yu Zhang',
+        email: 'memo40k@outlook.com',
+        img: 'zhang.jpg'
+    },
+    'Nate': {
+        name: 'Nathan Van Eck',
+        email: 'natvaneck@gmail.com',
+        img: 'nate.jpg'
     },
     'Test': {
         name: 'Test',
