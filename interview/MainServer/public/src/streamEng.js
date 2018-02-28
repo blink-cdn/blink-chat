@@ -39,6 +39,14 @@ streamEng.setupService = function() {
   streamEng.subscribe();
 };
 
+streamEng.reconnect = function() {
+    console.log("Reconnecting.");
+    if (streamEng.socket !== undefined || streamEng.socket.connected === false) {
+        console.log("Is connected: ", streamEng.socket.connected);
+        streamEng.socket = io.connect();
+    }
+}
+
 streamEng.publish = function() {
   setupMediaStream(false);
   streamEng.socket.emit('publish', user.userID, roomName);
