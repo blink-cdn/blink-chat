@@ -270,7 +270,7 @@ function retreiveStreamRoomData() {
             }
         });
         console.log("-------");
-        console.log(JSON.stringify(cursor));
+        console.log(cursor);
         console.log("-------");
         console.log("Got em");
     });
