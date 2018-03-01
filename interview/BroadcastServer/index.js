@@ -144,6 +144,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 userID: userID,
                 publisherNumber: streamRooms.numPublishers-1
             };
+
+            sockets[userID] = socket;
         }
 
         if(!sockets[userID]) {
@@ -207,6 +209,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 userID: userID,
                 publisherNumber: -1
             };
+
+            sockets[userID] = socket;
         }
 
         // Loop through all publishers and let them know a new;
