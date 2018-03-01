@@ -14,6 +14,7 @@ const fs = require('fs');
 
 // Rooms
 let streamRooms = {};
+let sockets = {};
 setupMongoCollection();
 retreiveStreamRoomData();
 
@@ -87,7 +88,8 @@ mySocket.on('disconnect', function() {
 
 function onSignal(message, destUserID, roomName, socket) {
     if (streamRooms[roomName].clients[destUserID]) {
-        streamRooms[roomName].clients[destUserID].socket.emit('signal', message);
+        // streamRooms[roomName].clients[destUserID].socket.emit('signal', message);
+        sockets[destUserID].socket.emit('signal', message);
     }
 }
 
@@ -109,7 +111,8 @@ function onDisconnect(userID, roomName) {
 
             // Let everyone know
             for (clientID in clientsInRoom) {
-                clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
+                // clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
+                sockets[clientID].socket.emit('disconnect user', userID, roomName);
             }
         }
     }
@@ -131,16 +134,20 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         // If the publisher is new
-        if (!streamRooms[roomName].clients[userID] || streamRooms[roomName].clients[userID].socket === undefined) {
+        if (!streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].numPublishers++;
 
             streamRooms[roomName].clients[userID] = {
                 isPublished: true,
                 isSubscribed: false,
-                socket: socket,
+                // socket: socket,
                 userID: userID,
                 publisherNumber: streamRooms.numPublishers-1
             };
+        }
+
+        if(!sockets[userID]) {
+            sockets[userID] = socket;
         }
 
 
@@ -164,7 +171,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
         for (otherClientID in streamRooms[roomName].clients) {
             if (otherClientID !== userID) {
-                streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
+                sockets[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
+                // streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
             }
         }
@@ -190,12 +198,12 @@ function onJoin(userID, socket, roomName, isPublishing) {
         // If not add them in and update their socket.
         if (streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].clients[userID].isSubscribed = true;
-            streamRooms[roomName].clients[userID].socket = socket;
+            // streamRooms[roomName].clients[userID].socket = socket;
         } else {
             streamRooms[roomName].clients[userID] = {
                 isPublished: false,
                 isSubscribed: true,
-                socket: socket,
+                // socket: socket,
                 userID: userID,
                 publisherNumber: -1
             };
@@ -206,7 +214,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
         for (clientID in streamRooms[roomName].clients) {
             let client = streamRooms[roomName].clients[clientID];
             if (client.isPublished) {
-                client.socket.emit('subscriber ready', userID, client.publisherNumber);
+                sockets[clientID].socket.emit('subscriber ready', userID, client.publisherNumber);
+                // client.socket.emit('subscriber ready', userID, client.publisherNumber);
                 socket.emit('publisher ready', clientID, client.publisherNumber);
             }
         }
@@ -225,7 +234,7 @@ function saveStreamRoomData(room_data) {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = {stream_room: stringifyStreamRoom(room_data)};
+        var myobj = {stream_room: JSON.stringify(streamRooms)};
         console.log(myobj);
         // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
         //     if (err) {
@@ -274,13 +283,13 @@ function setupMongoCollection() {
     });
 }
 
-function stringifyStreamRoom(room_data) {
-    var newStreamRoom = Object.assign({}, room_data);
-    for (roomName in newStreamRoom) {
-        for (clientID in newStreamRoom[roomName].clients) {
-            newStreamRoom[roomName].clients[clientID].socket = undefined;
-        }
-    }
-
-    return JSON.stringify(newStreamRoom);
-}
+// function stringifyStreamRoom(room_data) {
+//     var newStreamRoom = Object.assign({}, room_data);
+//     for (roomName in newStreamRoom) {
+//         for (clientID in newStreamRoom[roomName].clients) {
+//             newStreamRoom[roomName].clients[clientID].socket = undefined;
+//         }
+//     }
+//
+//     return JSON.stringify(newStreamRoom);
+// }
