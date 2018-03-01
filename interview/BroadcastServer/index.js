@@ -221,7 +221,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
     }
 }
-function saveStreamRoomData(streamRooms) {
+function saveStreamRoomData() {
     // Connect to database and saves streamrooms object
     var MongoClient = require('mongodb').MongoClient;
     var url = "mongodb://localhost:27017/";
@@ -232,15 +232,17 @@ function saveStreamRoomData(streamRooms) {
         }
         var dbo = db.db("mydb");
         var myobj = {stream_room: JSON.stringify(streamRooms)};
+        console.log("Stream-Room", isCyclic(streamRooms));
+        console.log("MyOBJ", isCyclic(myobj));
 
-        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
-            if (err) {
-                console.log("Insert Err:", err);
-            } else {
-                console.log("Stream rooms saved.");
-            }
-            db.close();
-        });
+        // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
+        //     if (err) {
+        //         console.log("Insert Err:", err);
+        //     } else {
+        //         console.log("Stream rooms saved.");
+        //     }
+        //     db.close();
+        // });
     });
 }
 
@@ -278,4 +280,42 @@ function setupMongoCollection() {
             }
         });
     });
+}
+
+
+////
+function isCyclic(obj) {
+    var keys = [];
+    var stack = [];
+    var stackSet = new Set();
+    var detected = false;
+
+    function detect(obj, key) {
+        if (typeof obj != 'object') { return; }
+
+        if (stackSet.has(obj)) { // it's cyclic! Print the object and its locations.
+            var oldindex = stack.indexOf(obj);
+            var l1 = keys.join('.') + '.' + key;
+            var l2 = keys.slice(0, oldindex + 1).join('.');
+            console.log('CIRCULAR: ' + l1 + ' = ' + l2 + ' = ' + obj);
+            console.log(obj);
+            detected = true;
+            return;
+        }
+
+        keys.push(key);
+        stack.push(obj);
+        stackSet.add(obj);
+        for (var k in obj) { //dive on the object's children
+            if (obj.hasOwnProperty(k)) { detect(obj[k], k); }
+        }
+
+        keys.pop();
+        stack.pop();
+        stackSet.delete(obj);
+        return;
+    }
+
+    detect(obj, 'obj');
+    return detected;
 }
