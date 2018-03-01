@@ -236,7 +236,7 @@ function saveStreamRoomData(streamRooms) {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = { stream_room: streamRooms };
+        var myobj = {stream_room: JSON.stringify(streamRooms)};
 
         dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
             if (err) {
@@ -274,7 +274,6 @@ function setupMongoCollection() {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = {stream_room: streamRooms};
         dbo.createCollection("stream_rooms", function (err, res) {
             if (err) {
                 console.log("Create Collection Error:", err);
