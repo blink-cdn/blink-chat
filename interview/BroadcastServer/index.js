@@ -259,7 +259,7 @@ function retreiveStreamRoomData() {
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         var dbo = db.db("mydb");
-        var query = { 'stream_room' : {} };
+        var query = { stream_room : "" };
         dbo.collection("stream").find(query).toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
