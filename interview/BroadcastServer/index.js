@@ -266,9 +266,8 @@ function retreiveStreamRoomData() {
                 console.log("Find err:", err);
             } else {
                 console.log(item);
-            }
-
-        };
+            };
+        });
         console.log("Got em");
     });
 }
