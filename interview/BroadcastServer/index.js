@@ -235,12 +235,18 @@ function saveStreamRoomData(streamRooms) {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = { stream_Room: streamRooms};
+        var myobj = { stream_room: streamRooms };
+        dbo.createCollection("stream_rooms", function(err, res) {
+            if (err) {
+                console.log("Create Collection Error:", err);
+            }
+        });
+
         dbo.collection("stream").insertOne(myobj, function (err, res) {
             if (err) {
                 console.log("Insert Err:", err);
             }
-            console.log("1 document inserted");
+            console.log("Stream rooms saved.");
             db.close();
         });
     });
@@ -254,7 +260,7 @@ function retreiveStreamRoomData() {
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         var dbo = db.db("mydb");
-        var query = {stream_Room: streamRooms};
+        var query = {stream_room: streamRooms};
         dbo.collection("stream").find(query).toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
