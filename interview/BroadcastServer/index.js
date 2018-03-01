@@ -275,10 +275,10 @@ function setupMongoCollection() {
 }
 
 function stringifyStreamRoom() {
-    newStreamRoom = Object.assign({}, streamRooms);
+    var newStreamRoom = Object.assign({}, streamRooms);
     for (roomName in newStreamRoom) {
         for (clientID in newStreamRoom[roomName].clients) {
-            newStreamRoom[roomName].clients[clientID].socket = null;
+            newStreamRoom[roomName].clients[clientID].socket = undefined;
         }
     }
 
