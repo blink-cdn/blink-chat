@@ -14,23 +14,7 @@ const fs = require('fs');
 
 // Rooms
 let streamRooms = {};
-
-// Setup Mongo
-MongoClient.connect(url, function (err, db) {
-    if (err) {
-        console.log("Connect Err:", err);
-    }
-    var dbo = db.db("mydb");
-    var myobj = {stream_room: streamRooms};
-    dbo.createCollection("stream_rooms", function (err, res) {
-        if (err) {
-            console.log("Create Collection Error:", err);
-        } else {
-            console.log("Created collection");
-        }
-    });
-});
-
+setupMongoCollection();
 retreiveStreamRoomData();
 
 /************  SERVER SETUP *************/
@@ -277,6 +261,26 @@ function retreiveStreamRoomData() {
             if (err) throw err;
             console.log(result);
             db.close();
+        });
+    });
+}
+
+function setupMongoCollection() {
+    // Setup Mongo
+    var MongoClient = require('mongodb').MongoClient;
+    var url = "mongodb://localhost:27017/";
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            console.log("Connect Err:", err);
+        }
+        var dbo = db.db("mydb");
+        var myobj = {stream_room: streamRooms};
+        dbo.createCollection("stream_rooms", function (err, res) {
+            if (err) {
+                console.log("Create Collection Error:", err);
+            } else {
+                console.log("Created collection");
+            }
         });
     });
 }
