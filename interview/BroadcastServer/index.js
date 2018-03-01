@@ -260,11 +260,14 @@ function retreiveStreamRoomData() {
         if (err) throw err;
         var dbo = db.db("mydb");
         var query = {};
-        dbo.collection("stream").find(query).toArray(function (err, result) {
-            if (err) throw err;
-            console.log(result);
-            db.close();
+        dbo.collection("stream").find(query, function(err, res) {
+            console.log(res);
         });
+        // dbo.collection("stream").find(query).toArray(function (err, result) {
+        //     if (err) throw err;
+        //     console.log(result);
+        //     db.close();
+        // });
     });
 }
 
