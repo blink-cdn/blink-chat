@@ -208,8 +208,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 socket: socket,
                 userID: userID,
                 publisherNumber: -1
-                saveStreamRoomData(streamRooms);
-        }
+            };
+            saveStreamRoomData(streamRooms);
         }
 
         // Loop through all publishers and let them know a new;
