@@ -231,8 +231,8 @@ function saveStreamRoomData() {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = {stream_room: JSON.stringify(streamRooms)};
         console.log("Stream-Room", isCyclic(streamRooms));
+        var myobj = {stream_room: JSON.stringify(streamRooms)};
         console.log("MyOBJ", isCyclic(myobj));
 
         // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
