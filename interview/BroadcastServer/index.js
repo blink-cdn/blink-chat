@@ -239,15 +239,15 @@ function saveStreamRoomData(room_data) {
         }
         var dbo = db.db("mydb");
         var myobj = {stream_room: JSON.stringify(streamRooms)};
-        console.log(myobj);
-        // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
-        //     if (err) {
-        //         console.log("Insert Err:", err);
-        //     } else {
-        //         console.log("Stream rooms saved.");
-        //     }
-        //     db.close();
-        // });
+
+        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
+            if (err) {
+                console.log("Insert Err:", err);
+            } else {
+                console.log("Stream rooms saved.");
+            }
+            db.close();
+        });
     });
 }
 
