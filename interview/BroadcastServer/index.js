@@ -269,6 +269,9 @@ function retreiveStreamRoomData() {
                 console.log(err);
             }
         });
+        console.log("-------");
+        console.log(JSON.stringify(cursor));
+        console.log("-------");
         console.log("Got em");
     });
 }
