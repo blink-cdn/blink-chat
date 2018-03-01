@@ -225,7 +225,6 @@ function saveStreamRoomData() {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        console.log(console.);
         var myobj = {stream_room: stringifyStreamRoom()};
         console.log(myobj);
         // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
