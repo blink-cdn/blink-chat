@@ -243,14 +243,14 @@ function saveStreamRoomData(streamRooms) {
 
             console.log(res);
         });
-        //
-        // dbo.collection("stream").insertOne(myobj, function (err, res) {
-        //     if (err) {
-        //         console.log("Insert Err:", err);
-        //     }
-        //     console.log("Stream rooms saved.");
-        //     db.close();
-        // });
+
+        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
+            if (err) {
+                console.log("Insert Err:", err);
+            }
+            console.log("Stream rooms saved.");
+            db.close();
+        });
     });
 }
 
