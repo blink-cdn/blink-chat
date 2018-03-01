@@ -89,7 +89,7 @@ mySocket.on('disconnect', function() {
 function onSignal(message, destUserID, roomName, socket) {
     if (streamRooms[roomName].clients[destUserID]) {
         // streamRooms[roomName].clients[destUserID].socket.emit('signal', message);
-        sockets[destUserID].socket.emit('signal', message);
+        sockets[destUserID].emit('signal', message);
     }
 }
 
@@ -112,7 +112,7 @@ function onDisconnect(userID, roomName) {
             // Let everyone know
             for (clientID in clientsInRoom) {
                 // clientsInRoom[clientID].socket.emit('disconnect user', userID, roomName);
-                sockets[clientID].socket.emit('disconnect user', userID, roomName);
+                sockets[clientID].emit('disconnect user', userID, roomName);
             }
         }
     }
@@ -173,7 +173,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
         for (otherClientID in streamRooms[roomName].clients) {
             if (otherClientID !== userID && sockets[otherClientID]) {
-                sockets[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
+                sockets[otherClientID].emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 // streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
             }
@@ -218,7 +218,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
         for (clientID in streamRooms[roomName].clients) {
             let client = streamRooms[roomName].clients[clientID];
             if (client.isPublished) {
-                sockets[clientID].socket.emit('subscriber ready', userID, client.publisherNumber);
+                sockets[clientID].emit('subscriber ready', userID, client.publisherNumber);
                 // client.socket.emit('subscriber ready', userID, client.publisherNumber);
                 socket.emit('publisher ready', clientID, client.publisherNumber);
             }

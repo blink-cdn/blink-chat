@@ -63,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="207" column="26" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="26" />
+              <caret line="212" column="20" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,8 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sendToPeer</find>
-      <find>3</find>
       <find>sendToPeerValue =</find>
       <find>sendToPeerValue</find>
       <find>sync</find>
@@ -105,6 +103,8 @@
       <find>].socket</find>
       <find>.socket</find>
       <find>socket:</find>
+      <find>onJoin</find>
+      <find>sockets[</find>
     </findStrings>
     <replaceStrings>
       <replace>// streamData(streamRooms);</replace>
@@ -290,12 +290,12 @@
       <workItem from="1519316076358" duration="874000" />
       <workItem from="1519344108926" duration="7389000" />
       <workItem from="1519847370770" duration="979000" />
-      <workItem from="1519862714135" duration="3757000" />
+      <workItem from="1519862714135" duration="3843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36674000" />
+    <option name="totallyTimeSpent" value="36760000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="40" width="1103" height="1072" extended-state="0" />
@@ -610,7 +610,7 @@
     <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="207" column="26" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="26" />
+          <caret line="212" column="20" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="20" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
