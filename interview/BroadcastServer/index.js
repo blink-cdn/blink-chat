@@ -14,6 +14,23 @@ const fs = require('fs');
 
 // Rooms
 let streamRooms = {};
+
+// Setup Mongo
+MongoClient.connect(url, function (err, db) {
+    if (err) {
+        console.log("Connect Err:", err);
+    }
+    var dbo = db.db("mydb");
+    var myobj = {stream_room: streamRooms};
+    dbo.createCollection("stream_rooms", function (err, res) {
+        if (err) {
+            console.log("Create Collection Error:", err);
+        } else {
+            console.log("Created collection");
+        }
+    });
+});
+
 retreiveStreamRoomData();
 
 /************  SERVER SETUP *************/
@@ -236,21 +253,14 @@ function saveStreamRoomData(streamRooms) {
         }
         var dbo = db.db("mydb");
         var myobj = { stream_room: streamRooms };
-        dbo.createCollection("stream_rooms", function(err, res) {
+
+        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
             if (err) {
-                console.log("Create Collection Error:", err);
-            } else {
-                console.log("Created collection");
+                console.log("Insert Err:", err);
             }
+            console.log("Stream rooms saved.");
+            db.close();
         });
-        //
-        // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
-        //     if (err) {
-        //         console.log("Insert Err:", err);
-        //     }
-        //     console.log("Stream rooms saved.");
-        //     db.close();
-        // });
     });
 }
 
