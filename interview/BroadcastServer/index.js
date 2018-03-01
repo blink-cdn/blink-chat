@@ -130,8 +130,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
             streamRooms[roomName] = {
                 clients: {},
                 numPublishers: 0
-            }
-            saveStreamRoomData(streamRooms);
+            };
         }
 
         // If the publisher is new
@@ -144,9 +143,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 socket: socket,
                 userID: userID,
                 publisherNumber: streamRooms.numPublishers-1
-            }
-
-            saveStreamRoomData(streamRooms);
+            };
         }
 
 
@@ -155,7 +152,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
             for (otherClientID in streamRooms[roomName].clients) {
                 if (otherClientID !== userID) {
                     socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
-                    saveStreamRoomData(streamRooms);
                 }
             }
             return;
@@ -167,18 +163,17 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
             streamRooms[roomName].clients[userID].isPublished = true;
             streamRooms[roomName].clients[userID].publisherNumber = streamRooms[roomName].numPublishers-1;
-            saveStreamRoomData(streamRooms);
         }
 
         for (otherClientID in streamRooms[roomName].clients) {
             if (otherClientID !== userID) {
                 streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
-                saveStreamRoomData(streamRooms);
             }
         }
 
         console.log("Streamer joined the session:", roomName);
+        saveStreamRoomData(streamRooms);
         return;
     }
 
@@ -241,8 +236,9 @@ function saveStreamRoomData(streamRooms) {
         dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
             if (err) {
                 console.log("Insert Err:", err);
+            } else {
+                console.log("Stream rooms saved.");
             }
-            console.log("Stream rooms saved.");
             db.close();
         });
     });
