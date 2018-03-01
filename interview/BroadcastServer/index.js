@@ -261,7 +261,7 @@ function retreiveStreamRoomData() {
         var dbo = db.db("mydb");
         var query = { stream_room: { $exists: true } };
         // dbo.collection("stream").find(query).toArray()
-        dbo.collection("stream").find(query).toArray(function (err, result) {
+        dbo.collection("stream").find().toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
             db.close();
