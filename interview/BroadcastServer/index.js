@@ -232,13 +232,13 @@ function saveStreamRoomData(streamRooms) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            console.log(err)
+            console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
         var myobj = { stream_Room: streamRooms};
         dbo.collection("stream").insertOne(myobj, function (err, res) {
             if (err) {
-                console.log(err)
+                console.log("Insert Err:", err);
             }
             console.log("1 document inserted");
             db.close();
