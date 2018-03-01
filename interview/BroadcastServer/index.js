@@ -215,7 +215,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
     }
 }
 
-function saveStreamRoomData() {
+function saveStreamRoomData(room_data) {
     // Connect to database and saves streamrooms object
     var MongoClient = require('mongodb').MongoClient;
     var url = "mongodb://localhost:27017/";
@@ -225,7 +225,7 @@ function saveStreamRoomData() {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        var myobj = {stream_room: stringifyStreamRoom()};
+        var myobj = {stream_room: stringifyStreamRoom(room_data)};
         console.log(myobj);
         // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
         //     if (err) {
@@ -274,8 +274,8 @@ function setupMongoCollection() {
     });
 }
 
-function stringifyStreamRoom() {
-    var newStreamRoom = Object.assign({}, streamRooms);
+function stringifyStreamRoom(room_data) {
+    var newStreamRoom = Object.assign({}, room_data);
     for (roomName in newStreamRoom) {
         for (clientID in newStreamRoom[roomName].clients) {
             newStreamRoom[roomName].clients[clientID].socket = undefined;
