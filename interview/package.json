@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "jQuery": "^1.7.4",
     "lite-server": "^2.3.0",
     "webrtc": "^1.14.1",
     "webrtc-adapter": "^6.1.1"
