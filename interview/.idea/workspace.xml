@@ -62,8 +62,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="261" column="41" lean-forward="true" selection-start-line="261" selection-start-column="41" selection-end-line="261" selection-end-column="41" />
+            <state relative-caret-position="358">
+              <caret line="261" column="23" lean-forward="true" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -184,8 +184,8 @@
     <dismissed value="$PROJECT_DIR$/node_modules 2/yargs/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="257" />
-    <option name="y" value="40" />
+    <option name="x" value="628" />
+    <option name="y" value="23" />
     <option name="width" value="1103" />
     <option name="height" value="1072" />
   </component>
@@ -290,15 +290,15 @@
       <workItem from="1519316076358" duration="874000" />
       <workItem from="1519344108926" duration="7389000" />
       <workItem from="1519847370770" duration="979000" />
-      <workItem from="1519862714135" duration="4048000" />
+      <workItem from="1519862714135" duration="4156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36965000" />
+    <option name="totallyTimeSpent" value="37073000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="257" y="40" width="1103" height="1072" extended-state="0" />
+    <frame x="628" y="23" width="1103" height="1072" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30961183" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -609,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="261" column="41" lean-forward="true" selection-start-line="261" selection-start-column="41" selection-end-line="261" selection-end-column="41" />
+        <state relative-caret-position="358">
+          <caret line="261" column="23" lean-forward="true" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
