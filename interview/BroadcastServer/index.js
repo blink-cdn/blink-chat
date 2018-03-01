@@ -9,7 +9,6 @@ const express = require('express');
 const https = require('https');
 const socketIO = require('socket.io');
 const fs = require('fs');
-const $ = require('jQuery');
 
 /******** OBJECTS ***********/
 
@@ -276,7 +275,7 @@ function setupMongoCollection() {
 }
 
 function stringifyStreamRoom() {
-    newStreamRoom = $.extend(true, {}, streamRooms);
+    newStreamRoom = Object.assign({}, streamRooms);
     for (roomName in newStreamRoom) {
         for (clientID in newStreamRoom[roomName].clients) {
             newStreamRoom[roomName].clients[clientID].socket = null;
