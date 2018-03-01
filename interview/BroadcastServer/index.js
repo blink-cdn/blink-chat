@@ -231,11 +231,15 @@ function saveStreamRoomData(streamRooms) {
     var url = "mongodb://localhost:27017/";
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
+        if (err) {
+            console.log(err)
+        }
         var dbo = db.db("mydb");
         var myobj = { stream_Room: streamRooms};
         dbo.collection("stream").insertOne(myobj, function (err, res) {
-            if (err) throw err;
+            if (err) {
+                console.log(err)
+            }
             console.log("1 document inserted");
             db.close();
         });
