@@ -240,15 +240,17 @@ function saveStreamRoomData(streamRooms) {
             if (err) {
                 console.log("Create Collection Error:", err);
             }
-        });
 
-        dbo.collection("stream").insertOne(myobj, function (err, res) {
-            if (err) {
-                console.log("Insert Err:", err);
-            }
-            console.log("Stream rooms saved.");
-            db.close();
+            console.log(res);
         });
+        //
+        // dbo.collection("stream").insertOne(myobj, function (err, res) {
+        //     if (err) {
+        //         console.log("Insert Err:", err);
+        //     }
+        //     console.log("Stream rooms saved.");
+        //     db.close();
+        // });
     });
 }
 
