@@ -131,7 +131,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         // If the publisher is new
-        if (!streamRooms[roomName].clients[userID]) {
+        if (!streamRooms[roomName].clients[userID] || streamRooms[roomName].clients[userID].socket === undefined) {
             streamRooms[roomName].numPublishers++;
 
             streamRooms[roomName].clients[userID] = {
