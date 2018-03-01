@@ -275,7 +275,7 @@ function setupMongoCollection() {
 }
 
 function stringifyStreamRoom() {
-    newStreamRoom = streamRooms;
+    newStreamRoom = Object.assign({}, streamRooms);
     for (roomName in newStreamRoom) {
         for (clientID in newStreamRoom[roomName].clients) {
             newStreamRoom[roomName].clients[clientID].socket = null;
