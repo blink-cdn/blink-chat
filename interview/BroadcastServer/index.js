@@ -278,7 +278,7 @@ function stringifyStreamRoom() {
     newStreamRoom = streamRooms;
     for (roomName in newStreamRoom) {
         for (clientID in newStreamRoom[roomName].clients) {
-            newStreamRoom[roomName].clients[clientID].socket = undefined;
+            newStreamRoom[roomName].clients[clientID].socket = null;
         }
     }
 
