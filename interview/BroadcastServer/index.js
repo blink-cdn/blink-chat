@@ -261,9 +261,14 @@ function retreiveStreamRoomData() {
         var dbo = db.db("mydb");
         var query = { stream_room: { $exists: true } };
         // dbo.collection("stream").find(query).toArray()
-        dbo.collection("stream").find().forEach(function(item) {
-            console.log("Item:", item);
-        });
+        dbo.collection("stream").find().each(function(err, item) {
+            if (err) {
+                console.log("Find err:", err);
+            } else {
+                console.log(item);
+            }
+
+        };
         console.log("Got em");
     });
 }
