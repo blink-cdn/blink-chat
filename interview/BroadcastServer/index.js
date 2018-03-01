@@ -88,7 +88,6 @@ mySocket.on('disconnect', function() {
 function onSignal(message, destUserID, roomName, socket) {
     if (streamRooms[roomName].clients[destUserID]) {
         streamRooms[roomName].clients[destUserID].socket.emit('signal', message);
-        saveStreamRoomData(streamRooms);
     }
 }
 
@@ -97,20 +96,16 @@ function onDisconnect(userID, roomName) {
 
     if(streamRooms[roomName]) {
         let clientsInRoom = streamRooms[roomName].clients;
-        saveStreamRoomData(streamRooms);
-
 
         if (clientsInRoom.length === 1) {
             streamRooms[roomName] = null;
             delete streamRooms[roomName];
-            saveStreamRoomData(streamRooms);
             return;
         }
 
         else {
             // Remove Client from room
             delete streamRooms[roomName].clients[userID];
-            saveStreamRoomData(streamRooms);
 
             // Let everyone know
             for (clientID in clientsInRoom) {
@@ -118,6 +113,8 @@ function onDisconnect(userID, roomName) {
             }
         }
     }
+
+    saveStreamRoomData(streamRooms);
 }
 
 function onJoin(userID, socket, roomName, isPublishing) {
@@ -187,8 +184,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 clients: {},
                 numPublishers: 0
             };
-
-            saveStreamRoomData(streamRooms)
         }
 
         // If client is in the room, turn their subscribe on
@@ -196,7 +191,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
         if (streamRooms[roomName].clients[userID]) {
             streamRooms[roomName].clients[userID].isSubscribed = true;
             streamRooms[roomName].clients[userID].socket = socket;
-            saveStreamRoomData(streamRooms);
         } else {
             streamRooms[roomName].clients[userID] = {
                 isPublished: false,
@@ -205,7 +199,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
                 userID: userID,
                 publisherNumber: -1
             };
-            saveStreamRoomData(streamRooms);
         }
 
         // Loop through all publishers and let them know a new;
@@ -215,12 +208,13 @@ function onJoin(userID, socket, roomName, isPublishing) {
             if (client.isPublished) {
                 client.socket.emit('subscriber ready', userID, client.publisherNumber);
                 socket.emit('publisher ready', clientID, client.publisherNumber);
-                saveStreamRoomData(streamRooms);
             }
         }
 
+        saveStreamRoomData(streamRooms)
     }
 }
+
 function saveStreamRoomData() {
     // Connect to database and saves streamrooms object
     var MongoClient = require('mongodb').MongoClient;
@@ -231,10 +225,9 @@ function saveStreamRoomData() {
             console.log("Connect Err:", err);
         }
         var dbo = db.db("mydb");
-        console.log("Stream-Room", isCyclic(streamRooms));
-        var myobj = {stream_room: JSON.stringify(streamRooms)};
-        console.log("MyOBJ", isCyclic(myobj));
-
+        console.log(console.);
+        var myobj = {stream_room: stringifyStreamRoom()};
+        console.log(myobj);
         // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
         //     if (err) {
         //         console.log("Insert Err:", err);
@@ -280,6 +273,17 @@ function setupMongoCollection() {
             }
         });
     });
+}
+
+function stringifyStreamRoom() {
+    newStreamRoom = streamRooms;
+    for (roomName in newStreamRoom) {
+        for (clientID in newStreamRoom[roomName].clients) {
+            newStreamRoom[roomName].clients[clientID].socket = undefined;
+        }
+    }
+
+    return JSON.stringify(newStreamRoom);
 }
 
 
