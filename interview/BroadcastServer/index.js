@@ -170,7 +170,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         for (otherClientID in streamRooms[roomName].clients) {
-            if (otherClientID !== userID) {
+            if (otherClientID !== userID && sockets[otherClientID]) {
                 sockets[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 // streamRooms[roomName].clients[otherClientID].socket.emit('publisher ready', userID, streamRooms[roomName].clients[userID].publisherNumber);
                 socket.emit('subscriber ready', otherClientID, streamRooms[roomName].clients[userID].publisherNumber)
