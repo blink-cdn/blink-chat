@@ -239,18 +239,18 @@ function saveStreamRoomData(streamRooms) {
         dbo.createCollection("stream_rooms", function(err, res) {
             if (err) {
                 console.log("Create Collection Error:", err);
+            } else {
+                console.log("Created collection");
             }
-
-            console.log(res);
         });
-
-        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
-            if (err) {
-                console.log("Insert Err:", err);
-            }
-            console.log("Stream rooms saved.");
-            db.close();
-        });
+        //
+        // dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
+        //     if (err) {
+        //         console.log("Insert Err:", err);
+        //     }
+        //     console.log("Stream rooms saved.");
+        //     db.close();
+        // });
     });
 }
 
