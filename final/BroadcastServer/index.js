@@ -16,7 +16,7 @@ const fs = require('fs');
 let streamRooms = {};
 let sockets = {};
 // setupMongoCollection();
-retreiveStreamRoomData();
+// retreiveStreamRoomData();
 
 /************  SERVER SETUP *************/
 
