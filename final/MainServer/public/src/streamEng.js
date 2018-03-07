@@ -1,0 +1,300 @@
+//STATUS: WOrking
+var localVideoObject;
+var remoteVideoObject;
+var broadcastButton;
+
+var roomName = "helloAdele";
+var localStreams = {};
+
+const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
+              { url: 'turn:numb.viagenie.ca',
+                credential: 'enter1234',
+                username: 'bethin.charles@yahoo.com'
+              }]};
+
+// var subscibers = [];
+// var publishers = [];
+var peers = [];
+var peerNumberOf = {
+  "userID": "peerNumber"
+};
+
+var constraints = {
+  video: true,
+  audio: true
+};
+
+///////////////////////
+//// StreamCast Eng Stuff
+
+var streamEng = {
+    socket: null,
+    serviceAddress: null,
+    onSubscribeDone: undefined
+};
+
+var numPublishers = 0;
+
+streamEng.setupService = function() {
+  streamEng.subscribe();
+};
+
+streamEng.reconnect = function() {
+    console.log("Reconnecting.");
+    if (streamEng.socket !== undefined || streamEng.socket.connected === false) {
+        console.log("Is connected: ", streamEng.socket.connected);
+        streamEng.socket = io.connect();
+    }
+}
+
+streamEng.publish = function() {
+  setupMediaStream(false);
+  streamEng.socket.emit('publish', user.userID, roomName);
+  user.isPublished = true;
+  console.log("Publishing");
+};
+
+streamEng.subscribe = function() {
+  setupPage();
+  streamEng.socket = io.connect(streamEng.serviceAddress);
+  console.log("Connected to Stream Server", streamEng.serviceAddress, roomName);
+
+  // $('#publishButton').click(function() {
+    //   streamEng.publish();
+    // });
+
+  streamEng.socket.emit('subscribe', user.userID, roomName);
+
+  streamEng.socket.on('disconnect', function() {
+        console.log("DISCONNECTED");
+        reconnect();
+  });
+
+  // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
+  streamEng.socket.on('subscriber ready', function(clientID) {
+      console.log("Subscriber ready from", clientID);
+
+    if (!peerNumberOf.hasOwnProperty(clientID)) {
+
+      // If this clientID isn't on record yet, create a new PC and add it to record
+        // Then join the room
+      if (user.userID !== clientID) {
+        var newPeerConnection = createPeerConnection(clientID);
+        peers.push({
+          "userID": clientID,
+          "number": (peers.length),
+          "peerConnection": newPeerConnection,
+            setAndSentDescription: false
+        });
+        peerNumberOf[clientID] = peers.length - 1;
+      }
+
+      joinRoom(peerNumberOf[clientID]);
+
+    // If client is on record,
+    } else {
+      console.log("Already connected to this peer. Initiating stream");
+
+      var peerNumber = peerNumberOf[clientID];
+      joinRoom(peerNumberOf[clientID]);
+    }
+
+  });
+
+  // The broadcaster is ready to stream, create a PC for it
+  streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
+    console.log("Publisher ready from:", publisherNumber);
+
+    /* If peer doesn't exist, create new PC and add it to list of peers
+    If it does exist, reset the publisher number and the onaddstream function
+    so that the peer number is correct */
+    if (!peerNumberOf.hasOwnProperty(publisherID)) {
+      if (user.userID !== publisherID) {
+        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
+        peers.push({
+          "userID": publisherID,
+          "number": (peers.length),
+          "peerConnection": newPeerConnection,
+          "publisherNumber": publisherNumber
+        });
+    //
+        peerNumberOf[publisherID] = peers.length - 1;
+      }
+    } else {
+      peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
+      peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
+        console.log('Received remote stream');
+        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+        console.log("for peer: ", publisherID);
+      };
+    }
+
+    streamEng.onAddNewPublisher(publisherNumber);
+  });
+
+  // On signal, go to gotMessageFromServer to handle the message
+  streamEng.socket.on('signal', function(message) {
+    gotMessageFromServer(message);
+  });
+
+  // Handle client disconnect
+  streamEng.socket.on('disconnect user', function(userID, roomName) {
+     if (peerNumberOf.hasOwnProperty(userID)) {
+       var peerNumber = peerNumberOf[userID];
+       if (peers[peerNumber].hasOwnProperty("publisherNumber")) {
+         // If it's a publisher, delete publishers;
+           streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
+       }
+
+       peers.splice(peerNumber, 1);
+     }
+  });
+
+    if (typeof streamEng.onSubscribeDone !== "undefined") {
+        streamEng.onSubscribeDone();
+    }
+
+}
+
+
+//////////////////////////
+////// To make this work
+
+function gotMessageFromServer(message) {
+    var signal = message;
+    var peerNumber = -1;
+
+    // Ignore messages from ourself
+    if(signal.userID === user.userID) {
+      console.log("Received from self");
+      return;
+    }
+
+    // if (true) {
+      // If I'm the broadcaster, loop through my peers and find the right
+      // peer connection to use to send to
+      peerNumber = peerNumberOf[signal.userID];
+
+      if (peers[peerNumber].userID === signal.userID) {
+
+        if(signal.type === "sdp") {
+            peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+                // Only create answers in response to offers
+                if(signal.sdp.type === 'offer') {
+                    console.log("Got offer");
+                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                        setAndSendDescription(description, peerNumber);
+                    }).catch(errorHandler);
+                } else {
+                  console.log("Got answer")
+                }
+            }).catch(errorHandler);
+        } else if(signal.type === "ice") {
+            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+        }
+      }
+    // }
+
+
+}
+
+function joinRoom(peerNumber) {
+    // It runs two of each cuz of that error;
+    try {
+        setupMediaStream(true, peerNumber);
+    } catch(err) {
+        console.log("Error:", err)
+    }
+    // try {
+    //     setupMediaStream(true, peerNumber);
+    // } catch(err) {
+    //     console.log("Error:", err)
+    // }
+}
+
+
+// Get the media from camera/microphone.
+function setupMediaStream(startStream, peerNumber) {
+
+  if(navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+        localStreams[peerNumber] = stream;
+
+        if (startStream === false) {
+          streamEng.onPublish(stream);
+        }
+
+        // If you want to start the stream, addStream to connection
+        if (startStream === true) {
+            peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
+
+            peers[peerNumber].peerConnection.createOffer().then(function(description) {
+                setAndSendDescription(description, peerNumber);
+            }).catch(errorHandler);
+        }
+      }).catch(errorHandler);
+  } else {
+      alert('Your browser does not support getUserMedia API');
+  }
+}
+
+// Create peer connection 1
+function createPeerConnection(peerUserID, publisherNumber) {
+
+  var newPeerConnection = new RTCPeerConnection(configOptions);
+  newPeerConnection.onicecandidate = function(event) {
+    if(event.candidate !== null) {
+        streamEng.socket.emit('signal', {'type': 'ice', 'ice': event.candidate, 'userID': user.userID}, peerUserID, roomName);
+    }
+  };
+
+  if (publisherNumber !== null) {
+    newPeerConnection.onaddstream = function(event) {
+      console.log('Received remote stream');
+        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        console.log("Adding stream to:", publisherNumber);
+        peers[peerNumberOf[peerUserID]].hasConnected = true;
+    };
+  }
+
+
+  return newPeerConnection;
+}
+
+function setAndSendDescription(description, peerNumber) {
+
+  // if (sendToPeerValue == -10) {
+  //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
+  //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
+  //   }).catch(errorHandler);
+  // } else {
+        peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+            streamEng.socket.emit('signal', {
+                'type': 'sdp',
+                'sdp': peers[peerNumber].peerConnection.localDescription,
+                'userID': user.userID
+            }, peers[peerNumber].userID, roomName);
+        }).catch(errorHandler);
+  // }
+}
+
+// Setup DOM elements and responses
+function setupPage() {
+    user.isPublished = false;
+    user.isSubscribed = true;
+
+    localVideoObject = document.getElementById('local-video');
+    remoteVideoObject = document.getElementById('remote-video');
+
+
+    // If client is going to disconnect, let server know
+    window.addEventListener("beforeunload", function(e) {
+        streamEng.socket.emit('disconnect client', user.userID, roomName); // Disconnects from roomm
+    }, false);
+}
+
+///////////////////
+function errorHandler(error) {
+    console.log(error.message);
+}
