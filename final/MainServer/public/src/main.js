@@ -39,11 +39,15 @@ $(document).ready(function() {
     user.name = 'user';
     // socket.emit('create user', user, roomName);
 
-    $('#publishButton').click(function() {
+    $('#publishButton').click(function () {
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
         $('#publishButton').css('opacity', '0.25');
     });
+
+    setTimeout(function () {
+        console.log("USER:", firebase.auth().currentUser);
+    }, 100); // Delayed for error prevention
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -220,7 +224,6 @@ function sendInviteTo(name) {
     });
     button.attr("disabled", "true");
 }
-
 
 const ECE_faculty = {
     'Yao': {

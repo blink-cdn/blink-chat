@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blink Auctions</title>
+      <title>Blink Auctions</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/chat.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/chat.css">
+      <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
+
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+      <script>
+          // Initialize Firebase
+          var config = {
+              apiKey: "AIzaSyCx8Ej3-j-XDDhGgZ7vv5JMVqr86jIrdFU",
+              authDomain: "blink-chat-6f619.firebaseapp.com",
+              databaseURL: "https://blink-chat-6f619.firebaseio.com",
+              projectId: "blink-chat-6f619",
+              storageBucket: "blink-chat-6f619.appspot.com",
+              messagingSenderId: "441138336561"
+          };
+          firebase.initializeApp(config);
+      </script>
   </head>
   <body class="bg-light">
 
@@ -80,5 +94,19 @@
     <script src="https://api.callstats.io/static/callstats.min.js"></script>
     <script src="src/streamEng.js"></script>
     <script src="src/main.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyCx8Ej3-j-XDDhGgZ7vv5JMVqr86jIrdFU",
+            authDomain: "blink-chat-6f619.firebaseapp.com",
+            databaseURL: "https://blink-chat-6f619.firebaseio.com",
+            projectId: "blink-chat-6f619",
+            storageBucket: "blink-chat-6f619.appspot.com",
+            messagingSenderId: "441138336561"
+        };
+        firebase.initializeApp(config);
+    </script>
   </body>
 </html>

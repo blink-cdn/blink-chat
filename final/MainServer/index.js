@@ -133,7 +133,26 @@ serviceIo.sockets.on('connection', function(socket) {
 
 console.log("Connected.");
 
+/*********** Google Firebase ************/
 
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./firebase/blink-chat-6f619-firebase-adminsdk-tyzar-c5c59caca3.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://blink-chat-6f619.firebaseio.com"
+});
+
+function authorize(idToken) {
+    admin.auth().verifyIdToken(idToken)
+        .then(function(decodedToken) {
+            var uid = decodedToken.uid;
+            console.log(uid);
+        }).catch(function(error) {
+        // Handle error
+    });
+}
 
 /******** FUNCTIONS *********/
 
@@ -209,7 +228,6 @@ function setupService(userID, serviceType, roomName, user, socket) {
 
     syncUpdateService(serviceType);
 }
-
 function syncUpdateService(serviceType) {
     updateDatabse();
 
@@ -219,7 +237,6 @@ function syncUpdateService(serviceType) {
         console.log("Failed to update service. Please check service type:", serviceType);
     }
 }
-
 function updateAllServices() {
     for (service in services) {
         syncUpdateService(service);
@@ -227,7 +244,6 @@ function updateAllServices() {
 
     updateDatabse();
 }
-
 function updateDatabse() {
     // mongodb.collection(COLLECTION).insertOne({"room": {}}).then(function() {
     //     mongodb.collection("blink-main-rooms").find({room: {}}).sort({_id: -1}).toArray(function(err, results) {
@@ -303,7 +319,6 @@ function createService(serviceType) {
     }
 
 }
-
 function uuid() {
     function s4() {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
@@ -325,6 +340,4 @@ function uuid() {
 //
 //     return returnString;
 // };
-
-/******** MONGO ********/
 

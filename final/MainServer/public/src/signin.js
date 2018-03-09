@@ -3,7 +3,6 @@ var options = ["e.g ECE Meeting", "e.g Team Building",
     "e.g Work Dinner", "e.g Random Nonsense",
     "e.g My Room", "e.g Rooms for Days",
     "e.g My Fav Students"];
-
 var objs = {
     goButton: undefined,
     roomNameInput: undefined
@@ -17,7 +16,9 @@ $(document).ready(function() {
 
     objs.roomNameInput = $('#roomNameInput')[0];
 
-    typeAnimations(options, document.getElementById('roomNameInput'));
+    // typeAnimations(options, document.getElementById('roomNameInput'));
+
+    $('#loginBtn').click(onSignInWithGoogle);
 });
 
 function onGoToChat() {
@@ -27,6 +28,10 @@ function onGoToChat() {
     var roomname_in = stringToLink(objs.roomNameInput.value);
     window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname_in;
 }
+
+///////////////////////////
+//// FIREBASE FUNCTION ////
+///////////////////////////
 
 function onSignInWithGoogle() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -39,6 +44,8 @@ function onSignInWithGoogle() {
 
         console.log(user);
         console.log(user.email);
+
+        addUser(user);
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -49,6 +56,29 @@ function onSignInWithGoogle() {
         var credential = error.credential;
         // ...
 
+    });
+}
+
+function addUser(user) {
+    var token;
+    firebase.auth().currentUser.getIdToken().then(function(idToken) {
+        token = idToken;
+        localStorage['blink-user-info'] = token;
+    }).catch(function(error) {
+        console.log(error);
+        token = undefined;
+    });
+
+    // writeUserData(user);
+}
+
+function writeUserData(user) {
+    // Add user to database
+    firebase.database().ref('users/' + user.email).set({
+        name: "Charles",
+        email: user.email,
+        userType: 'admin',
+        pods: ['myPod', 'thisPod']
     });
 }
 
@@ -73,11 +103,9 @@ function typeAnimations(arrOptions, element) {
 
     }, 6000)
 }
-
 function randDelay(min, max) {
     return Math.floor(Math.random() * (max-min+1)+min);
 }
-
 function printLetter(string, el, count) {
     // split string into character separated array
     var arr = string.split(''),
@@ -107,7 +135,6 @@ function printLetter(string, el, count) {
         // 'human' typing
     }, randDelay(90, 150));
 }
-
 function removeLetter(string, el, count) {
     // var arr = string.split('');
     var input = el;
@@ -124,7 +151,6 @@ function removeLetter(string, el, count) {
         }
     }, randDelay(100, 100));
 }
-
 function stringToLink(string) {
     var returnString = "";
 
