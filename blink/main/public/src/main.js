@@ -48,7 +48,17 @@ $(document).ready(function() {
       message = $('#message-input').val();
       socket.emit("chat message", message, user, roomName);
       message = $('#message-input').val("");
-  })
+  });
+
+    $('#open-chat-button').click(function() {
+        chatBox = $('#chat-box');
+        if (chatBox.hasClass('showBox')) {
+            $('#chat-box').removeClass("showBox");
+        } else {
+            $('#chat-box').addClass("showBox");
+        }
+
+    });
 });
 
 $('#invitePeopleButton').on('click', function() {
