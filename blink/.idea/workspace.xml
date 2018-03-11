@@ -54,13 +54,13 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="271" column="1" lean-forward="true" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
+            <state relative-caret-position="319">
+              <caret line="49" column="33" lean-forward="false" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
               <folding>
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#6281#7338#0" expanded="false" />
-                <marker date="1520790353633" expanded="true" signature="6195:6206" ph="..." />
+                <element signature="e#6238#7295#0" expanded="false" />
+                <marker date="1520790395273" expanded="true" signature="6152:6163" ph="..." />
               </folding>
             </state>
           </provider>
@@ -221,12 +221,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="16717000" />
+      <workItem from="1520620836240" duration="16751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17366000" />
+    <option name="totallyTimeSpent" value="17400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-57" y="33" width="868" height="1113" extended-state="0" />
@@ -414,13 +414,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="271" column="1" lean-forward="true" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
+        <state relative-caret-position="319">
+          <caret line="49" column="33" lean-forward="false" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding>
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#6281#7338#0" expanded="false" />
-            <marker date="1520790353633" expanded="true" signature="6195:6206" ph="..." />
+            <element signature="e#6238#7295#0" expanded="false" />
+            <marker date="1520790395273" expanded="true" signature="6152:6163" ph="..." />
           </folding>
         </state>
       </provider>

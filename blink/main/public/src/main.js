@@ -48,7 +48,6 @@ $(document).ready(function() {
 
   $('#message-input').keyup(function(event) {
       if (event.keyCode === 13) {
-          console.log("SEnding message.");
         sendMessage();
       }
   });
