@@ -1,5 +1,6 @@
 body {
   font-size: 14px;
+  overflow: hidden;
 }
 
 .btn-container {
@@ -13,7 +14,9 @@ body {
   bottom: 0;
   height: calc(100vh - 56px);
   width: 28vw;
-  max-width: 300px;
+  /*width: 400px;*/
+  min-width: 350px;
+  max-width: 400px;
   border: 1px solid lightgray;
   box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2);
 }
