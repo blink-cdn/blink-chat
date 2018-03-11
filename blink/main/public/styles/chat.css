@@ -44,6 +44,7 @@ body {
   width: 100%;
   position: relative;
   left: 0px;
+  min-height: 50px;
 
 }
 
