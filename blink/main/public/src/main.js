@@ -48,6 +48,7 @@ $(document).ready(function() {
       message = $('#message-input').val();
       console.log("SENDING:", message);
       socket.emit("chat message", message, user, roomName);
+      message = $('#message-input').val("");
   })
 });
 
