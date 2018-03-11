@@ -44,10 +44,12 @@ $(document).ready(function() {
       $('#publishButton').css('opacity', '0.25');
   });
 
-  $('#message-button').click(function() {
-      message = $('#message-input').val();
-      socket.emit("chat message", message, user, roomName);
-      message = $('#message-input').val("");
+  $('#message-button').click(sendMessage);
+
+  $('#message-button').keyup(function(event) {
+      if (event.keyCode == 13) {
+        sendMessage();
+      }
   });
 
     $('#open-chat-button').click(function() {
@@ -57,8 +59,9 @@ $(document).ready(function() {
         } else {
             $('#chat-box').addClass("showBox");
         }
-
     });
+
+
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -213,7 +216,6 @@ function sendInviteTo(name) {
 
 }
 
-
 const ECE_faculty = {
     'Sid': {
         name: 'Sid Ahuja',
@@ -261,3 +263,9 @@ const ECE_faculty = {
         img: 'blink.png'
     }
 };
+
+function sendMessage() {
+    message = $('#message-input').val();
+    socket.emit("chat message", message, user, roomName);
+    message = $('#message-input').val("");
+}
