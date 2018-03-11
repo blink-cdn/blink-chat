@@ -229,26 +229,26 @@ function onJoin(userID, socket, roomName, isPublishing) {
 }
 
 function saveStreamRoomData(room_data) {
-    // Connect to database and saves streamrooms object
-    var MongoClient = require('mongodb').MongoClient;
-    var url = "mongodb://localhost:27017/";
-
-    MongoClient.connect(url, function (err, db) {
-        if (err) {
-            console.log("Connect Err:", err);
-        }
-        var dbo = db.db("mydb");
-        var myobj = {stream_room: JSON.stringify(streamRooms)};
-
-        dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
-            if (err) {
-                console.log("Insert Err:", err);
-            } else {
-                console.log("Stream rooms saved.");
-            }
-            db.close();
-        });
-    });
+    // // Connect to database and saves streamrooms object
+    // var MongoClient = require('mongodb').MongoClient;
+    // var url = "mongodb://localhost:27017/";
+    //
+    // MongoClient.connect(url, function (err, db) {
+    //     if (err) {
+    //         console.log("Connect Err:", err);
+    //     }
+    //     var dbo = db.db("mydb");
+    //     var myobj = {stream_room: JSON.stringify(streamRooms)};
+    //
+    //     dbo.collection("stream_rooms").insertOne(myobj, function (err, res) {
+    //         if (err) {
+    //             console.log("Insert Err:", err);
+    //         } else {
+    //             console.log("Stream rooms saved.");
+    //         }
+    //         db.close();
+    //     });
+    // });
 }
 
 function retreiveStreamRoomData() {
