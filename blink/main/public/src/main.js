@@ -81,7 +81,7 @@ function setupSocket() {
   socket.on('chat message', function(message, fromUser) {
 
       var darker = "";
-      if (fromUser.id === user.id) {
+      if (fromUser.userID === user.userID) {
           darker = "darker";
       }
       var html = "<div class=\"message-item " + darker + "\">" +
