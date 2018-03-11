@@ -47,8 +47,8 @@ $(document).ready(function() {
   $('#message-button').click(sendMessage);
 
   $('#message-input').keyup(function(event) {
-      console.log("EVENT:", event.keyCode);
-      if (event.keyCode == 13) {
+      if (event.keyCode === 13) {
+          console.log("SEnding message.");
         sendMessage();
       }
   });
