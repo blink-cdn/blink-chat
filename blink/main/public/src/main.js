@@ -47,6 +47,7 @@ $(document).ready(function() {
   $('#message-button').click(sendMessage);
 
   $('#message-button').keyup(function(event) {
+      console.log("EVENT:", event.keyCode);
       if (event.keyCode == 13) {
         sendMessage();
       }
