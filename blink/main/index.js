@@ -133,26 +133,26 @@ serviceIo.sockets.on('connection', function(socket) {
 
 console.log("Connected.");
 
-/*********** Google Firebase ************/
-
-var admin = require("firebase-admin");
-
-var serviceAccount = require("./firebase/blink-chat-6f619-firebase-adminsdk-tyzar-c5c59caca3.json");
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://blink-chat-6f619.firebaseio.com"
-});
-
-function authorize(idToken) {
-    admin.auth().verifyIdToken(idToken)
-        .then(function(decodedToken) {
-            var uid = decodedToken.uid;
-            console.log(uid);
-        }).catch(function(error) {
-        // Handle error
-    });
-}
+// /*********** Google Firebase ************/
+//
+// var admin = require("firebase-admin");
+//
+// var serviceAccount = require("./firebase/blink-chat-6f619-firebase-adminsdk-tyzar-c5c59caca3.json");
+//
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//     databaseURL: "https://blink-chat-6f619.firebaseio.com"
+// });
+//
+// function authorize(idToken) {
+//     admin.auth().verifyIdToken(idToken)
+//         .then(function(decodedToken) {
+//             var uid = decodedToken.uid;
+//             console.log(uid);
+//         }).catch(function(error) {
+//         // Handle error
+//     });
+// }
 
 /******** FUNCTIONS *********/
 
