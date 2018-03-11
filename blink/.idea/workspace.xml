@@ -51,13 +51,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+            <state relative-caret-position="335">
+              <caret line="87" column="67" lean-forward="true" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
               <folding>
-                <marker date="1520742399957" expanded="true" signature="5841:5852" ph="..." />
+                <marker date="1520742582732" expanded="true" signature="5918:5929" ph="..." />
               </folding>
             </state>
           </provider>
@@ -73,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="382">
@@ -106,6 +106,7 @@
       <find>for</find>
       <find>Connected</find>
       <find>FROM:</find>
+      <find>chat mess</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -114,8 +115,8 @@
         <option value="$PROJECT_DIR$/stream/index.js" />
         <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/main/public/chat.html" />
-        <option value="$PROJECT_DIR$/main/public/src/main.js" />
         <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
+        <option value="$PROJECT_DIR$/main/public/src/main.js" />
       </list>
     </option>
   </component>
@@ -216,12 +217,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="9701000" />
+      <workItem from="1520620836240" duration="9815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10350000" />
+    <option name="totallyTimeSpent" value="10464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="27" width="1071" height="1113" extended-state="0" />
@@ -386,16 +387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <marker date="1520742399957" expanded="true" signature="5841:5852" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -414,6 +405,16 @@
             <element signature="e#2390#2446#0" expanded="false" />
             <element signature="e#2608#2649#0" expanded="false" />
             <element signature="e#2662#2797#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="87" column="67" lean-forward="true" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
+          <folding>
+            <marker date="1520742582732" expanded="true" signature="5918:5929" ph="..." />
           </folding>
         </state>
       </provider>

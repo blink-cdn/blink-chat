@@ -46,7 +46,6 @@ $(document).ready(function() {
 
   $('#message-button').click(function() {
       message = $('#message-input').val();
-      console.log("SENDING:", message);
       socket.emit("chat message", message, user, roomName);
       message = $('#message-input').val("");
   })
@@ -79,8 +78,13 @@ function setupSocket() {
     engine.setupService();
   });
 
-  socket.on('chat message', function(message, user) {
-      var html = "<div class=\"message-item\">" +
+  socket.on('chat message', function(message, fromUser) {
+
+      var darker = "";
+      if (fromUser.id === user.id) {
+          darker = "darker";
+      }
+      var html = "<div class=\"message-item " + darker + "\">" +
           "<img class=\"message-img\" src=\"img/charles.jpeg\"/>" +
           "<p class=\"message-text\">" + message + "</p> </div>";
 
