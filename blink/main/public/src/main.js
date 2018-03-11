@@ -3,7 +3,6 @@ var socket;
 var uuid;
 var roomName = window.location.hash;
 
-console.log("Connected");
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 var isEdge = !isIE && !!window.StyleMedia;
@@ -44,6 +43,12 @@ $(document).ready(function() {
       streamEng.publish();
       $('#publishButton').css('opacity', '0.25');
   });
+
+  $('#message-button').click(function() {
+      message = $('#message-input').val();
+      console.log("SENDING:", message);
+      socket.emit("chat message", message, user, roomName);
+  })
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -58,7 +63,9 @@ function setupSocket() {
   socket = io.connect();
 
   socket.on('created user', function(userID) {
+
     user.userID = userID;
+      console.log("Connected");
 
     // Send join stream system Message
     socket.emit('join service', user.userID, 'stream', roomName);
@@ -69,6 +76,11 @@ function setupSocket() {
     engine.serviceAddress = serviceAddress;
 
     engine.setupService();
+  });
+
+  socket.on('chat message', function(message, user) {
+      console.log(message);
+      console.log("FROM:", user);
   });
 
   // streamEng.onSubscribeDone = function() {

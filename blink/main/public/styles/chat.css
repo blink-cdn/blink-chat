@@ -1,6 +1,101 @@
+body {
+  font-size: 14px;
+}
+
 .btn-container {
   /*text-align: center*/
 }
+
+/* CHAT BOX */
+#chat-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: calc(100vh - 56px);
+  width: 28vw;
+  max-width: 300px;
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2);
+}
+
+#messages{
+  background-color: whitesmoke;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style-type: none;
+  position: absolute;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow:hidden;
+  overflow-y:scroll;
+
+}
+
+.message-item {
+  background-color: white;
+  min-height: 25px;
+  padding: 7px;
+  width: 100%;
+  position: relative;
+  left: 0px;
+
+}
+
+.message-item.darker {
+  background-color: #efefef;
+}
+
+.message-img {
+  float: left;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+
+.message-text {
+  padding-left: 60px;
+  padding-right: 5px;
+  margin-bottom: 0;
+}
+
+#send-message-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+}
+
+#message-input {
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  width: 75%;
+  padding: 5px;
+}
+
+#message-button {
+  position: absolute;
+  right: 0px;
+  width: 25%;
+  height: 100%;
+  padding: 0;
+  border-radius: 0px;
+}
+
+.mine {
+  background-color: lightgray;
+}
+/* VIDEO */
 
 #invitePeopleButton {
   cursor: pointer;

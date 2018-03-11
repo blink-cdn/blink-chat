@@ -18,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/MainServer/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="915">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,7 +37,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
+            <state relative-caret-position="555">
               <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
               <folding>
                 <element signature="n#!!block;n#reconnect#0" expanded="false" />
@@ -47,7 +47,6 @@
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
                 <element signature="e#6905#8656#0" expanded="false" />
-                <marker date="1520620795703" expanded="true" signature="6820:6831" ph="..." />
               </folding>
             </state>
           </provider>
@@ -66,7 +65,7 @@
       <file leaf-file-name="signin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/public/src/signin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
+            <state relative-caret-position="613">
               <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
               <folding>
                 <element signature="e#14#215#0" expanded="false" />
@@ -82,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainServer/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="48" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+            <state relative-caret-position="13">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#612#742#0" expanded="false" />
                 <element signature="e#757#961#0" expanded="false" />
@@ -108,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainServer/public/styles/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -155,8 +154,8 @@
     <handled-path value="$PROJECT_DIR$/MainServer/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="543" />
-    <option name="y" value="23" />
+    <option name="x" value="255" />
+    <option name="y" value="26" />
     <option name="width" value="960" />
     <option name="height" value="1113" />
   </component>
@@ -175,6 +174,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,12 +207,17 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="final" type="b2602c69:ProjectViewProjectNode" />
+              <item name="final" type="462c0819:PsiDirectoryNode" />
+              <item name="MainServer" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,14 +259,15 @@
       <workItem from="1520441217105" duration="9887000" />
       <workItem from="1520618802544" duration="439000" />
       <workItem from="1520734033583" duration="628000" />
+      <workItem from="1520735952155" duration="22000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10954000" />
+    <option name="totallyTimeSpent" value="10976000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="543" y="23" width="960" height="1113" extended-state="0" />
+    <frame x="255" y="26" width="960" height="1113" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28115016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -295,6 +302,95 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/MainServer/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="87" column="20" lean-forward="false" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#reconnect#0" expanded="false" />
+            <element signature="n#!!block;n#setupSocket#0" expanded="false" />
+            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
+            <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
+            <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
+            <element signature="e#6905#8656#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BroadcastServer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/src/signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+          <folding>
+            <element signature="e#14#215#0" expanded="false" />
+            <element signature="e#228#285#0" expanded="false" />
+            <element signature="n#!!block;n#onGoToChat#0" expanded="false" />
+            <element signature="n#!!block;n#typeAnimations#0" expanded="false" />
+            <element signature="n#!!block;n#randDelay#0" expanded="false" />
+            <element signature="n#!!block;n#printLetter#0" expanded="false" />
+            <element signature="n#!!block;n#removeLetter#0" expanded="false" />
+            <element signature="n#!!block;n#stringToLink#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="48" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#757#961#0" expanded="false" />
+            <element signature="e#1028#1132#0" expanded="false" />
+            <element signature="e#1316#1361#0" expanded="false" />
+            <element signature="e#1569#2605#0" expanded="false" />
+            <element signature="e#2774#2826#0" expanded="false" />
+            <element signature="e#3054#3601#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+            <element signature="e#9954#9988#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
@@ -372,7 +468,6 @@
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
             <element signature="e#6905#8656#0" expanded="false" />
-            <marker date="1520620795703" expanded="true" signature="6820:6831" ph="..." />
           </folding>
         </state>
       </provider>
@@ -454,16 +549,7 @@
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
             <element signature="e#6905#8656#0" expanded="false" />
-            <marker date="1520620795703" expanded="true" signature="6820:6831" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/public/styles/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,26 +562,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainServer/public/src/signin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="e#14#215#0" expanded="false" />
-            <element signature="e#228#285#0" expanded="false" />
-            <element signature="n#!!block;n#onGoToChat#0" expanded="false" />
-            <element signature="n#!!block;n#typeAnimations#0" expanded="false" />
-            <element signature="n#!!block;n#randDelay#0" expanded="false" />
-            <element signature="n#!!block;n#printLetter#0" expanded="false" />
-            <element signature="n#!!block;n#removeLetter#0" expanded="false" />
-            <element signature="n#!!block;n#stringToLink#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="555">
           <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
           <folding>
             <element signature="n#!!block;n#reconnect#0" expanded="false" />
@@ -505,7 +574,6 @@
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
             <element signature="e#6905#8656#0" expanded="false" />
-            <marker date="1520620795703" expanded="true" signature="6820:6831" ph="..." />
           </folding>
         </state>
       </provider>
@@ -521,15 +589,15 @@
     <entry file="file://$PROJECT_DIR$/MainServer/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainServer/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="48" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
+        <state relative-caret-position="13">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#757#961#0" expanded="false" />
@@ -547,6 +615,31 @@
             <element signature="n#!!block;n#uuid#0" expanded="false" />
             <element signature="e#9954#9988#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/src/signin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+          <folding>
+            <element signature="e#14#215#0" expanded="false" />
+            <element signature="e#228#285#0" expanded="false" />
+            <element signature="n#!!block;n#onGoToChat#0" expanded="false" />
+            <element signature="n#!!block;n#typeAnimations#0" expanded="false" />
+            <element signature="n#!!block;n#randDelay#0" expanded="false" />
+            <element signature="n#!!block;n#printLetter#0" expanded="false" />
+            <element signature="n#!!block;n#removeLetter#0" expanded="false" />
+            <element signature="n#!!block;n#stringToLink#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainServer/public/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
