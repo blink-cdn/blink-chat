@@ -14,17 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="663">
+              <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
               <folding>
                 <element signature="e#612#742#0" expanded="false" />
                 <element signature="e#1028#1132#0" expanded="false" />
                 <element signature="e#1316#1361#0" expanded="false" />
-                <element signature="e#3054#3106#0" expanded="false" />
-                <element signature="e#3334#3881#0" expanded="false" />
+                <element signature="e#2972#3024#0" expanded="false" />
+                <element signature="e#3252#3799#0" expanded="false" />
                 <element signature="n#!!block;n#createUser#0" expanded="false" />
                 <element signature="n#!!block;n#setupService#0" expanded="false" />
                 <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -32,7 +32,7 @@
                 <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
                 <element signature="n#!!block;n#createService#0" expanded="false" />
                 <element signature="n#!!block;n#uuid#0" expanded="false" />
-                <element signature="e#10290#10324#0" expanded="false" />
+                <element signature="e#10208#10242#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -41,12 +41,11 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <state relative-caret-position="265">
+              <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="67" selection-end-column="18" />
               <folding>
                 <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -60,13 +59,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="449">
+              <caret line="85" column="34" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
               <folding>
-                <marker date="1520741789560" expanded="true" signature="5638:5649" ph="..." />
+                <marker date="1520742020318" expanded="true" signature="5803:5814" ph="..." />
               </folding>
             </state>
           </provider>
@@ -114,6 +113,7 @@
       <find>firebase</find>
       <find>for</find>
       <find>Connected</find>
+      <find>FROM:</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -224,15 +224,16 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="9066000" />
+      <workItem from="1520620836240" duration="9263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9715000" />
+    <option name="totallyTimeSpent" value="9912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="93" y="27" width="1071" height="1113" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2495238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -241,7 +242,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -273,9 +274,9 @@
             <element signature="e#757#961#0" expanded="false" />
             <element signature="e#1028#1132#0" expanded="false" />
             <element signature="e#1316#1361#0" expanded="false" />
-            <element signature="e#1569#2885#0" expanded="false" />
-            <element signature="e#3054#3106#0" expanded="false" />
-            <element signature="e#3334#3881#0" expanded="false" />
+            <element signature="e#1569#2803#0" expanded="false" />
+            <element signature="e#2972#3024#0" expanded="false" />
+            <element signature="e#3252#3799#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -283,7 +284,7 @@
             <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
             <element signature="n#!!block;n#createService#0" expanded="false" />
             <element signature="n#!!block;n#uuid#0" expanded="false" />
-            <element signature="e#10290#10324#0" expanded="false" />
+            <element signature="e#10208#10242#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -305,9 +306,9 @@
             <element signature="e#757#961#0" expanded="false" />
             <element signature="e#1028#1132#0" expanded="false" />
             <element signature="e#1316#1361#0" expanded="false" />
-            <element signature="e#1569#2885#0" expanded="false" />
-            <element signature="e#3054#3106#0" expanded="false" />
-            <element signature="e#3334#3881#0" expanded="false" />
+            <element signature="e#1569#2803#0" expanded="false" />
+            <element signature="e#2972#3024#0" expanded="false" />
+            <element signature="e#3252#3799#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -315,7 +316,7 @@
             <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
             <element signature="n#!!block;n#createService#0" expanded="false" />
             <element signature="n#!!block;n#uuid#0" expanded="false" />
-            <element signature="e#10290#10324#0" expanded="false" />
+            <element signature="e#10208#10242#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,14 +383,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1028#1132#0" expanded="false" />
+            <element signature="e#1316#1361#0" expanded="false" />
+            <element signature="e#2972#3024#0" expanded="false" />
+            <element signature="e#3252#3799#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+            <element signature="e#10208#10242#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="265">
+          <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="67" selection-end-column="18" />
           <folding>
             <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -404,32 +426,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="449">
+          <caret line="85" column="34" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
           <folding>
-            <marker date="1520741789560" expanded="true" signature="5638:5649" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#612#742#0" expanded="false" />
-            <element signature="e#1028#1132#0" expanded="false" />
-            <element signature="e#1316#1361#0" expanded="false" />
-            <element signature="e#3054#3106#0" expanded="false" />
-            <element signature="e#3334#3881#0" expanded="false" />
-            <element signature="n#!!block;n#createUser#0" expanded="false" />
-            <element signature="n#!!block;n#setupService#0" expanded="false" />
-            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
-            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
-            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0" expanded="false" />
-            <element signature="n#!!block;n#uuid#0" expanded="false" />
-            <element signature="e#10290#10324#0" expanded="false" />
+            <marker date="1520742020318" expanded="true" signature="5803:5814" ph="..." />
           </folding>
         </state>
       </provider>

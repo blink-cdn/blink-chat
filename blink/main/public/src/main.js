@@ -79,8 +79,11 @@ function setupSocket() {
   });
 
   socket.on('chat message', function(message, user) {
-      console.log(message);
-      console.log("FROM:", user);
+      var html = "<div class=\"message-item darker\">" +
+          "<img class=\"message-img\" src=\"img/charles.jpeg\"/>" +
+          "<p class=\"message-text\">" + message + "</p> </div>";
+
+      $('#messages').append(html);
   });
 
   // streamEng.onSubscribeDone = function() {

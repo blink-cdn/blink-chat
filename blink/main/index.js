@@ -67,7 +67,6 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('create user', function(user, roomName) {
         createUser(user, roomName, socket);
-        console.log("USER JOINED");
     });
 
     socket.on('join service', function(userID, serviceType, roomName, user) {
@@ -97,7 +96,6 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('chat message', function(message, fromUser, roomName) {
-        console.log("GOT MESSAGE:", message);
         for (user in rooms[roomName].users) {
             sockets[user].emit("chat message", message, fromUser);
         }
