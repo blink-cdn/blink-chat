@@ -51,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
+            <state relative-caret-position="418">
               <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
               <folding>
                 <marker date="1520742399957" expanded="true" signature="5841:5852" ph="..." />
@@ -73,25 +73,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+            <state relative-caret-position="382">
+              <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
               <folding>
                 <element signature="e#44#72#0" expanded="false" />
-                <element signature="e#1490#1560#0" expanded="false" />
-                <element signature="e#1573#1632#0" expanded="false" />
-                <element signature="e#1696#1713#0" expanded="false" />
-                <element signature="e#1721#1990#0" expanded="false" />
-                <element signature="e#2013#2149#0" expanded="false" />
-                <element signature="e#2154#2177#0" expanded="false" />
-                <element signature="e#2189#2261#0" expanded="false" />
-                <element signature="e#2280#2316#0" expanded="false" />
-                <element signature="e#2327#2355#0" expanded="false" />
-                <element signature="e#2370#2426#0" expanded="false" />
-                <element signature="e#2588#2629#0" expanded="false" />
-                <element signature="e#2642#2777#0" expanded="false" />
+                <element signature="e#1510#1580#0" expanded="false" />
+                <element signature="e#1593#1652#0" expanded="false" />
+                <element signature="e#1716#1733#0" expanded="false" />
+                <element signature="e#1741#2010#0" expanded="false" />
+                <element signature="e#2033#2169#0" expanded="false" />
+                <element signature="e#2174#2197#0" expanded="false" />
+                <element signature="e#2209#2281#0" expanded="false" />
+                <element signature="e#2300#2336#0" expanded="false" />
+                <element signature="e#2347#2375#0" expanded="false" />
+                <element signature="e#2390#2446#0" expanded="false" />
+                <element signature="e#2608#2649#0" expanded="false" />
+                <element signature="e#2662#2797#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,8 +114,8 @@
         <option value="$PROJECT_DIR$/stream/index.js" />
         <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/main/public/chat.html" />
-        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
         <option value="$PROJECT_DIR$/main/public/src/main.js" />
+        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
       </list>
     </option>
   </component>
@@ -216,12 +216,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="9632000" />
+      <workItem from="1520620836240" duration="9701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10281000" />
+    <option name="totallyTimeSpent" value="10350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="27" width="1071" height="1113" extended-state="0" />
@@ -386,34 +386,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
+    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+        <state relative-caret-position="418">
+          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
           <folding>
-            <element signature="e#44#72#0" expanded="false" />
-            <element signature="e#1490#1560#0" expanded="false" />
-            <element signature="e#1573#1632#0" expanded="false" />
-            <element signature="e#1696#1713#0" expanded="false" />
-            <element signature="e#1721#1990#0" expanded="false" />
-            <element signature="e#2013#2149#0" expanded="false" />
-            <element signature="e#2154#2177#0" expanded="false" />
-            <element signature="e#2189#2261#0" expanded="false" />
-            <element signature="e#2280#2316#0" expanded="false" />
-            <element signature="e#2327#2355#0" expanded="false" />
-            <element signature="e#2370#2426#0" expanded="false" />
-            <element signature="e#2588#2629#0" expanded="false" />
-            <element signature="e#2642#2777#0" expanded="false" />
+            <marker date="1520742399957" expanded="true" signature="5841:5852" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
+    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+        <state relative-caret-position="382">
+          <caret line="64" column="19" lean-forward="false" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
           <folding>
-            <marker date="1520742399957" expanded="true" signature="5841:5852" ph="..." />
+            <element signature="e#44#72#0" expanded="false" />
+            <element signature="e#1510#1580#0" expanded="false" />
+            <element signature="e#1593#1652#0" expanded="false" />
+            <element signature="e#1716#1733#0" expanded="false" />
+            <element signature="e#1741#2010#0" expanded="false" />
+            <element signature="e#2033#2169#0" expanded="false" />
+            <element signature="e#2174#2197#0" expanded="false" />
+            <element signature="e#2209#2281#0" expanded="false" />
+            <element signature="e#2300#2336#0" expanded="false" />
+            <element signature="e#2347#2375#0" expanded="false" />
+            <element signature="e#2390#2446#0" expanded="false" />
+            <element signature="e#2608#2649#0" expanded="false" />
+            <element signature="e#2662#2797#0" expanded="false" />
           </folding>
         </state>
       </provider>
