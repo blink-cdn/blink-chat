@@ -21,8 +21,8 @@ let sockets = {};
 /************  SERVER SETUP *************/
 
 const certOptions = {
-    key: fs.readFileSync('certs/dev-key.pem'),
-    cert: fs.readFileSync('certs/dev-cert.pem')
+    key: fs.readFileSync('certs/key.pem'),
+    cert: fs.readFileSync('certs/cert.pem')
 };
 
 let app = express();
