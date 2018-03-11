@@ -24,7 +24,7 @@ body {
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
   z-index: 100;
-  opacity: 0.90;
+  opacity: 0.95;
 }
 
 #open-chat-button {
