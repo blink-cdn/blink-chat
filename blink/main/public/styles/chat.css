@@ -39,13 +39,11 @@ body {
 
 .message-item {
   background-color: white;
-  min-height: 25px;
+  min-height: 65px;
   padding: 7px;
   width: 100%;
   position: relative;
   left: 0px;
-  min-height: 50px;
-
 }
 
 .message-item.darker {

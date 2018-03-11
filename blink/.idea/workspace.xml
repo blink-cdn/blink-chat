@@ -76,22 +76,22 @@
       <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+            <state relative-caret-position="156">
+              <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
               <folding>
                 <element signature="e#44#72#0" expanded="false" />
-                <element signature="e#1511#1581#0" expanded="false" />
-                <element signature="e#1594#1653#0" expanded="false" />
-                <element signature="e#1717#1734#0" expanded="false" />
-                <element signature="e#1742#2011#0" expanded="false" />
-                <element signature="e#2034#2170#0" expanded="false" />
-                <element signature="e#2175#2198#0" expanded="false" />
-                <element signature="e#2210#2282#0" expanded="false" />
-                <element signature="e#2301#2337#0" expanded="false" />
-                <element signature="e#2348#2376#0" expanded="false" />
-                <element signature="e#2391#2447#0" expanded="false" />
-                <element signature="e#2609#2650#0" expanded="false" />
-                <element signature="e#2663#2798#0" expanded="false" />
+                <element signature="e#1490#1560#0" expanded="false" />
+                <element signature="e#1573#1632#0" expanded="false" />
+                <element signature="e#1696#1713#0" expanded="false" />
+                <element signature="e#1721#1990#0" expanded="false" />
+                <element signature="e#2013#2149#0" expanded="false" />
+                <element signature="e#2154#2177#0" expanded="false" />
+                <element signature="e#2189#2261#0" expanded="false" />
+                <element signature="e#2280#2316#0" expanded="false" />
+                <element signature="e#2327#2355#0" expanded="false" />
+                <element signature="e#2370#2426#0" expanded="false" />
+                <element signature="e#2588#2629#0" expanded="false" />
+                <element signature="e#2642#2777#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -216,12 +216,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="9500000" />
+      <workItem from="1520620836240" duration="9579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10149000" />
+    <option name="totallyTimeSpent" value="10228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="27" width="1071" height="1113" extended-state="0" />
@@ -398,22 +398,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        <state relative-caret-position="156">
+          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
           <folding>
             <element signature="e#44#72#0" expanded="false" />
-            <element signature="e#1511#1581#0" expanded="false" />
-            <element signature="e#1594#1653#0" expanded="false" />
-            <element signature="e#1717#1734#0" expanded="false" />
-            <element signature="e#1742#2011#0" expanded="false" />
-            <element signature="e#2034#2170#0" expanded="false" />
-            <element signature="e#2175#2198#0" expanded="false" />
-            <element signature="e#2210#2282#0" expanded="false" />
-            <element signature="e#2301#2337#0" expanded="false" />
-            <element signature="e#2348#2376#0" expanded="false" />
-            <element signature="e#2391#2447#0" expanded="false" />
-            <element signature="e#2609#2650#0" expanded="false" />
-            <element signature="e#2663#2798#0" expanded="false" />
+            <element signature="e#1490#1560#0" expanded="false" />
+            <element signature="e#1573#1632#0" expanded="false" />
+            <element signature="e#1696#1713#0" expanded="false" />
+            <element signature="e#1721#1990#0" expanded="false" />
+            <element signature="e#2013#2149#0" expanded="false" />
+            <element signature="e#2154#2177#0" expanded="false" />
+            <element signature="e#2189#2261#0" expanded="false" />
+            <element signature="e#2280#2316#0" expanded="false" />
+            <element signature="e#2327#2355#0" expanded="false" />
+            <element signature="e#2370#2426#0" expanded="false" />
+            <element signature="e#2588#2629#0" expanded="false" />
+            <element signature="e#2642#2777#0" expanded="false" />
           </folding>
         </state>
       </provider>
