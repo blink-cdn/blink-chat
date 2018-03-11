@@ -96,10 +96,8 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('chat message', function(message, fromUser, roomName) {
-        console.log("Sending message");
         if (rooms[roomName]) {
             for (user in rooms[roomName].users) {
-                console.log("USER", user.name);
                 sockets[user].emit("chat message", message, fromUser);
             }
         }
