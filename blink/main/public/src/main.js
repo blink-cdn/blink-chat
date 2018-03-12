@@ -1,12 +1,10 @@
 // Connects to socket.io server
 var socket;
-var uuid;
 var roomName = window.location.hash;
 
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 var isEdge = !isIE && !!window.StyleMedia;
-
 if (isIE || isSafari || isEdge) {
     alert("For best experience, please switch to a supported web browser. Supported browsers include Google Chrome, Mozilla Firefox, and Opera")
 }
@@ -33,25 +31,22 @@ $(document).ready(function() {
 
     addUsersToInviteModal(ECE_faculty);
 
-  // Setup Socket;
-  setupSocket();
-  user.name = 'user';
-  socket.emit('create user', user, roomName);
+    // Setup Socket;
+    setupSocket();
+    user.name = 'user';
+    socket.emit('create user', user, roomName);
 
-  $('#publishButton').click(function() {
-      $('#infoText').attr('hidden', 'true');
-      streamEng.publish();
-      $('#publishButton').css('opacity', '0.25');
-  });
-
-  $('#message-button').click(sendMessage);
-
-  $('#message-input').keyup(function(event) {
-      if (event.keyCode === 13) {
-        sendMessage();
-      }
-  });
-
+    $('#publishButton').click(function() {
+        $('#infoText').attr('hidden', 'true');
+        streamEng.publish();
+        $('#publishButton').css('opacity', '0.25');
+    });
+    $('#message-button').click(sendMessage);
+    $('#message-input').keyup(function(event) {
+        if (event.keyCode === 13) {
+            sendMessage();
+        }
+    });
     $('#open-chat-button').click(function() {
         chatBox = $('#chat-box');
         if (chatBox.hasClass('showBox')) {
@@ -60,15 +55,16 @@ $(document).ready(function() {
             $('#chat-box').addClass("showBox");
         }
     });
+    $('#invitePeopleButton').click(function() {
+        $('#inviteModal').modal('toggle');
+        $('#link-ref').html(function() { return window.location.href });
+    });
 
     pullMessagesFromFirebase();
     listenForNewMessages();
 });
 
-$('#invitePeopleButton').on('click', function() {
-    $('#inviteModal').modal('toggle');
-    $('#link-ref').html(function() { return window.location.href });
-});
+
 
 /******* SOCKET ********/
 
@@ -178,14 +174,12 @@ function applyColumnClassesToVideo() {
       $('body').css('background-color', 'black');
   }
 }
-
 function removeItemFromArray(array, item) {
   var index = array.indexOf(item);
   if (index > -1) {
     array.splice(index, 1);
   }
 }
-
 function addUsersToInviteModal(users) {
     for (username in users) {
         var user = users[username];
@@ -199,7 +193,6 @@ function addUsersToInviteModal(users) {
         $('#users').append(html);
     }
 }
-
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[split_str.length - 1];
@@ -211,7 +204,6 @@ function sendInviteTo(name) {
     button.attr("disabled", "true");
 
 }
-
 const ECE_faculty = {
     'Sid': {
         name: 'Sid Ahuja',
@@ -262,8 +254,6 @@ const ECE_faculty = {
 
 /****** MESSAGES **********/
 
-var messageCount = 0;
-
 function sendMessage() {
     var message = $('#message-input').val();
     $('#message-input').val("");
@@ -275,7 +265,6 @@ function sendMessage() {
 
     updateMessagesToFirebase(msg);
 }
-
 function addMessageToChatBox(message) {
     var darker = "";
     if (message.fromUser.userID === user.userID) {
@@ -290,8 +279,6 @@ function addMessageToChatBox(message) {
 }
 
 /***** FIREBASE *******/
-// var database = firebase.database().ref();
-var messages = [];
 
 function updateMessagesToFirebase(message) {
     var roomName_name = roomName.substring(1);
@@ -301,24 +288,10 @@ function updateMessagesToFirebase(message) {
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
 }
-
-function pullMessagesFromFirebase() {
-    // var roomName_name = roomName.substring(1);
-    // var messages;
-    // database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
-    //     messages = snapshot.val();
-    //
-    //     for (messageID in messages) {
-    //         addMessageToChatBox(messages[messageID]);
-    //     }
-    // });
-}
-
 function listenForNewMessages() {
     var roomName_name = roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('child_added', function(snapshot) {
-        console.log(snapshot.val());
         addMessageToChatBox(snapshot.val());
     });
 }
