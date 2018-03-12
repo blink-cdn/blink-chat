@@ -61,7 +61,7 @@ $(document).ready(function() {
         }
     });
 
-
+    pullMessagesFromFirebase();
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -283,7 +283,7 @@ function sendMessage() {
 var messages = [];
 
 function updateMessagesToFirebase(message) {
-    roomName_name = roomName.substring(1);
+    var roomName_name = roomName.substring(1);
     // database.ref(roomName_name + "/messages").set({
     //     messageList: messages
     // });
@@ -294,11 +294,12 @@ function updateMessagesToFirebase(message) {
     database.ref().update(updates);
 }
 
-function addMessageToMasterList(message, fromUser) {
-    var msg = {
-        fromUser: fromUser,
-        message: message
-    };
+function pullMessagesFromFirebase() {
+    var roomName_name = roomname.substring(1);
+    var messages;
+    database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
+        messages = snapshot.val();
 
-    messages.push(msg);
+        console.log(messages);
+    });
 }
