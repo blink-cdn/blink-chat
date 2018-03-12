@@ -95,14 +95,13 @@ io.sockets.on('connection', function(socket) {
         });
     });
 
-    socket.on('chat message', function(message, fromUser, roomName) {
-        if (rooms[roomName]) {
-            for (user in rooms[roomName].users) {
-                sockets[user].emit("chat message", message, fromUser);
-            }
-        }
-    });
-
+    // socket.on('chat message', function(message, fromUser, roomName) {
+    //     if (rooms[roomName]) {
+    //         for (user in rooms[roomName].users) {
+    //             sockets[user].emit("chat message", message, fromUser);
+    //         }
+    //     }
+    // });
 });
 
 
