@@ -91,16 +91,12 @@ function setupSocket() {
   });
 
   socket.on('chat message', function(message, fromUser) {
+      var msg = {
+          fromUser: fromUser,
+          message: message
+      };
 
-      var darker = "";
-      if (fromUser.userID === user.userID) {
-          darker = "darker";
-      }
-      var html = "<div class=\"message-item " + darker + "\">" +
-          "<img class=\"message-img\" src=\"img/blink.png\"/>" +
-          "<p class=\"message-text\">" + message + "</p> </div>";
-
-      $('#messages').append(html);
+      addMessageToChatBox(msg);
   });
 
   // streamEng.onSubscribeDone = function() {
@@ -263,6 +259,8 @@ const ECE_faculty = {
     }
 };
 
+/****** MESSAGES **********/
+
 function sendMessage() {
     var message = $('#message-input').val();
     socket.emit("chat message", message, user, roomName);
@@ -274,6 +272,19 @@ function sendMessage() {
     };
 
     updateMessagesToFirebase(msg);
+}
+
+function addMessageToChatBox(message) {
+    var darker = "";
+    if (message.fromUser.userID === user.userID) {
+        darker = "darker";
+    }
+
+    var html = "<div class=\"message-item " + darker + "\">" +
+        "<img class=\"message-img\" src=\"img/blink.png\"/>" +
+        "<p class=\"message-text\">" + message.message + "</p> </div>";
+
+    $('#messages').append(html);
 }
 
 /***** FIREBASE *******/
@@ -299,5 +310,8 @@ function pullMessagesFromFirebase() {
         messages = snapshot.val();
 
         console.log(messages);
+        for (messageID in messages) {
+            addMessageToChatBox(messages[messageID]);
+        }
     });
 }
