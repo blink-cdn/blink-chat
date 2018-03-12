@@ -275,7 +275,10 @@ function addMessageToChatBox(message) {
         "<p class=\"message-text\">" + message.message + "</p> </div>";
 
     $('#messages').append(html);
-    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 500);
+    // $('#messages').scrollTop($('#messages').prop("scrollHeight"));
+    $('#messages').animate({
+        scrollTop: $('#messages').prop("scrollHeight")
+    }, 1000);
 }
 
 /***** FIREBASE *******/
