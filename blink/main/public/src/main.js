@@ -303,15 +303,15 @@ function updateMessagesToFirebase(message) {
 }
 
 function pullMessagesFromFirebase() {
-    var roomName_name = roomName.substring(1);
-    var messages;
-    database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
-        messages = snapshot.val();
-
-        for (messageID in messages) {
-            addMessageToChatBox(messages[messageID]);
-        }
-    });
+    // var roomName_name = roomName.substring(1);
+    // var messages;
+    // database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
+    //     messages = snapshot.val();
+    //
+    //     for (messageID in messages) {
+    //         addMessageToChatBox(messages[messageID]);
+    //     }
+    // });
 }
 
 function listenForNewMessages() {
@@ -319,6 +319,6 @@ function listenForNewMessages() {
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('child_added', function(snapshot) {
         console.log(snapshot.val());
-        // addMessageToChatBox(snapshot.val());
+        addMessageToChatBox(snapshot.val());
     });
 }
