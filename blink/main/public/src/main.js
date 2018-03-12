@@ -273,7 +273,6 @@ function sendMessage() {
         message: message
     };
 
-    messageCount++;
     updateMessagesToFirebase(msg);
 }
 
@@ -310,7 +309,6 @@ function pullMessagesFromFirebase() {
         messages = snapshot.val();
 
         for (messageID in messages) {
-            messageCount++;
             addMessageToChatBox(messages[messageID]);
         }
     });
@@ -319,9 +317,8 @@ function pullMessagesFromFirebase() {
 function listenForNewMessages() {
     var roomName_name = roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
-    messageRef.on('value', function(snapshot) {
+    messageRef.on('child_added', function(snapshot) {
         console.log(snapshot.val());
-        messageCount++;
         // addMessageToChatBox(snapshot.val());
     });
 }
