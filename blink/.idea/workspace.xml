@@ -65,8 +65,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="284" column="15" lean-forward="true" selection-start-line="284" selection-start-column="15" selection-end-line="284" selection-end-column="15" />
+            <state relative-caret-position="362">
+              <caret line="286" column="24" lean-forward="true" selection-start-line="286" selection-start-column="24" selection-end-line="286" selection-end-column="24" />
               <folding>
                 <element signature="n#!!block;n#setupSocket#0" expanded="false" />
                 <element signature="e#1886#2056#0" expanded="false" />
@@ -254,12 +254,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="21658000" />
+      <workItem from="1520620836240" duration="21685000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22307000" />
+    <option name="totallyTimeSpent" value="22334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="89" width="1048" height="1046" extended-state="0" />
@@ -449,8 +449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="284" column="15" lean-forward="true" selection-start-line="284" selection-start-column="15" selection-end-line="284" selection-end-column="15" />
+        <state relative-caret-position="362">
+          <caret line="286" column="24" lean-forward="true" selection-start-line="286" selection-start-column="24" selection-end-line="286" selection-end-column="24" />
           <folding>
             <element signature="n#!!block;n#setupSocket#0" expanded="false" />
             <element signature="e#1886#2056#0" expanded="false" />
