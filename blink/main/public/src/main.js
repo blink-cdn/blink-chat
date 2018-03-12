@@ -273,7 +273,7 @@ function sendMessage() {
     var msg = {
         fromUser: user,
         message: message
-    }
+    };
 
     updateMessagesToFirebase(msg);
 }
@@ -289,7 +289,6 @@ function updateMessagesToFirebase(message) {
     // });
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
-    console.log(newMessageKey);
     var updates = {};
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
@@ -302,6 +301,4 @@ function addMessageToMasterList(message, fromUser) {
     };
 
     messages.push(msg);
-    console.log(messages);
-    updateMessagesToFirebase(msg);
 }
