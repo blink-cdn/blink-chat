@@ -62,6 +62,7 @@ $(document).ready(function() {
     });
 
     pullMessagesFromFirebase();
+    listenForNewMessages();
 });
 
 $('#invitePeopleButton').on('click', function() {
@@ -292,7 +293,6 @@ var messages = [];
 
 function updateMessagesToFirebase(message) {
     var roomName_name = roomName.substring(1);
-    // database.ref(roomName_name + "/messages").set();
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     var updates = {};
