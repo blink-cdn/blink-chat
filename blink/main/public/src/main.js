@@ -269,6 +269,13 @@ function sendMessage() {
     message = $('#message-input').val();
     socket.emit("chat message", message, user, roomName);
     message = $('#message-input').val("");
+
+    var msg = {
+        fromUser: user,
+        message: message
+    };
+
+    updateMessagesToFirebase(msg);
 }
 
 /***** FIREBASE *******/
@@ -295,6 +302,4 @@ function addMessageToMasterList(message, fromUser) {
     };
 
     messages.push(msg);
-    console.log(messages);
-    updateMessagesToFirebase(msg);
 }
