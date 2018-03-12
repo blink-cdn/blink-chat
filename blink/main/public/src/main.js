@@ -101,8 +101,6 @@ function setupSocket() {
           "<p class=\"message-text\">" + message + "</p> </div>";
 
       $('#messages').append(html);
-
-      addMessageToMasterList(message, fromUser);
   });
 
   // streamEng.onSubscribeDone = function() {

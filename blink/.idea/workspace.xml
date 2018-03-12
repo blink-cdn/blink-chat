@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main/public/src/main.js" description="    database.ref(roomName_name + &quot;/messages&quot;).set(..." line="286" />
+    <bookmark url="file://$PROJECT_DIR$/main/public/src/main.js" description="    database.ref(roomName_name + &quot;/messages&quot;).set(..." line="284" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab27d8a4-1848-44e4-bc98-f06538db8619" name="Default" comment="" />
@@ -68,22 +68,21 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="63" column="31" lean-forward="false" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+            <state relative-caret-position="173">
+              <caret line="102" column="34" lean-forward="false" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
               <folding>
-                <element signature="n#!!block;n#setupSocket#0" expanded="false" />
                 <element signature="e#1917#2087#0" expanded="false" />
                 <element signature="e#2167#2284#0" expanded="false" />
-                <element signature="e#2344#2737#0" expanded="false" />
-                <element signature="e#2743#2786#0" expanded="false" />
-                <element signature="e#2867#3174#0" expanded="false" />
-                <element signature="e#3229#3675#0" expanded="false" />
-                <element signature="e#3731#3962#0" expanded="false" />
+                <element signature="e#2693#2736#0" expanded="false" />
+                <element signature="e#2817#3124#0" expanded="false" />
+                <element signature="e#3179#3625#0" expanded="false" />
+                <element signature="e#3681#3912#0" expanded="false" />
                 <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
                 <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#6315#7373#0" expanded="false" />
+                <element signature="e#6265#7323#0" expanded="false" />
+                <marker date="1520827340936" expanded="true" signature="6179:6190" ph="..." />
               </folding>
             </state>
           </provider>
@@ -258,12 +257,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="24818000" />
+      <workItem from="1520620836240" duration="24855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25467000" />
+    <option name="totallyTimeSpent" value="25504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="960" height="1113" extended-state="0" />
@@ -453,22 +452,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="63" column="31" lean-forward="false" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+        <state relative-caret-position="173">
+          <caret line="102" column="34" lean-forward="false" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
           <folding>
-            <element signature="n#!!block;n#setupSocket#0" expanded="false" />
             <element signature="e#1917#2087#0" expanded="false" />
             <element signature="e#2167#2284#0" expanded="false" />
-            <element signature="e#2344#2737#0" expanded="false" />
-            <element signature="e#2743#2786#0" expanded="false" />
-            <element signature="e#2867#3174#0" expanded="false" />
-            <element signature="e#3229#3675#0" expanded="false" />
-            <element signature="e#3731#3962#0" expanded="false" />
+            <element signature="e#2693#2736#0" expanded="false" />
+            <element signature="e#2817#3124#0" expanded="false" />
+            <element signature="e#3179#3625#0" expanded="false" />
+            <element signature="e#3681#3912#0" expanded="false" />
             <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#6315#7373#0" expanded="false" />
+            <element signature="e#6265#7323#0" expanded="false" />
+            <marker date="1520827340936" expanded="true" signature="6179:6190" ph="..." />
           </folding>
         </state>
       </provider>
