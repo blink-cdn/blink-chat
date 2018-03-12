@@ -276,7 +276,8 @@ var database = firebase.database();
 var messages = [];
 
 function updateMessagesToFirebase() {
-    database.ref(roomName[1:] + "/messages").set({
+    roomName_name = roomName.substring(1);
+    database.ref(roomName_name + "/messages").set({
         messageList: messages
     })
 }
