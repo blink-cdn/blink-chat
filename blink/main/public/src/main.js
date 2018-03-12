@@ -73,7 +73,7 @@ $('#invitePeopleButton').on('click', function() {
 
 function setupSocket() {
 
-  socket = io.connect();
+  socket = io.connect("https://blink.blinkcdn.com");
 
   socket.on('created user', function(userID) {
 
