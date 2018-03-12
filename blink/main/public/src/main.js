@@ -272,7 +272,7 @@ function sendMessage() {
 }
 
 /***** FIREBASE *******/
-var database = firebase.database().ref();
+// var database = firebase.database().ref();
 var messages = [];
 
 function updateMessagesToFirebase() {
