@@ -30,7 +30,8 @@ var constraints = {
 var streamEng = {
     socket: null,
     serviceAddress: null,
-    onSubscribeDone: undefined
+    onSubscribeDone: undefined,
+    shouldScreenshare: false
 };
 
 var numPublishers = 0;
@@ -201,27 +202,56 @@ function joinRoom(peerNumber) {
 
 // Get the media from camera/microphone.
 function setupMediaStream(startStream, peerNumber) {
+    if (streamEng.shouldScreenshare) {
+        getScreenConstraints(function(error, screen_constraints) {
+            if (error) {
+                return alert(error);
+            }
 
-  if(navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-        localStreams[peerNumber] = stream;
+            var video_options = {
+                video: screen_constraints
+            };
+            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+            // navigator.getUserMedia({
+            //     video: screen_constraints
+            // }, function(stream) {
+            //     var video = document.querySelector('video');
+            //     video.src = URL.createObjectURL(stream);
+            //     video.play();
+            // }, function(error) {
+            //     alert(JSON.stringify(error, null, '\t'));
+            // });
 
-        if (startStream === false) {
-          streamEng.onPublish(stream);
+            navigator.getUserMedia(video_options).then(function(stream) {
+                shareStream(stream, true);
+            });
+        });
+    } else {
+        if(navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+                shareStream(stream, startStream);
+            });
+        } else {
+            alert('Your browser does not support getUserMedia API');
         }
+    }
+}
 
-        // If you want to start the stream, addStream to connection
-        if (startStream === true) {
-            peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
+function shareStream(stream, startStream) {
+    localStreams[peerNumber] = stream;
 
-            peers[peerNumber].peerConnection.createOffer().then(function(description) {
-                setAndSendDescription(description, peerNumber);
-            }).catch(errorHandler);
-        }
-      }).catch(errorHandler);
-  } else {
-      alert('Your browser does not support getUserMedia API');
-  }
+    if (startStream === false) {
+        streamEng.onPublish(stream);
+    }
+
+    // If you want to start the stream, addStream to connection
+    if (startStream === true) {
+        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
+
+        peers[peerNumber].peerConnection.createOffer().then(function(description) {
+            setAndSendDescription(description, peerNumber);
+        }).catch(errorHandler);
+    }
 }
 
 // Create peer connection 1
