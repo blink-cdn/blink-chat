@@ -65,8 +65,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="320" column="7" lean-forward="true" selection-start-line="320" selection-start-column="7" selection-end-line="320" selection-end-column="7" />
+            <state relative-caret-position="519">
+              <caret line="323" column="23" lean-forward="true" selection-start-line="323" selection-start-column="23" selection-end-line="323" selection-end-column="23" />
               <folding>
                 <element signature="e#1945#2115#0" expanded="false" />
                 <element signature="e#2195#2312#0" expanded="false" />
@@ -79,7 +79,6 @@
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
                 <element signature="e#6072#7130#0" expanded="false" />
-                <element signature="n#!!block;n#pullMessagesFromFirebase#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -256,12 +255,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="25641000" />
+      <workItem from="1520620836240" duration="25818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26290000" />
+    <option name="totallyTimeSpent" value="26467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="960" height="1113" extended-state="0" />
@@ -451,8 +450,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="320" column="7" lean-forward="true" selection-start-line="320" selection-start-column="7" selection-end-line="320" selection-end-column="7" />
+        <state relative-caret-position="519">
+          <caret line="323" column="23" lean-forward="true" selection-start-line="323" selection-start-column="23" selection-end-line="323" selection-end-column="23" />
           <folding>
             <element signature="e#1945#2115#0" expanded="false" />
             <element signature="e#2195#2312#0" expanded="false" />
@@ -465,7 +464,6 @@
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
             <element signature="e#6072#7130#0" expanded="false" />
-            <element signature="n#!!block;n#pullMessagesFromFirebase#0" expanded="false" />
           </folding>
         </state>
       </provider>

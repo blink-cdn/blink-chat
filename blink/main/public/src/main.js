@@ -262,6 +262,8 @@ const ECE_faculty = {
 
 /****** MESSAGES **********/
 
+var messageCount = 0;
+
 function sendMessage() {
     var message = $('#message-input').val();
     $('#message-input').val("");
@@ -271,6 +273,7 @@ function sendMessage() {
         message: message
     };
 
+    messageCount++;
     updateMessagesToFirebase(msg);
 }
 
@@ -307,6 +310,7 @@ function pullMessagesFromFirebase() {
         messages = snapshot.val();
 
         for (messageID in messages) {
+            messageCount++;
             addMessageToChatBox(messages[messageID]);
         }
     });
@@ -317,6 +321,7 @@ function listenForNewMessages() {
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('value', function(snapshot) {
         console.log(snapshot.val());
+        messageCount++;
         // addMessageToChatBox(snapshot.val());
     });
 }
