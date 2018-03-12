@@ -74,7 +74,6 @@ $('#invitePeopleButton').on('click', function() {
 function setupSocket() {
 
   socket = io.connect();
-  console.log("Connected..");
   socket.on('created user', function(userID) {
 
     user.userID = userID;
@@ -98,7 +97,7 @@ function setupSocket() {
           darker = "darker";
       }
       var html = "<div class=\"message-item " + darker + "\">" +
-          "<img class=\"message-img\" src=\"img/charles.jpeg\"/>" +
+          "<img class=\"message-img\" src=\"img/blink.png\"/>" +
           "<p class=\"message-text\">" + message + "</p> </div>";
 
       $('#messages').append(html);
