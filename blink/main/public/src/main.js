@@ -281,7 +281,7 @@ function updateMessagesToFirebase() {
         messageList: messages
     })
 
-    var newMessageKey = database.child(roomName_name).push().key;
+    var newMessageKey = database.ref().child(roomName_name).push().key;
     console.log(newMessageKey);
 }
 
