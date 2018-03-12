@@ -290,7 +290,7 @@ function updateMessagesToFirebase(message) {
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     var updates = {};
-    updates[roomName_name + '/messages/' + newMessageKey] = message;
+    updates[roomName_name + '/messages/' + newMessageKey] = "hiiiii";
     database.ref().update(updates);
 }
 
