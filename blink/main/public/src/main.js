@@ -263,7 +263,6 @@ const ECE_faculty = {
 
 function sendMessage() {
     var message = $('#message-input').val();
-    socket.emit("chat message", message, user, roomName);
     $('#message-input').val("");
 
     var msg = {
@@ -309,9 +308,16 @@ function pullMessagesFromFirebase() {
     database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
         messages = snapshot.val();
 
-        console.log(messages);
         for (messageID in messages) {
             addMessageToChatBox(messages[messageID]);
         }
+    });
+}
+
+function listenForNewMessages() {
+    var roomName_name = roomName.substring(1);
+    var messageRef = database.ref(roomName_name + '/messages');
+    messageRef.on('value', function(snapshot) {
+        addMessageToChatBox(snapshot.val());
     });
 }
