@@ -287,7 +287,7 @@ function addMessageToMasterList(message, fromUser) {
         message: message
     };
 
-    messages.append(msg);
+    messages.push(msg);
     console.log(messages);
     updateMessagesToFirebase();
 }
