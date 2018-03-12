@@ -283,7 +283,7 @@ function sendMessage() {
 var messages = [];
 
 function updateMessagesToFirebase(message) {
-    roomName_name = roomName.substring(1);
+    var roomName_name = roomName.substring(1);
     database.ref(roomName_name + "/messages").set({exists: true});
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
