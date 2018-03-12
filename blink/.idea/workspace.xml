@@ -51,29 +51,30 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="30">
+              <caret line="2" column="8" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="8" />
               <folding>
+                <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="278" column="1" lean-forward="true" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
+            <state relative-caret-position="266">
+              <caret line="54" column="47" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="47" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
                 <element signature="e#694#719#0" expanded="false" />
                 <element signature="e#1042#1177#0" expanded="false" />
                 <element signature="e#1271#1351#0" expanded="false" />
-                <element signature="e#1398#1608#0" expanded="false" />
                 <element signature="e#1657#1780#0" expanded="false" />
                 <element signature="n#!!block;n#setupSocket#0" expanded="false" />
                 <element signature="e#1942#2112#0" expanded="false" />
@@ -106,23 +107,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="2" selection-end-line="74" selection-end-column="10" />
+            <state relative-caret-position="191">
+              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding>
-                <element signature="e#2367#2437#0" expanded="false" />
-                <element signature="e#2450#2509#0" expanded="false" />
-                <element signature="e#2573#2590#0" expanded="false" />
-                <element signature="e#2598#2867#0" expanded="false" />
-                <element signature="e#2890#3026#0" expanded="false" />
-                <element signature="e#3031#3054#0" expanded="false" />
-                <element signature="e#3066#3138#0" expanded="false" />
-                <element signature="e#3157#3193#0" expanded="false" />
-                <element signature="e#3204#3232#0" expanded="false" />
-                <element signature="e#3247#3303#0" expanded="false" />
-                <element signature="e#3519#3654#0" expanded="false" />
+                <element signature="e#2366#2436#0" expanded="false" />
+                <element signature="e#2449#2508#0" expanded="false" />
+                <element signature="e#2572#2589#0" expanded="false" />
+                <element signature="e#2597#2866#0" expanded="false" />
+                <element signature="e#2889#3025#0" expanded="false" />
+                <element signature="e#3030#3053#0" expanded="false" />
+                <element signature="e#3065#3137#0" expanded="false" />
+                <element signature="e#3156#3192#0" expanded="false" />
+                <element signature="e#3203#3231#0" expanded="false" />
+                <element signature="e#3246#3302#0" expanded="false" />
+                <element signature="e#3518#3653#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -154,10 +155,10 @@
       <list>
         <option value="$PROJECT_DIR$/main/public/index.html" />
         <option value="$PROJECT_DIR$/stream/index.js" />
-        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
-        <option value="$PROJECT_DIR$/main/public/chat.html" />
         <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/main/public/src/main.js" />
+        <option value="$PROJECT_DIR$/main/public/chat.html" />
+        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
       </list>
     </option>
   </component>
@@ -172,9 +173,10 @@
     <handled-path value="$PROJECT_DIR$/stream/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="76" />
     <option name="y" value="23" />
-    <option name="width" value="960" />
-    <option name="height" value="1113" />
+    <option name="width" value="1015" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -269,15 +271,15 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="27028000" />
+      <workItem from="1520620836240" duration="27644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27677000" />
+    <option name="totallyTimeSpent" value="28293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="960" height="1113" extended-state="0" />
+    <frame x="76" y="23" width="1015" height="1046" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27902022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -287,7 +289,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35226077" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -430,49 +432,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="2" selection-end-line="74" selection-end-column="10" />
-          <folding>
-            <element signature="e#2367#2437#0" expanded="false" />
-            <element signature="e#2450#2509#0" expanded="false" />
-            <element signature="e#2573#2590#0" expanded="false" />
-            <element signature="e#2598#2867#0" expanded="false" />
-            <element signature="e#2890#3026#0" expanded="false" />
-            <element signature="e#3031#3054#0" expanded="false" />
-            <element signature="e#3066#3138#0" expanded="false" />
-            <element signature="e#3157#3193#0" expanded="false" />
-            <element signature="e#3204#3232#0" expanded="false" />
-            <element signature="e#3247#3303#0" expanded="false" />
-            <element signature="e#3519#3654#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="278" column="1" lean-forward="true" selection-start-line="278" selection-start-column="1" selection-end-line="278" selection-end-column="1" />
+        <state relative-caret-position="266">
+          <caret line="54" column="47" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="47" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
             <element signature="e#694#719#0" expanded="false" />
             <element signature="e#1042#1177#0" expanded="false" />
             <element signature="e#1271#1351#0" expanded="false" />
-            <element signature="e#1398#1608#0" expanded="false" />
             <element signature="e#1657#1780#0" expanded="false" />
             <element signature="n#!!block;n#setupSocket#0" expanded="false" />
             <element signature="e#1942#2112#0" expanded="false" />
@@ -490,6 +459,40 @@
             <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
             <marker date="1520829522440" expanded="true" signature="5980:5991" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="2" selection-end-column="8" />
+          <folding>
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding>
+            <element signature="e#2366#2436#0" expanded="false" />
+            <element signature="e#2449#2508#0" expanded="false" />
+            <element signature="e#2572#2589#0" expanded="false" />
+            <element signature="e#2597#2866#0" expanded="false" />
+            <element signature="e#2889#3025#0" expanded="false" />
+            <element signature="e#3030#3053#0" expanded="false" />
+            <element signature="e#3065#3137#0" expanded="false" />
+            <element signature="e#3156#3192#0" expanded="false" />
+            <element signature="e#3203#3231#0" expanded="false" />
+            <element signature="e#3246#3302#0" expanded="false" />
+            <element signature="e#3518#3653#0" expanded="false" />
           </folding>
         </state>
       </provider>
