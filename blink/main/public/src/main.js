@@ -272,7 +272,7 @@ function sendMessage() {
 }
 
 /***** FIREBASE *******/
-var database = firebase.database();
+// var database = firebase.database();
 var messages = [];
 
 function updateMessagesToFirebase() {
@@ -281,7 +281,7 @@ function updateMessagesToFirebase() {
         messageList: messages
     })
 
-    var newMessageKey = firebase.database().ref().child(roomName_name).push().key;
+    var newMessageKey = database.ref().child(roomName_name).push().key;
     console.log(newMessageKey);
 }
 
