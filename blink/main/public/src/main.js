@@ -60,7 +60,6 @@ $(document).ready(function() {
         $('#link-ref').html(function() { return window.location.href });
     });
 
-    pullMessagesFromFirebase();
     listenForNewMessages();
 });
 
