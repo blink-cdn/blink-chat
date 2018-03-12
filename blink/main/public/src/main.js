@@ -284,9 +284,7 @@ var messages = [];
 
 function updateMessagesToFirebase(message) {
     roomName_name = roomName.substring(1);
-    // database.ref(roomName_name + "/messages").set({
-    //     messageList: messages
-    // });
+    database.ref(roomName_name + "/messages").set({exists: true});
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     console.log(newMessageKey);
