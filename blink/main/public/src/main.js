@@ -287,11 +287,11 @@ function updateMessagesToFirebase(message) {
     database.ref(roomName_name + "/messages").set({exists: true});
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
-    console.log(newMessageKey);
     var updates = {};
     updates[roomName_name + '/messages/' + newMessageKey] = message;
-    // database.ref().update(updates);
-}q
+
+    return database.ref().update(updates);
+}
 
 function addMessageToMasterList(message, fromUser) {
     var msg = {
