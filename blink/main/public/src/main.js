@@ -266,14 +266,14 @@ const ECE_faculty = {
 };
 
 function sendMessage() {
-    var message = $('#message-input').val();
+    message = $('#message-input').val();
     socket.emit("chat message", message, user, roomName);
     message = $('#message-input').val("");
 
     var msg = {
         fromUser: user,
         message: message
-    };
+    }
 
     updateMessagesToFirebase(msg);
 }
@@ -283,10 +283,13 @@ function sendMessage() {
 var messages = [];
 
 function updateMessagesToFirebase(message) {
-    var roomName_name = roomName.substring(1);
-    database.ref(roomName_name + "/messages").set({exists: true});
+    roomName_name = roomName.substring(1);
+    // database.ref(roomName_name + "/messages").set({
+    //     messageList: messages
+    // });
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
+    console.log(newMessageKey);
     var updates = {};
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
@@ -299,4 +302,6 @@ function addMessageToMasterList(message, fromUser) {
     };
 
     messages.push(msg);
+    console.log(messages);
+    updateMessagesToFirebase(msg);
 }
