@@ -185,7 +185,6 @@ function gotMessageFromServer(message) {
 
 
 }
-
 function joinRoom(peerNumber) {
     // It runs two of each cuz of that error;
     try {
@@ -199,7 +198,6 @@ function joinRoom(peerNumber) {
     //     console.log("Error:", err)
     // }
 }
-
 
 // Get the media from camera/microphone.
 function setupMediaStream(startStream, peerNumber) {
@@ -248,7 +246,6 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   return newPeerConnection;
 }
-
 function setAndSendDescription(description, peerNumber) {
 
   // if (sendToPeerValue == -10) {

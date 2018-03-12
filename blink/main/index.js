@@ -56,7 +56,6 @@ app.use(express.static('public'));
 
 let io = socketIO.listen(httpsServer);
 
-
 // let fileServer = new(nodeStatic.Server)();
 // let app = https.createServer(certOptions, function(req, res) {
 //     fileServer.serve(req, res);

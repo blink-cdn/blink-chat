@@ -33,6 +33,7 @@
         <ul class="navbar-nav justify-content-center">
             <li>
                 <button class="btn btn-secondary" id="publishButton">Join Chat</button>
+                <button class="btn btn-secondary" id="screenshareButton">Screenshare</button>
             </li>
         </ul>
 
@@ -95,6 +96,8 @@
       <div id="local-video-div"></div>
     </div>
 
+    <video id="screenshare"></video>
+
     <br>
 
     <br><br>
@@ -110,6 +113,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://api.callstats.io/static/callstats.min.js"></script>
+    <script src="Screen-Capturing.js"></script>
     <script src="src/streamEng.js"></script>
     <script src="src/main.js"></script>
 

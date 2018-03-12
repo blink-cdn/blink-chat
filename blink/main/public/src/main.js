@@ -41,6 +41,24 @@ $(document).ready(function() {
         streamEng.publish();
         $('#publishButton').css('opacity', '0.25');
     });
+    $('#screenshareButton').click(function() {
+        getScreenConstraints(function(error, screen_constraints) {
+            if (error) {
+                return alert(error);
+            }
+
+            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+            navigator.getUserMedia({
+                video: screen_constraints
+            }, function(stream) {
+                var video = document.querySelector('video');
+                video.src = URL.createObjectURL(stream);
+                video.play();
+            }, function(error) {
+                alert(JSON.stringify(error, null, '\t'));
+            });
+        });
+    });
     $('#message-button').click(sendMessage);
     $('#message-input').keyup(function(event) {
         if (event.keyCode === 13) {
