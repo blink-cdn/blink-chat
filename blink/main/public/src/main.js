@@ -285,7 +285,7 @@ function updateMessagesToFirebase(message) {
     console.log(newMessageKey);
     var updates = {};
     updates[roomName_name + '/messages/' + newMessageKey] = message;
-    database.update(updates);
+    database.ref().update(updates);
 }
 
 function addMessageToMasterList(message, fromUser) {
