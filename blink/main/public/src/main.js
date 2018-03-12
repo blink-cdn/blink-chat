@@ -280,6 +280,9 @@ function updateMessagesToFirebase() {
     database.ref(roomName_name + "/messages").set({
         messageList: messages
     })
+
+    var newMessageKey = firebase.database().ref().child(roomName_name).push().key;
+    console.log(newMessageKey);
 }
 
 function addMessageToMasterList(message, fromUser) {
