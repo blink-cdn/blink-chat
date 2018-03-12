@@ -293,7 +293,7 @@ function updateMessagesToFirebase(message) {
 }
 
 function pullMessagesFromFirebase() {
-    var roomName_name = roomname.substring(1);
+    var roomName_name = roomName.substring(1);
     var messages;
     database.ref(roomName_name + '/messages').once('value').then(function(snapshot) {
         messages = snapshot.val();
