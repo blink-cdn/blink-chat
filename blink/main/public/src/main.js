@@ -275,14 +275,17 @@ function sendMessage() {
 // var database = firebase.database().ref();
 var messages = [];
 
-function updateMessagesToFirebase() {
+function updateMessagesToFirebase(message) {
     roomName_name = roomName.substring(1);
     database.ref(roomName_name + "/messages").set({
         messageList: messages
-    })
+    });
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     console.log(newMessageKey);
+    var updates = {};
+    updates[roomName_name + '/messages/' + newMessageKey] = message;
+    database.update(updates);
 }
 
 function addMessageToMasterList(message, fromUser) {
