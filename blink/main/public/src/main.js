@@ -274,11 +274,11 @@ function addMessageToChatBox(message) {
         "<img class=\"message-img\" src=\"img/blink.png\"/>" +
         "<p class=\"message-text\">" + message.message + "</p> </div>";
 
-    $('#messages').append(html);
+    $("#messages").append(html);
     // $('#messages').scrollTop($('#messages').prop("scrollHeight"));
-    $('#messages').animate({
+    $("#messages").animate({
         scrollTop: $('#messages').prop("scrollHeight")
-    }, 1000);
+    });
 }
 
 /***** FIREBASE *******/
