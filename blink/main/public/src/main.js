@@ -220,7 +220,7 @@ const ECE_faculty = {
     'Sid': {
         name: 'Sid Ahuja',
         email: 'sid@blinkcdn.com',
-        img: 'sid.png'
+        img: 'sid.jpg'
     },
     'Mukund': {
         name: 'Mukund Iyengar',
