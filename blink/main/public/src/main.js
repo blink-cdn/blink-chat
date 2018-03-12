@@ -101,6 +101,8 @@ function setupSocket() {
           "<p class=\"message-text\">" + message + "</p> </div>";
 
       $('#messages').append(html);
+
+      addMessageToMasterList(message, fromUser);
   });
 
   // streamEng.onSubscribeDone = function() {
@@ -267,4 +269,25 @@ function sendMessage() {
     message = $('#message-input').val();
     socket.emit("chat message", message, user, roomName);
     message = $('#message-input').val("");
+}
+
+/***** FIREBASE *******/
+var database = firebase.database();
+var messages = [];
+
+function updateMessagesToFirebase() {
+    firebase.database().ref(roomName + "/messages").set({
+        messageList: messages
+    })
+}
+
+function addMessageToMasterList(message, fromUser) {
+    var msg = {
+        fromUser: fromUser,
+        message: message
+    };
+
+    messages.append(msg);
+    console.log(messages);
+    updateMessagesToFirebase();
 }

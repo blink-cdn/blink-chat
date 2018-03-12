@@ -3,12 +3,22 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Blink Chat</title>
 
-    <title>Blink Chat</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles/chat.css">
+      <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/chat.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
+      <script>
+          // Initialize Firebase
+          // TODO: Replace with your project's customized code snippet
+          var config = {
+              apiKey: "AIzaSyCx8Ej3-j-XDDhGgZ7vv5JMVqr86jIrdFU",
+              authDomain: "blink-chat-6f619.firebaseapp.com",
+              databaseURL: "https://blink-chat-6f619.firebaseio.com/"
+          };
+          firebase.initializeApp(config);
+      </script>
   </head>
   <body class="bg-light">
 
@@ -97,5 +107,15 @@
     <script src="https://api.callstats.io/static/callstats.min.js"></script>
     <script src="src/streamEng.js"></script>
     <script src="src/main.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+    <script>
+        var config = {
+            // ...
+        };
+        firebase.initializeApp(config);
+    </script>
+
   </body>
 </html>
