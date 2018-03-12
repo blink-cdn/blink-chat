@@ -255,7 +255,7 @@ const ECE_faculty = {
     'Nate': {
         name: 'Nathan Van Eck',
         email: 'natvaneck@gmail.com',
-        img: 'nate.jpg'
+        img: 'blink.png'
     },
     'Test': {
         name: 'Test',
