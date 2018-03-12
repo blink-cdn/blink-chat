@@ -317,6 +317,6 @@ function listenForNewMessages() {
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('value', function(snapshot) {
         console.log(snapshot.val());
-        addMessageToChatBox(snapshot.val());
+        // addMessageToChatBox(snapshot.val());
     });
 }
