@@ -266,7 +266,7 @@ const ECE_faculty = {
 };
 
 function sendMessage() {
-    message = $('#message-input').val();
+    var message = $('#message-input').val();
     socket.emit("chat message", message, user, roomName);
     message = $('#message-input').val("");
 
@@ -289,8 +289,7 @@ function updateMessagesToFirebase(message) {
     var newMessageKey = database.ref().child(roomName_name).push().key;
     var updates = {};
     updates[roomName_name + '/messages/' + newMessageKey] = message;
-
-    return database.ref().update(updates);
+    database.ref().update(updates);
 }
 
 function addMessageToMasterList(message, fromUser) {
