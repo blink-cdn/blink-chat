@@ -186,7 +186,8 @@ function unFullscreenVideo(videoId) {
 
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
-    $(videoId).parent().attr("visibility", "hidden");
+    $(videoId).parent().hide();
+    // $(videoId).hide();
 
     removeItemFromArray(activeVideos, videoId);
     hiddenVideos.push(videoId);
@@ -194,7 +195,8 @@ function hideVideo(videoId) {
 
 function showVideo(videoId) {
     console.log("Showing", videoId);
-    $(videoId).parent().attr("visibility", "visible");
+    $(videoId).parent().show();
+    // $(videoId).attr("visibility", "visible");
 
     removeItemFromArray(hiddenVideos, videoId);
     activeVideos.push(videoId);
