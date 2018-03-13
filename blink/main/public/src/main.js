@@ -132,6 +132,15 @@ function setupSocket() {
     console.log("Displayed video:", videoIndex);
   };
 
+  //Hides Video when one is clicked
+  streamEng.onactivate = function (videoIndex) {
+      numPublishers--;
+      console.log("Hidding", videoIndex);
+      $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
+      removeItemFromArray(videoIndices, videoIndex);
+      applyColumnClassesToVideo();
+  };
+
   streamEng.onDeletePublisher = function(videoIndex) {
     numPublishers--;
     console.log("Deleting:", videoIndex);
