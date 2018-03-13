@@ -182,11 +182,11 @@ function fullscreenVideo(videoId) {
         }
     }
 
-    setTimeout(applyColumnClassesToVideo, 400);
+    // setTimeout(applyColumnClassesToVideo, 400);
 }
 
 function unFullscreenVideo(videoId) {
-    $(videoId).addClass("fullscreen");
+    $(videoId).removeClass("fullscreen");
 
     for (id in hiddenVideos) {
         if (hiddenVideos[id] !== videoId) {
@@ -194,7 +194,7 @@ function unFullscreenVideo(videoId) {
         }
     }
 
-    setTimeout(applyColumnClassesToVideo, 400);
+    // setTimeout(applyColumnClassesToVideo, 400);
 }
 
 function hideVideo(videoId) {
