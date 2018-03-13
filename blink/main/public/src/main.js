@@ -166,6 +166,16 @@ function fullscreenVideo(videoId) {
     applyColumnClassesToVideo();
 }
 
+function unFullscreenVideo(videoId) {
+    for (id in hiddenVideos) {
+        if (id !== videoId) {
+            showVideo(videoId);
+        }
+    }
+
+    applyColumnClassesToVideo();
+}
+
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
     $(videoId).parent().attr("visibility", "hidden");
@@ -174,11 +184,25 @@ function hideVideo(videoId) {
     hiddenVideos.push(videoId);
 }
 
+function showVideo(videoId) {
+    if (hiddenVideos.contains(videoId)) {
+        console.log("Showing", videoId);
+        $(videoId).parent().attr("visibility", "visible");
+    }
+
+    removeItemFromArray(hiddenVideos, videoId);
+    activeVideos.push(videoId);
+}
+
 
 function applyColumnClassesToVideo() {
     $('video').click(function(event) {
         console.log(event.target.id);
-        fullscreenVideo("#"+event.target.id);
+        if (activeVideos.length === 1) {
+            unFullscreenVideo("#"+event.target.id);
+        } else {
+            fullscreenVideo("#"+event.target.id);
+        }
     });
 
   var columnSize;
