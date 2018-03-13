@@ -36,6 +36,9 @@ $(document).ready(function() {
     user.name = 'user';
     socket.emit('create user', user, roomName);
 
+    $('video').click(function(event) {
+        console.log(event.target.id);
+    });
     $('#publishButton').click(function() {
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
@@ -62,9 +65,6 @@ $(document).ready(function() {
     $('#invitePeopleButton').click(function() {
         $('#inviteModal').modal('toggle');
         $('#link-ref').html(function() { return window.location.href });
-    });
-    $('video').click(function(event) {
-        console.log(event.target.id);
     });
 
     listenForNewMessages();
