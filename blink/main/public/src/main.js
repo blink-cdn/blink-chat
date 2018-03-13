@@ -156,25 +156,29 @@ function setupSocket() {
 }
 
 //Hides Video when one is clicked
-function fullscreenVideo(videoIndex) {
-    var videoID = 'remoteVideo' + videoIndex.toString();
-    for (index in videoIndices) {
-        hideVideo(videoIndex);
+function fullscreenVideo(videoId) {
+    for (id in activeVideos) {
+        if (id !== videoId) {
+            hideVideo(videoId);
+        }
     }
 
     applyColumnClassesToVideo();
 }
-function hideVideo(videoIndex) {
-    numPublishers--;
+
+function hideVideo(videoId) {
     console.log("Hidding", videoIndex);
-    $('#remoteVideo'+ videoIndex.toString()).attr("visibility", "hidden");
-    removeItemFromArray(videoIndices, videoIndex);
+    $(videoId).attr("visibility", "hidden");
+
+    removeItemFromArray(activeVideos, videoId);
+    hiddenVideos.push(videoId);
 }
 
 
 function applyColumnClassesToVideo() {
     $('video').click(function(event) {
         console.log(event.target.id);
+        hideVideo(event.target.id);
     });
 
   var columnSize;
