@@ -36,7 +36,7 @@ $(document).ready(function() {
     user.name = 'user';
     socket.emit('create user', user, roomName);
 
-    $('video').click(function(event) {
+    $('.videoStream > video').click(function(event) {
         console.log(event.target.id);
     });
     $('#publishButton').click(function() {
