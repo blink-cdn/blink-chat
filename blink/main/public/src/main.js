@@ -63,6 +63,9 @@ $(document).ready(function() {
         $('#inviteModal').modal('toggle');
         $('#link-ref').html(function() { return window.location.href });
     });
+    $('video').click(function(event) {
+        console.log(event.target.id);
+    });
 
     listenForNewMessages();
 });
@@ -141,7 +144,7 @@ function setupSocket() {
   streamEng.onactivate = function (videoIndex) {
       numPublishers--;
       console.log("Hidding", videoIndex);
-      $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
+      $('#remoteVideo'+ videoIndex.toString()).attr("visibility", "hidden");
       removeItemFromArray(videoIndices, videoIndex);
       applyColumnClassesToVideo();
   };
