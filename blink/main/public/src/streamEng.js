@@ -210,8 +210,8 @@ function setupMediaStream(startStream, peerNumber) {
             };
             navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+            console.log("GETTING STREAM:");
             navigator.getUserMedia(video_options, function(stream) {
-                console.log("GETTING STREAM:");
                 shareStream(stream, false, peerNumber);
             }, function(error) {
                 console.log("SCREENSHARE ERR:", error);
