@@ -66,8 +66,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="98" column="17" lean-forward="false" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+            <state relative-caret-position="447">
+              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
@@ -79,7 +79,6 @@
                 <element signature="e#2349#2466#0" expanded="false" />
                 <element signature="e#2654#2697#0" expanded="false" />
                 <element signature="e#2778#3085#0" expanded="false" />
-                <element signature="e#3140#3586#0" expanded="false" />
                 <element signature="e#3642#3873#0" expanded="false" />
                 <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
                 <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
@@ -97,8 +96,8 @@
       <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="242" column="38" lean-forward="true" selection-start-line="242" selection-start-column="38" selection-end-line="242" selection-end-column="38" />
+            <state relative-caret-position="238">
+              <caret line="205" column="4" lean-forward="false" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
               <folding>
                 <element signature="e#460#488#0" expanded="false" />
                 <element signature="e#509#541#0" expanded="false" />
@@ -134,10 +133,13 @@
       <find>chat message</find>
       <find>uuid</find>
       <find>overflow</find>
-      <find>joinRoom</find>
       <find>shouldScreenshare</find>
       <find>disabled</find>
       <find>getUserMedia</find>
+      <find>shareStream</find>
+      <find>setupMediaStream</find>
+      <find>videoIndices</find>
+      <find>joinRoom</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -254,12 +256,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="31512000" />
+      <workItem from="1520620836240" duration="32196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32161000" />
+    <option name="totallyTimeSpent" value="32845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1204" height="1113" extended-state="0" />
@@ -458,8 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="98" column="17" lean-forward="false" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        <state relative-caret-position="447">
+          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
@@ -471,7 +473,6 @@
             <element signature="e#2349#2466#0" expanded="false" />
             <element signature="e#2654#2697#0" expanded="false" />
             <element signature="e#2778#3085#0" expanded="false" />
-            <element signature="e#3140#3586#0" expanded="false" />
             <element signature="e#3642#3873#0" expanded="false" />
             <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
@@ -487,8 +488,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="242" column="38" lean-forward="true" selection-start-line="242" selection-start-column="38" selection-end-line="242" selection-end-column="38" />
+        <state relative-caret-position="238">
+          <caret line="205" column="4" lean-forward="false" selection-start-line="205" selection-start-column="4" selection-end-line="205" selection-end-column="4" />
           <folding>
             <element signature="e#460#488#0" expanded="false" />
             <element signature="e#509#541#0" expanded="false" />
