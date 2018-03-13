@@ -87,8 +87,8 @@
       <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="215" column="39" lean-forward="false" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
+            <state relative-caret-position="264">
+              <caret line="270" column="57" lean-forward="false" selection-start-line="270" selection-start-column="57" selection-end-line="270" selection-end-column="57" />
               <folding>
                 <element signature="e#489#517#0" expanded="false" />
                 <element signature="e#538#570#0" expanded="false" />
@@ -96,7 +96,6 @@
                 <element signature="e#1054#4452#0" expanded="false" />
                 <element signature="e#1214#1255#0" expanded="false" />
                 <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
-                <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
                 <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
                 <element signature="n#!!block;n#setupPage#0" expanded="false" />
                 <element signature="n#!!block;n#errorHandler#0" expanded="false" />
@@ -252,12 +251,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="34960000" />
+      <workItem from="1520620836240" duration="35071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35609000" />
+    <option name="totallyTimeSpent" value="35720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1204" height="1113" extended-state="0" />
@@ -485,8 +484,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="215" column="39" lean-forward="false" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
+        <state relative-caret-position="264">
+          <caret line="270" column="57" lean-forward="false" selection-start-line="270" selection-start-column="57" selection-end-line="270" selection-end-column="57" />
           <folding>
             <element signature="e#489#517#0" expanded="false" />
             <element signature="e#538#570#0" expanded="false" />
@@ -494,7 +493,6 @@
             <element signature="e#1054#4452#0" expanded="false" />
             <element signature="e#1214#1255#0" expanded="false" />
             <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
-            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
             <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
             <element signature="n#!!block;n#setupPage#0" expanded="false" />
             <element signature="n#!!block;n#errorHandler#0" expanded="false" />

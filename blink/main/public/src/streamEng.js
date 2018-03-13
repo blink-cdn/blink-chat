@@ -268,7 +268,7 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
-      console.log('Received remote stream');
+      console.log('Received remote stream:', event.stream);
         $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", publisherNumber);
         peers[peerNumberOf[peerUserID]].hasConnected = true;
