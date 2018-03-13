@@ -105,32 +105,35 @@ function setupSocket() {
   // };
 
   streamEng.onPublish = function(stream) {
-    if (!isPublished) {
-      numPublishers++;
-    }
 
-    isPublished = true;
+      if (!isPublished) {
+          numPublishers++;
+          activeVideos.push('#local-video');
+      }
+      isPublished = true;
 
-    var isScreenshare = "";
-    if (streamEng.shouldScreenshare === true) {
-        isScreenshare = "screenshare";
-    }
+      var isScreenshare = "";
+      if (streamEng.shouldScreenshare === true) {
+          isScreenshare = "screenshare";
+      }
 
-    $('#local-video-div').html(function() {
-      return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
-    });
+      $('#local-video-div').html(function() {
+          return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
+      });
+      $('#local-video').attr('src', window.URL.createObjectURL(stream));
+      activeVideos.push('#local-video');
 
-    $('#local-video').attr('src', window.URL.createObjectURL(stream));
-    activeVideos.push('#local-video');
-    applyColumnClassesToVideo();
-  }
+      applyColumnClassesToVideo();
+  };
 
   streamEng.onAddNewPublisher = function(videoIndex) {
-    numPublishers++;
     if (!videoIndices.includes(videoIndex)) {
+        // Add video to videoIndices list (master list) and active video list
         var videoId = "remoteVideo"+videoIndex.toString();
         videoIndices.push(videoIndex);
         activeVideos.push(videoId);
+
+        // Add video to HTML
         var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
         $('#remote-video-div').html(function() {
             return $('#remote-video-div').html() + newVideoLayer
@@ -145,10 +148,10 @@ function setupSocket() {
   };
 
   streamEng.onDeletePublisher = function(videoIndex) {
-    numPublishers--;
     console.log("Deleting:", videoIndex);
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
+    removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
     applyColumnClassesToVideo();
   }
 }
