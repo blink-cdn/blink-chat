@@ -128,7 +128,7 @@ function setupSocket() {
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
         // Add video to videoIndices list (master list) and active video list
-        var videoId = "remoteVideo"+videoIndex.toString();
+        var videoId = "#remoteVideo"+videoIndex.toString();
         videoIndices.push(videoIndex);
         activeVideos.push(videoId);
 
