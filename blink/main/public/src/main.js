@@ -185,10 +185,8 @@ function hideVideo(videoId) {
 }
 
 function showVideo(videoId) {
-    if (hiddenVideos.contains(videoId)) {
-        console.log("Showing", videoId);
-        $(videoId).parent().attr("visibility", "visible");
-    }
+    console.log("Showing", videoId);
+    $(videoId).parent().attr("visibility", "visible");
 
     removeItemFromArray(hiddenVideos, videoId);
     activeVideos.push(videoId);
