@@ -159,7 +159,7 @@ function setupSocket() {
 function fullscreenVideo(videoId) {
     for (id in activeVideos) {
         if (id !== videoId) {
-            hideVideo(videoId);
+            hideVideo(id);
         }
     }
 
@@ -195,7 +195,6 @@ function showVideo(videoId) {
 
 function applyColumnClassesToVideo() {
     $('video').click(function(event) {
-        console.log(event.target.id);
         if (activeVideos.length === 1) {
             unFullscreenVideo("#"+event.target.id);
         } else {
