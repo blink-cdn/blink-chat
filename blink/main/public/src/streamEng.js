@@ -211,11 +211,11 @@ function setupMediaStream(startStream, peerNumber) {
             navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
             navigator.getUserMedia(video_options, function(stream) {
+
                 shareStream(stream, false, peerNumber);
             }, function(error) {
                 console.log("SCREENSHARE ERR:", error);
             });
-
         });
     } else {
         if(navigator.mediaDevices.getUserMedia) {
@@ -237,6 +237,7 @@ function shareStream(stream, startStream, peerNumber) {
     }
     // If you want to start the stream, addStream to connection
     else {
+        console.log("NOT ON PUBLISH");
         if (!peers[peerNumber]) {
             console.log("NOPE:", peerNumber);
         }
