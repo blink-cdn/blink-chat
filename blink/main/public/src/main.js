@@ -180,7 +180,7 @@ function fullscreenVideo(videoId) {
         }
     }
 
-    applyColumnClassesToVideo();
+    setTimeout(applyColumnClassesToVideo, 400);
 }
 
 function unFullscreenVideo(videoId) {
@@ -190,7 +190,7 @@ function unFullscreenVideo(videoId) {
         }
     }
 
-    applyColumnClassesToVideo();
+    setTimeout(applyColumnClassesToVideo, 400);
 }
 
 function hideVideo(videoId) {
