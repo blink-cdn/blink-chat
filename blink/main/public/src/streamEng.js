@@ -223,7 +223,7 @@ function setupMediaStream(startStream, peerNumber) {
             // });
 
             navigator.getUserMedia(video_options, function(stream) {
-                shareStream(stream, true);
+                shareStream(stream, true, peerNumber);
             }, function(error) {
                 console.log("SCREENSHARE ERR:", err);
             });
@@ -231,7 +231,7 @@ function setupMediaStream(startStream, peerNumber) {
     } else {
         if(navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                shareStream(stream, startStream);
+                shareStream(stream, startStream, peerNumber);
             });
         } else {
             alert('Your browser does not support getUserMedia API');
@@ -239,7 +239,7 @@ function setupMediaStream(startStream, peerNumber) {
     }
 }
 
-function shareStream(stream, startStream) {
+function shareStream(stream, startStream, peerNumber) {
     localStreams[peerNumber] = stream;
 
     if (startStream === false) {
