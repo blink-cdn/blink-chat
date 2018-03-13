@@ -158,8 +158,8 @@ function setupSocket() {
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
     for (id in activeVideos) {
-        if (id !== videoId) {
-            hideVideo(id);
+        if (activeVideos[id] !== videoId) {
+            hideVideo(activeVideos[id]);
         }
     }
 
@@ -168,8 +168,8 @@ function fullscreenVideo(videoId) {
 
 function unFullscreenVideo(videoId) {
     for (id in hiddenVideos) {
-        if (id !== videoId) {
-            showVideo(id);
+        if (hiddenVideos[id] !== videoId) {
+            showVideo(hiddenVideos[id]);
         }
     }
 
