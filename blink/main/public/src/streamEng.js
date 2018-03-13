@@ -202,6 +202,8 @@ function joinRoom(peerNumber) {
 
 // Get the media from camera/microphone.
 function setupMediaStream(startStream, peerNumber) {
+    console.log("ScreenNumber:", peerNumber);
+
     if (streamEng.shouldScreenshare) {
         getScreenConstraints(function(error, screen_constraints) {
             if (error) {
@@ -223,7 +225,6 @@ function setupMediaStream(startStream, peerNumber) {
             // });
 
             navigator.getUserMedia(video_options, function(stream) {
-                console.log("ScreenNumber:", peerNumber);
                 shareStream(stream, true, peerNumber);
             }, function(error) {
                 console.log("SCREENSHARE ERR:", error);
