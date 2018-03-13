@@ -168,7 +168,7 @@ function fullscreenVideo(videoId) {
 
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
-    $(videoId).attr("visibility", "hidden");
+    $(videoId).parent().attr("visibility", "hidden");
 
     removeItemFromArray(activeVideos, videoId);
     hiddenVideos.push(videoId);
