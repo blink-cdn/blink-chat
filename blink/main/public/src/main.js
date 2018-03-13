@@ -35,10 +35,6 @@ $(document).ready(function() {
     setupSocket();
     user.name = 'user';
     socket.emit('create user', user, roomName);
-
-    $('.videoStream > video').click(function(event) {
-        console.log(event.target.id);
-    });
     $('#publishButton').click(function() {
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
@@ -159,6 +155,10 @@ function setupSocket() {
 }
 
 function applyColumnClassesToVideo() {
+    $('video').click(function(event) {
+        console.log(event.target.id);
+    });
+
   var columnSize;
   var smallColumnSize;
   if (numPublishers === 1) {
