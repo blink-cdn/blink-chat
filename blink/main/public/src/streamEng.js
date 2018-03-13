@@ -215,6 +215,7 @@ function setupMediaStream(startStream, peerNumber) {
             }, function(error) {
                 console.log("SCREENSHARE ERR:", error);
             });
+
         });
     } else {
         if(navigator.mediaDevices.getUserMedia) {
@@ -231,6 +232,7 @@ function shareStream(stream, startStream, peerNumber) {
     localStreams[peerNumber] = stream;
 
     if (startStream === false) {
+        console.log("ON PUBLISH");
         streamEng.onPublish(stream);
     }
     // If you want to start the stream, addStream to connection
