@@ -169,7 +169,7 @@ function fullscreenVideo(videoId) {
 function unFullscreenVideo(videoId) {
     for (id in hiddenVideos) {
         if (id !== videoId) {
-            showVideo(videoId);
+            showVideo(id);
         }
     }
 
