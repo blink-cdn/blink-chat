@@ -41,8 +41,8 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="117" column="38" lean-forward="true" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+            <state relative-caret-position="288">
+              <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
               <folding>
                 <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="120" column="14" lean-forward="false" selection-start-line="120" selection-start-column="2" selection-end-line="120" selection-end-column="14" />
+            <state relative-caret-position="98">
+              <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
@@ -85,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="212" column="43" lean-forward="true" selection-start-line="212" selection-start-column="43" selection-end-line="212" selection-end-column="43" />
+              <caret line="212" column="36" lean-forward="true" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
               <folding>
                 <element signature="e#460#488#0" expanded="false" />
                 <element signature="e#509#541#0" expanded="false" />
@@ -132,8 +132,9 @@
       <find>joinRoom</find>
       <find>videoIndices</find>
       <find>onPublish</find>
-      <find>setupMediaStream</find>
       <find>streamEng.on</find>
+      <find>setupMediaStream</find>
+      <find>screenshare</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -143,9 +144,9 @@
         <option value="$PROJECT_DIR$/stream/index.js" />
         <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
         <option value="$PROJECT_DIR$/main/index.js" />
-        <option value="$PROJECT_DIR$/main/public/chat.html" />
         <option value="$PROJECT_DIR$/main/public/src/main.js" />
         <option value="$PROJECT_DIR$/main/public/src/streamEng.js" />
+        <option value="$PROJECT_DIR$/main/public/chat.html" />
       </list>
     </option>
   </component>
@@ -250,12 +251,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="34401000" />
+      <workItem from="1520620836240" duration="34501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35050000" />
+    <option name="totallyTimeSpent" value="35150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1204" height="1113" extended-state="0" />
@@ -409,19 +410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="117" column="38" lean-forward="true" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
-          <folding>
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/Screen-Capturing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -452,10 +440,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="212" column="36" lean-forward="true" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
+          <folding>
+            <element signature="e#460#488#0" expanded="false" />
+            <element signature="e#509#541#0" expanded="false" />
+            <element signature="e#782#810#0" expanded="false" />
+            <element signature="e#1025#4423#0" expanded="false" />
+            <element signature="e#1185#1226#0" expanded="false" />
+            <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
+            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+            <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
+            <element signature="n#!!block;n#setupPage#0" expanded="false" />
+            <element signature="n#!!block;n#errorHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+          <folding>
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="120" column="14" lean-forward="false" selection-start-line="120" selection-start-column="2" selection-end-line="120" selection-end-column="14" />
+        <state relative-caret-position="98">
+          <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
@@ -478,25 +498,6 @@
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
             <marker date="1520906067320" expanded="false" signature="3967:4198" ph="{...}" />
             <marker date="1520906067320" expanded="true" signature="6462:6473" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="212" column="43" lean-forward="true" selection-start-line="212" selection-start-column="43" selection-end-line="212" selection-end-column="43" />
-          <folding>
-            <element signature="e#460#488#0" expanded="false" />
-            <element signature="e#509#541#0" expanded="false" />
-            <element signature="e#782#810#0" expanded="false" />
-            <element signature="e#1025#4423#0" expanded="false" />
-            <element signature="e#1185#1226#0" expanded="false" />
-            <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
-            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
-            <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
-            <element signature="n#!!block;n#setupPage#0" expanded="false" />
-            <element signature="n#!!block;n#errorHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
