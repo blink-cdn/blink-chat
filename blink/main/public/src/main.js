@@ -178,7 +178,7 @@ function hideVideo(videoId) {
 function applyColumnClassesToVideo() {
     $('video').click(function(event) {
         console.log(event.target.id);
-        hideVideo(event.target.id);
+        fullscreenVideo("#"+event.target.id);
     });
 
   var columnSize;
