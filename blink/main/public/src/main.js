@@ -117,14 +117,13 @@ function setupSocket() {
           isScreenshare = "screenshare";
       }
 
-      var localVideo = $('#local-video');
 
       $('#local-video-div').html(function() {
           return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
       });
-      localVideo.attr('src', window.URL.createObjectURL(stream));
+      $('#local-video').attr('src', window.URL.createObjectURL(stream));
 
-      localVideo.click(function(event) {
+      $('#local-video').click(function(event) {
           if (activeVideos.length === 1) {
               unFullscreenVideo("#"+event.target.id);
           } else {
@@ -196,7 +195,8 @@ function unFullscreenVideo(videoId) {
 
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
-    $(videoId).parent().hide(200);
+    $(videoId).parent().hide(250);
+    // $(videoId).hide();
 
     removeItemFromArray(activeVideos, videoId);
     hiddenVideos.push(videoId);
@@ -204,7 +204,8 @@ function hideVideo(videoId) {
 
 function showVideo(videoId) {
     console.log("Showing", videoId);
-    $(videoId).parent().show(200);
+    $(videoId).parent().show(250);
+    // $(videoId).attr("visibility", "visible");
 
     removeItemFromArray(hiddenVideos, videoId);
     activeVideos.push(videoId);
