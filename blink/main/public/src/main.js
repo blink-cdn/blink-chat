@@ -174,6 +174,8 @@ function setupSocket() {
 
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
+    $(videoId).addClass("fullscreen");
+
     for (id in activeVideos) {
         if (activeVideos[id] !== videoId) {
             hideVideo(activeVideos[id]);
@@ -184,6 +186,8 @@ function fullscreenVideo(videoId) {
 }
 
 function unFullscreenVideo(videoId) {
+    $(videoId).addClass("fullscreen");
+
     for (id in hiddenVideos) {
         if (hiddenVideos[id] !== videoId) {
             showVideo(hiddenVideos[id]);
@@ -195,7 +199,7 @@ function unFullscreenVideo(videoId) {
 
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
-    $(videoId).parent().hide(250);
+    $(videoId).parent().hide();
     // $(videoId).hide();
 
     removeItemFromArray(activeVideos, videoId);
@@ -204,7 +208,7 @@ function hideVideo(videoId) {
 
 function showVideo(videoId) {
     console.log("Showing", videoId);
-    $(videoId).parent().show(250);
+    $(videoId).parent().show();
     // $(videoId).attr("visibility", "visible");
 
     removeItemFromArray(hiddenVideos, videoId);
