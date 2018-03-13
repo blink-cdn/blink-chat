@@ -139,6 +139,14 @@ function setupSocket() {
         });
     }
 
+    $('#remoteVideo'+videoIndex.toString()).click(function(event) {
+        if (activeVideos.length === 1) {
+            unFullscreenVideo("#"+event.target.id);
+        } else {
+            fullscreenVideo("#" + event.target.id);
+        }
+    });
+
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
     if ($('#remoteVideo'+videoIndex.toString()) === undefined) {
@@ -194,13 +202,6 @@ function showVideo(videoId) {
 
 
 function applyColumnClassesToVideo() {
-    $('video').click(function(event) {
-        if (activeVideos.length === 1) {
-            unFullscreenVideo("#"+event.target.id);
-        } else {
-            fullscreenVideo("#"+event.target.id);
-        }
-    });
 
   var columnSize;
   var smallColumnSize;
