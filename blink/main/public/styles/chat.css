@@ -179,6 +179,12 @@ video {
   -moz-transform:rotateY(0deg); /* Firefox */
 }
 
+.screenshare {
+  transform: rotateY(0deg) !important;
+  -webkit-transform:rotateY(0deg) !important; /* Safari and Chrome */
+  -moz-transform:rotateY(0deg) !important; /* Firefox */
+}
+
 h5 {
   font-weight: 400;
 }

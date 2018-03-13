@@ -110,8 +110,13 @@ function setupSocket() {
 
     isPublished = true;
 
+    var isScreenshare = "";
+    if (streamEng.shouldScreenshare === true) {
+        isScreenshare = "screenshare";
+    }
+
     $('#local-video-div').html(function() {
-      return "<video muted id=\"local-video\" autoplay></video>";
+      return "<video muted id=\"local-video\" class=\'" + isScreensahre + "\' autoplay></video>";
     });
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
