@@ -225,7 +225,7 @@ function setupMediaStream(startStream, peerNumber) {
             navigator.getUserMedia(video_options, function(stream) {
                 shareStream(stream, true, peerNumber);
             }, function(error) {
-                console.log("SCREENSHARE ERR:", err);
+                console.log("SCREENSHARE ERR:", error);
             });
         });
     } else {
@@ -248,6 +248,9 @@ function shareStream(stream, startStream, peerNumber) {
 
     // If you want to start the stream, addStream to connection
     if (startStream === true) {
+        if (!peers[peerNumber]) {
+            console.log("NOPE:", peerNumber);
+        }
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
