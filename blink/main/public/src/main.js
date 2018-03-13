@@ -116,7 +116,7 @@ function setupSocket() {
     }
 
     $('#local-video-div').html(function() {
-      return "<video muted id=\"local-video\" class=\'" + isScreensahre + "\' autoplay></video>";
+      return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
     });
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
