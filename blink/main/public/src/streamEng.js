@@ -213,7 +213,7 @@ function setupMediaStream(startStream, peerNumber) {
 
             if (localStream !== undefined) {
                 console.log("Reusing stream");
-                shareStream(localStream, false, peerNumber);
+                shareStream(localStream, startStream, peerNumber);
             } else {
                 navigator.getUserMedia(video_options, function(stream) {
                     localStream = stream;
@@ -239,7 +239,6 @@ function shareStream(stream, startStream, peerNumber) {
     localStreams[peerNumber] = stream;
 
     if (startStream === false) {
-        console.log("ON PUBLISH");
         streamEng.onPublish(stream);
     }
     // If you want to start the stream, addStream to connection
