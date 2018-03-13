@@ -223,6 +223,7 @@ function setupMediaStream(startStream, peerNumber) {
             // });
 
             navigator.getUserMedia(video_options, function(stream) {
+                console.log("ScreenNumber:", peerNumber);
                 shareStream(stream, true, peerNumber);
             }, function(error) {
                 console.log("SCREENSHARE ERR:", error);
