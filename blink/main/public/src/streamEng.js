@@ -222,8 +222,10 @@ function setupMediaStream(startStream, peerNumber) {
             //     alert(JSON.stringify(error, null, '\t'));
             // });
 
-            navigator.getUserMedia(video_options).then(function(stream) {
+            navigator.getUserMedia(video_options, function(stream) {
                 shareStream(stream, true);
+            }, function(error) {
+                console.log("SCREENSHARE ERR:", err);
             });
         });
     } else {
