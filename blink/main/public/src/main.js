@@ -121,7 +121,6 @@ function setupSocket() {
           return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
       });
       $('#local-video').attr('src', window.URL.createObjectURL(stream));
-      activeVideos.push('#local-video');
 
       applyColumnClassesToVideo();
   };
