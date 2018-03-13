@@ -26,6 +26,8 @@ var services = {
 var isPublished = false;
 var numPublishers = 0;
 var videoIndices = [];
+var activeVideos = [];
+var hiddenVideos = [];
 
 $(document).ready(function() {
 
@@ -119,13 +121,16 @@ function setupSocket() {
     });
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
+    activeVideos.push('#local-video');
     applyColumnClassesToVideo();
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
     numPublishers++;
     if (!videoIndices.includes(videoIndex)) {
+        var videoId = "remoteVideo"+videoIndex.toString();
         videoIndices.push(videoIndex);
+        activeVideos.push(videoId);
         var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
         $('#remote-video-div').html(function() {
             return $('#remote-video-div').html() + newVideoLayer
@@ -134,15 +139,9 @@ function setupSocket() {
 
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
-  };
+    if ($('#remoteVideo'+videoIndex.toString()) === undefined) {
 
-  //Hides Video when one is clicked
-  streamEng.onactivate = function (videoIndex) {
-      numPublishers--;
-      console.log("Hidding", videoIndex);
-      $('#remoteVideo'+ videoIndex.toString()).attr("visibility", "hidden");
-      removeItemFromArray(videoIndices, videoIndex);
-      applyColumnClassesToVideo();
+    }
   };
 
   streamEng.onDeletePublisher = function(videoIndex) {
@@ -154,6 +153,23 @@ function setupSocket() {
   }
 }
 
+//Hides Video when one is clicked
+function fullscreenVideo(videoIndex) {
+    var videoID = 'remoteVideo' + videoIndex.toString();
+    for (index in videoIndices) {
+        hideVideo(videoIndex);
+    }
+
+    applyColumnClassesToVideo();
+}
+function hideVideo(videoIndex) {
+    numPublishers--;
+    console.log("Hidding", videoIndex);
+    $('#remoteVideo'+ videoIndex.toString()).attr("visibility", "hidden");
+    removeItemFromArray(videoIndices, videoIndex);
+}
+
+
 function applyColumnClassesToVideo() {
     $('video').click(function(event) {
         console.log(event.target.id);
@@ -161,13 +177,13 @@ function applyColumnClassesToVideo() {
 
   var columnSize;
   var smallColumnSize;
-  if (numPublishers === 1) {
+  if (activeVideos.length === 1) {
     columnSize = 12;
     smallColumnSize = 12;
-  } else if (numPublishers === 2) {
+  } else if (activeVideos.length === 2) {
     columnSize = 6;
     smallColumnSize=12;
-  } else if (numPublishers >= 3) {
+  } else if (activeVideos.length >= 3) {
     columnSize = 4;
     smallColumnSize = 6;
   }
@@ -179,13 +195,12 @@ function applyColumnClassesToVideo() {
   }
 
   for (var i = 0; i < videoIndices.length; i++) {
-    var videoIndex = videoIndices[i];
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
     $('.videoStream').addClass('centering');
   }
 
-  if (numPublishers === 0) {
+  if (activeVideos.length === 0) {
       $('body').attr('class', 'bg-light');
       $('#infoText').attr('hidden', 'false');
   } else {
