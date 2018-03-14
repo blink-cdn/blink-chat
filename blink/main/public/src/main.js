@@ -167,10 +167,7 @@ function fullscreenVideo(videoId) {
 
     for (id in activeVideos) {
         if (activeVideos[id] !== videoId) {
-            console.log(activeVideos[id]);
-        //     hideVideo(activeVideos[id]);
-        } else {
-            console.log("NOT:", activeVideos[id]);
+            hideVideo(activeVideos[id]);
         }
 
     }
@@ -182,10 +179,7 @@ function unFullscreenVideo(videoId) {
 
     for (id in hiddenVideos) {
         if (hiddenVideos[id] !== videoId) {
-            // showVideo(hiddenVideos[id]);
-            console.log(activeVideos[id]);
-        } else {
-            console.log("NOT:", activeVideos[id]);
+            showVideo(hiddenVideos[id]);
         }
     }
 
@@ -195,7 +189,6 @@ function unFullscreenVideo(videoId) {
 function hideVideo(videoId) {
     console.log("Hidding", videoId);
     $(videoId).parent().hide();
-    // $(videoId).hide();
 
     removeItemFromArray(activeVideos, videoId);
     hiddenVideos.push(videoId);
@@ -204,7 +197,6 @@ function hideVideo(videoId) {
 function showVideo(videoId) {
     console.log("Showing", videoId);
     $(videoId).parent().show();
-    // $(videoId).attr("visibility", "visible");
 
     removeItemFromArray(hiddenVideos, videoId);
     activeVideos.push(videoId);
