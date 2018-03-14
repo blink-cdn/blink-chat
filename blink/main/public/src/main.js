@@ -148,6 +148,7 @@ function setupSocket() {
         });
     }
 
+    console.log("ADDING CLICK TO:", videoIndex);
     $('#remoteVideo'+videoIndex.toString()).click(function(event) {
         if (activeVideos.length === 1) {
             unFullscreenVideo("#"+event.target.id);
@@ -158,9 +159,6 @@ function setupSocket() {
 
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
-    if ($('#remoteVideo'+videoIndex.toString()) === undefined) {
-
-    }
   };
 
   streamEng.onDeletePublisher = function(videoIndex) {
