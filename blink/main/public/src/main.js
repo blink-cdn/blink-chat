@@ -147,16 +147,6 @@ function setupSocket() {
             return $('#remote-video-div').html() + newVideoLayer
         });
 
-        var video = document.querySelector('video');
-        video.onclick = function(event) {
-            if (activeVideos.length === 1) {
-                unFullscreenVideo("#"+event.target.id);
-            } else {
-                fullscreenVideo("#" + event.target.id);
-            }
-        };
-
-        console.log("On click", video.onclick);
     }
 
     applyColumnClassesToVideo();
@@ -222,40 +212,48 @@ function showVideo(videoId) {
 
 
 function applyColumnClassesToVideo() {
+    var video = document.querySelector('video');
+    video.onclick = function(event) {
+        if (activeVideos.length === 1) {
+            unFullscreenVideo("#"+event.target.id);
+        } else {
+            fullscreenVideo("#" + event.target.id);
+        }
+    };
 
-  var columnSize;
-  var smallColumnSize;
-  if (activeVideos.length === 1) {
-    columnSize = 12;
-    smallColumnSize = 12;
-  } else if (activeVideos.length === 2) {
-    columnSize = 6;
-    smallColumnSize=12;
-  } else if (activeVideos.length >= 3) {
-    columnSize = 4;
-    smallColumnSize = 6;
-  }
+    var columnSize;
+    var smallColumnSize;
+    if (activeVideos.length === 1) {
+        columnSize = 12;
+        smallColumnSize = 12;
+    } else if (activeVideos.length === 2) {
+        columnSize = 6;
+        smallColumnSize=12;
+    } else if (activeVideos.length >= 3) {
+        columnSize = 4;
+        smallColumnSize = 6;
+    }
 
-  if (isPublished) {
-    $('#local-video-div').attr('class',"");
-    $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
-    $('body').attr('class', 'bg-dark');
-  }
+    if (isPublished) {
+        $('#local-video-div').attr('class',"");
+        $('#local-video-div').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
+        $('body').attr('class', 'bg-dark');
+    }
 
-  for (var i = 0; i < videoIndices.length; i++) {
+    for (var i = 0; i < videoIndices.length; i++) {
     $('.videoStream').attr('class',"videoStream");
     $('.videoStream').addClass("col col-lg-" + columnSize.toString() + " col-md-" + columnSize.toString() + " col-sm-" + smallColumnSize.toString() + " col-" + smallColumnSize.toString());
     $('.videoStream').addClass('centering');
   }
 
-  if (activeVideos.length === 0) {
-      $('body').attr('class', 'bg-light');
-      $('#infoText').attr('hidden', 'false');
-  } else {
-      $('#infoText').attr('hidden', 'true');
-      $('body').attr('class', '');
-      $('body').css('background-color', 'black');
-  }
+    if (activeVideos.length === 0) {
+        $('body').attr('class', 'bg-light');
+        $('#infoText').attr('hidden', 'false');
+    } else {
+        $('#infoText').attr('hidden', 'true');
+        $('body').attr('class', '');
+        $('body').css('background-color', 'black');
+    }
 }
 function removeItemFromArray(array, item) {
   var index = array.indexOf(item);
