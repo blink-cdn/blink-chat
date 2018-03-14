@@ -175,6 +175,7 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 
+
 #fullscreen {
   max-width: 100vw !important;
   max-height: 100vh !important;
