@@ -174,7 +174,6 @@ function setupSocket() {
 
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
-    $(videoId).addClass("fullscreen");
 
     for (id in activeVideos) {
         if (activeVideos[id] !== videoId) {
@@ -182,11 +181,10 @@ function fullscreenVideo(videoId) {
         }
     }
 
-    // setTimeout(applyColumnClassesToVideo, 400);
+    setTimeout(applyColumnClassesToVideo, 200);
 }
 
 function unFullscreenVideo(videoId) {
-    $(videoId).removeClass("fullscreen");
 
     for (id in hiddenVideos) {
         if (hiddenVideos[id] !== videoId) {
@@ -194,7 +192,7 @@ function unFullscreenVideo(videoId) {
         }
     }
 
-    // setTimeout(applyColumnClassesToVideo, 400);
+    setTimeout(applyColumnClassesToVideo, 200);
 }
 
 function hideVideo(videoId) {
