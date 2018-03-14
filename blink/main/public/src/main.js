@@ -148,10 +148,6 @@ function setupSocket() {
         });
     }
 
-    if ($("#remoteVideo"+videoIndex.toString()).attr('src') === undefined) {
-        removeVideo(videoIndex);
-    }
-
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
   };
