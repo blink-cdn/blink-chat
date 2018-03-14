@@ -175,6 +175,11 @@ video {
   -moz-transform:rotateY(180deg); /* Firefox */
 }
 
+.video-on-chat-open {
+  width: 72vw !important;
+  position: fixed !important;
+  right: 0px !important;
+}
 
 #fullscreen {
   max-width: 100vw !important;

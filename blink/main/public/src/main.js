@@ -56,8 +56,10 @@ $(document).ready(function() {
         chatBox = $('#chat-box');
         if (chatBox.hasClass('showBox')) {
             $('#chat-box').removeClass("showBox");
+            $('#remote-video-div').removeClass("video-on-chat-open");
         } else {
             $('#chat-box').addClass("showBox");
+            $('#remote-video-div').addClass("video-on-chat-open");
         }
     });
     $('#invitePeopleButton').click(function() {
