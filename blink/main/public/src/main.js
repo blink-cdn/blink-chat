@@ -164,12 +164,12 @@ function setupSocket() {
 
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
+    var actives = activeVideos;
 
-    for (id in activeVideos) {
-        if (activeVideos[id] !== videoId) {
-            hideVideo(activeVideos[id]);
+    for (id in actives) {
+        if (actives[id] !== videoId) {
+            hideVideo(actives[id]);
         }
-
     }
 
     setTimeout(applyColumnClassesToVideo, 200);
@@ -177,10 +177,9 @@ function fullscreenVideo(videoId) {
 
 function unFullscreenVideo(videoId) {
 
-    for (id in hiddenVideos) {
-        if (hiddenVideos[id] !== videoId) {
-            showVideo(hiddenVideos[id]);
-        }
+    var hiddens = hiddenVideos;
+    for (id in hiddens) {
+        showVideo(hiddens[id]);
     }
 
     setTimeout(applyColumnClassesToVideo, 200);
