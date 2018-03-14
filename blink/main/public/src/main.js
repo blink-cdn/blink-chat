@@ -212,13 +212,15 @@ function showVideo(videoId) {
 
 
 function applyColumnClassesToVideo() {
-    var video = document.querySelector('video');
-    video.onclick = function(event) {
-        if (activeVideos.length === 1) {
-            unFullscreenVideo("#"+event.target.id);
-        } else {
-            fullscreenVideo("#" + event.target.id);
-        }
+    var videos = document.querySelectorAll('video');
+    for (i in videos) {
+        videos[i].onclick = function(event) {
+            if (activeVideos.length === 1) {
+                unFullscreenVideo("#"+event.target.id);
+            } else {
+                fullscreenVideo("#" + event.target.id);
+            }
+        };
     };
 
     var columnSize;
