@@ -176,10 +176,13 @@ function setupSocket() {
 function fullscreenVideo(videoId) {
 
     for (id in activeVideos) {
-        // if (activeVideos[id] !== videoId) {
+        if (activeVideos[id] !== videoId) {
+            console.log(activeVideos[id]);
         //     hideVideo(activeVideos[id]);
-        // }
-        console.log(activeVideos[id]);
+        } else {
+            console.log("NOT:", activeVideos[id]);
+        }
+
     }
 
     setTimeout(applyColumnClassesToVideo, 200);
