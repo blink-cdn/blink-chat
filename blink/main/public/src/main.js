@@ -147,17 +147,17 @@ function setupSocket() {
             return $('#remote-video-div').html() + newVideoLayer
         });
 
-        var video = document.querySelector('video');
-        video.onclick = function(event) {
-            if (activeVideos.length === 1) {
-                unFullscreenVideo("#"+event.target.id);
-            } else {
-                fullscreenVideo("#" + event.target.id);
-            }
-        };
-
         console.log("On click", video.onclick);
     }
+
+    var video = document.querySelector('video');
+    video.onclick = function(event) {
+        if (activeVideos.length === 1) {
+            unFullscreenVideo("#"+event.target.id);
+        } else {
+            fullscreenVideo("#" + event.target.id);
+        }
+    };
 
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
