@@ -56,8 +56,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="203" column="0" lean-forward="true" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="180" column="4" lean-forward="false" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="4" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
@@ -69,15 +69,14 @@
                 <element signature="e#2394#2511#0" expanded="false" />
                 <element signature="e#2699#2742#0" expanded="false" />
                 <element signature="e#2823#3622#0" expanded="false" />
-                <element signature="e#4364#4651#0" expanded="false" />
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#8277#9335#0" expanded="false" />
+                <element signature="e#8446#9504#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessage#0" expanded="false" />
                 <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
                 <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
                 <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-                <marker date="1520991093098" expanded="true" signature="8192:8203" ph="..." />
+                <marker date="1520991352127" expanded="true" signature="8361:8372" ph="..." />
               </folding>
             </state>
           </provider>
@@ -124,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addMessage</find>
       <find>chat message</find>
       <find>uuid</find>
       <find>overflow</find>
@@ -154,6 +152,7 @@
       <find>transform</find>
       <find>.click(</find>
       <find>local-video</find>
+      <find>removeItemFromArray(</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -278,12 +277,12 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="47384000" />
+      <workItem from="1520620836240" duration="47615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48033000" />
+    <option name="totallyTimeSpent" value="48264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="23" width="1150" height="1113" extended-state="0" />
@@ -495,8 +494,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="203" column="0" lean-forward="true" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="180" column="4" lean-forward="false" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="4" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
@@ -508,15 +507,14 @@
             <element signature="e#2394#2511#0" expanded="false" />
             <element signature="e#2699#2742#0" expanded="false" />
             <element signature="e#2823#3622#0" expanded="false" />
-            <element signature="e#4364#4651#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8277#9335#0" expanded="false" />
+            <element signature="e#8446#9504#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1520991093098" expanded="true" signature="8192:8203" ph="..." />
+            <marker date="1520991352127" expanded="true" signature="8361:8372" ph="..." />
           </folding>
         </state>
       </provider>

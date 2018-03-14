@@ -164,11 +164,18 @@ function setupSocket() {
 
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
-    var actives = activeVideos;
 
-    for (id in actives) {
-        if (actives[id] !== videoId) {
-            hideVideo(actives[id]);
+    for (id in activeVideos) {
+        if (activeVideos[id] !== videoId) {
+            console.log("Hidding", videoId);
+            $(videoId).parent().hide();
+            hiddenVideos.push(activeVideos[id]);
+        }
+    }
+
+    for (id in activeVideos) {
+        if (activeVideos[id] !== videoId) {
+            removeItemFromArray(activeVideos, activeVideos[id]);
         }
     }
 
@@ -187,8 +194,7 @@ function unFullscreenVideo(videoId) {
 }
 
 function hideVideo(videoId) {
-    console.log("Hidding", videoId);
-    $(videoId).parent().hide();
+
 
     removeItemFromArray(activeVideos, videoId);
     hiddenVideos.push(videoId);
