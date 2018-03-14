@@ -148,13 +148,14 @@ function setupSocket() {
         });
 
         console.log("ADDING CLICK TO:", '#remoteVideo'+videoIndex.toString());
-        $('#remoteVideo'+videoIndex.toString()).click(function(event) {
+        var video = document.getElementById("remoteVideo"+videoIndex.toString());
+        video.onclick = function(event) {
             if (activeVideos.length === 1) {
                 unFullscreenVideo("#"+event.target.id);
             } else {
                 fullscreenVideo("#" + event.target.id);
             }
-        });
+        };
     }
 
     applyColumnClassesToVideo();
