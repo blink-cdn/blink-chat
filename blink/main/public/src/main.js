@@ -148,7 +148,7 @@ function setupSocket() {
         });
     }
 
-    console.log("ADDING CLICK TO:", videoIndex);
+    console.log("ADDING CLICK TO:", '#remoteVideo'+videoIndex.toString());
     $('#remoteVideo'+videoIndex.toString()).click(function(event) {
         if (activeVideos.length === 1) {
             unFullscreenVideo("#"+event.target.id);
