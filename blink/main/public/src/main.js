@@ -177,11 +177,12 @@ function fullscreenVideo(videoId) {
 
 function unFullscreenVideo(videoId) {
 
-    var hiddens = hiddenVideos;
-    for (id in hiddens) {
-        showVideo(hiddens[id]);
+    for (id in hiddenVideos) {
+        activeVideos.push(hiddenVideos[id]);
     }
 
+    hiddenVideos = [];
+    $('video').parent().show();
     setTimeout(applyColumnClassesToVideo, 200);
 }
 
@@ -193,13 +194,13 @@ function hideVideo(videoId) {
     hiddenVideos.push(videoId);
 }
 
-function showVideo(videoId) {
-    console.log("Showing", videoId);
-    $(videoId).parent().show();
-
-    removeItemFromArray(hiddenVideos, videoId);
-    activeVideos.push(videoId);
-}
+// function showVideo(videoId) {
+//     console.log("Showing", videoId);
+//     $(videoId).parent().show();
+//
+//     removeItemFromArray(hiddenVideos, videoId);
+//     activeVideos.push(videoId);
+// }
 
 
 function applyColumnClassesToVideo() {
