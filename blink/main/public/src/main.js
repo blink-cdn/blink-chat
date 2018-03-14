@@ -146,7 +146,10 @@ function setupSocket() {
         $('#remote-video-div').html(function() {
             return $('#remote-video-div').html() + newVideoLayer
         });
+    }
 
+    if ($("#remoteVideo"+videoIndex.toString()).attr('src') === undefined) {
+        removeVideo(videoIndex);
     }
 
     applyColumnClassesToVideo();
@@ -197,7 +200,13 @@ function unFullscreenVideo() {
 //     removeItemFromArray(hiddenVideos, videoId);
 //     activeVideos.push(videoId);
 // }
-
+function removeVideo(videoIndex) {
+    console.log("Deleting:", videoIndex);
+    $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
+    removeItemFromArray(videoIndices, videoIndex);
+    removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
+    applyColumnClassesToVideo();
+}
 
 function applyColumnClassesToVideo() {
     var videos = document.querySelectorAll('video');
