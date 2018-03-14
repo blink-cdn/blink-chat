@@ -147,8 +147,7 @@ function setupSocket() {
             return $('#remote-video-div').html() + newVideoLayer
         });
 
-        console.log("ADDING CLICK TO:", '#remoteVideo'+videoIndex.toString());
-        var video = document.getElementById("remoteVideo"+videoIndex.toString());
+        var video = document.querySelector('video');
         video.onclick = function(event) {
             if (activeVideos.length === 1) {
                 unFullscreenVideo("#"+event.target.id);
@@ -156,6 +155,8 @@ function setupSocket() {
                 fullscreenVideo("#" + event.target.id);
             }
         };
+
+        console.log("On click", video.onclick);
     }
 
     applyColumnClassesToVideo();
