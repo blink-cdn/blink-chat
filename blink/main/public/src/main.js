@@ -165,39 +165,27 @@ function setupSocket() {
 //Hides Video when one is clicked
 function fullscreenVideo(videoId) {
 
-    for (id in activeVideos) {
-        if (activeVideos[id] !== videoId) {
-            console.log("Hidding", videoId);
-            $(activeVideos[id]).parent().hide();
-            hiddenVideos.push(activeVideos[id]);
-        }
-    }
-
-    for (id in activeVideos) {
-        if (activeVideos[id] !== videoId) {
-            removeItemFromArray(activeVideos, activeVideos[id]);
+    var actives = activeVideos.slice();
+    for (id in actives) {
+        if (actives[id] !== videoId) {
+            $(actives[id]).parent().hide();
+            hiddenVideos.push(actives[id]);
+            removeItemFromArray(activeVideos, actives[id]);
         }
     }
 
     setTimeout(applyColumnClassesToVideo, 200);
 }
 
-function unFullscreenVideo(videoId) {
+function unFullscreenVideo() {
 
     for (id in hiddenVideos) {
         activeVideos.push(hiddenVideos[id]);
     }
-
     hiddenVideos = [];
+
     $('video').parent().show();
     setTimeout(applyColumnClassesToVideo, 200);
-}
-
-function hideVideo(videoId) {
-
-
-    removeItemFromArray(activeVideos, videoId);
-    hiddenVideos.push(videoId);
 }
 
 // function showVideo(videoId) {
@@ -214,7 +202,7 @@ function applyColumnClassesToVideo() {
     for (i in videos) {
         videos[i].onclick = function(event) {
             if (activeVideos.length === 1) {
-                unFullscreenVideo("#"+event.target.id);
+                unFullscreenVideo();
             } else {
                 fullscreenVideo("#" + event.target.id);
             }
