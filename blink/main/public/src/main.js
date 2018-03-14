@@ -123,13 +123,13 @@ function setupSocket() {
       });
       $('#local-video').attr('src', window.URL.createObjectURL(stream));
 
-      $('#local-video').click(function(event) {
-          if (activeVideos.length === 1) {
-              unFullscreenVideo("#"+event.target.id);
-          } else {
-              fullscreenVideo("#" + event.target.id);
-          }
-      });
+      // $('#local-video').click(function(event) {
+      //     if (activeVideos.length === 1) {
+      //         unFullscreenVideo("#"+event.target.id);
+      //     } else {
+      //         fullscreenVideo("#" + event.target.id);
+      //     }
+      // });
 
       applyColumnClassesToVideo();
   };
