@@ -168,7 +168,7 @@ function fullscreenVideo(videoId) {
     for (id in activeVideos) {
         if (activeVideos[id] !== videoId) {
             console.log("Hidding", videoId);
-            $(videoId).parent().hide();
+            $(activeVideos[id]).parent().hide();
             hiddenVideos.push(activeVideos[id]);
         }
     }
