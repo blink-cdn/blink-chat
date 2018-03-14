@@ -192,7 +192,10 @@ function unFullscreenVideo(videoId) {
 
     for (id in hiddenVideos) {
         if (hiddenVideos[id] !== videoId) {
-            showVideo(hiddenVideos[id]);
+            // showVideo(hiddenVideos[id]);
+            console.log(activeVideos[id]);
+        } else {
+            console.log("NOT:", activeVideos[id]);
         }
     }
 
