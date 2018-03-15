@@ -30,6 +30,8 @@ video {
   /*background-color: grey;*/
   /*width: 100%;*/
   /*border: 1px solid black;*/
+  max-width: 100vw;
+  max-height: calc(100vh - 56px);
   padding: 0px;
   width: 100%;
   height: 100%;
