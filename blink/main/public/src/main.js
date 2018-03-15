@@ -283,42 +283,42 @@ function sendInviteTo(name) {
 
 }
 const ECE_faculty = {
-    'Sid': {
+    'Sid Ahuja': {
         name: 'Sid Ahuja',
         email: 'sid@blinkcdn.com',
         img: 'sid.jpg'
     },
-    'Mukund': {
+    'Mukund Iyengar': {
         name: 'Mukund Iyengar',
         email: 'mukund@blinkcdn.com',
         img: 'mukund.jpg'
     },
-    'Charles': {
+    'Charles Bethin': {
         name: 'Charles Bethin',
         email: 'charles@blinkcdn.com',
         img: 'charles.jpeg'
     },
-    'Justin': {
+    'Justin Trugman': {
         name: 'Justin Trugman',
         email: 'justin@blinkcdn.com',
         img: 'justin.jpg'
     },
-    'Sushant': {
+    'Sushant Mongia': {
         name: 'Sushant Mongia',
         email: 'sushantmongia@gmail.com',
         img: 'sushant.jpg'
     },
-    'Vrushali': {
+    'Vrushali Gaikwad': {
         name: 'Vrushali Gaikwad',
         email: 'vrushaligaikwad9@gmail.com',
         img: 'vrushali.jpg'
     },
-    'Zhang': {
+    'Yu Zhang': {
         name: 'Yu Zhang',
         email: 'memo40k@outlook.com',
         img: 'zhang.jpg'
     },
-    'Nate': {
+    'Nate Van Eck': {
         name: 'Nathan Van Eck',
         email: 'natvaneck@gmail.com',
         img: 'blink.png'

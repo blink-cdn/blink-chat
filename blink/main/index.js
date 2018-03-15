@@ -53,14 +53,8 @@ let httpsServer = https.Server(certOptions, app);
 httpsServer.listen(HTTPS_PORT);
 
 app.use(express.static('public'));
-
 let io = socketIO.listen(httpsServer);
 
-// let fileServer = new(nodeStatic.Server)();
-// let app = https.createServer(certOptions, function(req, res) {
-//     fileServer.serve(req, res);
-// }).listen(HTTPS_PORT);
-// let io = socketIO.listen(app);
 
 io.sockets.on('connection', function(socket) {
 
@@ -88,19 +82,11 @@ io.sockets.on('connection', function(socket) {
         };
 
         sendmail.messages().send(message, function (err, reply) {
-            // if (err !== null) {
-            console.log("Err:", err);
-            // }
+            if (err !== null) {
+                console.log("Err:", err);
+            }
         });
     });
-
-    // socket.on('chat message', function(message, fromUser, roomName) {
-    //     if (rooms[roomName]) {
-    //         for (user in rooms[roomName].users) {
-    //             sockets[user].emit("chat message", message, fromUser);
-    //         }
-    //     }
-    // });
 });
 
 
@@ -111,11 +97,6 @@ let httpServer = http.Server(app);
 httpServer.listen(HTTP_PORT);
 let serviceIo = socketIO.listen(httpServer);
 
-// let serviceFileServer = new(nodeStatic.Server)();
-// let serviceApp = http.createServer(function(req, res) {
-//     serviceFileServer.serve(req, res);
-// }).listen(HTTP_PORT);
-// let serviceIo = socketIO.listen(serviceApp);
 
 serviceIo.sockets.on('connection', function(socket) {
 
@@ -332,18 +313,4 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
-
-// function stringToLink(string) {
-//     var returnString = "";
-//
-//     for (i in string) {
-//         if (string[i] == " ") {
-//             returnString += "_";
-//         } else {
-//             returnString += string[i];
-//         }
-//     }
-//
-//     return returnString;
-// };
 
