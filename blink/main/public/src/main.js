@@ -273,7 +273,7 @@ function addUsersToInviteModal(users) {
 }
 function sendInviteTo(name) {
     var split_str = name.split(' ');
-    var username = split_str[split_str.length - 1];
+    var username = split_str[0];
     socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
     var button = $('#'+name.split(' ')[0]);
     button.html(function() {
@@ -283,42 +283,42 @@ function sendInviteTo(name) {
 
 }
 const ECE_faculty = {
-    'Sid Ahuja': {
+    'Sid': {
         name: 'Sid Ahuja',
         email: 'sid@blinkcdn.com',
         img: 'sid.jpg'
     },
-    'Mukund Iyengar': {
+    'Mukund': {
         name: 'Mukund Iyengar',
         email: 'mukund@blinkcdn.com',
         img: 'mukund.jpg'
     },
-    'Charles Bethin': {
+    'Charles': {
         name: 'Charles Bethin',
         email: 'charles@blinkcdn.com',
         img: 'charles.jpeg'
     },
-    'Justin Trugman': {
+    'Justin': {
         name: 'Justin Trugman',
         email: 'justin@blinkcdn.com',
         img: 'justin.jpg'
     },
-    'Sushant Mongia': {
+    'Sushant': {
         name: 'Sushant Mongia',
         email: 'sushantmongia@gmail.com',
         img: 'sushant.jpg'
     },
-    'Vrushali Gaikwad': {
+    'Vrushali': {
         name: 'Vrushali Gaikwad',
         email: 'vrushaligaikwad9@gmail.com',
         img: 'vrushali.jpg'
     },
-    'Yu Zhang': {
+    'Yu': {
         name: 'Yu Zhang',
         email: 'memo40k@outlook.com',
         img: 'zhang.jpg'
     },
-    'Nate Van Eck': {
+    'Nathan': {
         name: 'Nathan Van Eck',
         email: 'natvaneck@gmail.com',
         img: 'blink.png'
