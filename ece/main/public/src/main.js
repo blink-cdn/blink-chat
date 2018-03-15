@@ -32,7 +32,7 @@ var videoIndices = [];
 
 $(document).ready(function() {
 
-    addUsersToInviteModal(ECE_faculty);
+    // addUsersToInviteModal(ECE_faculty);
 
   // Setup Socket;
   setupSocket();

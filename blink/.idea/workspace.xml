@@ -17,8 +17,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="82" column="27" lean-forward="true" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+            <state relative-caret-position="990">
+              <caret line="82" column="27" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
               <folding>
                 <element signature="e#612#742#0" expanded="false" />
                 <element signature="e#1028#1132#0" expanded="false" />
@@ -41,8 +41,8 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+            <state relative-caret-position="660">
+              <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
               <folding>
                 <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -56,7 +56,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
+            <state relative-caret-position="735">
               <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
@@ -75,7 +75,6 @@
                 <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
                 <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
                 <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-                <marker date="1520992941340" expanded="true" signature="8629:8640" ph="..." />
               </folding>
             </state>
           </provider>
@@ -84,8 +83,8 @@
       <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+            <state relative-caret-position="233">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#2382#2452#0" expanded="false" />
                 <element signature="e#2465#2524#0" expanded="false" />
@@ -102,7 +101,7 @@
       <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
+            <state relative-caret-position="1830">
               <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
               <folding>
                 <element signature="e#489#517#0" expanded="false" />
@@ -179,8 +178,8 @@
     <handled-path value="$PROJECT_DIR$/stream/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="23" />
+    <option name="x" value="63" />
+    <option name="y" value="77" />
     <option name="width" value="1150" />
     <option name="height" value="1113" />
   </component>
@@ -199,7 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,6 +239,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -277,27 +276,28 @@
       <updated>1519239127318</updated>
       <workItem from="1519239128609" duration="597000" />
       <workItem from="1519239804957" duration="52000" />
-      <workItem from="1520620836240" duration="48985000" />
+      <workItem from="1520620836240" duration="49529000" />
+      <workItem from="1521112750845" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49634000" />
+    <option name="totallyTimeSpent" value="50351000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="23" width="1150" height="1113" extended-state="0" />
+    <frame x="63" y="77" width="1150" height="1113" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24534987" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907662" sideWeight="0.50476193" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32907662" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -322,112 +322,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#612#742#0" expanded="false" />
-            <element signature="e#757#961#0" expanded="false" />
-            <element signature="e#1028#1132#0" expanded="false" />
-            <element signature="e#1315#1360#0" expanded="false" />
-            <element signature="e#1568#2875#0" expanded="false" />
-            <element signature="e#3044#3096#0" expanded="false" />
-            <element signature="e#3324#3871#0" expanded="false" />
-            <element signature="n#!!block;n#createUser#0" expanded="false" />
-            <element signature="n#!!block;n#setupService#0" expanded="false" />
-            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
-            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
-            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0" expanded="false" />
-            <element signature="n#!!block;n#uuid#0" expanded="false" />
-            <element signature="e#10280#10314#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#612#742#0" expanded="false" />
-            <element signature="e#757#961#0" expanded="false" />
-            <element signature="e#1028#1132#0" expanded="false" />
-            <element signature="e#1315#1360#0" expanded="false" />
-            <element signature="e#1568#2875#0" expanded="false" />
-            <element signature="e#3044#3096#0" expanded="false" />
-            <element signature="e#3324#3871#0" expanded="false" />
-            <element signature="n#!!block;n#createUser#0" expanded="false" />
-            <element signature="n#!!block;n#setupService#0" expanded="false" />
-            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
-            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
-            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0" expanded="false" />
-            <element signature="n#!!block;n#uuid#0" expanded="false" />
-            <element signature="e#10280#10314#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/test/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="246" column="24" lean-forward="false" selection-start-line="246" selection-start-column="24" selection-end-line="246" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/Screen-Capturing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="117" column="29" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="82" column="27" lean-forward="true" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1028#1132#0" expanded="false" />
@@ -448,7 +344,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="1440">
           <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -459,27 +355,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
-          <folding>
-            <element signature="e#489#517#0" expanded="false" />
-            <element signature="e#538#570#0" expanded="false" />
-            <element signature="e#811#839#0" expanded="false" />
-            <element signature="e#1214#1255#0" expanded="false" />
-            <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
-            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
-            <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
-            <element signature="n#!!block;n#setupPage#0" expanded="false" />
-            <element signature="n#!!block;n#errorHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
+        <state relative-caret-position="735">
           <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
@@ -498,15 +376,213 @@
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1520992941340" expanded="true" signature="8629:8640" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="21" lean-forward="false" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding>
+            <element signature="e#2382#2452#0" expanded="false" />
+            <element signature="e#2465#2524#0" expanded="false" />
+            <element signature="e#2588#2605#0" expanded="false" />
+            <element signature="e#2613#2923#0" expanded="false" />
+            <element signature="e#3510#3533#0" expanded="false" />
+            <element signature="e#3545#3617#0" expanded="false" />
+            <element signature="e#4265#4400#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+          <folding>
+            <element signature="e#489#517#0" expanded="false" />
+            <element signature="e#538#570#0" expanded="false" />
+            <element signature="e#811#839#0" expanded="false" />
+            <element signature="e#1214#1255#0" expanded="false" />
+            <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
+            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+            <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
+            <element signature="n#!!block;n#setupPage#0" expanded="false" />
+            <element signature="n#!!block;n#errorHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1028#1132#0" expanded="false" />
+            <element signature="e#1315#1360#0" expanded="false" />
+            <element signature="e#3044#3096#0" expanded="false" />
+            <element signature="e#3324#3871#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+            <element signature="e#10280#10314#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1028#1132#0" expanded="false" />
+            <element signature="e#1315#1360#0" expanded="false" />
+            <element signature="e#3044#3096#0" expanded="false" />
+            <element signature="e#3324#3871#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+            <element signature="e#10280#10314#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream/test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream/app.yaml" />
+    <entry file="file://$PROJECT_DIR$/stream/index.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
-          <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+          <caret line="246" column="24" lean-forward="false" selection-start-line="246" selection-start-column="24" selection-end-line="246" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/Screen-Capturing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="117" column="29" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="82" column="27" lean-forward="false" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1028#1132#0" expanded="false" />
+            <element signature="e#1315#1360#0" expanded="false" />
+            <element signature="e#3044#3096#0" expanded="false" />
+            <element signature="e#3324#3871#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+            <element signature="e#10280#10314#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+          <folding>
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+          <folding>
+            <element signature="e#489#517#0" expanded="false" />
+            <element signature="e#538#570#0" expanded="false" />
+            <element signature="e#811#839#0" expanded="false" />
+            <element signature="e#1214#1255#0" expanded="false" />
+            <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
+            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+            <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
+            <element signature="n#!!block;n#setupPage#0" expanded="false" />
+            <element signature="n#!!block;n#errorHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <element signature="e#434#582#0" expanded="false" />
+            <element signature="e#619#663#0" expanded="false" />
+            <element signature="e#694#719#0" expanded="false" />
+            <element signature="e#1270#1379#0" expanded="false" />
+            <element signature="e#1996#2119#0" expanded="false" />
+            <element signature="e#2281#2451#0" expanded="false" />
+            <element signature="e#2531#2648#0" expanded="false" />
+            <element signature="e#2836#2879#0" expanded="false" />
+            <element signature="e#2960#3759#0" expanded="false" />
+            <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
+            <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
+            <element signature="e#8714#9772#0" expanded="false" />
+            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+            <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
+            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
+            <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#2382#2452#0" expanded="false" />
             <element signature="e#2465#2524#0" expanded="false" />
