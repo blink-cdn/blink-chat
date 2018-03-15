@@ -274,6 +274,7 @@ function addUsersToInviteModal(users) {
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
+    console.log("Sending invite to", name, "at", ECE_faculty[username]);
     socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
     var button = $('#'+name.split(' ')[0]);
     button.html(function() {
