@@ -157,19 +157,19 @@ function removeItemFromArray(array, item) {
   }
 }
 
-function addUsersToInviteModal(users) {
-    for (username in users) {
-        var user = users[username];
-
-        var html = "<div class=\"row userRow centering\">" +
-            "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
-            "<p class=\"userName\">" + user.name + "</p>" +
-            "<button class=\"btn btn-secondary inviteBtn\" id=\"" + user.name.split(' ')[0] + "\"onclick=\"sendInviteTo(\'" + user.name + "\')\">Invite</button>" +
-            "</div>";
-
-        $('#users').append(html);
-    }
-}
+// function addUsersToInviteModal(users) {
+//     for (username in users) {
+//         var user = users[username];
+//
+//         var html = "<div class=\"row userRow centering\">" +
+//             "<img class=\"userImg\" src=\"/img/" + user.img + "\"/>" +
+//             "<p class=\"userName\">" + user.name + "</p>" +
+//             "<button class=\"btn btn-secondary inviteBtn\" id=\"" + user.name.split(' ')[0] + "\"onclick=\"sendInviteTo(\'" + user.name + "\')\">Invite</button>" +
+//             "</div>";
+//
+//         $('#users').append(html);
+//     }
+// }
 
 function sendInviteTo(name) {
     var split_str = name.split(' ');
