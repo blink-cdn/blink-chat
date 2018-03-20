@@ -1,0 +1,27 @@
+.jumbotron {
+    width: 70%;
+    text-align: center;
+    min-width: 419px;
+}
+
+.center-vertical {
+    margin-top: calc(12vh - 65px);
+}
+
+.center-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-row {
+    min-height: 200px;
+}
+
+.info-img {
+    height: 150px;
+}
+
+.info-text {
+    margin-top: 20px;
+}
