@@ -309,7 +309,7 @@ admin.initializeApp({
     databaseURL: "https://blink-stream.firebaseio.com"
 });
 
-var database = firebase.database();
+var database = admin.database();
 writeToFirebase("HEY GOT IT");
 
 function writeToFirebase(msg) {
