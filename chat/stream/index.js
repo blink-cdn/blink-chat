@@ -315,6 +315,6 @@ writeToFirebase("HEY GOT IT");
 function writeToFirebase(msg) {
     var newMessageKey = database.ref().child("/data").push().key;
     var updates = {}
-    updates["/data/"+newMessageKey] = message;
+    updates["/data/"+newMessageKey] = msg;
     database.ref().update(updates);
 }
