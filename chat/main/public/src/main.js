@@ -31,7 +31,16 @@ var hiddenVideos = [];
 
 $(document).ready(function() {
 
-    addUsersToInviteModal(ECE_faculty);
+    // addUsersToInviteModal(ECE_faculty);
+
+    // Check if a user is created, if so make sure to disconnect them first
+    loadUserFromCache();
+    if (user !== undefined) {
+        socket.emit('disconnect client', user.userID, user.roomName);
+        user = {};
+    } else {
+        user = {};
+    }
 
     // Setup Socket;
     setupSocket();
@@ -77,22 +86,21 @@ $(document).ready(function() {
 function setupSocket() {
 
   socket = io.connect();
-  socket.on('created user', function(userID) {
 
+  socket.on('created user', function(userID) {
     user.userID = userID;
-      console.log("Connected");
+    console.log("Connected");
+    saveUsersToCache(user);
 
     // Send join stream system Message
     socket.emit('join service', user.userID, 'stream', roomName);
   });
-
   socket.on('joined service', function(userID, serviceType, serviceAddress) {
     var engine = services[serviceType];
     engine.serviceAddress = serviceAddress;
 
     engine.setupService();
   });
-
   socket.on('chat message', function(message, fromUser) {
       var msg = {
           fromUser: fromUser,
@@ -135,7 +143,6 @@ function setupSocket() {
 
       applyColumnClassesToVideo();
   };
-
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
         // Add video to videoIndices list (master list) and active video list
@@ -153,7 +160,6 @@ function setupSocket() {
     applyColumnClassesToVideo();
     console.log("Displayed video:", videoIndex);
   };
-
   streamEng.onDeletePublisher = function(videoIndex) {
     removeVideo(videoIndex);
   }
@@ -318,6 +324,14 @@ const ECE_faculty = {
         img: 'blink.png'
     }
 };
+
+function loadUserFromCache() {
+    user = localStorage['blink-chat-user-info'];
+}
+function saveUsersToCache(user) {
+    user.roomName = roomName;
+    localStorage['blink-chat-user-info'] = user;
+}
 
 /****** MESSAGES **********/
 

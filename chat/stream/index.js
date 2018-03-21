@@ -1,9 +1,9 @@
-// const HTTPS_PORT = 4000;
-// const MAIN_SERVER_ADDR = "http://localhost:3000";
-// const STREAM_SERVER_ADDR = "https://localhost:4000";
-const HTTPS_PORT = 443;
-const MAIN_SERVER_ADDR = "http://blink.blinkcdn.com:8080";
-const STREAM_SERVER_ADDR = "https://stream.blinkcdn.com";
+const HTTPS_PORT = 4000;
+const MAIN_SERVER_ADDR = "http://localhost:8080";
+const STREAM_SERVER_ADDR = "https://localhost:4000";
+// const HTTPS_PORT = 443;
+// const MAIN_SERVER_ADDR = "http://blink.blinkcdn.com:8080";
+// const STREAM_SERVER_ADDR = "https://stream.blinkcdn.com";
 
 const express = require('express');
 const https = require('https');
@@ -44,15 +44,12 @@ io.sockets.on('connection', function(socket) {
     socket.on('signal', function(message, destUuid, roomName) {
         onSignal(message, destUuid, roomName, socket);
     });
-
     socket.on('disconnect client', function(userID, roomName) {
         onDisconnect(userID, roomName);
     });
-
     socket.on('publish', function(userID, roomName) {
         onJoin(userID, socket, roomName, true);
     });
-
     socket.on('subscribe', function(userID, roomName) {
         onJoin(userID, socket, roomName, false);
     });

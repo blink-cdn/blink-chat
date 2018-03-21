@@ -71,6 +71,10 @@ io.sockets.on('connection', function(socket) {
         console.log(bidValue);
     });
 
+    socket.on('disconnect client', function(userID, roomName) {
+        sendDisconnecToServices(userID, roomName);
+    });
+
     socket.on('send invite', function(name, email, link) {
         console.log("Got it");
         const message = {
@@ -89,7 +93,9 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
-
+function sendDisconnecToServices(useID, roomName) {
+    serviceIo.sockets.emit('disconnect client', userID, roomName);
+}
 
 /************ SERVICES SERVER SETUP *************/
 

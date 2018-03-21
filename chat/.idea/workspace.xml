@@ -14,16 +14,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stream/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="100" column="12" lean-forward="false" selection-start-line="100" selection-start-column="12" selection-end-line="100" selection-end-column="12" />
+            <state relative-caret-position="360">
+              <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
-                <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#1222#1284#0" expanded="false" />
+                <element signature="e#1451#1506#0" expanded="false" />
+                <element signature="e#1563#1619#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-184">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <element signature="e#612#742#0" expanded="false" />
+                <element signature="e#1944#2509#0" expanded="false" />
+                <element signature="e#3434#3479#0" expanded="false" />
+                <element signature="n#!!block;n#createUser#0" expanded="false" />
+                <element signature="n#!!block;n#setupService#0" expanded="false" />
+                <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+                <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+                <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+                <element signature="n#!!block;n#createService#0" expanded="false" />
+                <element signature="n#!!block;n#uuid#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -39,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -52,37 +72,32 @@
       <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="149" selection-end-column="1" />
+            <state relative-caret-position="400">
+              <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stream/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3405">
-              <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
-                <element signature="e#1271#1380#0" expanded="false" />
-                <element signature="e#1997#2120#0" expanded="false" />
-                <element signature="e#2709#2831#0" expanded="false" />
-                <element signature="e#2837#2880#0" expanded="false" />
-                <element signature="e#2961#3760#0" expanded="false" />
-                <element signature="e#4501#4535#0" expanded="false" />
+                <element signature="e#1350#1485#0" expanded="false" />
+                <element signature="e#1533#1642#0" expanded="false" />
+                <element signature="e#1736#1816#0" expanded="false" />
+                <element signature="e#1863#2210#0" expanded="false" />
+                <element signature="e#2259#2382#0" expanded="false" />
+                <element signature="e#2819#2936#0" expanded="false" />
+                <element signature="e#2995#3117#0" expanded="false" />
+                <element signature="e#3123#3166#0" expanded="false" />
+                <element signature="e#3247#4046#0" expanded="false" />
+                <element signature="e#4101#4730#0" expanded="false" />
+                <element signature="e#4785#4819#0" expanded="false" />
                 <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
                 <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
                 <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -90,28 +105,11 @@
                 <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#8313#9370#0" expanded="false" />
+                <element signature="e#8597#9654#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessage#0" expanded="false" />
                 <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-                <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
                 <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="streamEng.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/public/src/streamEng.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-              <folding>
-                <element signature="e#538#570#0" expanded="false" />
-                <element signature="e#1214#1255#0" expanded="false" />
-                <element signature="n#!!block;n#gotMessageFromServer#0" expanded="false" />
-                <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
-                <element signature="n#!!block;n#setAndSendDescription#0" expanded="false" />
-                <element signature="n#!!block;n#errorHandler#0" expanded="false" />
+                <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
               </folding>
             </state>
           </provider>
@@ -121,12 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onPublish</find>
-      <find>streamEng.on</find>
-      <find>setupMediaStream</find>
-      <find>screenshare</find>
-      <find>g</find>
-      <find>PUBLISH</find>
       <find>displayed video</find>
       <find>videoIndices</find>
       <find>onactivate</find>
@@ -148,22 +140,28 @@
       <find>openChat</find>
       <find>transform</find>
       <find>removeItemFromArray(videoIndi</find>
-      <find>disconnect</find>
       <find>center</find>
       <find>center-</find>
+      <find>user</find>
+      <find>roomName</find>
+      <find>user.</find>
+      <find>disconnect</find>
+      <find>onDisconnect</find>
+      <find>loadUse</find>
+      <find>chat-button</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stream/index.js" />
-        <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/main/public/src/streamEng.js" />
-        <option value="$PROJECT_DIR$/main/public/src/main.js" />
-        <option value="$PROJECT_DIR$/main/public/chat.html" />
-        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
         <option value="$PROJECT_DIR$/main/public/index.html" />
         <option value="$PROJECT_DIR$/main/public/styles/index.css" />
+        <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
+        <option value="$PROJECT_DIR$/main/public/chat.html" />
+        <option value="$PROJECT_DIR$/stream/index.js" />
+        <option value="$PROJECT_DIR$/main/index.js" />
+        <option value="$PROJECT_DIR$/main/public/src/main.js" />
       </list>
     </option>
   </component>
@@ -178,10 +176,10 @@
     <handled-path value="$PROJECT_DIR$/stream/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="936" />
-    <option name="y" value="39" />
-    <option name="width" value="888" />
-    <option name="height" value="1074" />
+    <option name="x" value="15" />
+    <option name="y" value="32" />
+    <option name="width" value="1118" />
+    <option name="height" value="1073" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -222,14 +220,18 @@
               <item name="chat" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="certs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chat" type="b2602c69:ProjectViewProjectNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="stream" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="stream" type="462c0819:PsiDirectoryNode" />
+              <item name="certs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -243,6 +245,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/stream/certs" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -278,25 +285,26 @@
       <workItem from="1521479968633" duration="1749000" />
       <workItem from="1521571540707" duration="764000" />
       <workItem from="1521577367360" duration="722000" />
-      <workItem from="1521583402006" duration="1150000" />
+      <workItem from="1521583402006" duration="5595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58648000" />
+    <option name="totallyTimeSpent" value="63093000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="936" y="39" width="888" height="1074" extended-state="0" />
+    <frame x="15" y="32" width="1118" height="1073" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3194925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25250682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907662" sideWeight="0.50476193" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3421859" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3394683" sideWeight="0.4952381" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -304,9 +312,27 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907662" sideWeight="0.50476193" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3421859" sideWeight="0.4952381" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22575387" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -316,7 +342,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -327,7 +353,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -349,12 +376,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -362,11 +394,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -390,6 +422,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -399,7 +443,8 @@
           <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -436,12 +481,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -449,11 +499,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -462,6 +512,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -471,7 +533,8 @@
           <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -493,12 +556,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -506,11 +574,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -534,6 +602,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -543,7 +623,8 @@
           <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -565,12 +646,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -578,11 +664,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -606,6 +692,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -615,7 +713,8 @@
           <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -637,12 +736,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -650,11 +754,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -663,6 +767,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -672,7 +788,8 @@
           <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -694,12 +811,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -707,11 +829,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -720,6 +842,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -729,7 +863,8 @@
           <caret line="96" column="10" lean-forward="true" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -743,12 +878,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -756,11 +896,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
           </folding>
         </state>
       </provider>
@@ -791,6 +931,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -806,6 +958,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -832,10 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stream/index.js">
+    <entry file="file://$PROJECT_DIR$/main/public/src/signin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3405">
-          <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -855,67 +1019,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#434#582#0" expanded="false" />
-            <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1271#1380#0" expanded="false" />
-            <element signature="e#1997#2120#0" expanded="false" />
-            <element signature="e#2709#2831#0" expanded="false" />
-            <element signature="e#2837#2880#0" expanded="false" />
-            <element signature="e#2961#3760#0" expanded="false" />
-            <element signature="e#4501#4535#0" expanded="false" />
-            <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
-            <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
-            <element signature="n#!!block;n#removeVideo#0" expanded="false" />
-            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
-            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
-            <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
-            <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8313#9370#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <element signature="n#!!block;n#updateMessagesToFirebase#0" expanded="false" />
-            <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="100" column="12" lean-forward="false" selection-start-line="100" selection-start-column="12" selection-end-line="100" selection-end-column="12" />
+        <state relative-caret-position="69">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
           <folding>
             <element signature="n#script#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/src/signin.js">
+    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="400">
+          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
+    <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="149" selection-end-column="1" />
+        <state relative-caret-position="405">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -928,11 +1057,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
+    <entry file="file://$PROJECT_DIR$/stream/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="e#1222#1284#0" expanded="false" />
+            <element signature="e#1451#1506#0" expanded="false" />
+            <element signature="e#1563#1619#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <element signature="e#434#582#0" expanded="false" />
+            <element signature="e#619#663#0" expanded="false" />
+            <element signature="e#1350#1485#0" expanded="false" />
+            <element signature="e#1533#1642#0" expanded="false" />
+            <element signature="e#1736#1816#0" expanded="false" />
+            <element signature="e#1863#2210#0" expanded="false" />
+            <element signature="e#2259#2382#0" expanded="false" />
+            <element signature="e#2819#2936#0" expanded="false" />
+            <element signature="e#2995#3117#0" expanded="false" />
+            <element signature="e#3123#3166#0" expanded="false" />
+            <element signature="e#3247#4046#0" expanded="false" />
+            <element signature="e#4101#4730#0" expanded="false" />
+            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
+            <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeVideo#0" expanded="false" />
+            <element signature="n#!!block;n#applyColumnClassesToVideo#0" expanded="false" />
+            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
+            <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
+            <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
+            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+            <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
+            <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
+            <marker date="1521650558094" expanded="true" signature="8512:8523" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
