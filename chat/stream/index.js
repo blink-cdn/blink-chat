@@ -313,7 +313,7 @@ var database = admin.database();
 writeToFirebase("HEY GOT IT");
 
 function writeToFirebase(msg) {
-    var newMessageKey = databse.ref().child("/data").push().key;
+    var newMessageKey = database.ref().child("/data").push().key;
     var updates = {}
     updates["/data/"+newMessageKey] = message;
     database.ref().update(updates);
