@@ -30,6 +30,7 @@ var activeVideos = [];
 var hiddenVideos = [];
 
 $(document).ready(function() {
+    socket = io.connect();
 
     // addUsersToInviteModal(ECE_faculty);
 
@@ -85,9 +86,6 @@ $(document).ready(function() {
 /******* SOCKET ********/
 
 function setupSocket() {
-
-  socket = io.connect();
-
   socket.on('created user', function(userID) {
     user.userID = userID;
     console.log("Connected");
