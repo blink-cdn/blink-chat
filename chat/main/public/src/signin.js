@@ -15,7 +15,7 @@ $(document).ready(function() {
     objs.goButton = $('#goButton');
     objs.goButton.on('click', onGoToChat);
 
-    objs.roomNameInput = $('#roomNameInput')[0].toLowerCase();
+    objs.roomNameInput = $('#roomNameInput')[0];
 
     typeAnimations(options, document.getElementById('roomNameInput'));
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
@@ -25,7 +25,7 @@ function onGoToChat() {
     console.log("Going to chat.");
     // console.log("https://" + window.location.hostname);
 
-    var roomname_in = stringToLink(objs.roomNameInput.value);
+    var roomname_in = stringToLink(objs.roomNameInput.value.toLowerCase());
     window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname_in;
 }
 
