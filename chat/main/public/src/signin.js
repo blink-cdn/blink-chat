@@ -15,7 +15,7 @@ $(document).ready(function() {
     objs.goButton = $('#goButton');
     objs.goButton.on('click', onGoToChat);
 
-    objs.roomNameInput = $('#roomNameInput')[0];
+    objs.roomNameInput = $('#roomNameInput')[0].toLowerCase();
 
     typeAnimations(options, document.getElementById('roomNameInput'));
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
