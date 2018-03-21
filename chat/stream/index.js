@@ -311,7 +311,6 @@ admin.initializeApp({
 });
 
 var database = admin.database();
-writeToFirebase("HEY GOT IT");
 
 function writeToFirebase(msg) {
     var msgObj = {
