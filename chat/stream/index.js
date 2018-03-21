@@ -302,7 +302,7 @@ function setupMongoCollection() {
 
 // FIREBASE
 var admin = require('firebase-admin');
-var serviceAccount = require("src/blink-stream-firebase-adminsdk-b64as-1b26f4a68a.json");
+var serviceAccount = require("./src/blink-stream-firebase-adminsdk-b64as-1b26f4a68a.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
