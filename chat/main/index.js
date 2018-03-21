@@ -93,7 +93,7 @@ io.sockets.on('connection', function(socket) {
     });
 });
 
-function sendDisconnecToServices(useID, roomName) {
+function sendDisconnecToServices(userID, roomName) {
     serviceIo.sockets.emit('disconnect client', userID, roomName);
 }
 

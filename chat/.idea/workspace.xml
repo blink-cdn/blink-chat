@@ -29,15 +29,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            <state relative-caret-position="215">
+              <caret line="95" column="37" lean-forward="false" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
               <folding>
                 <element signature="e#612#742#0" expanded="false" />
                 <element signature="e#1944#2509#0" expanded="false" />
-                <element signature="e#3434#3479#0" expanded="false" />
+                <element signature="e#3435#3480#0" expanded="false" />
                 <element signature="n#!!block;n#createUser#0" expanded="false" />
                 <element signature="n#!!block;n#setupService#0" expanded="false" />
                 <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -80,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="282">
@@ -160,9 +160,9 @@
         <option value="$PROJECT_DIR$/main/public/styles/index.css" />
         <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
         <option value="$PROJECT_DIR$/main/public/chat.html" />
-        <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/stream/index.js" />
         <option value="$PROJECT_DIR$/main/public/src/main.js" />
+        <option value="$PROJECT_DIR$/main/index.js" />
       </list>
     </option>
   </component>
@@ -287,12 +287,12 @@
       <workItem from="1521571540707" duration="764000" />
       <workItem from="1521577367360" duration="722000" />
       <workItem from="1521583402006" duration="5595000" />
-      <workItem from="1521651791622" duration="2848000" />
+      <workItem from="1521651791622" duration="2901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65941000" />
+    <option name="totallyTimeSpent" value="65994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="31" width="1118" height="1073" extended-state="0" />
@@ -482,7 +482,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -577,7 +577,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -672,7 +672,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -767,7 +767,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -847,7 +847,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -927,7 +927,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -1016,7 +1016,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -1048,7 +1048,7 @@
           <folding>
             <element signature="e#612#742#0" expanded="false" />
             <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
             <element signature="n#!!block;n#createUser#0" expanded="false" />
             <element signature="n#!!block;n#setupService#0" expanded="false" />
             <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
@@ -1161,25 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding>
-            <element signature="e#612#742#0" expanded="false" />
-            <element signature="e#1944#2509#0" expanded="false" />
-            <element signature="e#3434#3479#0" expanded="false" />
-            <element signature="n#!!block;n#createUser#0" expanded="false" />
-            <element signature="n#!!block;n#setupService#0" expanded="false" />
-            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
-            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
-            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
-            <element signature="n#!!block;n#createService#0" expanded="false" />
-            <element signature="n#!!block;n#uuid#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1210,6 +1191,25 @@
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
             <marker date="1521656991110" expanded="true" signature="8548:8559" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="95" column="37" lean-forward="false" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
+          <folding>
+            <element signature="e#612#742#0" expanded="false" />
+            <element signature="e#1944#2509#0" expanded="false" />
+            <element signature="e#3435#3480#0" expanded="false" />
+            <element signature="n#!!block;n#createUser#0" expanded="false" />
+            <element signature="n#!!block;n#setupService#0" expanded="false" />
+            <element signature="n#!!block;n#syncUpdateService#0" expanded="false" />
+            <element signature="n#!!block;n#updateAllServices#0" expanded="false" />
+            <element signature="n#!!block;n#updateDatabse#0" expanded="false" />
+            <element signature="n#!!block;n#createService#0" expanded="false" />
+            <element signature="n#!!block;n#uuid#0" expanded="false" />
           </folding>
         </state>
       </provider>
