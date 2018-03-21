@@ -83,22 +83,22 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="329" column="25" lean-forward="false" selection-start-line="329" selection-start-column="25" selection-end-line="329" selection-end-column="25" />
+            <state relative-caret-position="283">
+              <caret line="333" column="33" lean-forward="true" selection-start-line="333" selection-start-column="33" selection-end-line="333" selection-end-column="33" />
               <folding>
                 <element signature="e#434#582#0" expanded="false" />
                 <element signature="e#619#663#0" expanded="false" />
-                <element signature="e#1350#1485#0" expanded="false" />
-                <element signature="e#1533#1642#0" expanded="false" />
-                <element signature="e#1736#1816#0" expanded="false" />
-                <element signature="e#1863#2210#0" expanded="false" />
-                <element signature="e#2259#2382#0" expanded="false" />
-                <element signature="e#2819#2936#0" expanded="false" />
-                <element signature="e#2995#3117#0" expanded="false" />
-                <element signature="e#3123#3166#0" expanded="false" />
-                <element signature="e#3247#4046#0" expanded="false" />
-                <element signature="e#4101#4730#0" expanded="false" />
-                <element signature="e#4785#4819#0" expanded="false" />
+                <element signature="e#1386#1521#0" expanded="false" />
+                <element signature="e#1569#1678#0" expanded="false" />
+                <element signature="e#1772#1852#0" expanded="false" />
+                <element signature="e#1899#2246#0" expanded="false" />
+                <element signature="e#2295#2418#0" expanded="false" />
+                <element signature="e#2855#2972#0" expanded="false" />
+                <element signature="e#3031#3153#0" expanded="false" />
+                <element signature="e#3159#3202#0" expanded="false" />
+                <element signature="e#3283#4082#0" expanded="false" />
+                <element signature="e#4137#4766#0" expanded="false" />
+                <element signature="e#4821#4855#0" expanded="false" />
                 <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
                 <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
                 <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -106,11 +106,11 @@
                 <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
                 <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
                 <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#8597#9654#0" expanded="false" />
+                <element signature="e#8633#9690#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessage#0" expanded="false" />
                 <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
                 <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-                <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+                <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,7 +178,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="15" />
-    <option name="y" value="32" />
+    <option name="y" value="31" />
     <option name="width" value="1118" />
     <option name="height" value="1073" />
   </component>
@@ -287,15 +287,15 @@
       <workItem from="1521571540707" duration="764000" />
       <workItem from="1521577367360" duration="722000" />
       <workItem from="1521583402006" duration="5595000" />
-      <workItem from="1521651791622" duration="1495000" />
+      <workItem from="1521651791622" duration="2634000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64588000" />
+    <option name="totallyTimeSpent" value="65727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="32" width="1118" height="1073" extended-state="0" />
+    <frame x="15" y="31" width="1118" height="1073" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25159526" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -372,17 +372,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -390,11 +390,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -433,17 +433,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -451,11 +451,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -543,17 +543,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -561,11 +561,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -623,17 +623,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -641,11 +641,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -718,17 +718,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -736,11 +736,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -813,17 +813,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -831,11 +831,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -893,17 +893,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -911,11 +911,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -960,17 +960,17 @@
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -978,11 +978,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1182,22 +1182,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="329" column="25" lean-forward="false" selection-start-line="329" selection-start-column="25" selection-end-line="329" selection-end-column="25" />
+        <state relative-caret-position="283">
+          <caret line="333" column="33" lean-forward="true" selection-start-line="333" selection-start-column="33" selection-end-line="333" selection-end-column="33" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1350#1485#0" expanded="false" />
-            <element signature="e#1533#1642#0" expanded="false" />
-            <element signature="e#1736#1816#0" expanded="false" />
-            <element signature="e#1863#2210#0" expanded="false" />
-            <element signature="e#2259#2382#0" expanded="false" />
-            <element signature="e#2819#2936#0" expanded="false" />
-            <element signature="e#2995#3117#0" expanded="false" />
-            <element signature="e#3123#3166#0" expanded="false" />
-            <element signature="e#3247#4046#0" expanded="false" />
-            <element signature="e#4101#4730#0" expanded="false" />
-            <element signature="e#4785#4819#0" expanded="false" />
+            <element signature="e#1386#1521#0" expanded="false" />
+            <element signature="e#1569#1678#0" expanded="false" />
+            <element signature="e#1772#1852#0" expanded="false" />
+            <element signature="e#1899#2246#0" expanded="false" />
+            <element signature="e#2295#2418#0" expanded="false" />
+            <element signature="e#2855#2972#0" expanded="false" />
+            <element signature="e#3031#3153#0" expanded="false" />
+            <element signature="e#3159#3202#0" expanded="false" />
+            <element signature="e#3283#4082#0" expanded="false" />
+            <element signature="e#4137#4766#0" expanded="false" />
+            <element signature="e#4821#4855#0" expanded="false" />
             <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
             <element signature="n#!!block;n#removeVideo#0" expanded="false" />
@@ -1205,11 +1205,11 @@
             <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
             <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
             <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8597#9654#0" expanded="false" />
+            <element signature="e#8633#9690#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <element signature="n#!!block;n#listenForNewMessages#0" expanded="false" />
-            <marker date="1521653471608" expanded="true" signature="8512:8523" ph="..." />
+            <marker date="1521656774418" expanded="true" signature="8548:8559" ph="..." />
           </folding>
         </state>
       </provider>

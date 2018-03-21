@@ -36,6 +36,7 @@ $(document).ready(function() {
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache();
     if (user !== undefined) {
+        console.log("USER:", user);
         socket.emit('disconnect client', user.userID, user.roomName);
         user = {};
     } else {
@@ -326,12 +327,13 @@ const ECE_faculty = {
 };
 
 function loadUserFromCache() {
-    user = localStorage['blink-chat-user-info'];
-    console.log("User:", localStorage['blink-chat-user-info']);
+    var user_string = localStorage['blink-chat-user-info'];
+    user = JSON.parse(user_string);
+    console.log("User:", user);
 }
 function saveUsersToCache(user) {
     user.roomName = roomName;
-    localStorage['blink-chat-user-info'] = user;
+    localStorage['blink-chat-user-info'] = JSON.stringify(user);
 }
 
 /****** MESSAGES **********/
