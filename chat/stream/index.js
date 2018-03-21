@@ -327,5 +327,5 @@ function writeToFirebase(msg) {
 
 // HELPER
 function getCurrentDateTime() {
-    return Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    return Date().toString();
 }
