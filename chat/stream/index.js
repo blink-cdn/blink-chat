@@ -39,7 +39,7 @@ console.log("Connected.");
 
 io.sockets.on('connection', function(socket) {
 
-    console.log("here");
+    console.log("Client connected to socket.");
 
     socket.on('signal', function(message, destUuid, roomName) {
         onSignal(message, destUuid, roomName, socket);
@@ -246,7 +246,6 @@ function saveStreamRoomData(room_data) {
     //     });
     // });
 }
-
 function retreiveStreamRoomData() {
     // Queries database for streamRoom
     var MongoClient = require('mongodb').MongoClient;
@@ -271,7 +270,6 @@ function retreiveStreamRoomData() {
         console.log("Got em");
     });
 }
-
 function setupMongoCollection() {
     // Setup Mongo
     var MongoClient = require('mongodb').MongoClient;
@@ -301,3 +299,22 @@ function setupMongoCollection() {
 //
 //     return JSON.stringify(newStreamRoom);
 // }
+
+// FIREBASE
+var admin = require('firebase-admin');
+var serviceAccount = require("src/blink-stream-firebase-adminsdk-b64as-1b26f4a68a.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://blink-stream.firebaseio.com"
+});
+
+var database = firebase.database();
+writeToFirebase("HEY GOT IT");
+
+function writeToFirebase(msg) {
+    var newMessageKey = databse.ref().child("/data").push().key;
+    var updates = {}
+    updates["/data/"+newMessageKey] = message;
+    database.ref().update(updates);
+}
