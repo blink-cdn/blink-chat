@@ -328,6 +328,7 @@ const ECE_faculty = {
 
 function loadUserFromCache() {
     var user_string = localStorage['blink-chat-user-info'];
+    console.log(user_string);
     user = JSON.parse(user_string);
     console.log("User:", user);
 }
