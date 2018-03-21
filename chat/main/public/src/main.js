@@ -328,9 +328,14 @@ const ECE_faculty = {
 
 function loadUserFromCache() {
     var user_string = localStorage['blink-chat-user-info'];
-    console.log(user_string);
-    user = JSON.parse(user_string);
-    console.log("User:", user);
+    if (user_string !== undefined) {
+        console.log(user_string);
+        user = JSON.parse(user_string);
+        console.log("User:", user);
+    } else {
+        user = undefined;
+    }
+
 }
 function saveUsersToCache(user) {
     user.roomName = roomName;
