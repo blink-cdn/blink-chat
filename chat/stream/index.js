@@ -120,7 +120,6 @@ function onJoin(userID, socket, roomName, isPublishing) {
 
     // IF it is a publisher, setup as the broadcaster;
     if (isPublishing === true) {
-
         // If Room Doesn't Exist
         if (!streamRooms[roomName]) {
             streamRooms[roomName] = {
@@ -176,6 +175,7 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         console.log("Streamer joined the session:", roomName);
+        writeToFirebase(userID + " has published to " + roomName);
         saveStreamRoomData(streamRooms);
         return;
     }
@@ -220,7 +220,8 @@ function onJoin(userID, socket, roomName, isPublishing) {
             }
         }
 
-        saveStreamRoomData(streamRooms)
+        saveStreamRoomData(streamRooms);
+        writeToFirebase(userID + " has subscribed to " + roomName + " at " + getCurrentDateTime());
     }
 }
 
@@ -313,8 +314,18 @@ var database = admin.database();
 writeToFirebase("HEY GOT IT");
 
 function writeToFirebase(msg) {
+    var msgObj = {
+        log: msg,
+        datetime: getCurrentDateTime()
+    };
+
     var newMessageKey = database.ref().child("/data").push().key;
-    var updates = {}
-    updates["/data/"+newMessageKey] = msg;
+    var updates = {};
+    updates["/data/"+newMessageKey] = msgObj;
     database.ref().update(updates);
+}
+
+// HELPER
+function getCurrentDateTime() {
+    return Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
 }
