@@ -1,6 +1,7 @@
 body {
   font-size: 14px;
   overflow: hidden;
+  background-color: #f8f9fa;
 }
 
 .btn-container {
@@ -20,7 +21,7 @@ body {
 }
 
 .navbar {
-  background-color: white;
+  background-color: #f8f9fa;
 }
 
 /* CHAT BOX */
