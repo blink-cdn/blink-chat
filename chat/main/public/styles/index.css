@@ -45,8 +45,8 @@ button {
 #head-container {
     margin-top: 0;
     margin-bottom: 0;
-    padding-bottom: 5%;
-    padding-top: 15%;
+    padding-bottom: 5vh;
+    padding-top: 15vh;
 
     width: 100vw;
     height: calc(100vh - 50px);
@@ -111,8 +111,8 @@ button {
 
     margin-top: 0;
     margin-bottom: 0;
-    padding-bottom: 10%;
-    padding-top: 5%;
+    padding-bottom: 10vh;
+    padding-top: 5vh;
 
     width: 100vw;
     height: calc(100vh - 50px);
