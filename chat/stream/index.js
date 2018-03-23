@@ -311,7 +311,6 @@ admin.initializeApp({
 });
 
 var database = admin.database();
-writeToFirebase("HEY GOT IT");
 
 function writeToFirebase(msg) {
     var msgObj = {
@@ -327,5 +326,5 @@ function writeToFirebase(msg) {
 
 // HELPER
 function getCurrentDateTime() {
-    return Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    return Date().toString();
 }
