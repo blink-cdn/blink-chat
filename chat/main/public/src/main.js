@@ -237,10 +237,12 @@ function applyColumnClassesToVideo() {
     if (activeVideos.length === 0) {
         $('body').attr('class', 'bg-light');
         $('#infoText').attr('hidden', 'false');
+        $('.navbar-brand').css('color', 'black');
     } else {
         $('#infoText').attr('hidden', 'true');
         $('body').attr('class', '');
         $('body').css('background-color', 'black');
+        $('.navbar-brand').css('color', 'whitesmoke');
     }
 }
 
