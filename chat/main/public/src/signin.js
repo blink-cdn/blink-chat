@@ -17,7 +17,9 @@ $(document).ready(function() {
 
     objs.roomNameInput = $('#roomNameInput')[0];
 
-    typeAnimations(options, document.getElementById('roomNameInput'));
+    $(".navbar").scrollTop
+
+    // typeAnimations(options, document.getElementById('roomNameInput'));
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
 });
 
@@ -42,7 +44,7 @@ function typeAnimations(arrOptions, element) {
 
     setInterval(function() {
         if (element === document.activeElement) {
-            $(input).attr("placeholder", "");
+            element.attr("placeholder", "");
         } else {
             var index = randDelay(0, arrOptions.length-1);
             printLetter(arrOptions[index], element, 0);

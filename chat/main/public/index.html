@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Blink Chat</title>
 
@@ -9,58 +10,64 @@
     <link rel="stylesheet" href="styles/index.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
 </head>
-<body class="">
+<body>
 
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand mb-0 h1" href="#">blink Chat</a>
-</nav>
+<!--<br>-->
+<div id="nav-container">
+    <a>Click Here</a>
+</div>
 
-<br>
-
-<div class="container center-items center-vertical">
-    <div class="jumbotron">
-        <h1 class="display-4">Lets Get Started</h1>
+<div id="head-container" class="container center-items">
+    <div class="header-room-box">
+        <h1 class="display-4 header">blinkChat</h1>
         <p class="lead">Enter a name to create a new room or join an existing one.</p>
-        <hr class="my-4">
+        <!--<hr class="my-4">-->
         <!--<p>Join or Create a group chat by giving it a name below. Simple as that.</p>-->
 
         <div class="center-items">
-            <div class="input-group input-group-lg mb-3 sm-text-box">
-                <input type="text" id="roomNameInput" class="form-control" placeholder="">
+            <div class="input-group mb-3 sm-input">
+                <input type="text" id="roomNameInput" class="form-control text-input" placeholder="e.g. Family Chat">
+                <button id="goButton" class="center" type="button">Go Live</button>
             </div>
         </div>
-        <div class="center-items">
-            <button id="goButton" class="btn btn-primary btn-lg center" type="button">Go Live</button>
+    </div>
+
+    <div class="header-info-box row">
+        <div class="col col-sm 4">
+            <img src="img/Number1.png"/>
+            <h3>Some Text</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aperiam blanditiis dolore dolores labore laboriosam quidem velit voluptatem?</p>
         </div>
-
+        <div class="col col-sm 4">
+            <img src="img/Number2.png"/>
+            <h3>Some Text</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aperiam blanditiis dolore dolores labore laboriosam quidem velit voluptatem?</p>
+        </div>
+        <div class="col col-sm 4">
+            <img src="img/Number3.png"/>
+            <h3>Some Text</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad aperiam blanditiis dolore dolores labore laboriosam quidem velit voluptatem?</p>
+        </div>
     </div>
 </div>
 
-<br>
-
-<br><br>
-
-<div class="row info-row" align="center">
-    <!-- Left Column -->
-    <div class="col-sm-4">
-        <img class="info-img" src="img/Number1.png" height="5%">
-        <h3 class="info-text">Type in a room name and click Go Live!</h3>
+<div id="message-container" class="container center-items center-vertical">
+    <div class="message" id="message1">
+        <img src="img/Number1.png"/>
+        <h3>Some Text</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eveniet harum labore minima perferendis quas sed tempore unde veniam, voluptatibus! Aut id ipsum minus placeat recusandae! Cupiditate perferendis rem vitae?</p>
     </div>
-
-    <!-- Center Column -->
-    <div class="col-sm-4">
-        <img class="info-img" src="img/Number2.png" height="5%">
-        <h3 class="info-text">Click Join Room!</h3>
+    <div class="message message-right" id="message1">
+        <img src="img/Number2.png"/>
+        <h3>Some Text</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eveniet harum labore minima perferendis quas sed tempore unde veniam, voluptatibus! Aut id ipsum minus placeat recusandae! Cupiditate perferendis rem vitae?</p>
     </div>
-
-    <!-- Right Column -->
-    <div class="col-sm-4">
-        <img class="info-img" src="img/Number3.png" height="5%">
-        <h3 class="info-text">Enjoy!</h3>
+    <div class="message" id="message1">
+        <img src="img/Number3.png"/>
+        <h3>Some Text</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eveniet harum labore minima perferendis quas sed tempore unde veniam, voluptatibus! Aut id ipsum minus placeat recusandae! Cupiditate perferendis rem vitae?</p>
     </div>
 </div>
-
-
 
 
 <!-- REQUIRED SCRIPTS  -->
