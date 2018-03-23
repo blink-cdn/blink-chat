@@ -37,6 +37,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+              <folding>
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
@@ -112,8 +124,8 @@
       <find>Click Here</find>
       <find>typeAnimation</find>
       <find>background</find>
-      <find>blinkChat</find>
       <find>remote</find>
+      <find>blinkChat</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -123,11 +135,11 @@
         <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/stream/index.js" />
         <option value="$PROJECT_DIR$/main/public/src/signin.js" />
-        <option value="$PROJECT_DIR$/main/public/index.html" />
         <option value="$PROJECT_DIR$/main/public/chat.html" />
         <option value="$PROJECT_DIR$/main/public/styles/chat.css" />
         <option value="$PROJECT_DIR$/main/public/src/main.js" />
         <option value="$PROJECT_DIR$/main/public/styles/index.css" />
+        <option value="$PROJECT_DIR$/main/public/index.html" />
       </list>
     </option>
   </component>
@@ -255,12 +267,12 @@
       <workItem from="1521577367360" duration="722000" />
       <workItem from="1521583402006" duration="5595000" />
       <workItem from="1521651791622" duration="11363000" />
-      <workItem from="1521825799324" duration="6704000" />
+      <workItem from="1521825799324" duration="6718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81160000" />
+    <option name="totallyTimeSpent" value="81174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="112" y="48" width="1009" height="1087" extended-state="0" />
@@ -998,16 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding>
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/signin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1047,14 +1049,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+    <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="30" />
-          <folding>
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="139">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1066,11 +1065,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/index.css">
+    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="195">
+          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
