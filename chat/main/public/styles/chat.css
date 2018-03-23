@@ -19,6 +19,10 @@ body {
   background-color: #a5a4a4;
 }
 
+.navbar {
+  background-color: white;
+}
+
 /* CHAT BOX */
 #chat-box {
   position: fixed;

@@ -17,8 +17,8 @@
       <file leaf-file-name="chat.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/public/chat.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="30" />
+            <state relative-caret-position="180">
+              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="22" />
               <folding>
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -27,44 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="73" selection-end-column="9" />
-              <folding>
-                <element signature="e#434#582#0" expanded="false" />
-                <element signature="e#619#663#0" expanded="false" />
-                <element signature="e#1413#1548#0" expanded="false" />
-                <element signature="e#1596#1705#0" expanded="false" />
-                <element signature="e#1799#1879#0" expanded="false" />
-                <element signature="e#2322#2445#0" expanded="false" />
-                <element signature="e#2855#2972#0" expanded="false" />
-                <element signature="e#3031#3153#0" expanded="false" />
-                <element signature="e#3159#3202#0" expanded="false" />
-                <element signature="e#3283#4082#0" expanded="false" />
-                <element signature="e#4137#4766#0" expanded="false" />
-                <element signature="e#4821#4855#0" expanded="false" />
-                <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
-                <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
-                <element signature="n#!!block;n#removeVideo#0" expanded="false" />
-                <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
-                <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
-                <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-                <element signature="e#8738#9795#0" expanded="false" />
-                <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-                <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-                <marker date="1521833684990" expanded="true" signature="8653:8664" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+            <state relative-caret-position="264">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -74,8 +41,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>unfullscreen</find>
-      <find>remove</find>
       <find>undefined</find>
       <find>openChat</find>
       <find>transform</find>
@@ -104,6 +69,8 @@
       <find>remote</find>
       <find>10%</find>
       <find>#chat-box</find>
+      <find>background-color</find>
+      <find>navbar</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -245,12 +212,12 @@
       <workItem from="1521577367360" duration="722000" />
       <workItem from="1521583402006" duration="5595000" />
       <workItem from="1521651791622" duration="11363000" />
-      <workItem from="1521825799324" duration="7214000" />
+      <workItem from="1521825799324" duration="7383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81670000" />
+    <option name="totallyTimeSpent" value="81839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="595" y="29" width="1009" height="1087" extended-state="0" />
@@ -1014,29 +981,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="30" />
-          <folding>
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="73" selection-end-column="9" />
+        <state relative-caret-position="450">
+          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
           <folding>
             <element signature="e#434#582#0" expanded="false" />
             <element signature="e#619#663#0" expanded="false" />
@@ -1061,6 +1009,25 @@
             <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
             <marker date="1521833684990" expanded="true" signature="8653:8664" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/chat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/public/styles/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
