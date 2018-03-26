@@ -71,8 +71,8 @@ button {
 .header-room-box {
     /*position: relative;*/
     /*top: 15vh;*/
-    width: 50%;
-    min-width: 235px;
+    width: 40vh;
+    min-width: 50vw;
 }
 
 .sm-input {
@@ -148,3 +148,6 @@ input:focus {
 .message>h3 {
     padding-top: 10px;
 }
+
+
+
