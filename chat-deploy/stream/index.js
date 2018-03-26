@@ -3,7 +3,7 @@
 // const STREAM_SERVER_ADDR = "https://localhost:4000";
 const HTTPS_PORT = 8443;
 const MAIN_SERVER_ADDR = "http://testchat.charlesbethin.com:8080";
-const STREAM_SERVER_ADDR = "https://teststream.charlesbethin.com";
+const STREAM_SERVER_ADDR = "https://stream.blinkcdn.com";
 
 const express = require('express');
 const https = require('https');

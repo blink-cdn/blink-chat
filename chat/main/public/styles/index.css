@@ -71,6 +71,7 @@ button {
 .header-room-box {
     /*position: relative;*/
     /*top: 15vh;*/
+    width: 50%;
 }
 
 .sm-input {
