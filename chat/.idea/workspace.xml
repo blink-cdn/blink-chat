@@ -40,8 +40,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="17" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="17" />
+            <state relative-caret-position="300">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -120,7 +120,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="692" />
-    <option name="y" value="29" />
+    <option name="y" value="28" />
     <option name="width" value="1026" />
     <option name="height" value="1044" />
   </component>
@@ -232,16 +232,15 @@
       <workItem from="1521577367360" duration="722000" />
       <workItem from="1521583402006" duration="5595000" />
       <workItem from="1521651791622" duration="11363000" />
-      <workItem from="1521825799324" duration="9826000" />
+      <workItem from="1521825799324" duration="10062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84282000" />
+    <option name="totallyTimeSpent" value="84518000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="692" y="29" width="1026" height="1044" extended-state="0" />
-    <editor active="true" />
+    <frame x="692" y="28" width="1026" height="1044" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27462685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -294,37 +293,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main/public/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="e#434#582#0" expanded="false" />
-            <element signature="e#619#663#0" expanded="false" />
-            <element signature="e#1413#1548#0" expanded="false" />
-            <element signature="e#1596#1705#0" expanded="false" />
-            <element signature="e#1799#1879#0" expanded="false" />
-            <element signature="e#2322#2445#0" expanded="false" />
-            <element signature="e#2855#2972#0" expanded="false" />
-            <element signature="e#3031#3153#0" expanded="false" />
-            <element signature="e#3159#3202#0" expanded="false" />
-            <element signature="e#3283#4082#0" expanded="false" />
-            <element signature="e#4137#4766#0" expanded="false" />
-            <element signature="e#4821#4855#0" expanded="false" />
-            <element signature="n#!!block;n#fullscreenVideo#0" expanded="false" />
-            <element signature="n#!!block;n#unFullscreenVideo#0" expanded="false" />
-            <element signature="n#!!block;n#removeVideo#0" expanded="false" />
-            <element signature="n#!!block;n#removeItemFromArray#0" expanded="false" />
-            <element signature="n#!!block;n#addUsersToInviteModal#0" expanded="false" />
-            <element signature="n#!!block;n#sendInviteTo#0" expanded="false" />
-            <element signature="e#8738#9795#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#addMessageToChatBox#0" expanded="false" />
-            <marker date="1521833684990" expanded="true" signature="8653:8664" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/chat.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1041,10 +1009,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="17" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="17" />
+        <state relative-caret-position="300">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
