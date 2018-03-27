@@ -284,13 +284,17 @@ h5 {
 }
 
 .modal-content {
-  color: white;
+  color: black;
   /*width: 75%;*/
 }
 
 .modal-body {
   /*color: gray;*/
-  color: white;
+  color: black;
+}
+
+#x {
+  color: black;
 }
 
 
