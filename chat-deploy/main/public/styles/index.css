@@ -73,6 +73,7 @@ button {
     /*top: 15vh;*/
     width: 40vh;
     min-width: 50vw;
+    max-width: 500px;
 }
 
 .sm-input {
