@@ -213,8 +213,8 @@ function setupMediaStream(startStream, peerNumber) {
             navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
             if (localStream !== undefined) {
-                console.log("Reusing stream");
-                shareStream(localStream, startStream, peerNumber);
+                // console.log("Reusing stream");
+                // shareStream(localStream, startStream, peerNumber);
             } else {
                 navigator.getUserMedia(video_options, function(stream) {
                     localStream = stream;
