@@ -56,6 +56,9 @@ $(document).ready(function() {
     $('#screenshareButton').click(function() {
         streamEng.shouldScreenshare = true;
         $('#screenshareButton').attr("disabled", "true");
+        $('#infoText').attr('hidden', 'true');
+        streamEng.publish();
+        $('#screenshareButton').css('opacity', '0.25');
     });
     $('#message-button').click(sendMessage);
     $('#message-input').keyup(function(event) {
