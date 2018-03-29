@@ -49,6 +49,11 @@ $(document).ready(function() {
     user.name = 'user';
     socket.emit('create user', user, roomName);
     $('#publishButton').click(function() {
+        $('#screenshareButton').attr("disabled", "true");
+        $('#screenshareButton').css('opacity', '0.25');
+        $('#publishButton').attr("disabled", "true");
+        $('#publishButton').css('opacity', '0.25');
+
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
         $('#publishButton').css('opacity', '0.25');
@@ -56,9 +61,13 @@ $(document).ready(function() {
     $('#screenshareButton').click(function() {
         streamEng.shouldScreenshare = true;
         $('#screenshareButton').attr("disabled", "true");
+        $('#publishButton').attr("disabled", "true");
+        $('#screenshareButton').css('opacity', '0.25');
+        $('#publishButton').css('opacity', '0.25');
+
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
-        $('#screenshareButton').css('opacity', '0.25');
+        $('#publishButton').css('opacity', '0.25');
     });
     $('#message-button').click(sendMessage);
     $('#message-input').keyup(function(event) {
