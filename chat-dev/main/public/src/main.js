@@ -54,8 +54,11 @@ $(document).ready(function() {
         $('#publishButton').css('opacity', '0.25');
     });
     $('#screenshareButton').click(function() {
+      $('#infoText').attr('hidden', 'true');
         streamEng.shouldScreenshare = true;
         $('#screenshareButton').attr("disabled", "true");
+        streamEng.publish();
+        $('#screenshareButton').css('opacity', '0.25');
     });
     $('#message-button').click(sendMessage);
     $('#message-input').keyup(function(event) {
