@@ -208,7 +208,7 @@ function setupMediaStream(startStream, peerNumber) {
 
             var video_options = {
                 video: screen_constraints,
-                audio: true
+                // audio: true
             };
             navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
