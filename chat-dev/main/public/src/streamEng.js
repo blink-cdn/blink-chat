@@ -6,6 +6,7 @@ var broadcastButton;
 var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
+var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
               { url: 'turn:numb.viagenie.ca',
@@ -212,12 +213,12 @@ function setupMediaStream(startStream, peerNumber) {
             };
             navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-            if (localStream !== undefined) {
+            if (screenshareStream !== undefined) {
                 console.log("Reusing stream");
-                shareStream(localStream, startStream, peerNumber);
+                shareStream(screenshareStream, startStream, peerNumber);
             } else {
                 navigator.getUserMedia(video_options, function(stream) {
-                    localStream = stream;
+                    screenshareStream = stream;
                     shareStream(stream, false, peerNumber);
                 }, function(error) {
                     console.log("SCREENSHARE ERR:", error);
