@@ -214,7 +214,7 @@ function setupMediaStream(startStream, peerNumber) {
 
             if (screenshareStream !== undefined) {
                 console.log("Reusing stream");
-                shareStream(screenshareStream, startStream, peerNumber);
+                // shareStream(screenshareStream, startStream, peerNumber);
             } else {
                 navigator.getUserMedia(video_options, function(stream) {
                     screenshareStream = stream;
