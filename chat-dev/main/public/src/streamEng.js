@@ -153,7 +153,6 @@ streamEng.subscribe = function() {
 
 function gotMessageFromServer(message) {
     var signal = message;
-    var peerNumber = -1;
 
     // Ignore messages from ourself
     if(signal.userID === user.userID) {
