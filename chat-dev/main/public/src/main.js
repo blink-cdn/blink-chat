@@ -30,6 +30,7 @@ var activeVideos = [];
 var hiddenVideos = [];
 
 $(document).ready(function() {
+    console.log("Started");
     socket = io.connect();
 
     // addUsersToInviteModal(ECE_faculty);
@@ -288,7 +289,6 @@ function sendInviteTo(name) {
         return "<img src=\"img/check.png\" style=\"width: 30px\"/>"
     });
     button.attr("disabled", "true");
-
 }
 const ECE_faculty = {
     'Sid': {
@@ -357,6 +357,7 @@ function saveUsersToCache(user) {
 /****** MESSAGES **********/
 
 function sendMessage() {
+  console.log("ok");
     var message = $('#message-input').val();
     $('#message-input').val("");
 
@@ -384,7 +385,7 @@ function addMessageToChatBox(message) {
 /***** FIREBASE *******/
 
 function updateMessagesToFirebase(message) {
-    var roomName_name = roomName.substring(1);
+    var roomName_name = "rooms/" + roomName.substring(1);
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     var updates = {};
@@ -393,7 +394,7 @@ function updateMessagesToFirebase(message) {
 }
 
 function listenForNewMessages() {
-    var roomName_name = roomName.substring(1);
+    var roomName_name = "rooms/" + roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('child_added', function(snapshot) {
         addMessageToChatBox(snapshot.val());

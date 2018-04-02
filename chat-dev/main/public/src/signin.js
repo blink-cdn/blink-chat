@@ -9,9 +9,56 @@ var objs = {
     roomNameInput: undefined
 };
 
+var masterUser = undefined;
+var provider = new firebase.auth.GoogleAuthProvider();
+var database = firebase.database();
+
 $(document).ready(function() {
     console.log("Ready.");
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
 
+    if (window.location.hostname === "svc.blinkcdn.com") {
+      $('#login-text').css('visibility', 'visible');
+    }
+
+    $('#login-btn').click(function() {
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          handleSignIn(user);
+      }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+      });
+    });
+    $('.close').click(function() {
+      $('#myModal').css('display', 'none');
+    })
+    $('#back-button').click(function() {
+      $('#pods-container').animate({
+        right: "-100vw"
+      }, 550, function() {
+        console.log("Animated");
+      });
+
+      $('#head-container').animate({
+        right: "0"
+      }, 300, function() {
+        console.log("Animated");
+      });
+
+      $('#pods-list').html(function() { return "" });
+      pods = null;
+    })
     objs.goButton = $('#goButton');
     objs.goButton.on('click', onGoToChat);
 
@@ -29,6 +76,60 @@ function onGoToChat() {
 
     var roomname_in = stringToLink(objs.roomNameInput.value.toLowerCase());
     window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname_in;
+}
+
+/////////////////
+//// SIGN IN ////
+/////////////////
+
+var pods = undefined;
+
+function handleSignIn(user) {
+  console.log(user);
+  console.log(user.email);
+  masterUser = user;
+  getPods(user);
+}
+
+function getPods(user) {
+  var userId = user.uid;
+  firebase.database().ref('/users/'+userId+'/pods').once('value').then(function(snapshot) {
+    pods = snapshot.val();
+    displayPods();
+  });
+}
+
+function displayPods() {
+  $('#pods-list').html(function() { return "" });
+  if (pods === null) {
+    $('#pods-list').append("<h5 id=\"no-pod-found\">No pods found.</h5>");
+  } else {
+    for (pod in pods) {
+      var html = "<li class=\"pod-link\" id=\"" + pods[pod] + "\"><p>" + pod + "</a></li>"
+      $('#pods-list').append(html);
+    }
+  }
+
+  $('#pod-link').click(function(event) {
+    console.log(event.id);
+  });
+
+  console.log("Pods:", pods);
+  $('#head-container').animate({
+    right: "100vw"
+  }, 550, function() {
+    console.log("Animated");
+  });
+
+  $('#pods-container').animate({
+    right: "0"
+  }, 300, function() {
+    console.log("Animated");
+  });
+}
+
+function newPod(podName) {
+  var newPodKey = database.ref().child("users").push().key;
 }
 
 
@@ -52,11 +153,9 @@ function typeAnimations(arrOptions, element) {
 
     }, 6000)
 }
-
 function randDelay(min, max) {
     return Math.floor(Math.random() * (max-min+1)+min);
 }
-
 function printLetter(string, el, count) {
     // split string into character separated array
     var arr = string.split(''),
@@ -86,7 +185,6 @@ function printLetter(string, el, count) {
         // 'human' typing
     }, randDelay(90, 150));
 }
-
 function removeLetter(string, el, count) {
     // var arr = string.split('');
     var input = el;
