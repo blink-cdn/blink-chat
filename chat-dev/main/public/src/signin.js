@@ -56,7 +56,7 @@ $(document).ready(function() {
       pods = null;
     })
     objs.goButton = $('#goButton');
-    objs.goButton.on('click', goToChat);
+    objs.goButton.on('click', onGoToChat);
 
     objs.roomNameInput = $('#roomNameInput')[0];
 
@@ -66,15 +66,16 @@ $(document).ready(function() {
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
 });
 
-function goToChat(roomName_input) {
+function onGoToChat(roomName_input) {
     console.log("Going to chat.");
     // console.log("https://" + window.location.hostname);
-    if (roomName_input === undefined) {
-      var roomname = stringToLink(objs.roomNameInput.value.toLowerCase());
-      window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname;
-    } else {
-      window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomName_input;
-    }
+
+    var roomname = stringToLink(objs.roomNameInput.value.toLowerCase());
+    goToChat(roomname);
+}
+
+function goToChat(roomname) {
+  window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname;
 }
 
 /////////////////
