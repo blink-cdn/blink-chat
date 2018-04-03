@@ -10,8 +10,6 @@ var objs = {
 };
 
 var masterUser = undefined;
-var provider = new firebase.auth.GoogleAuthProvider();
-var database = firebase.database();
 
 $(document).ready(function() {
     console.log("Ready.");
@@ -46,9 +44,7 @@ $(document).ready(function() {
     $('#back-button').click(function() {
       $('#pods-container').animate({
         right: "-100vw"
-      }, 550, function() {
-        console.log("Animated");
-      });
+      }, 550, null);
 
       $('#head-container').animate({
         right: "0"
@@ -60,7 +56,7 @@ $(document).ready(function() {
       pods = null;
     })
     objs.goButton = $('#goButton');
-    objs.goButton.on('click', onGoToChat);
+    objs.goButton.on('click', goToChat);
 
     objs.roomNameInput = $('#roomNameInput')[0];
 
@@ -70,12 +66,14 @@ $(document).ready(function() {
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
 });
 
-function onGoToChat() {
+function goToChat(roomName_input) {
     console.log("Going to chat.");
     // console.log("https://" + window.location.hostname);
+    if (roomName_input === undefined) {
+      roomName_input= stringToLink(objs.roomNameInput.value.toLowerCase());
+    }
 
-    var roomname_in = stringToLink(objs.roomNameInput.value.toLowerCase());
-    window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname_in;
+    window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomName_input;
 }
 
 /////////////////
@@ -105,13 +103,14 @@ function displayPods() {
     $('#pods-list').append("<h5 id=\"no-pod-found\">No pods found.</h5>");
   } else {
     for (pod in pods) {
-      var html = "<li class=\"pod-link\" id=\"" + pods[pod] + "\"><p>" + pod + "</a></li>"
+      var html = "<li class=\"pod-link\" id=\"" + pods[pod] + "\">" + pod + "</li>"
       $('#pods-list').append(html);
     }
   }
 
-  $('#pod-link').click(function(event) {
-    console.log(event.id);
+  $('.pod-link').click(function(event) {
+    console.log(event.target.id);
+    goToChat(event.target.id);
   });
 
   console.log("Pods:", pods);

@@ -82,6 +82,8 @@
       messagingSenderId: "441138336561"
     };
     firebase.initializeApp(config);
+    var provider = new firebase.auth.GoogleAuthProvider();
+    var database = firebase.database();
   </script>
 
   <script src="src/signin.js"></script>
