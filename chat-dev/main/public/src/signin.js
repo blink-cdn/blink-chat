@@ -70,10 +70,11 @@ function goToChat(roomName_input) {
     console.log("Going to chat.");
     // console.log("https://" + window.location.hostname);
     if (roomName_input === undefined) {
-      roomName_input= stringToLink(objs.roomNameInput.value.toLowerCase());
+      var roomname = stringToLink(objs.roomNameInput.value.toLowerCase());
+      window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname;
+    } else {
+      window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomName_input;
     }
-
-    window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomName_input;
 }
 
 /////////////////
