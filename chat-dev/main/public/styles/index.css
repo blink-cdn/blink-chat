@@ -3,6 +3,7 @@ body {
 }
 button {
     padding: 8px;
+    cursor: pointer;
 }
 .container {
     /*border-bottom: 1px solid lightgray;*/
@@ -120,6 +121,22 @@ a {
   color: #8E1B2F;
 }
 
+#add-pod-input {
+  border-radius: 0px;
+}
+
+#add-pod-btn {
+  width: 200px;
+  margin-top: 0px;
+  background-color: black;
+  color: white;
+}
+
+.xs-input {
+  width: 200px;
+  margin-bottom: 5px !important;
+}
+
 /* HEAD INFO BOX */
 .header-info-box>.col>img {
     height: 75px !important;
@@ -169,6 +186,7 @@ a {
 ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 10px;
   text-align: center;
 }
 

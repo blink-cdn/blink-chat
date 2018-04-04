@@ -22,21 +22,7 @@ $(document).ready(function() {
     }
 
     $('#login-btn').click(function() {
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
-          // The signed-in user info.
-          var user = result.user;
-          handleSignIn(user);
-      }).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // The email of the user's account used.
-          var email = error.email;
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential;
-      });
+      triggerSignInPopup();
     });
     $('.close').click(function() {
       $('#myModal').css('display', 'none');
@@ -44,23 +30,22 @@ $(document).ready(function() {
     $('#back-button').click(function() {
       $('#pods-container').animate({
         right: "-100vw"
-      }, 550, null);
+      }, 550, function() {
+        $('#pods-list').html(function() { return "" });
+        pods = null;
+      });
 
       $('#head-container').animate({
         right: "0"
-      }, 300, function() {
-        console.log("Animated");
-      });
+      }, 300, null);
 
       $('#pods-list').html(function() { return "" });
       pods = null;
-    })
+    });
+
     objs.goButton = $('#goButton');
     objs.goButton.on('click', onGoToChat);
-
     objs.roomNameInput = $('#roomNameInput')[0];
-
-    $(".navbar").scrollTop
 
     // typeAnimations(options, document.getElementById('roomNameInput'));
     // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
@@ -83,19 +68,55 @@ function goToChat(roomname) {
 /////////////////
 
 var pods = undefined;
+function triggerSignInPopup() {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      handleSignIn(user);
+  }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+  });
+}
 
 function handleSignIn(user) {
   console.log(user);
   console.log(user.email);
   masterUser = user;
-  getPods(user);
+  getPodsById(user);
 }
 
-function getPods(user) {
+function getPodsById(user) {
   var userId = user.uid;
   firebase.database().ref('/users/'+userId+'/pods').once('value').then(function(snapshot) {
     pods = snapshot.val();
+    if (pods === null) {
+      getPodsByEmail(user);
+    }
     displayPods();
+  });
+}
+
+function getPodsByEmail(user) {
+  email = emailToString(user.email);
+  firebase.database().ref('/users/'+email+'/pods').once('value').then(function(snapshot) {
+    pods = snapshot.val();
+    displayPods();
+
+    var newUser = {
+      uid: user.uid,
+      email: user.email,
+      pods: pods
+    };
+
+    writeUserToFirebase(newUser);
   });
 }
 
@@ -118,19 +139,26 @@ function displayPods() {
   console.log("Pods:", pods);
   $('#head-container').animate({
     right: "100vw"
-  }, 550, function() {
-    console.log("Animated");
-  });
+  }, 550, null);
 
   $('#pods-container').animate({
     right: "0"
-  }, 300, function() {
-    console.log("Animated");
-  });
+  }, 300, null);
 }
 
 function newPod(podName) {
   var newPodKey = database.ref().child("users").push().key;
+}
+
+function writeUserToFirebase(user) {
+  firebase.database().ref('users/' + user.uid).set(user);
+  deleteUserFromFirebase(user);
+};
+
+function deleteUserFromFirebase(user) {
+  var email = emailToString(user.email)
+  firebase.database().ref('users/'+email).remove();
+  console.log("Removing:", email);
 }
 
 
@@ -186,6 +214,7 @@ function printLetter(string, el, count) {
         // 'human' typing
     }, randDelay(90, 150));
 }
+
 function removeLetter(string, el, count) {
     // var arr = string.split('');
     var input = el;
@@ -201,6 +230,20 @@ function removeLetter(string, el, count) {
             removeLetter(origString, input, count);
         }
     }, randDelay(100, 100));
+}
+
+function emailToString(email) {
+  var emailOutput = "";
+  for (var i = 0; i < email.length; i++) {
+    console.log(email[i]);
+    if (email[i] == '.') {
+      emailOutput += "*";
+    } else {
+      emailOutput += email[i];
+    }
+  }
+
+  return emailOutput;
 }
 
 function stringToLink(string) {
