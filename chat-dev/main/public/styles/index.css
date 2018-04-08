@@ -40,7 +40,7 @@ button {
 
 #head-container {
     position: relative;
-    right: 0;
+    right: 0vw;
 
     margin-top: 0;
     margin-bottom: 0;
@@ -158,7 +158,7 @@ a {
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 5vh;
-  padding-top: 15vh;
+  padding-top: 20px;
 
   width: 100vw;
   -webkit-box-sizing: border-box;
@@ -171,6 +171,8 @@ a {
 }
 
 #back-button {
+  position: relative;
+  left: 20px;
   cursor: pointer;
   padding-bottom: 10px
 }
@@ -181,6 +183,14 @@ a {
 
 #no-pod-found {
   color: gray;
+}
+
+#pods-list-container {
+  padding-top: 12vh;
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 ul {

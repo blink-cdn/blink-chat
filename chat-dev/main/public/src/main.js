@@ -30,7 +30,6 @@ var activeVideos = [];
 var hiddenVideos = [];
 
 $(document).ready(function() {
-    console.log("Started");
     socket = io.connect();
 
     // addUsersToInviteModal(ECE_faculty);
@@ -38,7 +37,6 @@ $(document).ready(function() {
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache();
     if (user !== undefined) {
-        console.log("USER:", user);
         socket.emit('disconnect client', user.userID, user.roomName);
         user = {};
     } else {
@@ -101,7 +99,6 @@ $(document).ready(function() {
 function setupSocket() {
   socket.on('created user', function(userID) {
     user.userID = userID;
-    console.log("Connected");
     saveUsersToCache(user);
 
     // Send join stream system Message
@@ -170,7 +167,6 @@ function setupSocket() {
     }
 
     applyColumnClassesToVideo();
-    console.log("Displayed video:", videoIndex);
   };
   streamEng.onDeletePublisher = function(videoIndex) {
     removeVideo(videoIndex);
@@ -204,7 +200,6 @@ function unFullscreenVideo() {
     applyColumnClassesToVideo();
 }
 function removeVideo(videoIndex) {
-    console.log("Deleting:", videoIndex);
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
@@ -282,7 +277,6 @@ function addUsersToInviteModal(users) {
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
-    console.log("Sending invite to", name, "at", ECE_faculty[username]);
     socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
     var button = $('#'+name.split(' ')[0]);
     button.html(function() {
@@ -341,9 +335,7 @@ const ECE_faculty = {
 function loadUserFromCache() {
     var user_string = localStorage['blink-chat-user-info'];
     if (user_string !== undefined) {
-        console.log(user_string);
         user = JSON.parse(user_string);
-        console.log("User:", user);
     } else {
         user = undefined;
     }
@@ -357,7 +349,6 @@ function saveUsersToCache(user) {
 /****** MESSAGES **********/
 
 function sendMessage() {
-  console.log("ok");
     var message = $('#message-input').val();
     $('#message-input').val("");
 
