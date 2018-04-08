@@ -105,7 +105,7 @@ input:focus {
   margin-top: 10px;
   color: #212529;
   font-weight: 300;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 #login-btn {
