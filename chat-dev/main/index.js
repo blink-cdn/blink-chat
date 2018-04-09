@@ -59,7 +59,6 @@ let io = socketIO.listen(httpsServer);
 io.sockets.on('connection', function(socket) {
 
     socket.on('create user', function(user, roomName) {
-        console.log("CREATE USER");
         createUser(user, roomName, socket);
     });
 
@@ -180,10 +179,8 @@ function createUser(user, roomName, socket) {
 
     if (user.userID === undefined) {
       newUser.userID = uuid();
-      console.log("undefined", newUser.userID);
     } else {
       newUser.userID = user.userID;
-      console.log("defined", newUser.userID);
     }
 
     // Add user to the array of users
