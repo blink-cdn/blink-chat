@@ -108,11 +108,12 @@ function triggerSignInPopup() {
 function handleSignIn(user) {
   masterUser = user;
   localStorage['blink-user-info'] = JSON.stringify(masterUser);
+  console.log("Getting users 0");
   masterLog({
     type: "sign in",
     userID: user.uid
   });
-  consoel.log("Getting users");
+  console.log("Getting users");
   getPodsById(masterUser);
 }
 
