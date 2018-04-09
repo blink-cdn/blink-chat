@@ -38,7 +38,6 @@ $(document).ready(function() {
 
       // Setup Socket;
       setupSocket();
-      user.name = 'user';
       socket.emit('create user', user, roomName);
       $('#publishButton').click(function() {
           $('#screenshareButton').attr("disabled", "true");
@@ -299,6 +298,8 @@ function loadUserFromCache(callback) {
       masterUser = JSON.parse(localStorage['blink-user-info']);
       user.name = masterUser.displayName;
       user.userID = masterUser.uid;
+    } else {
+      user.name = "user";
     }
 
     console.log("USER:", user);
