@@ -40,6 +40,7 @@ $(document).ready(function() {
       setupSocket();
       user.name = 'user';
       socket.emit('create user', user, roomName);
+      console.log("USER:", user);
       $('#publishButton').click(function() {
           $('#screenshareButton').attr("disabled", "true");
           $('#screenshareButton').css('opacity', '0.25');
