@@ -26,7 +26,7 @@ $(document).ready(function() {
         triggerSignInPopup();
       });
     } else {
-      masterUser = localStorage['blink-user-info'];
+      masterUser = JSON.parse(localStorage['blink-user-info']);
       displayPods();
     }
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
     $('#back-button').click(function() {
       masterUser = undefined;
       localStorage['blink-user-info'] = undefined;
-      
+
       $('#pods-container').animate({
         right: "-100vw"
       }, 550, function() {
@@ -97,7 +97,7 @@ function triggerSignInPopup() {
 
 function handleSignIn(user) {
   masterUser = user;
-  localStorage['blink-user-info'] = masterUser;
+  localStorage['blink-user-info'] = JSON.stringify(masterUser);
   getPodsById(user);
 }
 
