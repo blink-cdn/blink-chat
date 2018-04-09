@@ -112,7 +112,8 @@ function handleSignIn(user) {
     type: "sign in",
     userID: user.uid
   });
-  getPodsById(user);
+  consoel.log("Getting users");
+  getPodsById(masterUser);
 }
 
 function getPodsById(user) {
