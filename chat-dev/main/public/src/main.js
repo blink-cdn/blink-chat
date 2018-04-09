@@ -287,6 +287,7 @@ function loadUserFromCache(callback) {
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
         socket.emit('disconnect client', user.userID, user.roomName);
+        console.log("Disconnecting previously connected client");
         user = {};
     } else {
         user = undefined;
