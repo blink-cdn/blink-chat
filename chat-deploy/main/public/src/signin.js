@@ -34,8 +34,7 @@ $(document).ready(function() {
       $('#myModal').css('display', 'none');
     })
     $('#back-button').click(function() {
-      masterUser = undefined;
-      delete localStorage['blink-user-info'];
+      signoutUser();
 
       $('#pods-container').animate({
         right: "-100vw"
@@ -75,8 +74,19 @@ function goToChat(roomname) {
 /////////////////
 //// SIGN IN ////
 /////////////////
-
 var pods = undefined;
+
+function signoutUser() {
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
+
+  masterUser = undefined;
+  delete localStorage['blink-user-info'];
+}
+
 function triggerSignInPopup() {
   firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
