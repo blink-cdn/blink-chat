@@ -93,7 +93,7 @@ function setupSocket() {
     console.log("User pre:", user);
     user.userID = userID;
     console.log("User post:", user);
-    saveUsersToCache(user);
+    // saveUsersToCache(user);
 
     // Send join stream system Message
     socket.emit('join service', user.userID, 'stream', roomName);
