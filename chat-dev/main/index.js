@@ -166,7 +166,7 @@ function authorize(idToken) {
 function masterLog(event) {
   event.time = getCurrentDateTime();
   console.log("Added 1");
-  var newLogKey = db.child("master_log").push().key;
+  var newLogKey = db.ref().child("master_log").push().key;
   console.log("Added 2");
   db.ref('master_log/' + newLogKey).set(event);
   console.log("Added 3");
