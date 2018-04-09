@@ -21,13 +21,22 @@ $(document).ready(function() {
       $('#login-text').css('visibility', 'visible');
     }
 
-    $('#login-btn').click(function() {
-      triggerSignInPopup();
-    });
+    if (localStorage['blink-user-info'] === undefined) {
+      $('#login-btn').click(function() {
+        triggerSignInPopup();
+      });
+    } else {
+      masterUser = localStorage['blink-user-info'];
+      displayPods();
+    }
+
     $('.close').click(function() {
       $('#myModal').css('display', 'none');
     })
     $('#back-button').click(function() {
+      masterUser = undefined;
+      localStorage['blink-user-info'] = undefined;
+      
       $('#pods-container').animate({
         right: "-100vw"
       }, 550, function() {
@@ -87,9 +96,8 @@ function triggerSignInPopup() {
 }
 
 function handleSignIn(user) {
-  console.log(user);
-  console.log(user.email);
   masterUser = user;
+  localStorage['blink-user-info'] = masterUser;
   getPodsById(user);
 }
 
