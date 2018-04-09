@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     if (localStorage['blink-user-info'] !== undefined) {
       masterUser = JSON.parse(localStorage['blink-user-info']);
-      getPods(masterUser);
+      getPodsById(masterUser);
     }
 
     $('.close').click(function() {
