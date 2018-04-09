@@ -73,6 +73,11 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('disconnect client', function(userID, roomName) {
         sendDisconnecToServices(userID, roomName);
+        masterLog({
+          type: "user disconnected",
+          userID,
+          roomName,
+        });
     });
 
     socket.on('send invite', function(name, email, link) {
@@ -91,6 +96,10 @@ io.sockets.on('connection', function(socket) {
             }
         });
     });
+
+    socket.on('master_log', function(event) {
+      masterLog(event);
+    })
 });
 
 function sendDisconnecToServices(userID, roomName) {
@@ -122,39 +131,68 @@ serviceIo.sockets.on('connection', function(socket) {
         rooms = rcvdRooms;
         updateAllServices();
     });
+
+    socket.on('master_log', function(event) {
+      masterLog(event);
+    });
 });
 
 console.log("Connected.");
 
-// /*********** Google Firebase ************/
-//
-// var admin = require("firebase-admin");
-//
-// var serviceAccount = require("./firebase/blink-chat-6f619-firebase-adminsdk-tyzar-c5c59caca3.json");
-//
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount),
-//     databaseURL: "https://blink-chat-6f619.firebaseio.com"
-// });
-//
-// function authorize(idToken) {
-//     admin.auth().verifyIdToken(idToken)
-//         .then(function(decodedToken) {
-//             var uid = decodedToken.uid;
-//             console.log(uid);
-//         }).catch(function(error) {
-//         // Handle error
-//     });
-// }
+/*********** Google Firebase ************/
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./files/blink-chat-3d18ca48caf7.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://blink-chat-6f619.firebaseio.com/"
+});
+
+var db = admin.database();
+
+function authorize(idToken) {
+    admin.auth().verifyIdToken(idToken)
+        .then(function(decodedToken) {
+            var uid = decodedToken.uid;
+            console.log(uid);
+        }).catch(function(error) {
+        // Handle error
+    });
+}
+
+// I don't think this is working
+function masterLog(event) {
+  event.time = getCurrentDateTime();
+  var newLogKey = db.ref().child("master_log").push().key;
+  db.ref('master_log/' + newLogKey).set(event);
+}
 
 /******** FUNCTIONS *********/
 
 function createUser(user, roomName, socket) {
     let newUser = {
-        userID: uuid(),
+        // userID: uuid(),
         name: user.name,
         userImg: user.userImg
     };
+
+    if (user.userID === undefined) {
+      newUser.userID = uuid();
+      masterLog({
+        type: "user created",
+        userID: user.userID,
+        roomName,
+      });
+    } else {
+      newUser.userID = user.userID;
+      masterLog({
+        type: "user connected",
+        userID: user.userID,
+        roomName,
+      });
+    }
 
     // Add user to the array of users
     sockets[newUser.userID] = socket;
@@ -171,6 +209,7 @@ function createUser(user, roomName, socket) {
     } else {
         rooms[roomName].users[newUser.userID] = newUser;
     }
+
 
     socket.emit('created user', newUser.userID, newUser.name);
 }
@@ -215,6 +254,12 @@ function setupService(userID, serviceType, roomName, user, socket) {
         serviceAddress = services[serviceType].address;
         socket.emit('joined service', userID, serviceType, serviceAddress);
         console.log("Joined service:", userID, serviceType, serviceAddress);
+        masterLog({
+          type: "joined service",
+          userID,
+          serviceType,
+          roomName
+        });
     } else {
         console.log("Service to setup not found.");
     }
@@ -319,4 +364,6 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
-
+function getCurrentDateTime() {
+    return Date().toString();
+}

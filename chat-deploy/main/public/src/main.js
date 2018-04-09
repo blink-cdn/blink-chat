@@ -17,6 +17,7 @@ var button;
   userImg:
   userID:
 }*/
+var masterUser = undefined;
 var user = {};
 var services = {
   "stream": streamEng
@@ -32,64 +33,55 @@ var hiddenVideos = [];
 $(document).ready(function() {
     socket = io.connect();
 
-    // addUsersToInviteModal(ECE_faculty);
-
     // Check if a user is created, if so make sure to disconnect them first
-    loadUserFromCache();
-    if (user !== undefined) {
-        socket.emit('disconnect client', user.userID, user.roomName);
-        user = {};
-    } else {
-        user = {};
-    }
+    loadUserFromCache(function() {
+      // Setup Socket;
+      setupSocket();
+      socket.emit('create user', user, roomName);
+      $('#publishButton').click(function() {
+          $('#screenshareButton').attr("disabled", "true");
+          $('#screenshareButton').css('opacity', '0.25');
+          $('#publishButton').attr("disabled", "true");
+          $('#publishButton').css('opacity', '0.25');
 
-    // Setup Socket;
-    setupSocket();
-    user.name = 'user';
-    socket.emit('create user', user, roomName);
-    $('#publishButton').click(function() {
-        $('#screenshareButton').attr("disabled", "true");
-        $('#screenshareButton').css('opacity', '0.25');
-        $('#publishButton').attr("disabled", "true");
-        $('#publishButton').css('opacity', '0.25');
+          $('#infoText').attr('hidden', 'true');
+          streamEng.publish();
+          $('#publishButton').css('opacity', '0.25');
+      });
+      $('#screenshareButton').click(function() {
+          streamEng.shouldScreenshare = true;
+          $('#screenshareButton').attr("disabled", "true");
+          $('#publishButton').attr("disabled", "true");
+          $('#screenshareButton').css('opacity', '0.25');
+          $('#publishButton').css('opacity', '0.25');
 
-        $('#infoText').attr('hidden', 'true');
-        streamEng.publish();
-        $('#publishButton').css('opacity', '0.25');
-    });
-    $('#screenshareButton').click(function() {
-        streamEng.shouldScreenshare = true;
-        $('#screenshareButton').attr("disabled", "true");
-        $('#publishButton').attr("disabled", "true");
-        $('#screenshareButton').css('opacity', '0.25');
-        $('#publishButton').css('opacity', '0.25');
+          $('#infoText').attr('hidden', 'true');
+          streamEng.publish();
+          $('#publishButton').css('opacity', '0.25');
+      });
+      $('#message-button').click(sendMessage);
+      $('#message-input').keyup(function(event) {
+          if (event.keyCode === 13) {
+              sendMessage();
+          }
+      });
+      $('#open-chat-button').click(function() {
+          chatBox = $('#chat-box');
+          if (chatBox.hasClass('showBox')) {
+              $('#chat-box').removeClass("showBox");
+              $('#remote-video-div').removeClass("video-on-chat-open");
+          } else {
+              $('#chat-box').addClass("showBox");
+              $('#remote-video-div').addClass("video-on-chat-open");
+          }
+      });
+      $('#invitePeopleButton').click(function() {
+          $('#inviteModal').modal('toggle');
+          $('#link-ref').html(function() { return window.location.href });
+      });
 
-        $('#infoText').attr('hidden', 'true');
-        streamEng.publish();
-        $('#publishButton').css('opacity', '0.25');
+      listenForNewMessages();
     });
-    $('#message-button').click(sendMessage);
-    $('#message-input').keyup(function(event) {
-        if (event.keyCode === 13) {
-            sendMessage();
-        }
-    });
-    $('#open-chat-button').click(function() {
-        chatBox = $('#chat-box');
-        if (chatBox.hasClass('showBox')) {
-            $('#chat-box').removeClass("showBox");
-            $('#remote-video-div').removeClass("video-on-chat-open");
-        } else {
-            $('#chat-box').addClass("showBox");
-            $('#remote-video-div').addClass("video-on-chat-open");
-        }
-    });
-    $('#invitePeopleButton').click(function() {
-        $('#inviteModal').modal('toggle');
-        $('#link-ref').html(function() { return window.location.href });
-    });
-
-    listenForNewMessages();
 });
 
 
@@ -188,6 +180,7 @@ function fullscreenVideo(videoId) {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
+
 function unFullscreenVideo() {
 
     for (id in hiddenVideos) {
@@ -199,12 +192,14 @@ function unFullscreenVideo() {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
+
 function removeVideo(videoIndex) {
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
     applyColumnClassesToVideo();
 }
+
 function applyColumnClassesToVideo() {
     var videos = document.querySelectorAll('video');
     for (i in videos) {
@@ -274,6 +269,7 @@ function addUsersToInviteModal(users) {
         $('#users').append(html);
     }
 }
+
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
@@ -284,63 +280,34 @@ function sendInviteTo(name) {
     });
     button.attr("disabled", "true");
 }
-const ECE_faculty = {
-    'Sid': {
-        name: 'Sid Ahuja',
-        email: 'sid@blinkcdn.com',
-        img: 'sid.jpg'
-    },
-    'Mukund': {
-        name: 'Mukund Iyengar',
-        email: 'mukund@blinkcdn.com',
-        img: 'mukund.jpg'
-    },
-    'Charles': {
-        name: 'Charles Bethin',
-        email: 'charles@blinkcdn.com',
-        img: 'charles.jpeg'
-    },
-    'Justin': {
-        name: 'Justin Trugman',
-        email: 'justin@blinkcdn.com',
-        img: 'justin.jpg'
-    },
-    'Sushant': {
-        name: 'Sushant Mongia',
-        email: 'sushantmongia@gmail.com',
-        img: 'sushant.jpg'
-    },
-    'Vrushali': {
-        name: 'Vrushali Gaikwad',
-        email: 'vrushaligaikwad9@gmail.com',
-        img: 'vrushali.jpg'
-    },
-    'Yu': {
-        name: 'Yu Zhang',
-        email: 'memo40k@outlook.com',
-        img: 'zhang.jpg'
-    },
-    'Nathan': {
-        name: 'Nathan Van Eck',
-        email: 'natvaneck@gmail.com',
-        img: 'blink.png'
-    },
-    'Test': {
-        name: 'Test',
-        email: 'justin@blinkcdn.com',
-        img: 'blink.png'
-    }
-};
 
-function loadUserFromCache() {
+function loadUserFromCache(callback) {
     var user_string = localStorage['blink-chat-user-info'];
+
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
+        socket.emit('disconnect client', user.userID, user.roomName);
+        console.log("Disconnecting previously connected client");
+        user = {
+          userID: user.userID,
+          name: "user"
+        }
     } else {
         user = undefined;
+        user = {
+          name: "user"
+        };
     }
 
+    if (localStorage['blink-user-info'] !== undefined) {
+      masterUser = JSON.parse(localStorage['blink-user-info']);
+      user.name = masterUser.displayName;
+      user.userID = masterUser.uid;
+    }
+
+    callback();
 }
+
 function saveUsersToCache(user) {
     user.roomName = roomName;
     localStorage['blink-chat-user-info'] = JSON.stringify(user);
@@ -383,7 +350,6 @@ function updateMessagesToFirebase(message) {
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
 }
-
 function listenForNewMessages() {
     var roomName_name = "rooms/" + roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
