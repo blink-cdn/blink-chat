@@ -38,9 +38,7 @@ $(document).ready(function() {
 
       // Setup Socket;
       setupSocket();
-      console.log("User pre:", user);
       socket.emit('create user', user, roomName);
-      console.log("User post:", user);
       $('#publishButton').click(function() {
           $('#screenshareButton').attr("disabled", "true");
           $('#screenshareButton').css('opacity', '0.25');
@@ -93,7 +91,9 @@ $(document).ready(function() {
 
 function setupSocket() {
   socket.on('created user', function(userID) {
+    console.log("User pre:", user);
     user.userID = userID;
+    console.log("User post:", user);
     saveUsersToCache(user);
 
     // Send join stream system Message
