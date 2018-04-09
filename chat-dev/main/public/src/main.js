@@ -40,7 +40,6 @@ $(document).ready(function() {
       setupSocket();
       user.name = 'user';
       socket.emit('create user', user, roomName);
-      console.log("USER:", user);
       $('#publishButton').click(function() {
           $('#screenshareButton').attr("disabled", "true");
           $('#screenshareButton').css('opacity', '0.25');
@@ -183,6 +182,7 @@ function fullscreenVideo(videoId) {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
+
 function unFullscreenVideo() {
 
     for (id in hiddenVideos) {
@@ -194,12 +194,14 @@ function unFullscreenVideo() {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
+
 function removeVideo(videoIndex) {
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
     applyColumnClassesToVideo();
 }
+
 function applyColumnClassesToVideo() {
     var videos = document.querySelectorAll('video');
     for (i in videos) {
@@ -269,6 +271,7 @@ function addUsersToInviteModal(users) {
         $('#users').append(html);
     }
 }
+
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
@@ -297,6 +300,8 @@ function loadUserFromCache(callback) {
       user.name = masterUser.displayName;
       user.userID = masterUser.uid;
     }
+
+    console.log("USER:", user);
 
     callback();
 }
@@ -343,7 +348,6 @@ function updateMessagesToFirebase(message) {
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
 }
-
 function listenForNewMessages() {
     var roomName_name = "rooms/" + roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
