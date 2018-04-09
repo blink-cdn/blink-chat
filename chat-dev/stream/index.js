@@ -348,7 +348,7 @@ var db = admin.database();
 
 function masterLog(event) {
   event.time = getCurrentDateTime();
-  var newLogKey = db.child("master_log").push().key;
+  var newLogKey = db.ref().child("master_log").push().key;
   db.ref('master_log/' + newLogKey).set(event);
 }
 
