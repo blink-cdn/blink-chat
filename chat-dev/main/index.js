@@ -59,6 +59,7 @@ let io = socketIO.listen(httpsServer);
 io.sockets.on('connection', function(socket) {
 
     socket.on('create user', function(user, roomName) {
+        console.log("CREATE USER");
         createUser(user, roomName, socket);
     });
 
