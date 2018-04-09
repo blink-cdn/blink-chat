@@ -288,18 +288,21 @@ function loadUserFromCache(callback) {
         user = JSON.parse(user_string);
         socket.emit('disconnect client', user.userID, user.roomName);
         console.log("Disconnecting previously connected client");
-        user = {};
+        user = {
+          userID: user.userID
+          name: "user"
+        }
     } else {
         user = undefined;
-        user = {};
+        user = {
+          name: "user"
+        };
     }
 
     if (localStorage['blink-user-info'] !== undefined) {
       masterUser = JSON.parse(localStorage['blink-user-info']);
       user.name = masterUser.displayName;
       user.userID = masterUser.uid;
-    } else {
-      user.name = "user";
     }
 
     callback();

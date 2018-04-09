@@ -73,6 +73,11 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('disconnect client', function(userID, roomName) {
         sendDisconnecToServices(userID, roomName);
+        masterLog({
+          type: "user disconnected",
+          userID,
+          roomName,
+        });
     });
 
     socket.on('send invite', function(name, email, link) {
@@ -158,6 +163,8 @@ function authorize(idToken) {
 }
 
 function masterLog(event) {
+  event.time = getCurrentDateTime();
+
   var ref = db.ref("master_log/");
   var newLogKey = ref.child("pods").push().key;
 
@@ -179,8 +186,18 @@ function createUser(user, roomName, socket) {
 
     if (user.userID === undefined) {
       newUser.userID = uuid();
+      masterLog({
+        type: "user created",
+        userID,
+        roomName,
+      });
     } else {
       newUser.userID = user.userID;
+      masterLog({
+        type: "user connected",
+        userID,
+        roomName,
+      });
     }
 
     // Add user to the array of users
@@ -199,7 +216,7 @@ function createUser(user, roomName, socket) {
         rooms[roomName].users[newUser.userID] = newUser;
     }
 
-    console.log("userID", newUser.userID);
+
     socket.emit('created user', newUser.userID, newUser.name);
 }
 
@@ -243,6 +260,12 @@ function setupService(userID, serviceType, roomName, user, socket) {
         serviceAddress = services[serviceType].address;
         socket.emit('joined service', userID, serviceType, serviceAddress);
         console.log("Joined service:", userID, serviceType, serviceAddress);
+        masterLog({
+          type: "joined service",
+          userID,
+          serviceType,
+          roomName
+        });
     } else {
         console.log("Service to setup not found.");
     }
@@ -346,4 +369,7 @@ function uuid() {
     }
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+function getCurrentDateTime() {
+    return Date().toString();
 }
