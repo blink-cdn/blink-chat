@@ -178,9 +178,11 @@ function createUser(user, roomName, socket) {
     };
 
     if (user.userID === undefined) {
-      newUser.userID = "undefined";
+      newUser.userID = uuid();
+      console.log("undefined", newUser.userID);
     } else {
-      newUser.userID = "defined";
+      newUser.userID = user.userID;
+      console.log("defined", newUser.userID);
     }
 
     // Add user to the array of users
@@ -199,6 +201,7 @@ function createUser(user, roomName, socket) {
         rooms[roomName].users[newUser.userID] = newUser;
     }
 
+    console.log("userID", newUser.userID);
     socket.emit('created user', newUser.userID, newUser.name);
 }
 
