@@ -35,7 +35,6 @@ $(document).ready(function() {
 
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache(function() {
-
       // Setup Socket;
       setupSocket();
       socket.emit('create user', user, roomName);
@@ -303,8 +302,6 @@ function loadUserFromCache(callback) {
     } else {
       user.name = "user";
     }
-
-    console.log("USER:", user);
 
     callback();
 }
