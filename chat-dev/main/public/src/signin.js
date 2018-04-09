@@ -111,12 +111,18 @@ function getPodsByEmail(user) {
     displayPods();
 
     var newUser = {
+      name: user.displayName,
       uid: user.uid,
       email: user.email,
       pods: pods
     };
 
     writeUserToFirebase(newUser);
+
+    for (podName in pods) {
+      var podId = pods[podName];
+      updatePodUsers(podId, newUser);
+    };
   });
 }
 
@@ -154,6 +160,12 @@ function writeUserToFirebase(user) {
   firebase.database().ref('users/' + user.uid).set(user);
   deleteUserFromFirebase(user);
 };
+
+function updatePodUsers(podId, user) {
+  var updates = {};
+  updates["pods/" + podId + "/users/" + user.uid] = user.name;
+  database.ref().update(updates);
+}
 
 function deleteUserFromFirebase(user) {
   var email = emailToString(user.email)
