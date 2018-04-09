@@ -196,11 +196,9 @@ function deleteUserFromFirebase(user) {
 
 function masterLog(event) {
   event.time = getCurrentDateTime();
+  var newLogKey = database.ref().child("master_log/").push().key;
 
-  var ref = firebase.database().ref("master_log/");
-  var newLogKey = ref.child("master_log/").push().key;
-
-  firebase.database().ref('master_log/'+newLogKey).set(event);
+  firebase.database().ref('master_log/' + newLogKey).set(event);
 }
 
 ///////////////////////////
