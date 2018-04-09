@@ -110,7 +110,7 @@ function handleSignIn(user) {
   localStorage['blink-user-info'] = JSON.stringify(masterUser);
   masterLog({
     type: "sign in",
-    user.uid
+    userID: user.uid
   });
   getPodsById(user);
 }
