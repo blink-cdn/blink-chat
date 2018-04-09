@@ -289,7 +289,7 @@ function loadUserFromCache(callback) {
         socket.emit('disconnect client', user.userID, user.roomName);
         console.log("Disconnecting previously connected client");
         user = {
-          userID: user.userID
+          userID: user.userID,
           name: "user"
         }
     } else {
