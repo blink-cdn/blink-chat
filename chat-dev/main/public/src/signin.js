@@ -108,6 +108,10 @@ function triggerSignInPopup() {
 function handleSignIn(user) {
   masterUser = user;
   localStorage['blink-user-info'] = JSON.stringify(masterUser);
+  masterLog({
+    type: "sign in",
+    user.uid
+  });
   getPodsById(user);
 }
 
@@ -190,6 +194,18 @@ function deleteUserFromFirebase(user) {
   console.log("Removing:", email);
 }
 
+function masterLog(event) {
+  event.time = getCurrentDateTime();
+
+  var ref = firebase.database().ref("master_log/");
+  var newLogKey = ref.child("master_log/").push().key;
+
+  var updates = {
+    newLogKey: event
+  };
+
+  ref.update(updates);
+}
 
 ///////////////////////////
 //// TYPING ANIMATIONS ////
