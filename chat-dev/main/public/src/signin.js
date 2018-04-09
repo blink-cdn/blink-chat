@@ -299,3 +299,7 @@ function stringToLink(string) {
 
     return returnString;
 };
+
+function getCurrentDateTime() {
+    return Date().toString();
+}
