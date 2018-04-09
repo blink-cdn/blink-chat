@@ -1,20 +1,16 @@
 body {
     font-family: Gotham Rounded A,Gotham Rounded B,Helvetica,Arial,sans-serif;
 }
-
 button {
     padding: 8px;
+    cursor: pointer;
 }
-
-
 .container {
     /*border-bottom: 1px solid lightgray;*/
 }
-
 .center-vertical {
     margin-top: calc(12vh - 65px);
 }
-
 .center-items {
     display: flex;
     align-items: center;
@@ -43,6 +39,9 @@ button {
 /* HEAD CONTAINER */
 
 #head-container {
+    position: relative;
+    right: 0vw;
+
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 5vh;
@@ -78,12 +77,14 @@ button {
 .sm-input {
     width: 90%;
     margin-top: 10px;
+    margin-bottom: 0px !important;
     max-width: 500px;
 }
 
 .text-input {
-    padding: 8px 12px !important;
-    /*outline: none;*/
+  z-index: 0 !important;
+  padding: 8px 12px !important;
+  /*outline: none;*/
 }
 
 input:focus {
@@ -96,6 +97,44 @@ input:focus {
     border-radius: 4px;
     color: white;
     margin-left: 5px;
+    cursor: pointer;
+}
+
+#login-text {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #212529;
+  font-weight: 300;
+  visibility: hidden;
+}
+
+#login-btn {
+  color: #8E1B2F;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  text-decoration: underline;
+}
+
+a {
+  color: #8E1B2F;
+}
+
+#add-pod-input {
+  border-radius: 0px;
+}
+
+#add-pod-btn {
+  width: 200px;
+  margin-top: 0px;
+  background-color: black;
+  color: white;
+}
+
+.xs-input {
+  width: 200px;
+  margin-bottom: 5px !important;
 }
 
 /* HEAD INFO BOX */
@@ -110,8 +149,89 @@ input:focus {
     text-align: center;
 }
 
-/* MESSAGE CONTAINER */
+/* PODS CONTAINER */
+#pods-container {
+  position: fixed;
+  top: 0;
+  right: -100vw;
 
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5vh;
+  padding-top: 20px;
+
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+#back-button {
+  position: relative;
+  left: 20px;
+  cursor: pointer;
+  padding-bottom: 10px
+}
+
+#back-button:hover {
+  text-decoration: underline;
+}
+
+#no-pod-found {
+  color: gray;
+}
+
+#pods-list-container {
+  padding-top: 12vh;
+
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+li>a {
+  color: #262626;
+}
+
+li {
+  padding: 2px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+  background-color: #f8f9fa;
+  border: 1px solid lightgray;
+
+  color: #262626;
+
+  cursor: pointer;
+}
+
+li:hover {
+  text-decoration: none;
+  border: 1px solid #8E1B2F;
+  color: #8E1B2F !important;
+}
+
+li>p {
+  margin: 0;
+}
+
+/* MESSAGE CONTAINER */
 #message-container {
     margin-top: 0;
     margin-bottom: 0;
@@ -150,5 +270,42 @@ input:focus {
     padding-top: 10px;
 }
 
+/* MODAL */
+/* The Modal (background) */
+.modal {
+    border: none;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 10px 20px;
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
 
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

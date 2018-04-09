@@ -8,7 +8,7 @@ body {
   /*text-align: center*/
 }
 
-#publishButton {
+.btn-chat {
   background-color: #262626;
   border: none;
   border-radius: 4px;
@@ -16,7 +16,7 @@ body {
   margin-left: 5px;
 }
 
-#publishButton:hover {
+.btn-chat:hover {
   background-color: #a5a4a4;
 }
 

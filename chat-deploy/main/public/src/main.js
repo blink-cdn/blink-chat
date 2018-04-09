@@ -37,7 +37,6 @@ $(document).ready(function() {
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache();
     if (user !== undefined) {
-        console.log("USER:", user);
         socket.emit('disconnect client', user.userID, user.roomName);
         user = {};
     } else {
@@ -49,6 +48,11 @@ $(document).ready(function() {
     user.name = 'user';
     socket.emit('create user', user, roomName);
     $('#publishButton').click(function() {
+        $('#screenshareButton').attr("disabled", "true");
+        $('#screenshareButton').css('opacity', '0.25');
+        $('#publishButton').attr("disabled", "true");
+        $('#publishButton').css('opacity', '0.25');
+
         $('#infoText').attr('hidden', 'true');
         streamEng.publish();
         $('#publishButton').css('opacity', '0.25');
@@ -56,6 +60,13 @@ $(document).ready(function() {
     $('#screenshareButton').click(function() {
         streamEng.shouldScreenshare = true;
         $('#screenshareButton').attr("disabled", "true");
+        $('#publishButton').attr("disabled", "true");
+        $('#screenshareButton').css('opacity', '0.25');
+        $('#publishButton').css('opacity', '0.25');
+
+        $('#infoText').attr('hidden', 'true');
+        streamEng.publish();
+        $('#publishButton').css('opacity', '0.25');
     });
     $('#message-button').click(sendMessage);
     $('#message-input').keyup(function(event) {
@@ -88,7 +99,6 @@ $(document).ready(function() {
 function setupSocket() {
   socket.on('created user', function(userID) {
     user.userID = userID;
-    console.log("Connected");
     saveUsersToCache(user);
 
     // Send join stream system Message
@@ -157,7 +167,6 @@ function setupSocket() {
     }
 
     applyColumnClassesToVideo();
-    console.log("Displayed video:", videoIndex);
   };
   streamEng.onDeletePublisher = function(videoIndex) {
     removeVideo(videoIndex);
@@ -191,7 +200,6 @@ function unFullscreenVideo() {
     applyColumnClassesToVideo();
 }
 function removeVideo(videoIndex) {
-    console.log("Deleting:", videoIndex);
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
@@ -269,14 +277,12 @@ function addUsersToInviteModal(users) {
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
-    console.log("Sending invite to", name, "at", ECE_faculty[username]);
     socket.emit('send invite', name, ECE_faculty[username].email, window.location.href);
     var button = $('#'+name.split(' ')[0]);
     button.html(function() {
         return "<img src=\"img/check.png\" style=\"width: 30px\"/>"
     });
     button.attr("disabled", "true");
-
 }
 const ECE_faculty = {
     'Sid': {
@@ -329,9 +335,7 @@ const ECE_faculty = {
 function loadUserFromCache() {
     var user_string = localStorage['blink-chat-user-info'];
     if (user_string !== undefined) {
-        console.log(user_string);
         user = JSON.parse(user_string);
-        console.log("User:", user);
     } else {
         user = undefined;
     }
@@ -372,7 +376,7 @@ function addMessageToChatBox(message) {
 /***** FIREBASE *******/
 
 function updateMessagesToFirebase(message) {
-    var roomName_name = roomName.substring(1);
+    var roomName_name = "rooms/" + roomName.substring(1);
 
     var newMessageKey = database.ref().child(roomName_name).push().key;
     var updates = {};
@@ -381,7 +385,7 @@ function updateMessagesToFirebase(message) {
 }
 
 function listenForNewMessages() {
-    var roomName_name = roomName.substring(1);
+    var roomName_name = "rooms/" + roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');
     messageRef.on('child_added', function(snapshot) {
         addMessageToChatBox(snapshot.val());
