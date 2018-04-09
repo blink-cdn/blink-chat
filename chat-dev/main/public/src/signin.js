@@ -153,7 +153,7 @@ function displayPods() {
 }
 
 function newPod(podName) {
-  var newPodKey = database.ref().child("users").push().key;
+  var newPodKey = database.ref().child("pods").push().key;
 }
 
 function writeUserToFirebase(user) {
@@ -247,7 +247,6 @@ function removeLetter(string, el, count) {
 function emailToString(email) {
   var emailOutput = "";
   for (var i = 0; i < email.length; i++) {
-    console.log(email[i]);
     if (email[i] == '.') {
       emailOutput += "*";
     } else {
