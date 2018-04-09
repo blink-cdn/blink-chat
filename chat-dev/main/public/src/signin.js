@@ -200,11 +200,7 @@ function masterLog(event) {
   var ref = firebase.database().ref("master_log/");
   var newLogKey = ref.child("master_log/").push().key;
 
-  var updates = {
-    newLogKey: event
-  };
-
-  ref.update(updates);
+  firebase.database().ref('master_log/'+newLogKey).set(event);
 }
 
 ///////////////////////////

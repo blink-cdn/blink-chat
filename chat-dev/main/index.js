@@ -164,15 +164,9 @@ function authorize(idToken) {
 
 function masterLog(event) {
   event.time = getCurrentDateTime();
+  var newLogKey = db.child("master_log/").push().key;
 
-  var ref = db.ref("master_log/");
-  var newLogKey = ref.child("pods").push().key;
-
-  var updates = {
-    newLogKey: event
-  };
-
-  ref.update(updates);
+  db.ref('master_log/'+newLogKey).set(event);
 }
 
 /******** FUNCTIONS *********/
