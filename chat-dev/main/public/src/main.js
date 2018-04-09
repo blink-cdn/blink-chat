@@ -35,12 +35,6 @@ $(document).ready(function() {
 
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache(function() {
-      if (user !== undefined) {
-          socket.emit('disconnect client', user.userID, user.roomName);
-          user = {};
-      } else {
-          user = {};
-      }
 
       // Setup Socket;
       setupSocket();
@@ -284,60 +278,17 @@ function sendInviteTo(name) {
     });
     button.attr("disabled", "true");
 }
-const ECE_faculty = {
-    'Sid': {
-        name: 'Sid Ahuja',
-        email: 'sid@blinkcdn.com',
-        img: 'sid.jpg'
-    },
-    'Mukund': {
-        name: 'Mukund Iyengar',
-        email: 'mukund@blinkcdn.com',
-        img: 'mukund.jpg'
-    },
-    'Charles': {
-        name: 'Charles Bethin',
-        email: 'charles@blinkcdn.com',
-        img: 'charles.jpeg'
-    },
-    'Justin': {
-        name: 'Justin Trugman',
-        email: 'justin@blinkcdn.com',
-        img: 'justin.jpg'
-    },
-    'Sushant': {
-        name: 'Sushant Mongia',
-        email: 'sushantmongia@gmail.com',
-        img: 'sushant.jpg'
-    },
-    'Vrushali': {
-        name: 'Vrushali Gaikwad',
-        email: 'vrushaligaikwad9@gmail.com',
-        img: 'vrushali.jpg'
-    },
-    'Yu': {
-        name: 'Yu Zhang',
-        email: 'memo40k@outlook.com',
-        img: 'zhang.jpg'
-    },
-    'Nathan': {
-        name: 'Nathan Van Eck',
-        email: 'natvaneck@gmail.com',
-        img: 'blink.png'
-    },
-    'Test': {
-        name: 'Test',
-        email: 'justin@blinkcdn.com',
-        img: 'blink.png'
-    }
-};
 
 function loadUserFromCache(callback) {
     var user_string = localStorage['blink-chat-user-info'];
+
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
+        socket.emit('disconnect client', user.userID, user.roomName);
+        user = {};
     } else {
         user = undefined;
+        user = {};
     }
 
     if (localStorage['blink-user-info'] !== undefined) {
