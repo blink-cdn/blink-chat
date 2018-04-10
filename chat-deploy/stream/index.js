@@ -113,6 +113,11 @@ function onDisconnect(userID, roomName) {
         }
     }
 
+    masterLog({
+      type: "unsubscribe",
+      userID: userID,
+      roomName: roomName
+    });
     saveStreamRoomData(streamRooms);
 }
 
