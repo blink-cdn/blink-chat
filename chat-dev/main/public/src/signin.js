@@ -191,6 +191,17 @@ function deleteUserFromFirebase(user) {
   console.log("Removing:", email);
 }
 
+function masterLog(event) {
+  event.datetime = getCurrentDateTime();
+
+  var newLogKey = firebase.database().ref("master_log/").push().key;
+  firebase.database().ref("master_log/" + newLogKey).set(event);
+}
+
+function getCurrentDateTime() {
+  var today = new Date();
+  return today.toGMTString();
+}
 
 ///////////////////////////
 //// TYPING ANIMATIONS ////
