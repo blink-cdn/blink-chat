@@ -83,6 +83,10 @@ function signoutUser() {
     console.error('Sign Out Error', error);
   });
 
+  masterLog({
+    type: "logout",
+    userID: masterUser.uid
+  });
   masterUser = undefined;
   delete localStorage['blink-user-info'];
 }
