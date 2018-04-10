@@ -164,7 +164,6 @@ function displayPods() {
     goToChat(event.target.id);
   });
 
-  console.log("Pods:", pods);
   $('#head-container').animate({
     right: "100vw"
   }, 550, null);
