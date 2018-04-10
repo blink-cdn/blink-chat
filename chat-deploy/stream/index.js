@@ -175,7 +175,11 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         console.log("Streamer joined the session:", roomName);
-        writeToFirebase(userID + " has published to " + roomName);
+        masterLog({
+          type: "publish",
+          userID: userID,
+          roomName: roomName
+        });
         saveStreamRoomData(streamRooms);
         return;
     }
@@ -221,7 +225,11 @@ function onJoin(userID, socket, roomName, isPublishing) {
         }
 
         saveStreamRoomData(streamRooms);
-        writeToFirebase(userID + " has subscribed to " + roomName + " at " + getCurrentDateTime());
+        masterLog({
+          type: "subscribe",
+          userID: userID,
+          roomName: roomName
+        });
     }
 }
 
@@ -301,30 +309,30 @@ function setupMongoCollection() {
 //     return JSON.stringify(newStreamRoom);
 // }
 
-// FIREBASE
-var admin = require('firebase-admin');
-var serviceAccount = require("./src/blink-stream-firebase-adminsdk-b64as-1b26f4a68a.json");
+/*********** Google Firebase ************/
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./files/blink-chat-3d18ca48caf7.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://blink-stream.firebaseio.com"
+    databaseURL: "https://blink-chat-6f619.firebaseio.com/"
 });
 
-var database = admin.database();
+var db = admin.database();
 
-function writeToFirebase(msg) {
-    var msgObj = {
-        log: msg,
-        datetime: getCurrentDateTime()
-    };
+function masterLog(event) {
+  event.datetime = getCurrentDateTime();
 
-    var newMessageKey = database.ref().child("/data").push().key;
-    var updates = {};
-    updates["/data/"+newMessageKey] = msgObj;
-    database.ref().update(updates);
+  var ref = db.ref("master_log/");
+  var newLogKey = ref.child("pods").push().key;
+
+  db.ref('master_log/' + newLogKey).set(event);
 }
 
 // HELPER
 function getCurrentDateTime() {
-    return Date().toString();
+  var today = new Date();
+  return today.toGMTString();
 }

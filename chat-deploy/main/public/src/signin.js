@@ -108,6 +108,10 @@ function triggerSignInPopup() {
 function handleSignIn(user) {
   masterUser = user;
   localStorage['blink-user-info'] = JSON.stringify(masterUser);
+  masterLog({
+    event: "log in",
+    userID: masterUser.uid
+  });
   getPodsById(user);
 }
 
@@ -160,7 +164,6 @@ function displayPods() {
     goToChat(event.target.id);
   });
 
-  console.log("Pods:", pods);
   $('#head-container').animate({
     right: "100vw"
   }, 550, null);
@@ -191,6 +194,17 @@ function deleteUserFromFirebase(user) {
   console.log("Removing:", email);
 }
 
+function masterLog(event) {
+  event.datetime = getCurrentDateTime();
+
+  var newLogKey = firebase.database().ref("master_log/").push().key;
+  firebase.database().ref("master_log/" + newLogKey).set(event);
+}
+
+function getCurrentDateTime() {
+  var today = new Date();
+  return today.toGMTString();
+}
 
 ///////////////////////////
 //// TYPING ANIMATIONS ////
