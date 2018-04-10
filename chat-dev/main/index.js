@@ -147,25 +147,13 @@ admin.initializeApp({
 
 var db = admin.database();
 
-function authorize(idToken) {
-    admin.auth().verifyIdToken(idToken)
-        .then(function(decodedToken) {
-            var uid = decodedToken.uid;
-            console.log(uid);
-        }).catch(function(error) {
-        // Handle error
-    });
-}
-
 function masterLog(event) {
+  event.datetime = getCurrentDateTime();
+
   var ref = db.ref("master_log/");
   var newLogKey = ref.child("pods").push().key;
 
-  var updates = {
-    newLogKey: event
-  };
-
-  ref.update(updates);
+  db.ref('master_log/' + newLogKey).set(event);
 }
 
 /******** FUNCTIONS *********/
@@ -179,6 +167,11 @@ function createUser(user, roomName, socket) {
 
     if (user.userID === undefined) {
       newUser.userID = uuid();
+      masterLog({
+        type: "created user",
+        userID: newUser.userID,
+
+      })
     } else {
       newUser.userID = user.userID;
     }
@@ -337,12 +330,17 @@ function createService(serviceType) {
             hasStartedBid: false,
         }
     }
-
 }
+
 function uuid() {
     function s4() {
         return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+function getCurrentDateTime() {
+  var today = new Date();
+  return today.toGMTString();
 }
