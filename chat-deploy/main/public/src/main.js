@@ -17,6 +17,7 @@ var button;
   userImg:
   userID:
 }*/
+var masterUser = undefined;
 var user = {};
 var services = {
   "stream": streamEng
@@ -32,64 +33,63 @@ var hiddenVideos = [];
 $(document).ready(function() {
     socket = io.connect();
 
-    // addUsersToInviteModal(ECE_faculty);
-
     // Check if a user is created, if so make sure to disconnect them first
-    loadUserFromCache();
-    if (user !== undefined) {
-        socket.emit('disconnect client', user.userID, user.roomName);
-        user = {};
-    } else {
-        user = {};
-    }
+    loadUserFromCache(function() {
+      if (user !== undefined) {
+          socket.emit('disconnect client', user.userID, user.roomName);
+          user = {};
+      } else {
+          user = {};
+      }
 
-    // Setup Socket;
-    setupSocket();
-    user.name = 'user';
-    socket.emit('create user', user, roomName);
-    $('#publishButton').click(function() {
-        $('#screenshareButton').attr("disabled", "true");
-        $('#screenshareButton').css('opacity', '0.25');
-        $('#publishButton').attr("disabled", "true");
-        $('#publishButton').css('opacity', '0.25');
+      // Setup Socket;
+      setupSocket();
+      user.name = 'user';
+      socket.emit('create user', user, roomName);
+      $('#publishButton').click(function() {
+          $('#screenshareButton').attr("disabled", "true");
+          $('#screenshareButton').css('opacity', '0.25');
+          $('#publishButton').attr("disabled", "true");
+          $('#publishButton').css('opacity', '0.25');
 
-        $('#infoText').attr('hidden', 'true');
-        streamEng.publish();
-        $('#publishButton').css('opacity', '0.25');
-    });
-    $('#screenshareButton').click(function() {
-        streamEng.shouldScreenshare = true;
-        $('#screenshareButton').attr("disabled", "true");
-        $('#publishButton').attr("disabled", "true");
-        $('#screenshareButton').css('opacity', '0.25');
-        $('#publishButton').css('opacity', '0.25');
+          $('#infoText').attr('hidden', 'true');
+          streamEng.publish();
+          $('#publishButton').css('opacity', '0.25');
+      });
+      $('#screenshareButton').click(function() {
+          streamEng.shouldScreenshare = true;
+          $('#screenshareButton').attr("disabled", "true");
+          $('#publishButton').attr("disabled", "true");
+          $('#screenshareButton').css('opacity', '0.25');
+          $('#publishButton').css('opacity', '0.25');
 
-        $('#infoText').attr('hidden', 'true');
-        streamEng.publish();
-        $('#publishButton').css('opacity', '0.25');
-    });
-    $('#message-button').click(sendMessage);
-    $('#message-input').keyup(function(event) {
-        if (event.keyCode === 13) {
-            sendMessage();
-        }
-    });
-    $('#open-chat-button').click(function() {
-        chatBox = $('#chat-box');
-        if (chatBox.hasClass('showBox')) {
-            $('#chat-box').removeClass("showBox");
-            $('#remote-video-div').removeClass("video-on-chat-open");
-        } else {
-            $('#chat-box').addClass("showBox");
-            $('#remote-video-div').addClass("video-on-chat-open");
-        }
-    });
-    $('#invitePeopleButton').click(function() {
-        $('#inviteModal').modal('toggle');
-        $('#link-ref').html(function() { return window.location.href });
-    });
+          $('#infoText').attr('hidden', 'true');
+          streamEng.publish();
+          $('#publishButton').css('opacity', '0.25');
+      });
+      $('#message-button').click(sendMessage);
+      $('#message-input').keyup(function(event) {
+          if (event.keyCode === 13) {
+              sendMessage();
+          }
+      });
+      $('#open-chat-button').click(function() {
+          chatBox = $('#chat-box');
+          if (chatBox.hasClass('showBox')) {
+              $('#chat-box').removeClass("showBox");
+              $('#remote-video-div').removeClass("video-on-chat-open");
+          } else {
+              $('#chat-box').addClass("showBox");
+              $('#remote-video-div').addClass("video-on-chat-open");
+          }
+      });
+      $('#invitePeopleButton').click(function() {
+          $('#inviteModal').modal('toggle');
+          $('#link-ref').html(function() { return window.location.href });
+      });
 
-    listenForNewMessages();
+      listenForNewMessages();
+    });
 });
 
 
@@ -332,7 +332,7 @@ const ECE_faculty = {
     }
 };
 
-function loadUserFromCache() {
+function loadUserFromCache(callback) {
     var user_string = localStorage['blink-chat-user-info'];
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
@@ -340,7 +340,15 @@ function loadUserFromCache() {
         user = undefined;
     }
 
+    if (localStorage['blink-user-info'] !== undefined) {
+      masterUser = JSON.parse(localStorage['blink-user-info']);
+      user.name = masterUser.displayName;
+      user.userID = masterUser.uid;
+    }
+
+    callback();
 }
+
 function saveUsersToCache(user) {
     user.roomName = roomName;
     localStorage['blink-chat-user-info'] = JSON.stringify(user);

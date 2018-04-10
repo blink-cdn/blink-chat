@@ -91,6 +91,10 @@ io.sockets.on('connection', function(socket) {
             }
         });
     });
+
+    socket.on('master_log', function(event) {
+      masterLog(event);
+    })
 });
 
 function sendDisconnecToServices(userID, roomName) {
@@ -122,39 +126,62 @@ serviceIo.sockets.on('connection', function(socket) {
         rooms = rcvdRooms;
         updateAllServices();
     });
+
+    socket.on('master_log', function(event) {
+      masterLog(event);
+    });
 });
 
 console.log("Connected.");
 
-// /*********** Google Firebase ************/
-//
-// var admin = require("firebase-admin");
-//
-// var serviceAccount = require("./firebase/blink-chat-6f619-firebase-adminsdk-tyzar-c5c59caca3.json");
-//
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount),
-//     databaseURL: "https://blink-chat-6f619.firebaseio.com"
-// });
-//
-// function authorize(idToken) {
-//     admin.auth().verifyIdToken(idToken)
-//         .then(function(decodedToken) {
-//             var uid = decodedToken.uid;
-//             console.log(uid);
-//         }).catch(function(error) {
-//         // Handle error
-//     });
-// }
+/*********** Google Firebase ************/
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./files/blink-chat-3d18ca48caf7.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://blink-chat-6f619.firebaseio.com/"
+});
+
+var db = admin.database();
+
+function authorize(idToken) {
+    admin.auth().verifyIdToken(idToken)
+        .then(function(decodedToken) {
+            var uid = decodedToken.uid;
+            console.log(uid);
+        }).catch(function(error) {
+        // Handle error
+    });
+}
+
+function masterLog(event) {
+  var ref = db.ref("master_log/");
+  var newLogKey = ref.child("pods").push().key;
+
+  var updates = {
+    newLogKey: event
+  };
+
+  ref.update(updates);
+}
 
 /******** FUNCTIONS *********/
 
 function createUser(user, roomName, socket) {
     let newUser = {
-        userID: uuid(),
+        // userID: uuid(),
         name: user.name,
         userImg: user.userImg
     };
+
+    if (user.userID === undefined) {
+      newUser.userID = uuid();
+    } else {
+      newUser.userID = user.userID;
+    }
 
     // Add user to the array of users
     sockets[newUser.userID] = socket;
@@ -319,4 +346,3 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
-
