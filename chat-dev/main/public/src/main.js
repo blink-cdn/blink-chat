@@ -35,8 +35,16 @@ $(document).ready(function() {
 
     // Check if a user is created, if so make sure to disconnect them first
     loadUserFromCache(function() {
+      if (user !== undefined) {
+          socket.emit('disconnect client', user.userID, user.roomName);
+          user = {};
+      } else {
+          user = {};
+      }
+
       // Setup Socket;
       setupSocket();
+      user.name = 'user';
       socket.emit('create user', user, roomName);
       $('#publishButton').click(function() {
           $('#screenshareButton').attr("disabled", "true");
@@ -180,7 +188,6 @@ function fullscreenVideo(videoId) {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
-
 function unFullscreenVideo() {
 
     for (id in hiddenVideos) {
@@ -192,14 +199,12 @@ function unFullscreenVideo() {
     // setTimeout(applyColumnClassesToVideo, 200);
     applyColumnClassesToVideo();
 }
-
 function removeVideo(videoIndex) {
     $('#remoteVideo'+ videoIndex.toString()).parent().closest('div').remove();
     removeItemFromArray(videoIndices, videoIndex);
     removeItemFromArray(activeVideos, "#remoteVideo"+videoIndex.toString());
     applyColumnClassesToVideo();
 }
-
 function applyColumnClassesToVideo() {
     var videos = document.querySelectorAll('video');
     for (i in videos) {
@@ -269,7 +274,6 @@ function addUsersToInviteModal(users) {
         $('#users').append(html);
     }
 }
-
 function sendInviteTo(name) {
     var split_str = name.split(' ');
     var username = split_str[0];
@@ -280,23 +284,60 @@ function sendInviteTo(name) {
     });
     button.attr("disabled", "true");
 }
+const ECE_faculty = {
+    'Sid': {
+        name: 'Sid Ahuja',
+        email: 'sid@blinkcdn.com',
+        img: 'sid.jpg'
+    },
+    'Mukund': {
+        name: 'Mukund Iyengar',
+        email: 'mukund@blinkcdn.com',
+        img: 'mukund.jpg'
+    },
+    'Charles': {
+        name: 'Charles Bethin',
+        email: 'charles@blinkcdn.com',
+        img: 'charles.jpeg'
+    },
+    'Justin': {
+        name: 'Justin Trugman',
+        email: 'justin@blinkcdn.com',
+        img: 'justin.jpg'
+    },
+    'Sushant': {
+        name: 'Sushant Mongia',
+        email: 'sushantmongia@gmail.com',
+        img: 'sushant.jpg'
+    },
+    'Vrushali': {
+        name: 'Vrushali Gaikwad',
+        email: 'vrushaligaikwad9@gmail.com',
+        img: 'vrushali.jpg'
+    },
+    'Yu': {
+        name: 'Yu Zhang',
+        email: 'memo40k@outlook.com',
+        img: 'zhang.jpg'
+    },
+    'Nathan': {
+        name: 'Nathan Van Eck',
+        email: 'natvaneck@gmail.com',
+        img: 'blink.png'
+    },
+    'Test': {
+        name: 'Test',
+        email: 'justin@blinkcdn.com',
+        img: 'blink.png'
+    }
+};
 
 function loadUserFromCache(callback) {
     var user_string = localStorage['blink-chat-user-info'];
-
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
-        socket.emit('disconnect client', user.userID, user.roomName);
-        console.log("Disconnecting previously connected client");
-        user = {
-          userID: user.userID,
-          name: "user"
-        }
     } else {
         user = undefined;
-        user = {
-          name: "user"
-        };
     }
 
     if (localStorage['blink-user-info'] !== undefined) {
@@ -350,6 +391,7 @@ function updateMessagesToFirebase(message) {
     updates[roomName_name + '/messages/' + newMessageKey] = message;
     database.ref().update(updates);
 }
+
 function listenForNewMessages() {
     var roomName_name = "rooms/" + roomName.substring(1);
     var messageRef = database.ref(roomName_name + '/messages');

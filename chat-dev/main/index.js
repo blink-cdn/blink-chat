@@ -73,11 +73,6 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('disconnect client', function(userID, roomName) {
         sendDisconnecToServices(userID, roomName);
-        masterLog({
-          type: "user disconnected",
-          userID,
-          roomName,
-        });
     });
 
     socket.on('send invite', function(name, email, link) {
@@ -162,11 +157,15 @@ function authorize(idToken) {
     });
 }
 
-// I don't think this is working
 function masterLog(event) {
-  event.time = getCurrentDateTime();
-  var newLogKey = db.ref().child("master_log").push().key;
-  db.ref('master_log/' + newLogKey).set(event);
+  var ref = db.ref("master_log/");
+  var newLogKey = ref.child("pods").push().key;
+
+  var updates = {
+    newLogKey: event
+  };
+
+  ref.update(updates);
 }
 
 /******** FUNCTIONS *********/
@@ -179,19 +178,9 @@ function createUser(user, roomName, socket) {
     };
 
     if (user.userID === undefined) {
-      newUser.userID = uuid();
-      masterLog({
-        type: "user created",
-        userID: user.userID,
-        roomName,
-      });
+      newUser.userID: uuid();
     } else {
       newUser.userID = user.userID;
-      masterLog({
-        type: "user connected",
-        userID: user.userID,
-        roomName,
-      });
     }
 
     // Add user to the array of users
@@ -209,7 +198,6 @@ function createUser(user, roomName, socket) {
     } else {
         rooms[roomName].users[newUser.userID] = newUser;
     }
-
 
     socket.emit('created user', newUser.userID, newUser.name);
 }
@@ -254,12 +242,6 @@ function setupService(userID, serviceType, roomName, user, socket) {
         serviceAddress = services[serviceType].address;
         socket.emit('joined service', userID, serviceType, serviceAddress);
         console.log("Joined service:", userID, serviceType, serviceAddress);
-        masterLog({
-          type: "joined service",
-          userID,
-          serviceType,
-          roomName
-        });
     } else {
         console.log("Service to setup not found.");
     }
@@ -363,7 +345,4 @@ function uuid() {
     }
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-function getCurrentDateTime() {
-    return Date().toString();
 }

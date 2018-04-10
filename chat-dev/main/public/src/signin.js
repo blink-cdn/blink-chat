@@ -83,11 +83,6 @@ function signoutUser() {
     console.error('Sign Out Error', error);
   });
 
-  masterLog({
-    type: "logged out",
-    userID: masterUser.uid
-  });
-
   masterUser = undefined;
   delete localStorage['blink-user-info'];
 }
@@ -113,11 +108,7 @@ function triggerSignInPopup() {
 function handleSignIn(user) {
   masterUser = user;
   localStorage['blink-user-info'] = JSON.stringify(masterUser);
-  masterLog({
-    type: "sign in",
-    userID: user.uid
-  });
-  getPodsById(masterUser);
+  getPodsById(user);
 }
 
 function getPodsById(user) {
@@ -169,6 +160,7 @@ function displayPods() {
     goToChat(event.target.id);
   });
 
+  console.log("Pods:", pods);
   $('#head-container').animate({
     right: "100vw"
   }, 550, null);
@@ -199,12 +191,6 @@ function deleteUserFromFirebase(user) {
   console.log("Removing:", email);
 }
 
-function masterLog(event) {
-  event.time = getCurrentDateTime();
-  var newLogKey = database.ref().child("master_log").push().key;
-
-  firebase.database().ref('master_log/' + newLogKey).set(event);
-}
 
 ///////////////////////////
 //// TYPING ANIMATIONS ////
@@ -302,7 +288,3 @@ function stringToLink(string) {
 
     return returnString;
 };
-
-function getCurrentDateTime() {
-    return Date().toString();
-}
