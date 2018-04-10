@@ -178,7 +178,7 @@ function createUser(user, roomName, socket) {
     };
 
     if (user.userID === undefined) {
-      newUser.userID: uuid();
+      newUser.userID = uuid();
     } else {
       newUser.userID = user.userID;
     }
