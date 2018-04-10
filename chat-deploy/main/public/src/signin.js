@@ -304,5 +304,6 @@ function stringToLink(string) {
 };
 
 function getCurrentDateTime() {
-    return Date().toString();
+  var today = new Date();
+  return today.toGMTString();
 }

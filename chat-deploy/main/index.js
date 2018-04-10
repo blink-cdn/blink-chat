@@ -364,6 +364,8 @@ function uuid() {
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
 function getCurrentDateTime() {
-    return Date().toString();
+  var today = new Date();
+  return today.toGMTString();
 }
