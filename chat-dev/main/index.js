@@ -182,14 +182,14 @@ function createUser(user, roomName, socket) {
       newUser.userID = uuid();
       masterLog({
         type: "user created",
-        userID: user.userID,
+        userID: newUser.userID,
         roomName,
       });
     } else {
       newUser.userID = user.userID;
       masterLog({
         type: "user connected",
-        userID: user.userID,
+        userID: newUser.userID,
         roomName,
       });
     }
