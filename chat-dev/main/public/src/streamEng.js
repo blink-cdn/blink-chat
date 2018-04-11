@@ -184,7 +184,9 @@ function gotMessageFromServer(message) {
               errorHandler(error, "sdp");
             });
         } else if(signal.type === "ice") {
-            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(function(error) {
+              errorHandler(error, "ice");
+            });
         }
       }
     // }
@@ -256,7 +258,9 @@ function shareStream(stream, startStream, peerNumber) {
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
             setAndSendDescription(description, peerNumber);
-        }).catch(errorHandler);
+        }).catch(function(error) {
+          errorHandler(error, "create offer");
+        });
     }
 }
 
@@ -299,7 +303,9 @@ function setAndSendDescription(description, peerNumber) {
                 'sdp': peers[peerNumber].peerConnection.localDescription,
                 'userID': user.userID
             }, peers[peerNumber].userID, roomName);
-        }).catch(errorHandler);
+        }).catch(function(error) {
+          errorHandler(error, "description");
+        });
   // }
 }
 
