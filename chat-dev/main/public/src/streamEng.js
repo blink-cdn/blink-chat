@@ -81,6 +81,7 @@ streamEng.subscribe = function() {
 
         var peerNumber = peerNumberOf[clientID];
         peers[peerNumber].peerConnection.onsignalingstatechange = function(event) {
+          console.log("EVENT", event);
           if (event.signalingState === "have-remote-offer") {
             peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                 console.log("SETTING OFFER", description);
