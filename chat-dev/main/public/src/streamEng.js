@@ -173,6 +173,7 @@ function gotMessageFromServer(message) {
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                        console.log("SETTING OFFER");
                         setAndSendDescription(description, peerNumber);
                     }).catch(function(error) {
                       errorHandler(error, "offer");
@@ -257,6 +258,7 @@ function shareStream(stream, startStream, peerNumber) {
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
+            console.log("CREATING OFFER");
             setAndSendDescription(description, peerNumber);
         }).catch(function(error) {
           errorHandler(error, "create offer");
