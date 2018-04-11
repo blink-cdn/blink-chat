@@ -174,7 +174,9 @@ function gotMessageFromServer(message) {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
-                    }).catch(errorHandler);
+                    }).catch(function(error, other) {
+                      errorHandler(error, "offer");
+                    });
                 } else {
                   console.log("Got answer")
                 }
@@ -315,6 +317,6 @@ function setupPage() {
 }
 
 ///////////////////
-function errorHandler(error) {
-    console.log(error.message);
+function errorHandler(error, other) {
+    console.log(error.message, other);
 }
