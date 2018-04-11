@@ -7,6 +7,7 @@ var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
 var remoteStreams = [];
+var desc = undefined;
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -176,6 +177,7 @@ function gotMessageFromServer(message) {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         console.log("SETTING OFFER", description);
+                        desc = description;
                         setAndSendDescription(description, peerNumber);
                     }).catch(function(error) {
                       errorHandler(error, "offer");
@@ -261,6 +263,7 @@ function shareStream(stream, startStream, peerNumber) {
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
             console.log("CREATING OFFER", description);
+            desc = description;
             setAndSendDescription(description, peerNumber);
         }).catch(function(error) {
           errorHandler(error, "create offer");
