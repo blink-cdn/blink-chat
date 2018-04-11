@@ -170,7 +170,7 @@ function createUser(user, roomName, socket) {
       masterLog({
         type: "created user",
         userID: newUser.userID,
-
+        roomName: roomName
       })
     } else {
       newUser.userID = user.userID;
