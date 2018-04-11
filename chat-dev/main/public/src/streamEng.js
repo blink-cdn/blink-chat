@@ -237,13 +237,23 @@ function setupMediaStream(startStream, peerNumber) {
 
         });
     } else {
-        if(navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                shareStream(stream, startStream, peerNumber);
-            });
-        } else {
-            alert('Your browser does not support getUserMedia API');
-        }
+      if(peers[peerNumber].peerConnection.signalingState === "stable") {
+          if(navigator.mediaDevices.getUserMedia) {
+              navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+                  peers[peerNumber].peerConnection.addStream(stream);
+              });
+          } else {
+              alert('Your browser does not support getUserMedia API');
+          }
+      } else {
+          if(navigator.mediaDevices.getUserMedia) {
+              navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+                  shareStream(stream, startStream, peerNumber);
+              });
+          } else {
+              alert('Your browser does not support getUserMedia API');
+          }
+      }
     }
 }
 
