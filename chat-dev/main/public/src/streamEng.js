@@ -302,7 +302,8 @@ function setAndSendDescription(description, peerNumber) {
         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
             streamEng.socket.emit('signal', {
                 'type': 'sdp',
-                'sdp': peers[peerNumber].peerConnection.localDescription,
+                // 'sdp': peers[peerNumber].peerConnection.localDescription,
+                'sdp': description,
                 'userID': user.userID
             }, peers[peerNumber].userID, roomName);
         }).catch(function(error) {
