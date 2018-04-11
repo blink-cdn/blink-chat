@@ -78,6 +78,18 @@ streamEng.subscribe = function() {
             setAndSentDescription: false
         });
         peerNumberOf[clientID] = peers.length - 1;
+
+        var peerNumber = peerNumberOf[clientID];
+        peers[peerNumber].peerConnection.onsignalingstatechange = function(event) {
+          if (event.signalingState === "have-remote-offer") {
+            peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                console.log("SETTING OFFER", description);
+                setAndSendDescription(description, peerNumber);
+            }).catch(function(error) {
+              errorHandler(error, "offer2");
+            });
+          }
+        }
       }
 
       joinRoom(peerNumberOf[clientID]);
