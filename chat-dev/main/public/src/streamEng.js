@@ -174,13 +174,15 @@ function gotMessageFromServer(message) {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
-                    }).catch(function(error, other) {
+                    }).catch(function(error) {
                       errorHandler(error, "offer");
                     });
                 } else {
                   console.log("Got answer")
                 }
-            }).catch(errorHandler);
+            }).catch(function(error) {
+              errorHandler(error, "sdp");
+            });
         } else if(signal.type === "ice") {
             peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
         }
