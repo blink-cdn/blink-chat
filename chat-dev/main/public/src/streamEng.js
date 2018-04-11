@@ -275,9 +275,10 @@ function createPeerConnection(peerUserID, publisherNumber) {
     };
   }
 
+  // GET STATS
   getStats(newPeerConnection, function(results) {
     console.log("RESULTS:", results);
-  });
+  }, 2000);
 
   return newPeerConnection;
 }
