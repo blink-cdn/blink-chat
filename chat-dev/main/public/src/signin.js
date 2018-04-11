@@ -19,16 +19,16 @@ $(document).ready(function() {
 
     if (window.location.hostname === "svc.blinkcdn.com") {
       $('#login-text').css('visibility', 'visible');
+
+      if (localStorage['blink-user-info'] !== undefined) {
+        masterUser = JSON.parse(localStorage['blink-user-info']);
+        getPodsById(masterUser);
+      }
     }
 
     $('#login-btn').click(function() {
       triggerSignInPopup();
     });
-
-    if (localStorage['blink-user-info'] !== undefined) {
-      masterUser = JSON.parse(localStorage['blink-user-info']);
-      getPodsById(masterUser);
-    }
 
     $('.close').click(function() {
       $('#myModal').css('display', 'none');
