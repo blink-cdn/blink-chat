@@ -78,7 +78,7 @@ streamEng.subscribe = function() {
         });
         peerNumberOf[clientID] = peers.length - 1;
 
-        peers[peerNumber].hasSetAnswer = false;
+        peers[peerNumberOf[clientID]].hasSetAnswer = false;
       }
 
       joinRoom(peerNumberOf[clientID]);
