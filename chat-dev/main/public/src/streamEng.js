@@ -174,7 +174,6 @@ function gotMessageFromServer(message) {
                 // Only create answers in response to offers
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer");
-                    peers[peerNumber].hasSetAnswer = true;
                     if (!peers[peerNumber].hasSetAnswer) {
                       peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                           console.log("SETTING OFFER");
@@ -182,6 +181,8 @@ function gotMessageFromServer(message) {
                       }).catch(function(error) {
                         errorHandler(error, "offer");
                       });
+
+                      peers[peerNumber].hasSetAnswer = true;
                     }
                 } else {
                   console.log("Got answer")
