@@ -6,6 +6,7 @@ var broadcastButton;
 var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
+var remoteStreams = [];
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -117,6 +118,7 @@ streamEng.subscribe = function() {
         $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
         console.log("for peer: ", publisherID);
+        remoteStreams.push(event.stream);
       };
     }
 
