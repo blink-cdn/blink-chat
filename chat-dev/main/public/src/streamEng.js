@@ -289,18 +289,6 @@ function createPeerConnection(peerUserID, publisherNumber) {
     };
   }
 
-  newPeerConnection.onsignalingstatechange = function(event) {
-    console.log("EVENT", event);
-    if (event.signalingState === "have-remote-offer") {
-      newPeerConnection.createAnswer().then(function(description) {
-          console.log("SETTING OFFER", description);
-          setAndSendDescription(description, peerNumber);
-      }).catch(function(error) {
-        errorHandler(error, "offer2");
-      });
-    }
-  }
-
   // GET STATS
   getStats(newPeerConnection, function(results) {
     // console.log("RESULTS:", results);
