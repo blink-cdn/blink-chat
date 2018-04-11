@@ -78,19 +78,6 @@ streamEng.subscribe = function() {
             setAndSentDescription: false
         });
         peerNumberOf[clientID] = peers.length - 1;
-
-        var peerNumber = peerNumberOf[clientID];
-        peers[peerNumber].peerConnection.onsignalingstatechange = function(event) {
-          console.log("EVENT", event);
-          if (event.signalingState === "have-remote-offer") {
-            peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                console.log("SETTING OFFER", description);
-                setAndSendDescription(description, peerNumber);
-            }).catch(function(error) {
-              errorHandler(error, "offer2");
-            });
-          }
-        }
       }
 
       joinRoom(peerNumberOf[clientID]);
@@ -300,6 +287,18 @@ function createPeerConnection(peerUserID, publisherNumber) {
       peers[peerNumberOf[peerUserID]].hasConnected = true;
       remoteStreams.push(event.stream);
     };
+  }
+
+  newPeerConnection.onsignalingstatechange = function(event) {
+    console.log("EVENT", event);
+    if (event.signalingState === "have-remote-offer") {
+      newPeerConnection.createAnswer().then(function(description) {
+          console.log("SETTING OFFER", description);
+          setAndSendDescription(description, peerNumber);
+      }).catch(function(error) {
+        errorHandler(error, "offer2");
+      });
+    }
   }
 
   // GET STATS
