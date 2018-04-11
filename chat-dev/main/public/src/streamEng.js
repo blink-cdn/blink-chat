@@ -7,7 +7,6 @@ var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
 var remoteStreams = [];
-var desc = undefined;
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -177,7 +176,6 @@ function gotMessageFromServer(message) {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         console.log("SETTING OFFER", description);
-                        desc = description;
                         setAndSendDescription(description, peerNumber);
                     }).catch(function(error) {
                       errorHandler(error, "offer");
@@ -237,23 +235,13 @@ function setupMediaStream(startStream, peerNumber) {
 
         });
     } else {
-      if(peers[peerNumber].peerConnection.signalingState === "stable") {
-          if(navigator.mediaDevices.getUserMedia) {
-              navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                  peers[peerNumber].peerConnection.addStream(stream);
-              });
-          } else {
-              alert('Your browser does not support getUserMedia API');
-          }
-      } else {
-          if(navigator.mediaDevices.getUserMedia) {
-              navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                  shareStream(stream, startStream, peerNumber);
-              });
-          } else {
-              alert('Your browser does not support getUserMedia API');
-          }
-      }
+        if(navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+                shareStream(stream, startStream, peerNumber);
+            });
+        } else {
+            alert('Your browser does not support getUserMedia API');
+        }
     }
 }
 
@@ -273,7 +261,6 @@ function shareStream(stream, startStream, peerNumber) {
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
             console.log("CREATING OFFER", description);
-            desc = description;
             setAndSendDescription(description, peerNumber);
         }).catch(function(error) {
           errorHandler(error, "create offer");
@@ -310,23 +297,17 @@ function createPeerConnection(peerUserID, publisherNumber) {
   return newPeerConnection;
 }
 function setAndSendDescription(description, peerNumber) {
-
-  // if (sendToPeerValue == -10) {
-  //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
-  //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
-  //   }).catch(errorHandler);
-  // } else {
-        peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-            streamEng.socket.emit('signal', {
-                'type': 'sdp',
-                // 'sdp': peers[peerNumber].peerConnection.localDescription,
-                'sdp': description,
-                'userID': user.userID
-            }, peers[peerNumber].userID, roomName);
-        }).catch(function(error) {
-          errorHandler(error, "description");
-        });
-  // }
+      peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+          streamEng.socket.emit('signal', {
+              'type': 'sdp',
+              // 'sdp': peers[peerNumber].peerConnection.localDescription,
+              'sdp': description,
+              'userID': user.userID
+          }, peers[peerNumber].userID, roomName);
+          console.log(description);
+      }).catch(function(error) {
+        errorHandler(error, "description");
+      });
 }
 
 // Setup DOM elements and responses
