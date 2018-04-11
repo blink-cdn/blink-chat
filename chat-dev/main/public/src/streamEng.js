@@ -77,6 +77,8 @@ streamEng.subscribe = function() {
             setAndSentDescription: false
         });
         peerNumberOf[clientID] = peers.length - 1;
+
+        peers[peerNumber].hasSetAnswer = false;
       }
 
       joinRoom(peerNumberOf[clientID]);
@@ -172,12 +174,15 @@ function gotMessageFromServer(message) {
                 // Only create answers in response to offers
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer");
-                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                        console.log("SETTING OFFER");
-                        setAndSendDescription(description, peerNumber);
-                    }).catch(function(error) {
-                      errorHandler(error, "offer");
-                    });
+                    peers[peerNumber].hasSetAnswer = true;
+                    if (!peers[peerNumber].hasSetAnswer) {
+                      peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                          console.log("SETTING OFFER");
+                          setAndSendDescription(description, peerNumber);
+                      }).catch(function(error) {
+                        errorHandler(error, "offer");
+                      });
+                    }
                 } else {
                   console.log("Got answer")
                 }
