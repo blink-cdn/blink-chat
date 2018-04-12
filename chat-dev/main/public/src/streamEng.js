@@ -55,7 +55,9 @@ streamEng.publish = function() {
     }).catch(errorHandler);
   };
 
-  for (videoIndex in videoIndices)
+  for (index in videoIndices) {
+    document.getElementById('remoteVideo'+videoIndices[index]).srcObject = remoteStreams[videoIndices[index]];
+  }
 };
 
 streamEng.subscribe = function() {
