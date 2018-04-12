@@ -6,7 +6,7 @@ var broadcastButton;
 var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
-var remoteStreams = [];
+var remoteStreams = {};
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -48,6 +48,14 @@ streamEng.publish = function() {
   streamEng.socket.emit('publish', user.userID, roomName);
   user.isPublished = true;
   console.log("Publishing");
+
+  for (peer in peers) {
+    peers[peer].peerConnection.createAnswer().then(function(description) {
+        setAndSendDescription(description, peer);
+    }).catch(errorHandler);
+  };
+
+  for (videoIndex in videoIndices)
 };
 
 streamEng.subscribe = function() {
@@ -112,9 +120,10 @@ streamEng.subscribe = function() {
         peerNumberOf[publisherID] = peers.length - 1;
       }
     } else {
-      peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
-      peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
-        remoteStreams.push(event.stream);
+      var peerNumber = peerNumberOf[publisherID];
+      peers[peerNumber].publisherNumber = publisherNumber;
+      peers[peerNumber].peerConnection.onaddstream = function(event) {
+        remoteStreams[peerNumber] = event.stream;
         console.log('Received remote stream');
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
         // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
@@ -272,7 +281,7 @@ function createPeerConnection(peerUserID, publisherNumber) {
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
       console.log('Received remote stream');
-      remoteStreams.push(event.stream);
+      remoteStreams[publisherNumber] = event.stream;
       document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
       // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
       console.log("Adding stream to:", peers[peerNumberOf[peerUserID]].publisherNumber);
