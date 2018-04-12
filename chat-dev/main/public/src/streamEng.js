@@ -177,6 +177,9 @@ function gotMessageFromServer(message) {
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
                     }).catch(errorHandler);
+                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                        setAndSendDescription(description, peerNumber);
+                    }).catch(errorHandler);
                 } else {
                   console.log("Got answer")
                 }
