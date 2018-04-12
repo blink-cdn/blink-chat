@@ -204,6 +204,11 @@ function joinRoom(peerNumber) {
     } catch(err) {
         console.log("Error:", err)
     }
+    try {
+        setupMediaStream(true, peerNumber);
+    } catch(err) {
+        console.log("Error:", err)
+    }
 }
 
 // Get the media from camera/microphone.
