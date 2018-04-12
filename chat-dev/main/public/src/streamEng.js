@@ -277,6 +277,11 @@ function createPeerConnection(peerUserID, publisherNumber) {
       // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
       console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
       console.log("for peer: ", publisherID);
+
+      var peerNumber = peerNumberOf[publisherID];
+      peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+          setAndSendDescription(description, peerNumber);
+      }).catch(errorHandler);
     };
   }
 
@@ -284,12 +289,6 @@ function createPeerConnection(peerUserID, publisherNumber) {
   return newPeerConnection;
 }
 function setAndSendDescription(description, peerNumber) {
-
-  // if (sendToPeerValue == -10) {
-  //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
-  //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
-  //   }).catch(errorHandler);
-  // } else {
         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
             streamEng.socket.emit('signal', {
                 'type': 'sdp',
@@ -297,7 +296,6 @@ function setAndSendDescription(description, peerNumber) {
                 'userID': user.userID
             }, peers[peerNumber].userID, roomName);
         }).catch(errorHandler);
-  // }
 }
 
 // Setup DOM elements and responses
