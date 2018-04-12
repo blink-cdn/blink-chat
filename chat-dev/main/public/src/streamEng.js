@@ -274,8 +274,8 @@ function createPeerConnection(peerUserID, publisherNumber) {
       remoteStreams.push(event.stream);
       document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
       // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
-      console.log("for peer: ", publisherID);
+      console.log("Adding stream to:", peers[peerNumberOf[peerUserID]].publisherNumber);
+      console.log("for peer: ", peerUserID);
     };
   }
 
