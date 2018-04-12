@@ -177,9 +177,11 @@ function gotMessageFromServer(message) {
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
                     }).catch(errorHandler);
-                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                        setAndSendDescription(description, peerNumber);
-                    }).catch(errorHandler);
+                    setTimeout(function() {
+                      peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                          setAndSendDescription(description, peerNumber);
+                      }).catch(errorHandler);
+                    }, 600);
                 } else {
                   console.log("Got answer")
                 }
