@@ -1,336 +1,308 @@
-//STATUS: WOrking
-var localVideoObject;
-var remoteVideoObject;
-var broadcastButton;
+var options = ["e.g ECE Meeting", "e.g Team Building",
+    "e.g Lecture Planning", "e.g Family Chat",
+    "e.g Work Dinner", "e.g Random Nonsense",
+    "e.g My Room", "e.g Rooms for Days",
+    "e.g My Fav Students"];
 
-var roomName = "helloAdele";
-var localStreams = {};
-var localStream = undefined;
-var remoteStreams = [];
-var screenshareStream = undefined;
-
-const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
-              { url: 'turn:numb.viagenie.ca',
-                credential: 'enter1234',
-                username: 'bethin.charles@yahoo.com'
-              }]};
-
-// var subscibers = [];
-// var publishers = [];
-var peers = [];
-var peerNumberOf = {
-  "userID": "peerNumber"
+var objs = {
+    goButton: undefined,
+    roomNameInput: undefined
 };
 
-var constraints = {
-  video: true,
-  audio: true
-};
+var masterUser = undefined;
 
-///////////////////////
-//// StreamCast Eng Stuff
+$(document).ready(function() {
+    console.log("Ready.");
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
 
-var streamEng = {
-    socket: null,
-    serviceAddress: null,
-    onSubscribeDone: undefined,
-    shouldScreenshare: false
-};
-
-var numPublishers = 0;
-
-streamEng.setupService = function() {
-  streamEng.subscribe();
-};
-
-streamEng.publish = function() {
-  setupMediaStream(false);
-  streamEng.socket.emit('publish', user.userID, roomName);
-  user.isPublished = true;
-  console.log("Publishing");
-};
-
-streamEng.subscribe = function() {
-  setupPage();
-  streamEng.socket = io.connect(streamEng.serviceAddress);
-  console.log("Connected to Stream Server", streamEng.serviceAddress, roomName);
-
-  // $('#publishButton').click(function() {
-    //   streamEng.publish();
-    // });
-
-  streamEng.socket.emit('subscribe', user.userID, roomName);
-
-  // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
-  streamEng.socket.on('subscriber ready', function(clientID) {
-      console.log("Subscriber ready from", clientID);
-
-    if (!peerNumberOf.hasOwnProperty(clientID)) {
-
-      // If this clientID isn't on record yet, create a new PC and add it to record
-        // Then join the room
-      if (user.userID !== clientID) {
-        var newPeerConnection = createPeerConnection(clientID);
-        peers.push({
-          "userID": clientID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-            setAndSentDescription: false
-        });
-        peerNumberOf[clientID] = peers.length - 1;
-      }
-
-      joinRoom(peerNumberOf[clientID]);
-
-    // If client is on record,
-    } else {
-      console.log("Already connected to this peer. Initiating stream");
-
-      var peerNumber = peerNumberOf[clientID];
-      joinRoom(peerNumberOf[clientID]);
+    if (window.location.hostname === "svc.blinkcdn.com") {
+      $('#login-text').css('visibility', 'visible');
     }
 
+    $('#login-btn').click(function() {
+      triggerSignInPopup();
+    });
+
+    if (localStorage['blink-user-info'] !== undefined) {
+      masterUser = JSON.parse(localStorage['blink-user-info']);
+      getPodsById(masterUser);
+    }
+
+    $('.close').click(function() {
+      $('#myModal').css('display', 'none');
+    })
+    $('#back-button').click(function() {
+      signoutUser();
+
+      $('#pods-container').animate({
+        right: "-100vw"
+      }, 550, function() {
+        $('#pods-list').html(function() { return "" });
+        pods = null;
+      });
+
+      $('#head-container').animate({
+        right: "0"
+      }, 300, null);
+
+      $('#pods-list').html(function() { return "" });
+      pods = null;
+    });
+
+    objs.goButton = $('#goButton');
+    objs.goButton.on('click', onGoToChat);
+    objs.roomNameInput = $('#roomNameInput')[0];
+
+    // typeAnimations(options, document.getElementById('roomNameInput'));
+    // printLetter("ECE Meeting", document.getElementById('roomNameInput'), 0);
+});
+
+function onGoToChat(roomName_input) {
+    console.log("Going to chat.");
+    // console.log("https://" + window.location.hostname);
+
+    var roomname = stringToLink(objs.roomNameInput.value.toLowerCase());
+    goToChat(roomname);
+}
+
+function goToChat(roomname) {
+  window.location.href = "https://" + window.location.hostname + "/chat.html#" + roomname;
+}
+
+/////////////////
+//// SIGN IN ////
+/////////////////
+var pods = undefined;
+
+function signoutUser() {
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
   });
 
-  // The broadcaster is ready to stream, create a PC for it
-  streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
-    console.log("Publisher ready from:", publisherNumber);
-
-    /* If peer doesn't exist, create new PC and add it to list of peers
-    If it does exist, reset the publisher number and the onaddstream function
-    so that the peer number is correct */
-    if (!peerNumberOf.hasOwnProperty(publisherID)) {
-      if (user.userID !== publisherID) {
-        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-        peers.push({
-          "userID": publisherID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
-        });
-    //
-        peerNumberOf[publisherID] = peers.length - 1;
-      }
-    } else {
-      peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
-      peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
-        console.log('Received remote stream');
-        document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-        // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-        console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
-        console.log("for peer: ", publisherID);
-      };
-    }
-
-    streamEng.onAddNewPublisher(publisherNumber);
+  masterLog({
+    type: "logout",
+    userID: masterUser.uid
   });
+  masterUser = undefined;
+  delete localStorage['blink-user-info'];
+}
 
-  // On signal, go to gotMessageFromServer to handle the message
-  streamEng.socket.on('signal', function(message) {
-    gotMessageFromServer(message);
+function triggerSignInPopup() {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      handleSignIn(user);
+  }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
   });
+}
 
-  // Handle client disconnect
-  streamEng.socket.on('disconnect user', function(userID, roomName) {
-     if (peerNumberOf.hasOwnProperty(userID)) {
-       var peerNumber = peerNumberOf[userID];
-       if (peers[peerNumber].hasOwnProperty("publisherNumber")) {
-         // If it's a publisher, delete publishers;
-           streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
-       }
-
-       peers.splice(peerNumber, 1);
-     }
+function handleSignIn(user) {
+  masterUser = user;
+  localStorage['blink-user-info'] = JSON.stringify(masterUser);
+  masterLog({
+    event: "log in",
+    userID: masterUser.uid
   });
-
-    if (typeof streamEng.onSubscribeDone !== "undefined") {
-        streamEng.onSubscribeDone();
-    }
-
+  getPodsById(user);
 }
 
-
-//////////////////////////
-////// To make this work
-
-function gotMessageFromServer(message) {
-    var signal = message;
-
-    // Ignore messages from ourself
-    if(signal.userID === user.userID) {
-      console.log("Received from self");
-      return;
+function getPodsById(user) {
+  var userId = user.uid;
+  firebase.database().ref('/users/'+userId+'/pods').once('value').then(function(snapshot) {
+    pods = snapshot.val();
+    if (pods === null) {
+      getPodsByEmail(user);
     }
-
-    // if (true) {
-      // If I'm the broadcaster, loop through my peers and find the right
-      // peer connection to use to send to
-      peerNumber = peerNumberOf[signal.userID];
-
-      if (peers[peerNumber].userID === signal.userID) {
-
-        if(signal.type === "sdp") {
-            peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-                // Only create answers in response to offers
-                if(signal.sdp.type === 'offer') {
-                    console.log("Got offer");
-                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                        console.log("SETTING OFFER", description);
-                        setAndSendDescription(description, peerNumber);
-                    }).catch(function(error) {
-                      errorHandler(error, "offer");
-                    });
-                } else {
-                  console.log("Got answer")
-                }
-            }).catch(function(error) {
-              errorHandler(error, "sdp");
-            });
-        } else if(signal.type === "ice") {
-            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(function(error) {
-              errorHandler(error, "ice");
-            });
-        }
-      }
-    // }
-
-
+    displayPods();
+  });
 }
 
+function getPodsByEmail(user) {
+  email = emailToString(user.email);
+  firebase.database().ref('/users/'+email+'/pods').once('value').then(function(snapshot) {
+    pods = snapshot.val();
+    displayPods();
 
-function joinRoom(peerNumber) {
-    try {
-        setupMediaStream(true, peerNumber);
-    } catch(err) {
-        console.log("Error:", err)
-    }
-    try {
-        setupMediaStream(true, peerNumber);
-    } catch(err) {
-        console.log("Error:", err)
-    }
-}
-
-// Get the media from camera/microphone.
-function setupMediaStream(startStream, peerNumber) {
-
-    if (streamEng.shouldScreenshare) {
-        getScreenConstraints(function(error, screen_constraints) {
-            if (error) {
-                return alert(error);
-            }
-
-            var video_options = {
-                video: screen_constraints,
-                // audio: true
-            };
-            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-            if (screenshareStream !== undefined) {
-                console.log("Reusing stream");
-                shareStream(screenshareStream, startStream, peerNumber);
-            } else {
-                navigator.getUserMedia(video_options, function(stream) {
-                    screenshareStream = stream;
-                    shareStream(stream, false, peerNumber);
-                }, function(error) {
-                    console.log("SCREENSHARE ERR:", error);
-                });
-            }
-
-        });
-    } else {
-        if(navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                shareStream(stream, startStream, peerNumber);
-            });
-        } else {
-            alert('Your browser does not support getUserMedia API');
-        }
-    }
-}
-
-function shareStream(stream, startStream, peerNumber) {
-    localStreams[peerNumber] = stream;
-
-    if (startStream === false) {
-        streamEng.onPublish(stream);
-    }
-    // If you want to start the stream, addStream to connection
-    else {
-        console.log("NOT ON PUBLISH");
-        if (!peers[peerNumber]) {
-            console.log("NOPE:", peerNumber);
-        }
-        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
-
-        peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            console.log("CREATING OFFER", description);
-            setAndSendDescription(description, peerNumber);
-        }).catch(function(error) {
-          errorHandler(error, "create offer");
-        });
-    }
-}
-
-// Create peer connection 1
-function createPeerConnection(peerUserID, publisherNumber) {
-
-  var newPeerConnection = new RTCPeerConnection(configOptions);
-  newPeerConnection.onicecandidate = function(event) {
-    if(event.candidate !== null) {
-        streamEng.socket.emit('signal', {'type': 'ice', 'ice': event.candidate, 'userID': user.userID}, peerUserID, roomName);
-    }
-  };
-
-  if (publisherNumber !== null) {
-    newPeerConnection.onaddstream = function(event) {
-      console.log('Received remote stream:', event.stream);
-      document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-      // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      console.log("Adding stream to:", publisherNumber);
-      peers[peerNumberOf[peerUserID]].hasConnected = true;
-      remoteStreams.push(event.stream);
+    var newUser = {
+      name: user.displayName,
+      uid: user.uid,
+      email: user.email,
+      pods: pods
     };
+
+    writeUserToFirebase(newUser);
+
+    for (podName in pods) {
+      var podId = pods[podName];
+      updatePodUsers(podId, newUser);
+    };
+  });
+}
+
+function displayPods() {
+  $('#pods-list').html(function() { return "" });
+  if (pods === null) {
+    $('#pods-list').append("<h5 id=\"no-pod-found\">No pods found.</h5>");
+  } else {
+    for (pod in pods) {
+      var html = "<li class=\"pod-link\" id=\"" + pods[pod] + "\">" + pod + "</li>"
+      $('#pods-list').append(html);
+    }
   }
 
-  // GET STATS
-  getStats(newPeerConnection, function(results) {
-    // console.log("RESULTS:", results);
-  }, 2000);
+  $('.pod-link').click(function(event) {
+    console.log(event.target.id);
+    goToChat(event.target.id);
+  });
 
-  return newPeerConnection;
-}
-function setAndSendDescription(description, peerNumber) {
-      peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-          streamEng.socket.emit('signal', {
-              'type': 'sdp',
-              // 'sdp': peers[peerNumber].peerConnection.localDescription,
-              'sdp': description,
-              'userID': user.userID
-          }, peers[peerNumber].userID, roomName);
-          console.log(description);
-      }).catch(function(error) {
-        errorHandler(error, "description");
-      });
+  $('#head-container').animate({
+    right: "100vw"
+  }, 550, null);
+
+  $('#pods-container').animate({
+    right: "0"
+  }, 300, null);
 }
 
-// Setup DOM elements and responses
-function setupPage() {
-    user.isPublished = false;
-    user.isSubscribed = true;
-
-    localVideoObject = document.getElementById('local-video');
-    remoteVideoObject = document.getElementById('remote-video');
-
-
-    // If client is going to disconnect, let server know
-    window.addEventListener("beforeunload", function(e) {
-        streamEng.socket.emit('disconnect client', user.userID, roomName); // Disconnects from roomm
-    }, false);
+function newPod(podName) {
+  var newPodKey = database.ref().child("pods").push().key;
 }
 
-///////////////////
-function errorHandler(error, other) {
-    console.log(error.message, other);
+function writeUserToFirebase(user) {
+  firebase.database().ref('users/' + user.uid).set(user);
+  deleteUserFromFirebase(user);
+};
+
+function updatePodUsers(podId, user) {
+  var updates = {};
+  updates["pods/" + podId + "/users/" + user.uid] = user.name;
+  database.ref().update(updates);
 }
+
+function deleteUserFromFirebase(user) {
+  var email = emailToString(user.email)
+  firebase.database().ref('users/'+email).remove();
+  console.log("Removing:", email);
+}
+
+function masterLog(event) {
+  event.datetime = getCurrentDateTime();
+
+  var newLogKey = firebase.database().ref("master_log/").push().key;
+  firebase.database().ref("master_log/" + newLogKey).set(event);
+}
+
+function getCurrentDateTime() {
+  var today = new Date();
+  return today.toGMTString();
+}
+
+///////////////////////////
+//// TYPING ANIMATIONS ////
+///////////////////////////
+
+function typeAnimations(arrOptions, element) {
+
+    setTimeout(function() {
+        printLetter(arrOptions[0], element, 0);
+    }, 800);
+
+    setInterval(function() {
+        if (element === document.activeElement) {
+            element.attr("placeholder", "");
+        } else {
+            var index = randDelay(0, arrOptions.length-1);
+            printLetter(arrOptions[index], element, 0);
+        }
+
+    }, 6000)
+}
+function randDelay(min, max) {
+    return Math.floor(Math.random() * (max-min+1)+min);
+}
+function printLetter(string, el, count) {
+    // split string into character separated array
+    var arr = string.split(''),
+        input = el,
+        // store full placeholder
+        origString = string,
+        // get current placeholder value
+        curPlace = $(input).attr("placeholder"),
+        // append next letter to current placeholder
+        placeholder = curPlace + arr[count];
+
+    setTimeout(function(){
+        // print placeholder text
+        $(input).attr("placeholder", placeholder);
+        // increase loop count
+        count++;
+        // run loop until placeholder is fully printed
+        if (count < arr.length) {
+            printLetter(origString, input, count);
+        } else {
+            setTimeout(function() {
+                removeLetter(origString, input, count);
+            }, randDelay(400, 600));
+
+        }
+        // use random speed to simulate
+        // 'human' typing
+    }, randDelay(90, 150));
+}
+
+function removeLetter(string, el, count) {
+    // var arr = string.split('');
+    var input = el;
+    var origString = string;
+    var curPlace = $(input).attr("placeholder");
+    var arr = curPlace.split('');
+    arr.pop();
+
+    setTimeout(function() {
+        $(input).attr("placeholder", arr.join(""));
+        count--;
+        if (count > 0) {
+            removeLetter(origString, input, count);
+        }
+    }, randDelay(100, 100));
+}
+
+function emailToString(email) {
+  var emailOutput = "";
+  for (var i = 0; i < email.length; i++) {
+    if (email[i] == '.') {
+      emailOutput += "*";
+    } else {
+      emailOutput += email[i];
+    }
+  }
+
+  return emailOutput;
+}
+
+function stringToLink(string) {
+    var returnString = "";
+
+    for (i in string) {
+        if (string[i] == " ") {
+            returnString += "_";
+        } else {
+            returnString += string[i];
+        }
+    }
+
+    return returnString;
+};
