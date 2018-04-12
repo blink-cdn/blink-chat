@@ -114,12 +114,12 @@ streamEng.subscribe = function() {
     } else {
       peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
       peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
+        remoteStreams.push(event.stream);
         console.log('Received remote stream');
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
         // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
         console.log("for peer: ", publisherID);
-        remoteStreams.push(event.stream);
       };
     }
 
@@ -272,11 +272,11 @@ function createPeerConnection(peerUserID, publisherNumber) {
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
       console.log('Received remote stream');
+      remoteStreams.push(event.stream);
       document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
       // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
       console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
       console.log("for peer: ", publisherID);
-      remoteStreams.push(event.stream);
     };
   }
 
