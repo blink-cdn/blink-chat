@@ -114,6 +114,9 @@ streamEng.subscribe = function() {
     } else {
       var peerNumber = peerNumberOf[publisherID];
       peers[peerNumber].publisherNumber = publisherNumber;
+      peers[peerNumber].onsignalingstatechange = function(event) {
+        console.log("Signaling state:", peerNumber, peers[peerNumber].signalingstate);
+      }
       peers[peerNumber].peerConnection.onaddstream = function(event) {
         remoteStreams[peerNumber] = event.stream;
         console.log('Received remote stream');
