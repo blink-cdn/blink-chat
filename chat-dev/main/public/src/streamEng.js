@@ -48,6 +48,12 @@ streamEng.publish = function() {
   streamEng.socket.emit('publish', user.userID, roomName);
   user.isPublished = true;
   console.log("Publishing");
+
+  for (peer in peers) {
+    peers[peer].peerConnection.createAnswer().then(function(description) {
+        setAndSendDescription(description, peer);
+    }).catch(errorHandler);
+  }
 };
 
 streamEng.subscribe = function() {
@@ -139,6 +145,7 @@ streamEng.subscribe = function() {
            streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
        }
 
+       delete peerNumberOf[userID];
        peers.splice(peerNumber, 1);
      }
   });
@@ -177,12 +184,6 @@ function gotMessageFromServer(message) {
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
                     }).catch(errorHandler);
-                    setTimeout(function() {
-                      console.log("---");
-                      peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                          setAndSendDescription(description, peerNumber);
-                      }).catch(errorHandler);
-                    }, 600);
                 } else {
                   console.log("Got answer")
                 }
