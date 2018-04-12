@@ -53,7 +53,7 @@ streamEng.publish = function() {
     peers[peer].peerConnection.createAnswer().then(function(description) {
         setAndSendDescription(description, peer);
     }).catch(errorHandler);
-  }
+  };
 };
 
 streamEng.subscribe = function() {
