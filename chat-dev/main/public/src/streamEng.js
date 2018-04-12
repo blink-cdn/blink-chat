@@ -6,6 +6,7 @@ var broadcastButton;
 var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
+var remoteStreams = [];
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -114,9 +115,11 @@ streamEng.subscribe = function() {
       peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
       peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
         console.log('Received remote stream');
-        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
+        // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
         console.log("for peer: ", publisherID);
+        remoteStreams.push(event.stream);
       };
     }
 
@@ -268,10 +271,12 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
-      console.log('Received remote stream:', event.stream);
-        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-        console.log("Adding stream to:", publisherNumber);
-        peers[peerNumberOf[peerUserID]].hasConnected = true;
+      console.log('Received remote stream');
+      document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
+      // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+      console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+      console.log("for peer: ", publisherID);
+      remoteStreams.push(event.stream);
     };
   }
 
