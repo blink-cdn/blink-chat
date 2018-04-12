@@ -178,6 +178,7 @@ function gotMessageFromServer(message) {
                         setAndSendDescription(description, peerNumber);
                     }).catch(errorHandler);
                     setTimeout(function() {
+                      console.log("---");
                       peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                           setAndSendDescription(description, peerNumber);
                       }).catch(errorHandler);
