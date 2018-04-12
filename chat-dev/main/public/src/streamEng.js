@@ -277,11 +277,6 @@ function createPeerConnection(peerUserID, publisherNumber) {
       // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
       console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
       console.log("for peer: ", publisherID);
-
-      var peerNumber = peerNumberOf[publisherID];
-      peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-          setAndSendDescription(description, peerNumber);
-      }).catch(errorHandler);
     };
   }
 
