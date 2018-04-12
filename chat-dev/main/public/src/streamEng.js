@@ -48,12 +48,6 @@ streamEng.publish = function() {
   streamEng.socket.emit('publish', user.userID, roomName);
   user.isPublished = true;
   console.log("Publishing");
-
-  for (peer in peers) {
-    peers[peer].peerConnection.createAnswer().then(function(description) {
-        setAndSendDescription(description, peer);
-    }).catch(errorHandler);
-  };
 };
 
 streamEng.subscribe = function() {
