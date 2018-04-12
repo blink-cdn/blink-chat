@@ -272,6 +272,9 @@ function createPeerConnection(peerUserID, publisherNumber) {
         streamEng.socket.emit('signal', {'type': 'ice', 'ice': event.candidate, 'userID': user.userID}, peerUserID, roomName);
     }
   };
+  newPeerConnection.onsignalingstatechange = function(event) {
+    console.log("Signaling state:", publisherNumber, newPeerConnection.signalingstate);
+  }
 
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
