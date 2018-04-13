@@ -142,7 +142,8 @@ function setupSocket() {
   //     applyColumnClassesToVideo();
   // };
 
-  if (!isPublished) {
+  streamEng.onPublish = function(stream) {
+    if (!isPublished) {
       numPublishers++;
     }
 
@@ -154,6 +155,7 @@ function setupSocket() {
 
     $('#local-video').attr('src', window.URL.createObjectURL(stream));
     applyColumnClassesToVideo();
+  }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
