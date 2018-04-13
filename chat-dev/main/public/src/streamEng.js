@@ -274,6 +274,11 @@ function createPeerConnection(peerUserID, publisherNumber) {
   };
   newPeerConnection.onsignalingstatechange = function(event) {
     console.log("Signaling state:", publisherNumber, newPeerConnection.signalingState);
+    if (newPeerConnectino == "have-remote-offer") {
+      newPeerConnection.createAnswer().then(function(description) {
+          setAndSendDescription(description, peers.length-1);
+      }).catch(errorHandler);
+    }
   }
 
   if (publisherNumber !== null) {
