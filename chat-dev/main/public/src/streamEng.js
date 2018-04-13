@@ -6,7 +6,6 @@ var broadcastButton;
 var roomName = "helloAdele";
 var localStreams = {};
 var localStream = undefined;
-var remoteStreams = {};
 var screenshareStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
@@ -112,14 +111,12 @@ streamEng.subscribe = function() {
         peerNumberOf[publisherID] = peers.length - 1;
       }
     } else {
-      var peerNumber = peerNumberOf[publisherID];
-      peers[peerNumber].publisherNumber = publisherNumber;
-      peers[peerNumber].peerConnection.onaddstream = function(event) {
-        remoteStreams[peerNumber] = event.stream;
-        console.log('Received remote stream', publisherNumber);
-        document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-        // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+      peers[peerNumberOf[publisherID]].publisherNumber = publisherNumber;
+      peers[peerNumberOf[publisherID]].peerConnection.onaddstream = function(event) {
+        console.log('Received remote stream');
+        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+        console.log("for peer: ", publisherID);
       };
     }
 
@@ -140,7 +137,6 @@ streamEng.subscribe = function() {
            streamEng.onDeletePublisher(peers[peerNumber].publisherNumber);
        }
 
-       delete peerNumberOf[userID];
        peers.splice(peerNumber, 1);
      }
   });
@@ -165,40 +161,31 @@ function gotMessageFromServer(message) {
     }
 
     // if (true) {
-    // If I'm the broadcaster, loop through my peers and find the right
-    // peer connection to use to send to
-    peerNumber = peerNumberOf[signal.userID];
+      // If I'm the broadcaster, loop through my peers and find the right
+      // peer connection to use to send to
+      peerNumber = peerNumberOf[signal.userID];
 
-    if(signal.type === "sdp") {
-        console.log("Received", signal.sdp.type, "from", peerNumber, signal.sdp);
-        peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-            // Only create answers in response to offers
-            if(signal.sdp.type == 'offer') {
-                console.log("Set remote offer", peerNumber);
-                peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                  //
-                  console.log("Created offer and setting desc", peerNumber);
-                  peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                      console.log("Sending signal", peerNumber);
-                      streamEng.socket.emit('signal', {
-                          'type': 'sdp',
-                          'sdp': peers[peerNumber].peerConnection.localDescription,
-                          'userID': user.userID
-                      }, peers[peerNumber].userID, roomName);
-                  }).catch(function(error) {
-                    console.log(error, peerNumber, "here");
-                  });
-                  //
-                }).catch(function(error) {
-                  console.log(error, peerNumber);
-                });
-            } else {
-              console.log("Got answer", peerNumber);
-            }
-        }).catch(errorHandler);
-    } else if(signal.type === "ice") {
-        peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
-    }
+      if (peers[peerNumber].userID === signal.userID) {
+
+        if(signal.type === "sdp") {
+            peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+                // Only create answers in response to offers
+                if(signal.sdp.type === 'offer') {
+                    console.log("Got offer");
+                    peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+                        setAndSendDescription(description, peerNumber);
+                    }).catch(errorHandler);
+                } else {
+                  console.log("Got answer")
+                }
+            }).catch(errorHandler);
+        } else if(signal.type === "ice") {
+            peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+        }
+      }
+    // }
+
+
 }
 
 
@@ -255,24 +242,16 @@ function shareStream(stream, startStream, peerNumber) {
     if (startStream === false) {
         streamEng.onPublish(stream);
     }
-
     // If you want to start the stream, addStream to connection
     else {
+        console.log("NOT ON PUBLISH");
         if (!peers[peerNumber]) {
             console.log("NOPE:", peerNumber);
         }
-
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
+
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            console.log("Created offer and setting desc", peerNumber);
-            peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                console.log("Sending signal");
-                streamEng.socket.emit('signal', {
-                    'type': 'sdp',
-                    'sdp': peers[peerNumber].peerConnection.localDescription,
-                    'userID': user.userID
-                }, peers[peerNumber].userID, roomName);
-            }).catch(errorHandler);
+            setAndSendDescription(description, peerNumber);
         }).catch(errorHandler);
     }
 }
@@ -287,34 +266,34 @@ function createPeerConnection(peerUserID, publisherNumber) {
     }
   };
 
-  newPeerConnection.onsignalingstatechange = function(event) {
-    // console.log("Signaling state ", publisherNumber, newPeerConnection.signalingState);
-  }
-
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
-      console.log('Received remote stream', publisherNumber);
-      remoteStreams[publisherNumber] = event.stream;
-      document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-      // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      console.log("Adding stream to:", peers[peerNumberOf[peerUserID]].publisherNumber);
+      console.log('Received remote stream:', event.stream);
+        $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        console.log("Adding stream to:", publisherNumber);
+        peers[peerNumberOf[peerUserID]].hasConnected = true;
     };
   }
 
+
   return newPeerConnection;
 }
+function setAndSendDescription(description, peerNumber) {
 
-// function setAndSendDescription(description, peerNumber) {
-//         console.log("Setting description", peerNumber);
-//         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-//             streamEng.socket.emit('signal', {
-//                 'type': 'sdp',
-//                 'sdp': peers[peerNumber].peerConnection.localDescription,
-//                 'userID': user.userID
-//             }, peers[peerNumber].userID, roomName);
-//             console.log("Sending description", peerNumber);
-//         }).catch(errorHandler);
-// }
+  // if (sendToPeerValue == -10) {
+  //   broadcaster.peerConnection.setLocalDescription(description).then(function() {
+  //       streamEng.socket.emit('signal', {'type': 'sdp', 'sdp': broadcaster.peerConnection.localDescription, 'userID': user.userID}, broadcaster.castID, roomName);
+  //   }).catch(errorHandler);
+  // } else {
+        peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+            streamEng.socket.emit('signal', {
+                'type': 'sdp',
+                'sdp': peers[peerNumber].peerConnection.localDescription,
+                'userID': user.userID
+            }, peers[peerNumber].userID, roomName);
+        }).catch(errorHandler);
+  // }
+}
 
 // Setup DOM elements and responses
 function setupPage() {
