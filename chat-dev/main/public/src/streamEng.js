@@ -259,20 +259,18 @@ function shareStream(stream, startStream, peerNumber) {
         if (!peers[peerNumber]) {
             console.log("NOPE:", peerNumber);
         }
-        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
+        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            console.log("Created offer", peerNumber);
-            console.log("Setting description", peerNumber);
+            console.log("Created offer and setting desc", peerNumber);
             peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                console.log("Sending signal");
                 streamEng.socket.emit('signal', {
                     'type': 'sdp',
                     'sdp': peers[peerNumber].peerConnection.localDescription,
                     'userID': user.userID
                 }, peers[peerNumber].userID, roomName);
-                console.log("Sending description", peerNumber);
             }).catch(errorHandler);
-            // setAndSendDescription(description, peerNumber);
         }).catch(errorHandler);
     }
 }
