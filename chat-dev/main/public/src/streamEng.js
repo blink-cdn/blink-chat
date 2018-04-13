@@ -277,21 +277,8 @@ function handleSDP(signal, peerNumber) {
   peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
       // Only create answers in response to offers
       if(signal.sdp.type == 'offer') {
-          console.log("Set remote offer", peerNumber, signal.userID);
           peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-            //
-            console.log("Created offer and setting desc", peerNumber, signal.userID);
-            peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                console.log("Sending signal", peerNumber);
-                streamEng.socket.emit('signal', {
-                    'type': 'sdp',
-                    'sdp': peers[peerNumber].peerConnection.localDescription,
-                    'userID': user.userID
-                }, peers[peerNumber].userID, roomName);
-            }).catch(function(error) {
-              console.log(error, peerNumber, "here");
-            });
-            //
+            setAndSendDescription(description, peerNumber);
           }).catch(function(error) {
             console.log(error, peerNumber);
           });
@@ -299,6 +286,19 @@ function handleSDP(signal, peerNumber) {
         console.log("Got answer", peerNumber);
       }
   }).catch(errorHandler);
+}
+
+function setAndSendDescription(description, peerNumber) {
+  peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+      console.log("Sending signal", peerNumber);
+      streamEng.socket.emit('signal', {
+          'type': 'sdp',
+          'sdp': peers[peerNumber].peerConnection.localDescription,
+          'userID': user.userID
+      }, peers[peerNumber].userID, roomName);
+  }).catch(function(error) {
+    console.log(error, peerNumber, "here");
+  });
 }
 
 // Setup DOM elements and responses
