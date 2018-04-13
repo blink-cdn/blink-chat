@@ -177,7 +177,7 @@ function gotMessageFromServer(message) {
                 console.log("Set remote offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
-                  console.log("Created offer and setting desc", peerNumber);
+                  console.log("Created offer and setting desc", peerNumber, peers[peerNumber].peerConnection.signalingState);
                   if (peers[peerNumber].peerConnection.signalingState !== "stable") {
                     peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
                         console.log("Sending signal", peerNumber);
