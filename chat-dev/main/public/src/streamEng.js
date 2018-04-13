@@ -99,30 +99,30 @@ streamEng.subscribe = function() {
     // If it does exist, reset the publisher number and the onaddstream function
     // so that the peer number is correct */
 
-    if (!peerNumberOf.hasOwnProperty(publisherID)) {
-      if (user.userID !== publisherID) {
-        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-        peers.push({
-          "userID": publisherID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
-        });
-
-        peerNumberOf[publisherID] = peers.length - 1;
-      }
-
-    } else {
-      var peerNumber = peerNumberOf[publisherID];
-      peers[peerNumber].publisherNumber = publisherNumber;
-      peers[peerNumber].peerConnection.onaddstream = function(event) {
-        remoteStreams[peerNumber] = event.stream;
-        console.log('Received remote stream', publisherNumber);
-        document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-      };
-    }
-
-    streamEng.onAddNewPublisher(publisherNumber);
+    // if (!peerNumberOf.hasOwnProperty(publisherID)) {
+    //   if (user.userID !== publisherID) {
+    //     var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
+    //     peers.push({
+    //       "userID": publisherID,
+    //       "number": (peers.length),
+    //       "peerConnection": newPeerConnection,
+    //       "publisherNumber": publisherNumber
+    //     });
+    //
+    //     peerNumberOf[publisherID] = peers.length - 1;
+    //   }
+    //
+    // } else {
+    //   var peerNumber = peerNumberOf[publisherID];
+    //   peers[peerNumber].publisherNumber = publisherNumber;
+    //   peers[peerNumber].peerConnection.onaddstream = function(event) {
+    //     remoteStreams[peerNumber] = event.stream;
+    //     console.log('Received remote stream', publisherNumber);
+    //     document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
+    //   };
+    // }
+    //
+    // streamEng.onAddNewPublisher(publisherNumber);
   });
 
   // On signal, go to gotMessageFromServer to handle the message
