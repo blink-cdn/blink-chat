@@ -181,7 +181,7 @@ function gotMessageFromServer(message) {
                         console.log("CREATED ANSWER LET'S GO", peerNumber);
                     }).catch(errorHandler);
                 } else {
-                  console.log("Got answer")
+                  console.log("Got answer", peerNumber);
                 }
             }).catch(errorHandler);
         } else if(signal.type === "ice") {
