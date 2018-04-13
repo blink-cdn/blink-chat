@@ -100,19 +100,19 @@ streamEng.subscribe = function() {
     // /* If peer doesn't exist, create new PC and add it to list of peers
     // If it does exist, reset the publisher number and the onaddstream function
     // so that the peer number is correct */
-    // if (!peerNumberOf.hasOwnProperty(publisherID)) {
-    //   if (user.userID !== publisherID) {
-    //     var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-    //     peers.push({
-    //       "userID": publisherID,
-    //       "number": (peers.length),
-    //       "peerConnection": newPeerConnection,
-    //       "publisherNumber": publisherNumber
-    //     });
-    // //
-    //     peerNumberOf[publisherID] = peers.length - 1;
-    //   }
-    // } else {
+    if (!peerNumberOf.hasOwnProperty(publisherID)) {
+      if (user.userID !== publisherID) {
+        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
+        peers.push({
+          "userID": publisherID,
+          "number": (peers.length),
+          "peerConnection": newPeerConnection,
+          "publisherNumber": publisherNumber
+        });
+    //
+        // peerNumberOf[publisherID] = peers.length - 1;
+      }
+    } else {
     //   var peerNumber = peerNumberOf[publisherID];
     //   peers[peerNumber].publisherNumber = publisherNumber;
     //   peers[peerNumber].peerConnection.onaddstream = function(event) {
@@ -122,8 +122,8 @@ streamEng.subscribe = function() {
     //     // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
     //     // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
     //   };
-    // }
-    //
+    }
+
     streamEng.onAddNewPublisher(publisherNumber);
   });
 
