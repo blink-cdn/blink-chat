@@ -172,7 +172,7 @@ function gotMessageFromServer(message) {
 
     if(signal.type === "sdp") {
         console.log("Received", signal.sdp.type, "from", peerNumber, "-", signal.userID);
-        handleSDP(signal, peerNumber);
+        // handleSDP(signal, peerNumber);
     } else if(signal.type === "ice") {
         peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
     }
