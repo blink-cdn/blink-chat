@@ -125,34 +125,24 @@ function setupSocket() {
 
   streamEng.onPublish = function(stream) {
       console.log("On Publish called");
+
       if (!isPublished) {
           numPublishers++;
           activeVideos.push('#local-video');
       }
       isPublished = true;
 
-      var isScreenshare = "";
-      if (streamEng.shouldScreenshare === true) {
-          isScreenshare = "screenshare";
-      }
-
-
       $('#local-video-div').html(function() {
-          return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
+          return "<video muted id=\"local-video\" class=\'"
+                + (streamEng.shouldScreenshare ? "screenshare" : "")
+                + "\' autoplay></video>";
       });
-      document.getElementById('local-video').srcObject = localStream;
-      // $('#local-video').attr('src', window.URL.createObjectURL(stream));
 
-      // $('#local-video').click(function(event) {
-      //     if (activeVideos.length === 1) {
-      //         unFullscreenVideo("#"+event.target.id);
-      //     } else {
-      //         fullscreenVideo("#" + event.target.id);
-      //     }
-      // });
+      document.getElementById('local-video').srcObject = stream;
 
       applyColumnClassesToVideo();
   };
+
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
         // Add video to videoIndices list (master list) and active video list
