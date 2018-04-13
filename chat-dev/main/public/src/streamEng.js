@@ -168,6 +168,7 @@ function gotMessageFromServer(message) {
     // If I'm the broadcaster, loop through my peers and find the right
     // peer connection to use to send to
     peerNumber = peerNumberOf[signal.userID];
+    console.log(signal.userID, "-", peerNumber);
 
     if(signal.type === "sdp") {
         console.log("Received", signal.sdp.type, "from", peerNumber);
