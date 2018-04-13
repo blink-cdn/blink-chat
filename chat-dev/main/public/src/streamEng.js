@@ -114,9 +114,6 @@ streamEng.subscribe = function() {
     } else {
       var peerNumber = peerNumberOf[publisherID];
       peers[peerNumber].publisherNumber = publisherNumber;
-      peers[peerNumber].onsignalingstatechange = function(event) {
-        console.log("Signaling state:", peerNumber, peers[peerNumber].signalingstate);
-      }
       peers[peerNumber].peerConnection.onaddstream = function(event) {
         remoteStreams[peerNumber] = event.stream;
         console.log('Received remote stream');
@@ -181,6 +178,7 @@ function gotMessageFromServer(message) {
                     console.log("Got offer");
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
+                        console.log("CREATED ANSWER LET'S GO", peerNumber);
                     }).catch(errorHandler);
                 } else {
                   console.log("Got answer")
@@ -272,13 +270,9 @@ function createPeerConnection(peerUserID, publisherNumber) {
         streamEng.socket.emit('signal', {'type': 'ice', 'ice': event.candidate, 'userID': user.userID}, peerUserID, roomName);
     }
   };
+
   newPeerConnection.onsignalingstatechange = function(event) {
-    console.log("Signaling state ", publisherNumber, newPeerConnection.signalingState);
-    // if (newPeerConnection.signalingState == "have-remote-offer") {
-    //   newPeerConnection.createAnswer().then(function(description) {
-    //       setAndSendDescription(description, peers.length-1);
-    //   }).catch(errorHandler);
-    // }
+    // console.log("Signaling state ", publisherNumber, newPeerConnection.signalingState);
   }
 
   if (publisherNumber !== null) {
