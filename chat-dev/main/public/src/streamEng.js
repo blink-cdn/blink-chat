@@ -170,11 +170,11 @@ function gotMessageFromServer(message) {
     peerNumber = peerNumberOf[signal.userID];
 
     if(signal.type === "sdp") {
-        console.log("Received", signal.sdp.type, "from", peerNumberOf[signal.userID]);
+        console.log("Received", signal.sdp.type, "from", peerNumber);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
 
             // Only create answers in response to offers
-            if(signal.sdp.type === 'offer') {
+            if(signal.sdp.type == 'offer') {
                 console.log("Set remote offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
@@ -256,9 +256,9 @@ function shareStream(stream, startStream, peerNumber) {
     if (startStream === false) {
         streamEng.onPublish(stream);
     }
+
     // If you want to start the stream, addStream to connection
     else {
-        console.log("NOT ON PUBLISH");
         if (!peers[peerNumber]) {
             console.log("NOPE:", peerNumber);
         }
@@ -304,17 +304,18 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   return newPeerConnection;
 }
-function setAndSendDescription(description, peerNumber) {
-        console.log("Setting description", peerNumber);
-        peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-            streamEng.socket.emit('signal', {
-                'type': 'sdp',
-                'sdp': peers[peerNumber].peerConnection.localDescription,
-                'userID': user.userID
-            }, peers[peerNumber].userID, roomName);
-            console.log("Sending description", peerNumber);
-        }).catch(errorHandler);
-}
+
+// function setAndSendDescription(description, peerNumber) {
+//         console.log("Setting description", peerNumber);
+//         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+//             streamEng.socket.emit('signal', {
+//                 'type': 'sdp',
+//                 'sdp': peers[peerNumber].peerConnection.localDescription,
+//                 'userID': user.userID
+//             }, peers[peerNumber].userID, roomName);
+//             console.log("Sending description", peerNumber);
+//         }).catch(errorHandler);
+// }
 
 // Setup DOM elements and responses
 function setupPage() {
