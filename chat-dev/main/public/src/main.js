@@ -123,24 +123,37 @@ function setupSocket() {
   //     streamEng.publish();
   // };
 
-  streamEng.onPublish = function(stream) {
-      console.log("On Publish called");
+  // streamEng.onPublish = function(stream) {
+  //     console.log("On Publish called");
+  //
+  //     if (!isPublished) {
+  //         numPublishers++;
+  //         activeVideos.push('#local-video');
+  //     }
+  //     isPublished = true;
+  //
+  //     $('#local-video-div').html(function() {
+  //         return "<video muted id=\"local-video\" class=\'"
+  //               + (streamEng.shouldScreenshare ? "screenshare" : "")
+  //               + "\' autoplay></video>";
+  //     });
+  //
+  //     document.getElementById('local-video').srcObject = stream;
+  //     applyColumnClassesToVideo();
+  // };
 
-      if (!isPublished) {
-          numPublishers++;
-          activeVideos.push('#local-video');
-      }
-      isPublished = true;
+  if (!isPublished) {
+      numPublishers++;
+    }
 
-      $('#local-video-div').html(function() {
-          return "<video muted id=\"local-video\" class=\'"
-                + (streamEng.shouldScreenshare ? "screenshare" : "")
-                + "\' autoplay></video>";
-      });
+    isPublished = true;
 
-      document.getElementById('local-video').srcObject = stream;
-      applyColumnClassesToVideo();
-  };
+    $('#local-video-div').html(function() {
+      return "<video muted id=\"local-video\" autoplay></video>";
+    });
+
+    $('#local-video').attr('src', window.URL.createObjectURL(stream));
+    applyColumnClassesToVideo();
 
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
