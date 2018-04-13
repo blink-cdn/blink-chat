@@ -124,7 +124,7 @@ function setupSocket() {
   // };
 
   streamEng.onPublish = function(stream) {
-
+      console.log("On Publish called");
       if (!isPublished) {
           numPublishers++;
           activeVideos.push('#local-video');
