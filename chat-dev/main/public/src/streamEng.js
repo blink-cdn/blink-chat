@@ -297,7 +297,7 @@ function setAndSendDescription(description, peerNumber) {
           'userID': user.userID
       }, peers[peerNumber].userID, roomName);
   }).catch(function(error) {
-    console.log(error, peerNumber, "here");
+    console.log(error, peerNumber);
   });
 }
 

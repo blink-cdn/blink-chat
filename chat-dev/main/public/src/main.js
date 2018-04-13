@@ -140,7 +140,7 @@ function setupSocket() {
       $('#local-video-div').html(function() {
           return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
       });
-      document.getElementById('local-video').srcObject = stream;
+      document.getElementById('local-video').srcObject = localStreams[0];
       // $('#local-video').attr('src', window.URL.createObjectURL(stream));
 
       // $('#local-video').click(function(event) {
