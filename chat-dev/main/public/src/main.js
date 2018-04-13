@@ -146,8 +146,7 @@ function setupSocket() {
       console.log("On Publish called");
 
       if (!isPublished) {
-          numPublishers++;
-          // activeVideos.push('#local-video');
+          activeVideos.push('#local-video');
       }
 
       isPublished = true;

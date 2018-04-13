@@ -38,8 +38,6 @@ var streamEng = {
     hasPublished: false
 };
 
-var numPublishers = 0;
-
 streamEng.setupService = function() {
   streamEng.subscribe();
 };
