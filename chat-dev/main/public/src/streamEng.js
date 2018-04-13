@@ -174,10 +174,10 @@ function gotMessageFromServer(message) {
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
             // Only create answers in response to offers
             if(signal.sdp.type == 'offer') {
-                console.log("Set remote offer", peerNumber);
+                console.log("Set remote offer", peerNumber, signal.userID);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
-                  console.log("Created offer and setting desc", peerNumber);
+                  console.log("Created offer and setting desc", peerNumber, signal.userID);
                   peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
                       console.log("Sending signal", peerNumber);
                       streamEng.socket.emit('signal', {
