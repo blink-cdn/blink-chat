@@ -63,7 +63,6 @@ streamEng.subscribe = function() {
 
   // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
   streamEng.socket.on('subscriber ready', function(clientID) {
-      console.log("Subscriber ready from", clientID);
 
     if (!peerNumberOf.hasOwnProperty(clientID)) {
 
@@ -99,6 +98,7 @@ streamEng.subscribe = function() {
     // /* If peer doesn't exist, create new PC and add it to list of peers
     // If it does exist, reset the publisher number and the onaddstream function
     // so that the peer number is correct */
+
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
@@ -155,25 +155,24 @@ streamEng.subscribe = function() {
 ////// To make this work
 
 function gotMessageFromServer(message) {
-    var signal = message;
-
-    // Ignore messages from ourself
-    if(signal.userID === user.userID) {
-      console.log("Received from self");
-      return;
-    }
-
-    // if (true) {
-    // If I'm the broadcaster, loop through my peers and find the right
-    // peer connection to use to send to
-    peerNumber = peerNumberOf[signal.userID];
-
-    if(signal.type === "sdp") {
-        console.log("Received", signal.sdp.type, "from", peerNumber, "-", signal.userID);
-        handleSDP(signal, peerNumber);
-    } else if(signal.type === "ice") {
-        peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
-    }
+    // var signal = message;
+    //
+    // // Ignore messages from ourself
+    // if(signal.userID === user.userID) {
+    //   console.log("Received from self");
+    //   return;
+    // }
+    //
+    // // if (true) {
+    // // If I'm the broadcaster, loop through my peers and find the right
+    // // peer connection to use to send to
+    // peerNumber = peerNumberOf[signal.userID];
+    //
+    // if(signal.type === "sdp") {
+    //     handleSDP(signal, peerNumber);
+    // } else if(signal.type === "ice") {
+    //     peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+    // }
 }
 
 
