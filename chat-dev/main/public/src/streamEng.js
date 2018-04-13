@@ -256,6 +256,7 @@ function shareStream(stream, startStream, peerNumber) {
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
+          console.log("Created offer", peerNumber);
             setAndSendDescription(description, peerNumber);
         }).catch(errorHandler);
     }
