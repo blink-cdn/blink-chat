@@ -42,6 +42,7 @@ io.sockets.on('connection', function(socket) {
     console.log("Client connected to socket.");
 
     socket.on('signal', function(message, destUuid, roomName) {
+        console.log("Sending to", destUuid);
         onSignal(message, destUuid, roomName, socket);
     });
     socket.on('disconnect client', function(userID, roomName) {
