@@ -157,7 +157,7 @@ function setupSocket() {
       });
 
       document.getElementById('local-video').srcObject = stream;
-      applyColumnClassesToVideo();
+      // applyColumnClassesToVideo();
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
