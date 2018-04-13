@@ -95,36 +95,36 @@ streamEng.subscribe = function() {
 
   // The broadcaster is ready to stream, create a PC for it
   streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
-    // console.log("Publisher ready from:", publisherNumber);
+    console.log("Publisher ready from:", publisherNumber);
+
+    /* If peer doesn't exist, create new PC and add it to list of peers
+    If it does exist, reset the publisher number and the onaddstream function
+    so that the peer number is correct */
+    if (!peerNumberOf.hasOwnProperty(publisherID)) {
+      if (user.userID !== publisherID) {
+        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
+        peers.push({
+          "userID": publisherID,
+          "number": (peers.length),
+          "peerConnection": newPeerConnection,
+          "publisherNumber": publisherNumber
+        });
     //
-    // /* If peer doesn't exist, create new PC and add it to list of peers
-    // If it does exist, reset the publisher number and the onaddstream function
-    // so that the peer number is correct */
-    // if (!peerNumberOf.hasOwnProperty(publisherID)) {
-    //   if (user.userID !== publisherID) {
-    //     var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-    //     peers.push({
-    //       "userID": publisherID,
-    //       "number": (peers.length),
-    //       "peerConnection": newPeerConnection,
-    //       "publisherNumber": publisherNumber
-    //     });
-    // //
-    //     peerNumberOf[publisherID] = peers.length - 1;
-    //   }
-    // } else {
-    //   var peerNumber = peerNumberOf[publisherID];
-    //   peers[peerNumber].publisherNumber = publisherNumber;
-    //   peers[peerNumber].peerConnection.onaddstream = function(event) {
-    //     remoteStreams[peerNumber] = event.stream;
-    //     console.log('Received remote stream', publisherNumber);
-    //     document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-    //     // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-    //     // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
-    //   };
-    // }
-    //
-    // streamEng.onAddNewPublisher(publisherNumber);
+        peerNumberOf[publisherID] = peers.length - 1;
+      }
+    } else {
+      // var peerNumber = peerNumberOf[publisherID];
+      // peers[peerNumber].publisherNumber = publisherNumber;
+      // peers[peerNumber].peerConnection.onaddstream = function(event) {
+      //   remoteStreams[peerNumber] = event.stream;
+      //   console.log('Received remote stream', publisherNumber);
+      //   document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
+      //   // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+      //   // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+      // };
+    }
+
+    streamEng.onAddNewPublisher(publisherNumber);
   });
 
   // On signal, go to gotMessageFromServer to handle the message
