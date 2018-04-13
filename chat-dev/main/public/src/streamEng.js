@@ -5,7 +5,6 @@ var broadcastButton;
 
 var roomName = "helloAdele";
 var localStreams = {};
-var localStream = undefined;
 
 const configOptions = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
               { url: 'turn:numb.viagenie.ca',
@@ -31,8 +30,7 @@ var constraints = {
 var streamEng = {
     socket: null,
     serviceAddress: null,
-    onSubscribeDone: undefined,
-    shouldScreenshare: false
+    onSubscribeDone: undefined
 };
 
 var numPublishers = 0;
@@ -188,71 +186,44 @@ function gotMessageFromServer(message) {
 
 }
 
-
 function joinRoom(peerNumber) {
+    // It runs two of each cuz of that error;
     try {
         setupMediaStream(true, peerNumber);
     } catch(err) {
         console.log("Error:", err)
     }
+    // try {
+    //     setupMediaStream(true, peerNumber);
+    // } catch(err) {
+    //     console.log("Error:", err)
+    // }
 }
+
 
 // Get the media from camera/microphone.
 function setupMediaStream(startStream, peerNumber) {
 
-    if (streamEng.shouldScreenshare) {
-        getScreenConstraints(function(error, screen_constraints) {
-            if (error) {
-                return alert(error);
-            }
+  if(navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+        localStreams[peerNumber] = stream;
 
-            var video_options = {
-                video: screen_constraints
-            };
-            navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-            if (localStream !== undefined) {
-                console.log("Reusing stream");
-                shareStream(localStream, startStream, peerNumber);
-            } else {
-                navigator.getUserMedia(video_options, function(stream) {
-                    localStream = stream;
-                    shareStream(stream, false, peerNumber);
-                }, function(error) {
-                    console.log("SCREENSHARE ERR:", error);
-                });
-            }
-
-        });
-    } else {
-        if(navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-                shareStream(stream, startStream, peerNumber);
-            });
-        } else {
-            alert('Your browser does not support getUserMedia API');
+        if (startStream === false) {
+          streamEng.onPublish(stream);
         }
-    }
-}
 
-function shareStream(stream, startStream, peerNumber) {
-    localStreams[peerNumber] = stream;
+        // If you want to start the stream, addStream to connection
+        if (startStream === true) {
+            peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
-    if (startStream === false) {
-        streamEng.onPublish(stream);
-    }
-    // If you want to start the stream, addStream to connection
-    else {
-        console.log("NOT ON PUBLISH");
-        if (!peers[peerNumber]) {
-            console.log("NOPE:", peerNumber);
+            peers[peerNumber].peerConnection.createOffer().then(function(description) {
+                setAndSendDescription(description, peerNumber);
+            }).catch(errorHandler);
         }
-        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
-
-        peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            setAndSendDescription(description, peerNumber);
-        }).catch(errorHandler);
-    }
+      }).catch(errorHandler);
+  } else {
+      alert('Your browser does not support getUserMedia API');
+  }
 }
 
 // Create peer connection 1
@@ -267,7 +238,7 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
-      console.log('Received remote stream:', event.stream);
+      console.log('Received remote stream');
         $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
         console.log("Adding stream to:", publisherNumber);
         peers[peerNumberOf[peerUserID]].hasConnected = true;
@@ -277,6 +248,7 @@ function createPeerConnection(peerUserID, publisherNumber) {
 
   return newPeerConnection;
 }
+
 function setAndSendDescription(description, peerNumber) {
 
   // if (sendToPeerValue == -10) {
