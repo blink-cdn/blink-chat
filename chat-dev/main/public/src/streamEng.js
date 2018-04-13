@@ -102,26 +102,26 @@ streamEng.subscribe = function() {
     so that the peer number is correct */
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
-        var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-        peers.push({
-          "userID": publisherID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
-        });
-    //
-        peerNumberOf[publisherID] = peers.length - 1;
-      }
+    //     var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
+    //     peers.push({
+    //       "userID": publisherID,
+    //       "number": (peers.length),
+    //       "peerConnection": newPeerConnection,
+    //       "publisherNumber": publisherNumber
+    //     });
+    // //
+    //     peerNumberOf[publisherID] = peers.length - 1;
+    //   }
     } else {
-      // var peerNumber = peerNumberOf[publisherID];
-      // peers[peerNumber].publisherNumber = publisherNumber;
-      // peers[peerNumber].peerConnection.onaddstream = function(event) {
-      //   remoteStreams[peerNumber] = event.stream;
-      //   console.log('Received remote stream', publisherNumber);
-      //   document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-      //   // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      //   // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
-      // };
+      var peerNumber = peerNumberOf[publisherID];
+      peers[peerNumber].publisherNumber = publisherNumber;
+      peers[peerNumber].peerConnection.onaddstream = function(event) {
+        remoteStreams[peerNumber] = event.stream;
+        console.log('Received remote stream', publisherNumber);
+        document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
+        // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
+        // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
+      };
     }
 
     streamEng.onAddNewPublisher(publisherNumber);
