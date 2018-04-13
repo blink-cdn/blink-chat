@@ -103,7 +103,6 @@ streamEng.subscribe = function() {
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-        var newPeerConnection = null;
         peers.push({
           "userID": publisherID,
           "number": (peers.length),
