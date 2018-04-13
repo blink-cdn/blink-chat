@@ -180,7 +180,7 @@ function gotMessageFromServer(message) {
                   //
                   console.log("Created offer and setting desc", peerNumber);
                   peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                      console.log("Sending signal");
+                      console.log("Sending signal", peerNumber);
                       streamEng.socket.emit('signal', {
                           'type': 'sdp',
                           'sdp': peers[peerNumber].peerConnection.localDescription,
