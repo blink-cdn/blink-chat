@@ -170,7 +170,7 @@ function gotMessageFromServer(message) {
     peerNumber = peerNumberOf[signal.userID];
 
     if(signal.type === "sdp") {
-        console.log("Received", signal.sdp.type, "from", peerNumber, signal.sdp);
+        console.log("Received", signal.sdp.type, "from", peerNumber);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
             // Only create answers in response to offers
             if(signal.sdp.type == 'offer') {
@@ -181,7 +181,7 @@ function gotMessageFromServer(message) {
                   if (peers[peerNumber].peerConnection.signalingState !== "stable") {
                     peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
                         console.log("Sending signal", peerNumber);
-                        streamEng.socket.emit('signal', {
+                        // streamEng.socket.emit('signal', {
                             'type': 'sdp',
                             'sdp': peers[peerNumber].peerConnection.localDescription,
                             'userID': user.userID
