@@ -173,7 +173,7 @@ function gotMessageFromServer(message) {
         console.log("Received", signal.sdp.type, "from", peerNumber);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
             // Only create answers in response to offers
-            if(signal.sdp.type == 'offer' && peerNumber == 0) {
+            if(signal.sdp.type == 'offer') {
                 console.log("Set remote offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
