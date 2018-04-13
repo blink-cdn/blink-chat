@@ -274,18 +274,18 @@ function createPeerConnection(peerUserID, publisherNumber) {
 }
 
 function handleSDP(signal, peerNumber) {
-  peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-      // Only create answers in response to offers
-      if(signal.sdp.type == 'offer') {
-          peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-            setAndSendDescription(description, peerNumber);
-          }).catch(function(error) {
-            console.log(error, peerNumber);
-          });
-      } else {
-        console.log("Got answer", peerNumber);
-      }
-  }).catch(errorHandler);
+  // peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+  //     // Only create answers in response to offers
+  //     if(signal.sdp.type == 'offer') {
+  //         peers[peerNumber].peerConnection.createAnswer().then(function(description) {
+  //           setAndSendDescription(description, peerNumber);
+  //         }).catch(function(error) {
+  //           console.log(error, peerNumber);
+  //         });
+  //     } else {
+  //       console.log("Got answer", peerNumber);
+  //     }
+  // }).catch(errorHandler);
 }
 
 function setAndSendDescription(description, peerNumber) {
