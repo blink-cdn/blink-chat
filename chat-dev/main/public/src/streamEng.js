@@ -291,12 +291,14 @@ function createPeerConnection(peerUserID, publisherNumber) {
   return newPeerConnection;
 }
 function setAndSendDescription(description, peerNumber) {
+        console.log("Setting description", peerNumber);
         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
             streamEng.socket.emit('signal', {
                 'type': 'sdp',
                 'sdp': peers[peerNumber].peerConnection.localDescription,
                 'userID': user.userID
             }, peers[peerNumber].userID, roomName);
+            console.log("Sending description", peerNumber);
         }).catch(errorHandler);
 }
 
