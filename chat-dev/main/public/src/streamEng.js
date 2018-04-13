@@ -113,6 +113,7 @@ streamEng.subscribe = function() {
 
         peerNumberOf[publisherID] = peers.length - 1;
       }
+
     } else {
       var peerNumber = peerNumberOf[publisherID];
       peers[peerNumber].publisherNumber = publisherNumber;
@@ -120,12 +121,10 @@ streamEng.subscribe = function() {
         remoteStreams[peerNumber] = event.stream;
         console.log('Received remote stream', publisherNumber);
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-        // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-        // console.log("Adding stream to:", peers[peerNumberOf[publisherID]].publisherNumber);
       };
     }
 
-    // streamEng.onAddNewPublisher(publisherNumber);
+    streamEng.onAddNewPublisher(publisherNumber);
   });
 
   // On signal, go to gotMessageFromServer to handle the message
