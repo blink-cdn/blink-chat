@@ -25,7 +25,6 @@ var services = {
 
 // For video framings
 var isPublished = false;
-var numPublishers = 0;
 var videoIndices = [];
 var activeVideos = [];
 var hiddenVideos = [];
