@@ -178,7 +178,7 @@ function gotMessageFromServer(message) {
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
                   console.log("Created offer and setting desc", peerNumber, peers[peerNumber].peerConnection.signalingState);
-                  if (peers[peerNumber].peerConnection.signalingState !== "stable") {
+                  setTimeout(function() {
                     peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
                         console.log("Sending signal", peerNumber);
                         // streamEng.socket.emit('signal', {
@@ -186,10 +186,10 @@ function gotMessageFromServer(message) {
                         //     'sdp': peers[peerNumber].peerConnection.localDescription,
                         //     'userID': user.userID
                         // }, peers[peerNumber].userID, roomName);
-                    })//.catch(function(error) {
-                      //console.log(error, peerNumber, "here");
-                    //});
-                  }
+                    }).catch(function(error) {
+                      console.log(error, peerNumber, "here");
+                    });
+                  }, 1000);
                   //
                 }).catch(function(error) {
                   console.log(error, peerNumber);
