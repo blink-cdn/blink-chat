@@ -172,13 +172,14 @@ function gotMessageFromServer(message) {
       if (peers[peerNumber].userID === signal.userID) {
 
         if(signal.type === "sdp") {
+            console.log("Got", signal.type, "from", signal.userID);
             peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
                 // Only create answers in response to offers
                 if(signal.sdp.type === 'offer') {
                     console.log("Got offer", peerNumber);
                     peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                         setAndSendDescription(description, peerNumber);
-                        console.log("CREATED ANSWER LET'S GO", peerNumber);
+                        console.log("Created answer", peerNumber);
                     }).catch(errorHandler);
                 } else {
                   console.log("Got answer", peerNumber);
