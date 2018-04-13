@@ -147,7 +147,7 @@ function setupSocket() {
 
       if (!isPublished) {
           numPublishers++;
-          activeVideos.push('#local-video');
+          // activeVideos.push('#local-video');
       }
 
       isPublished = true;
@@ -157,7 +157,7 @@ function setupSocket() {
       });
 
       document.getElementById('local-video').srcObject = stream;
-      // applyColumnClassesToVideo();
+      applyColumnClassesToVideo();
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
