@@ -177,8 +177,8 @@ function gotMessageFromServer(message) {
             if(signal.sdp.type === 'offer') {
                 console.log("Got offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                    setAndSendDescription(description, peerNumber);
                     console.log("Created answer", peerNumber);
+                    setAndSendDescription(description, peerNumber);
                 }).catch(errorHandler);
             } else {
               console.log("Got answer", peerNumber);
