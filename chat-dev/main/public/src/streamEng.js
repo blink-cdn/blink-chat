@@ -172,23 +172,24 @@ function gotMessageFromServer(message) {
     if(signal.type === "sdp") {
         console.log("Received", signal.sdp.type, "from", peerNumber, signal.sdp);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
-
             // Only create answers in response to offers
             if(signal.sdp.type == 'offer') {
                 console.log("Set remote offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                   //
                   console.log("Created offer and setting desc", peerNumber);
-                  peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                      console.log("Sending signal", peerNumber);
-                      streamEng.socket.emit('signal', {
-                          'type': 'sdp',
-                          'sdp': peers[peerNumber].peerConnection.localDescription,
-                          'userID': user.userID
-                      }, peers[peerNumber].userID, roomName);
-                  }).catch(function(error) {
-                    console.log(error, peerNumber, "here");
-                  });
+                  if (peers[peerNumber].peerConnection.signalingState !== "stable") {
+                    peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                        console.log("Sending signal", peerNumber);
+                        streamEng.socket.emit('signal', {
+                            'type': 'sdp',
+                            'sdp': peers[peerNumber].peerConnection.localDescription,
+                            'userID': user.userID
+                        }, peers[peerNumber].userID, roomName);
+                    }).catch(function(error) {
+                      console.log(error, peerNumber, "here");
+                    });
+                  }
                   //
                 }).catch(function(error) {
                   console.log(error, peerNumber);
