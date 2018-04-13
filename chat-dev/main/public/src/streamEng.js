@@ -178,17 +178,17 @@ function gotMessageFromServer(message) {
             if(signal.sdp.type === 'offer') {
                 console.log("Got offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
-                    console.log("Created answer", peerNumber);
-                    console.log("Setting description", peerNumber);
-                    peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                        streamEng.socket.emit('signal', {
-                            'type': 'sdp',
-                            'sdp': peers[peerNumber].peerConnection.localDescription,
-                            'userID': user.userID
-                        }, peers[peerNumber].userID, roomName);
-                        console.log("Sending description", peerNumber);
-                    }).catch(errorHandler);
-                    // setAndSendDescription(description, peerNumber);
+                  //
+                  console.log("Created offer and setting desc", peerNumber);
+                  peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                      console.log("Sending signal");
+                      streamEng.socket.emit('signal', {
+                          'type': 'sdp',
+                          'sdp': peers[peerNumber].peerConnection.localDescription,
+                          'userID': user.userID
+                      }, peers[peerNumber].userID, roomName);
+                  }).catch(errorHandler);
+                  //
                 }).catch(errorHandler);
             } else {
               console.log("Got answer", peerNumber);
