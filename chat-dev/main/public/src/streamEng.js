@@ -103,12 +103,12 @@ streamEng.subscribe = function() {
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
-        peers.push({
-          "userID": publisherID,
-          "number": (peers.length),
-          "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
-        });
+        // peers.push({
+        //   "userID": publisherID,
+        //   "number": (peers.length),
+        //   "peerConnection": newPeerConnection,
+        //   "publisherNumber": publisherNumber
+        // });
     //
         // peerNumberOf[publisherID] = peers.length - 1;
       }
