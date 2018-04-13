@@ -263,34 +263,15 @@ function createPeerConnection(peerUserID, publisherNumber) {
     }
   };
 
-  newPeerConnection.onsignalingstatechange = function(event) {
-    // console.log("Signaling state ", publisherNumber, newPeerConnection.signalingState);
-  }
-
   if (publisherNumber !== null) {
     newPeerConnection.onaddstream = function(event) {
-      // console.log('Received remote stream', publisherNumber);
       remoteStreams[publisherNumber] = event.stream;
       document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
-      // $('#remoteVideo'+ publisherNumber.toString()).attr('src', window.URL.createObjectURL(event.stream));
-      // console.log("Adding stream to:", peers[peerNumberOf[peerUserID]].publisherNumber);
     };
   }
 
   return newPeerConnection;
 }
-
-// function setAndSendDescription(description, peerNumber) {
-//         console.log("Setting description", peerNumber);
-//         peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-//             streamEng.socket.emit('signal', {
-//                 'type': 'sdp',
-//                 'sdp': peers[peerNumber].peerConnection.localDescription,
-//                 'userID': user.userID
-//             }, peers[peerNumber].userID, roomName);
-//             console.log("Sending description", peerNumber);
-//         }).catch(errorHandler);
-// }
 
 function handleSDP(signal, peerNumber) {
   peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
@@ -338,4 +319,8 @@ function setupPage() {
 ///////////////////
 function errorHandler(error) {
     console.log(error.message);
+}
+
+streamEng.disconnect = function(userid) {
+  streamEng.socket.emit('disconnect client', userid, roomName);
 }
