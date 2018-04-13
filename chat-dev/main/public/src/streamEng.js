@@ -331,7 +331,7 @@ function setupPage() {
     }, false);
 }
 
-streamEng.disconnect(userid) {
+streamEng.disconnect = function(userid) {
   streamEng.socket.emit('disconnect client', userid, roomName);
 }
 ///////////////////
