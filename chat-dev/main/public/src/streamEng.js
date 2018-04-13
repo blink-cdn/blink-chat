@@ -124,7 +124,7 @@ streamEng.subscribe = function() {
     //   };
     // }
     //
-    // streamEng.onAddNewPublisher(publisherNumber);
+    streamEng.onAddNewPublisher(publisherNumber);
   });
 
   // On signal, go to gotMessageFromServer to handle the message
