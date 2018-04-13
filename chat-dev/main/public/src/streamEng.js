@@ -182,10 +182,10 @@ function gotMessageFromServer(message) {
                     peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
                         console.log("Sending signal", peerNumber);
                         // streamEng.socket.emit('signal', {
-                            'type': 'sdp',
-                            'sdp': peers[peerNumber].peerConnection.localDescription,
-                            'userID': user.userID
-                        }, peers[peerNumber].userID, roomName);
+                        //     'type': 'sdp',
+                        //     'sdp': peers[peerNumber].peerConnection.localDescription,
+                        //     'userID': user.userID
+                        // }, peers[peerNumber].userID, roomName);
                     }).catch(function(error) {
                       console.log(error, peerNumber, "here");
                     });
