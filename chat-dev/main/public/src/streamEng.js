@@ -186,9 +186,9 @@ function gotMessageFromServer(message) {
                         //     'sdp': peers[peerNumber].peerConnection.localDescription,
                         //     'userID': user.userID
                         // }, peers[peerNumber].userID, roomName);
-                    }).catch(function(error) {
-                      console.log(error, peerNumber, "here");
-                    });
+                    })//.catch(function(error) {
+                      //console.log(error, peerNumber, "here");
+                    //});
                   }
                   //
                 }).catch(function(error) {
