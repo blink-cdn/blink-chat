@@ -173,12 +173,22 @@ function gotMessageFromServer(message) {
     if(signal.type === "sdp") {
         console.log("Got", signal.sdp.type, "from", signal.userID);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
+
             // Only create answers in response to offers
             if(signal.sdp.type === 'offer') {
                 console.log("Got offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
                     console.log("Created answer", peerNumber);
-                    setAndSendDescription(description, peerNumber);
+                    console.log("Setting description", peerNumber);
+                    peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                        streamEng.socket.emit('signal', {
+                            'type': 'sdp',
+                            'sdp': peers[peerNumber].peerConnection.localDescription,
+                            'userID': user.userID
+                        }, peers[peerNumber].userID, roomName);
+                        console.log("Sending description", peerNumber);
+                    }).catch(errorHandler);
+                    // setAndSendDescription(description, peerNumber);
                 }).catch(errorHandler);
             } else {
               console.log("Got answer", peerNumber);
@@ -252,8 +262,17 @@ function shareStream(stream, startStream, peerNumber) {
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
 
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
-          console.log("Created offer", peerNumber);
-            setAndSendDescription(description, peerNumber);
+            console.log("Created offer", peerNumber);
+            console.log("Setting description", peerNumber);
+            peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                streamEng.socket.emit('signal', {
+                    'type': 'sdp',
+                    'sdp': peers[peerNumber].peerConnection.localDescription,
+                    'userID': user.userID
+                }, peers[peerNumber].userID, roomName);
+                console.log("Sending description", peerNumber);
+            }).catch(errorHandler);
+            // setAndSendDescription(description, peerNumber);
         }).catch(errorHandler);
     }
 }
