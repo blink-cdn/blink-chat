@@ -34,7 +34,8 @@ var streamEng = {
     socket: null,
     serviceAddress: null,
     onSubscribeDone: undefined,
-    shouldScreenshare: false
+    shouldScreenshare: false,
+    hasPublished: false
 };
 
 var numPublishers = 0;
@@ -228,12 +229,12 @@ function setupMediaStream(startStream, peerNumber) {
 function shareStream(stream, startStream, peerNumber) {
     localStreams[peerNumber] = stream;
 
-    if (startStream === false) {
+    if (!streamEng.hasPublished/*startStream === false*/) {
         localStream = stream;
         streamEng.onPublish(stream);
+        streamEng.hasPublished = true;
     } else {
       // If you want to start the stream, addStream to connection
-      // else {
       if (!peers[peerNumber]) {
           console.log("Peer not found:", peerNumber);
       } else {

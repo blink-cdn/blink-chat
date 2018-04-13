@@ -139,7 +139,6 @@ function setupSocket() {
       });
 
       document.getElementById('local-video').srcObject = stream;
-
       applyColumnClassesToVideo();
   };
 
