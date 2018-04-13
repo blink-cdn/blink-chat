@@ -233,7 +233,7 @@ function shareStream(stream, startStream, peerNumber) {
     // }
 
     // If you want to start the stream, addStream to connection
-    else {
+    // else {
         if (!peers[peerNumber]) {
             console.log("NOPE:", peerNumber);
         }
@@ -250,7 +250,7 @@ function shareStream(stream, startStream, peerNumber) {
                 }, peers[peerNumber].userID, roomName);
             }).catch(errorHandler);
         }).catch(errorHandler);
-    }
+    // }
 }
 
 // Create peer connection 1
