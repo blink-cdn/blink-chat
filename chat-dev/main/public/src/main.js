@@ -143,18 +143,21 @@ function setupSocket() {
   // };
 
   streamEng.onPublish = function(stream) {
-    if (!isPublished) {
-      numPublishers++;
-    }
+      console.log("On Publish called");
 
-    isPublished = true;
+      if (!isPublished) {
+          numPublishers++;
+          activeVideos.push('#local-video');
+      }
 
-    $('#local-video-div').html(function() {
-      return "<video muted id=\"local-video\" autoplay></video>";
-    });
+      isPublished = true;
 
-    $('#local-video').attr('src', window.URL.createObjectURL(stream));
-    applyColumnClassesToVideo();
+      $('#local-video-div').html(function() {
+        return "<video muted id=\"local-video\" autoplay></video>";
+      });
+
+      document.getElementById('local-video').srcObject = stream;
+      applyColumnClassesToVideo();
   }
 
   streamEng.onAddNewPublisher = function(videoIndex) {
