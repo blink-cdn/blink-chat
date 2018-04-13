@@ -111,7 +111,7 @@ streamEng.subscribe = function() {
     //     });
     // //
     //     peerNumberOf[publisherID] = peers.length - 1;
-    //   }
+      }
     } else {
       var peerNumber = peerNumberOf[publisherID];
       peers[peerNumber].publisherNumber = publisherNumber;
