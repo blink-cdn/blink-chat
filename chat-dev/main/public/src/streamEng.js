@@ -98,7 +98,6 @@ streamEng.subscribe = function() {
     // /* If peer doesn't exist, create new PC and add it to list of peers
     // If it does exist, reset the publisher number and the onaddstream function
     // so that the peer number is correct */
-
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
