@@ -155,24 +155,24 @@ streamEng.subscribe = function() {
 ////// To make this work
 
 function gotMessageFromServer(message) {
-    // var signal = message;
-    //
-    // // Ignore messages from ourself
-    // if(signal.userID === user.userID) {
-    //   console.log("Received from self");
-    //   return;
-    // }
-    //
-    // // if (true) {
-    // // If I'm the broadcaster, loop through my peers and find the right
-    // // peer connection to use to send to
-    // peerNumber = peerNumberOf[signal.userID];
-    //
-    // if(signal.type === "sdp") {
-    //     handleSDP(signal, peerNumber);
-    // } else if(signal.type === "ice") {
-    //     peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
-    // }
+    var signal = message;
+
+    // Ignore messages from ourself
+    if(signal.userID === user.userID) {
+      console.log("Received from self");
+      return;
+    }
+
+    // if (true) {
+    // If I'm the broadcaster, loop through my peers and find the right
+    // peer connection to use to send to
+    peerNumber = peerNumberOf[signal.userID];
+
+    if(signal.type === "sdp") {
+        handleSDP(signal, peerNumber);
+    } else if(signal.type === "ice") {
+        peers[peerNumber].peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(errorHandler);
+    }
 }
 
 
