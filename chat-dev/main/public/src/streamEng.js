@@ -48,7 +48,6 @@ streamEng.publish = function() {
   setupMediaStream(false);
   streamEng.socket.emit('publish', user.userID, roomName);
   user.isPublished = true;
-  console.log("Publishing");
 };
 
 streamEng.subscribe = function() {
@@ -242,9 +241,7 @@ function shareStream(stream, startStream, peerNumber) {
       } else {
         peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
         peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            console.log("Created offer and setting desc", peerNumber);
             peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                console.log("Sending signal");
                 streamEng.socket.emit('signal', {
                     'type': 'sdp',
                     'sdp': peers[peerNumber].peerConnection.localDescription,
@@ -282,9 +279,7 @@ function handleSDP(signal, peerNumber) {
       if(signal.sdp.type == 'offer') {
           peers[peerNumber].peerConnection.createAnswer().then(function(description) {
             setAndSendDescription(description, peerNumber);
-          }).catch(function(error) {
-            console.log(error, peerNumber);
-          });
+          }).catch(errorHandler);
       } else {
         console.log("Got answer", peerNumber);
       }
@@ -293,15 +288,12 @@ function handleSDP(signal, peerNumber) {
 
 function setAndSendDescription(description, peerNumber) {
   peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-      console.log("Sending signal", peerNumber);
       streamEng.socket.emit('signal', {
           'type': 'sdp',
           'sdp': peers[peerNumber].peerConnection.localDescription,
           'userID': user.userID
       }, peers[peerNumber].userID, roomName);
-  }).catch(function(error) {
-    console.log(error, peerNumber);
-  });
+  }).catch(errorHandler);
 }
 
 // Setup DOM elements and responses
