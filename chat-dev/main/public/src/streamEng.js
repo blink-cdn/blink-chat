@@ -235,21 +235,21 @@ function shareStream(stream, startStream, peerNumber) {
     // If you want to start the stream, addStream to connection
     // else {
         if (!peers[peerNumber]) {
-            console.log("NOPE:", peerNumber);
+            console.log("Peer not found:", peerNumber);
+        } else {
+          peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
+          peers[peerNumber].peerConnection.createOffer().then(function(description) {
+              console.log("Created offer and setting desc", peerNumber);
+              peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
+                  console.log("Sending signal");
+                  streamEng.socket.emit('signal', {
+                      'type': 'sdp',
+                      'sdp': peers[peerNumber].peerConnection.localDescription,
+                      'userID': user.userID
+                  }, peers[peerNumber].userID, roomName);
+              }).catch(errorHandler);
+          }).catch(errorHandler);
         }
-
-        peers[peerNumber].peerConnection.addStream(localStreams[peerNumber]);
-        peers[peerNumber].peerConnection.createOffer().then(function(description) {
-            console.log("Created offer and setting desc", peerNumber);
-            peers[peerNumber].peerConnection.setLocalDescription(description).then(function () {
-                console.log("Sending signal");
-                streamEng.socket.emit('signal', {
-                    'type': 'sdp',
-                    'sdp': peers[peerNumber].peerConnection.localDescription,
-                    'userID': user.userID
-                }, peers[peerNumber].userID, roomName);
-            }).catch(errorHandler);
-        }).catch(errorHandler);
     // }
 }
 
