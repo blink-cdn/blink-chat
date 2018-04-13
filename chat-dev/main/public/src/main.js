@@ -150,9 +150,10 @@ function setupSocket() {
 
       isPublished = true;
 
-      $('#local-video-div').html(function() {
-        return "<video muted id=\"local-video\" autoplay></video>";
-      });
+      // $('#local-video-div').html(function() {
+      //   return "<video muted id=\"local-video\" autoplay></video>";
+      // });
+      $('#local-video-div').append("<video muted id=\"local-video\" autoplay></video>");
 
       document.getElementById('local-video').srcObject = stream;
       applyColumnClassesToVideo();
