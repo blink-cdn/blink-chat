@@ -174,6 +174,7 @@ function gotMessageFromServer(message) {
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
 
             // Only create answers in response to offers
+            console.log("Checking", peerNumber, "--", signal.sdp.type, "--", signal.sdp.type == 'offer')
             if(signal.sdp.type == 'offer') {
                 console.log("Set remote offer", peerNumber);
                 peers[peerNumber].peerConnection.createAnswer().then(function(description) {
