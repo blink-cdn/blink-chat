@@ -234,8 +234,9 @@ function shareStream(stream, startStream, peerNumber) {
         localStream = stream;
         streamEng.onPublish(stream);
         streamEng.hasPublished = true;
+        return;
     }
-    
+
     // If you want to start the stream, addStream to connection
     if (!peers[peerNumber]) {
         console.log("Peer not found:", peerNumber);
