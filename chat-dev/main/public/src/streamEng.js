@@ -157,7 +157,6 @@ streamEng.subscribe = function() {
 
 function gotMessageFromServer(message) {
     var signal = message;
-    console.log("Got", signal.type, "from", signal.userID);
 
     // Ignore messages from ourself
     if(signal.userID === user.userID) {
@@ -171,6 +170,7 @@ function gotMessageFromServer(message) {
     peerNumber = peerNumberOf[signal.userID];
 
     if(signal.type === "sdp") {
+        console.log("Got", signal.sdp.type, "from", signal.userID);
         peers[peerNumber].peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function() {
             // Only create answers in response to offers
             if(signal.sdp.type === 'offer') {
