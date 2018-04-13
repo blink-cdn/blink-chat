@@ -227,10 +227,10 @@ function setupMediaStream(startStream, peerNumber) {
 
 function shareStream(stream, startStream, peerNumber) {
     localStreams[peerNumber] = stream;
-
-    if (startStream === false) {
-        streamEng.onPublish(stream);
-    }
+    streamEng.onPublish(stream);
+    // if (startStream === false) {
+    //     streamEng.onPublish(stream);
+    // }
 
     // If you want to start the stream, addStream to connection
     else {
