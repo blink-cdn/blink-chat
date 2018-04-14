@@ -62,28 +62,39 @@ streamEng.subscribe = function() {
   // When it receives a subscriber ready message, add user to peers (only publishers get subscriber ready msg's)
   streamEng.socket.on('subscriber ready', function(clientID) {
 
+    // If this clientID isn't on record yet, create a new PC and add it to record
+    // Then join the room
     if (!peerNumberOf.hasOwnProperty(clientID)) {
-
-      // If this clientID isn't on record yet, create a new PC and add it to record
-        // Then join the room
       if (user.userID !== clientID) {
         var newPeerConnection = createPeerConnection(clientID);
         peers.push({
           "userID": clientID,
           "number": (peers.length),
           "peerConnection": newPeerConnection,
-            setAndSentDescription: false
+          setAndSentDescription: false,
+          hasSubscribed: true,
+          hasPublished: false
         });
         peerNumberOf[clientID] = peers.length - 1;
       }
 
-      joinRoom(peerNumberOf[clientID]);
+      var peerNumber = peerNumberOf[clientID];
+      getStats(peers[peerNumber], function(results) {
+        console.log(results);
+        var bytesSent = results.video.bytesReceived;
+        if (peers[peerNumber].hasPublished && bytesSent === 0) {
+          console.log("Uh oh no bytes");
+        }
+      }, 1000);
+
+      joinRoom(peerNumber);
 
     // If client is on record,
     } else {
       console.log("Already connected to this peer. Initiating stream");
 
       var peerNumber = peerNumberOf[clientID];
+      peers[peerNumber].hasSubscribed = true;
       joinRoom(peerNumberOf[clientID]);
     }
 
@@ -91,11 +102,10 @@ streamEng.subscribe = function() {
 
   // The broadcaster is ready to stream, create a PC for it
   streamEng.socket.on('publisher ready', function(publisherID, publisherNumber) {
-    // console.log("Publisher ready from:", publisherNumber);
-    //
     // /* If peer doesn't exist, create new PC and add it to list of peers
     // If it does exist, reset the publisher number and the onaddstream function
     // so that the peer number is correct */
+
     if (!peerNumberOf.hasOwnProperty(publisherID)) {
       if (user.userID !== publisherID) {
         var newPeerConnection = createPeerConnection(publisherID, publisherNumber);
@@ -103,7 +113,9 @@ streamEng.subscribe = function() {
           "userID": publisherID,
           "number": (peers.length),
           "peerConnection": newPeerConnection,
-          "publisherNumber": publisherNumber
+          "publisherNumber": publisherNumber,
+          hasSubscribed: false,
+          hasPublished: true
         });
 
         peerNumberOf[publisherID] = peers.length - 1;
@@ -112,6 +124,7 @@ streamEng.subscribe = function() {
     } else {
       var peerNumber = peerNumberOf[publisherID];
       peers[peerNumber].publisherNumber = publisherNumber;
+      peers[peerNumber].hasPublished = true;
       peers[peerNumber].peerConnection.onaddstream = function(event) {
         remoteStreams[peerNumber] = event.stream;
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
@@ -265,10 +278,6 @@ function createPeerConnection(peerUserID, publisherNumber) {
       document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
     };
   }
-
-  getStats(newPeerConnection, function(results) {
-    console.log(results);
-  }, 1000);
 
   return newPeerConnection;
 }
