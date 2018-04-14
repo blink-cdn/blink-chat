@@ -150,10 +150,9 @@ function setupSocket() {
 
       isPublished = true;
 
-      // $('#local-video-div').html(function() {
-      //   return "<video muted id=\"local-video\" autoplay></video>";
-      // });
-      $('#local-video-div').append("<video muted id=\"local-video\" autoplay></video>");
+      $('#local-video-div').html(function() {
+        return "<video muted id=\"local-video\" autoplay></video>";
+      });
 
       document.getElementById('local-video').srcObject = stream;
       applyColumnClassesToVideo();
@@ -168,9 +167,10 @@ function setupSocket() {
 
         // Add video to HTML
         var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
-        $('#remote-video-div').html(function() {
-            return $('#remote-video-div').html() + newVideoLayer
-        });
+        // $('#remote-video-div').html(function() {
+        //     return $('#remote-video-div').html() + newVideoLayer
+        // });
+        $('#remote-video-div').append(newVideoLayer);
     }
 
     applyColumnClassesToVideo();
