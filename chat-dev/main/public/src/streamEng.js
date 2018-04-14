@@ -89,14 +89,7 @@ streamEng.subscribe = function() {
       joinRoom(peerNumberOf[clientID]);
     }
 
-    var peerNumber = peerNumberOf[clientID];
-    getStats(peers[peerNumber].peerConnection, function(results) {
-      console.log(results);
-      var bytesSent = results.video.bytesReceived;
-      if (peers[peerNumber].hasPublished && bytesSent === 0) {
-        console.log("Uh oh no bytes");
-      }
-    }, 1000);
+    setupGetStats(peerNumberOf[clientID]);
 
   });
 
@@ -131,15 +124,7 @@ streamEng.subscribe = function() {
       };
     }
 
-    var peerNumber = peerNumberOf[publisherID];
-    getStats(peers[peerNumber].peerConnection, function(results) {
-      console.log(results);
-      var bytesSent = results.video.bytesReceived;
-      if (peers[peerNumber].hasPublished && bytesSent === 0) {
-        console.log("Uh oh no bytes");
-      }
-    }, 1000);
-
+    setupGetStats(peerNumberOf[publisherID]);
     streamEng.onAddNewPublisher(publisherNumber);
   });
 
@@ -312,6 +297,16 @@ function setAndSendDescription(description, peerNumber) {
           'userID': user.userID
       }, peers[peerNumber].userID, roomName);
   }).catch(errorHandler);
+}
+
+function setupGetStats(peerNumber) {
+  getStats(peers[peerNumber].peerConnection, function(results) {
+    console.log(results);
+    var bytesSent = results.video.bytesReceived;
+    if (peers[peerNumber].hasPublished && bytesSent === 0) {
+      console.log("Uh oh no bytes");
+    }
+  }, 1000);
 }
 
 // Setup DOM elements and responses
