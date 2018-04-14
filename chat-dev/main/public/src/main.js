@@ -151,8 +151,10 @@ function setupSocket() {
       isPublished = true;
 
       $('#local-video-div').html(function() {
-        return "<video muted id=\"local-video\" autoplay></video>";
-      });
+           return "<video muted id=\"local-video\" class=\'"
+                 + (streamEng.shouldScreenshare ? "screenshare" : "")
+                 + "\' autoplay></video>";
+       });
 
       document.getElementById('local-video').srcObject = stream;
       applyColumnClassesToVideo();
