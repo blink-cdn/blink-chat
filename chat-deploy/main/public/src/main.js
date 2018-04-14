@@ -25,7 +25,6 @@ var services = {
 
 // For video framings
 var isPublished = false;
-var numPublishers = 0;
 var videoIndices = [];
 var activeVideos = [];
 var hiddenVideos = [];
@@ -123,35 +122,44 @@ function setupSocket() {
   //     streamEng.publish();
   // };
 
+  // streamEng.onPublish = function(stream) {
+  //     console.log("On Publish called");
+  //
+  //     if (!isPublished) {
+  //         numPublishers++;
+  //         activeVideos.push('#local-video');
+  //     }
+  //     isPublished = true;
+  //
+  //     $('#local-video-div').html(function() {
+  //         return "<video muted id=\"local-video\" class=\'"
+  //               + (streamEng.shouldScreenshare ? "screenshare" : "")
+  //               + "\' autoplay></video>";
+  //     });
+  //
+  //     document.getElementById('local-video').srcObject = stream;
+  //     applyColumnClassesToVideo();
+  // };
+
   streamEng.onPublish = function(stream) {
+      console.log("On Publish called");
 
       if (!isPublished) {
-          numPublishers++;
           activeVideos.push('#local-video');
       }
+
       isPublished = true;
 
-      var isScreenshare = "";
-      if (streamEng.shouldScreenshare === true) {
-          isScreenshare = "screenshare";
-      }
-
-
       $('#local-video-div').html(function() {
-          return "<video muted id=\"local-video\" class=\'" + isScreenshare + "\' autoplay></video>";
-      });
-      $('#local-video').attr('src', window.URL.createObjectURL(stream));
+           return "<video muted id=\"local-video\" class=\'"
+                 + (streamEng.shouldScreenshare ? "screenshare" : "")
+                 + "\' autoplay></video>";
+       });
 
-      // $('#local-video').click(function(event) {
-      //     if (activeVideos.length === 1) {
-      //         unFullscreenVideo("#"+event.target.id);
-      //     } else {
-      //         fullscreenVideo("#" + event.target.id);
-      //     }
-      // });
-
+      document.getElementById('local-video').srcObject = stream;
       applyColumnClassesToVideo();
-  };
+  }
+
   streamEng.onAddNewPublisher = function(videoIndex) {
     if (!videoIndices.includes(videoIndex)) {
         // Add video to videoIndices list (master list) and active video list
@@ -161,9 +169,7 @@ function setupSocket() {
 
         // Add video to HTML
         var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
-        $('#remote-video-div').html(function() {
-            return $('#remote-video-div').html() + newVideoLayer
-        });
+        $('#remote-video-div').append(newVideoLayer);
     }
 
     applyColumnClassesToVideo();
