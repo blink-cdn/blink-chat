@@ -266,6 +266,10 @@ function createPeerConnection(peerUserID, publisherNumber) {
     };
   }
 
+  getStats(newPeerConnection, function(results) {
+    console.log(results);
+  }, 1000);
+
   return newPeerConnection;
 }
 
