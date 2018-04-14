@@ -78,16 +78,7 @@ streamEng.subscribe = function() {
         peerNumberOf[clientID] = peers.length - 1;
       }
 
-      var peerNumber = peerNumberOf[clientID];
-      getStats(peers[peerNumber].peerConnection, function(results) {
-        console.log(results);
-        var bytesSent = results.video.bytesReceived;
-        if (peers[peerNumber].hasPublished && bytesSent === 0) {
-          console.log("Uh oh no bytes");
-        }
-      }, 1000);
-
-      joinRoom(peerNumber);
+      joinRoom(peerNumberOf[clientID]);
 
     // If client is on record,
     } else {
@@ -97,6 +88,15 @@ streamEng.subscribe = function() {
       peers[peerNumber].hasSubscribed = true;
       joinRoom(peerNumberOf[clientID]);
     }
+
+    var peerNumber = peerNumberOf[clientID];
+    getStats(peers[peerNumber].peerConnection, function(results) {
+      console.log(results);
+      var bytesSent = results.video.bytesReceived;
+      if (peers[peerNumber].hasPublished && bytesSent === 0) {
+        console.log("Uh oh no bytes");
+      }
+    }, 1000);
 
   });
 
@@ -130,6 +130,15 @@ streamEng.subscribe = function() {
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
       };
     }
+
+    var peerNumber = peerNumberOf[clientID];
+    getStats(peers[peerNumber].peerConnection, function(results) {
+      console.log(results);
+      var bytesSent = results.video.bytesReceived;
+      if (peers[peerNumber].hasPublished && bytesSent === 0) {
+        console.log("Uh oh no bytes");
+      }
+    }, 1000);
 
     streamEng.onAddNewPublisher(publisherNumber);
   });
