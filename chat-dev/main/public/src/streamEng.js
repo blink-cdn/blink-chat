@@ -79,7 +79,7 @@ streamEng.subscribe = function() {
       }
 
       var peerNumber = peerNumberOf[clientID];
-      getStats(peers[peerNumber], function(results) {
+      getStats(peers[peerNumber].peerConnection, function(results) {
         console.log(results);
         var bytesSent = results.video.bytesReceived;
         if (peers[peerNumber].hasPublished && bytesSent === 0) {
