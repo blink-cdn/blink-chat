@@ -167,9 +167,6 @@ function setupSocket() {
 
         // Add video to HTML
         var newVideoLayer = "<div class=\"videoStream\"><video id=\"remoteVideo" + videoIndex + "\" autoplay></video>";
-        // $('#remote-video-div').html(function() {
-        //     return $('#remote-video-div').html() + newVideoLayer
-        // });
         $('#remote-video-div').append(newVideoLayer);
     }
 
