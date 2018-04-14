@@ -131,7 +131,7 @@ streamEng.subscribe = function() {
       };
     }
 
-    var peerNumber = peerNumberOf[clientID];
+    var peerNumber = peerNumberOf[publisherID];
     getStats(peers[peerNumber].peerConnection, function(results) {
       console.log(results);
       var bytesSent = results.video.bytesReceived;
