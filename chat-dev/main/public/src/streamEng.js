@@ -114,7 +114,6 @@ streamEng.subscribe = function() {
       peers[peerNumber].publisherNumber = publisherNumber;
       peers[peerNumber].peerConnection.onaddstream = function(event) {
         remoteStreams[peerNumber] = event.stream;
-        console.log('Received remote stream', publisherNumber);
         document.getElementById('remoteVideo'+publisherNumber.toString()).srcObject = event.stream;
       };
     }
