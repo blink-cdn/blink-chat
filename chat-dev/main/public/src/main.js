@@ -343,7 +343,7 @@ function loadUserFromCache(callback) {
     if (user_string !== undefined) {
         user = JSON.parse(user_string);
     } else {
-        user = undefined;
+        user = {};
     }
 
     if (localStorage['blink-user-info'] !== undefined) {
