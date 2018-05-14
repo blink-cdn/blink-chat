@@ -50,8 +50,8 @@ $(document).ready(function() {
           $('#screenshareButton').css('opacity', '0.25');
           $('#publishButton').attr("disabled", "true");
           $('#publishButton').css('opacity', '0.25');
-          $('#invitePeopleButton').attr("color", "whitesmoke");
-          $('#invitePeopleButton').attr("opacity", "0.75");
+          $('#invitePeopleButton').css("color", "whitesmoke");
+          $('#invitePeopleButton').css("opacity", "0.75");
 
           $('#infoText').attr('hidden', 'true');
           streamEng.publish();
