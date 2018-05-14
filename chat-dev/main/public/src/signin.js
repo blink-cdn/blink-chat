@@ -16,7 +16,7 @@ $(document).ready(function() {
     var modal = document.getElementById('myModal');
     var btn = document.getElementById("myBtn");
     var span = document.getElementsByClassName("close")[0];
-
+    $('#login-text').css('visibility', 'visible');
     if (window.location.hostname === "svc.blinkcdn.com") {
       $('#login-text').css('visibility', 'visible');
 
